@@ -1,6 +1,6 @@
 <div align="center">
 
-# 🔥 Mecha
+<img src="assets/mecha-flame.svg" alt="Mecha flame" width="150" />\n\n# Mecha
 
 ### One idea lights everything.
 
