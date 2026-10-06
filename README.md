@@ -1,14 +1,16 @@
 <div align="center">
 
-<img src="assets/mecha-flame.svg" alt="Mecha flame" width="150" />\n\n# Mecha
+<img src="assets/mecha-flame.svg" alt="Mecha flame" width="150" />
+
+# Mecha
 
 ### One idea lights everything.
 
-**An AI-assisted content engine for turning original ideas into researched, created, distributed and measurable digital content.**
+**An AI-assisted engine for researching, creating, distributing and learning from original digital content.**
 
 [Vision](docs/VISION.md) · [Architecture](docs/ARCHITECTURE.md) · [Roadmap](docs/ROADMAP.md) · [Planning issue](../../issues/1)
 
-`Spanish (Spain) first` · `English docs & code` · `Human-guided` · `Multi-platform`
+`Spanish (Spain) first` · `English docs & code` · `Human-guided` · `Multi-brand` · `Multi-platform`
 
 </div>
 
@@ -16,103 +18,67 @@
 
 ## What is Mecha?
 
-**Mecha** means *wick* or *fuse* in Spanish: the small thing that starts something much larger.
+**Mecha** means *wick* or *fuse* in Spanish: the small thing that starts something much larger. It starts with a human idea and helps transform it into researched, reviewable, publishable content.
 
-Mecha starts with a human idea and progressively helps transform it into valuable content.
+## The first two content products
+
+| Brand | Viewer experience | Core inputs | Initial channels |
+|---|---|---|---|
+| **Natural Worlds** | Photorealistic simulated drone journeys over real landscapes and natural environments, including realistic wildlife where appropriate | Verified geography/ecology + AI image/video generation | YouTube, Instagram, TikTok |
+| **City Walks** | Immersive walks through real cities under varied conditions, enriched with sourced local context | Routes, places and permitted/licensed visual inputs + AI enhancement | YouTube, Instagram, TikTok |
+
+Each product has its own three social accounts, editorial identity, credentials and analytics. Both reuse the same Mecha research, model, media, review and publishing platform.
+
+Synthetic scenes are not presented as authentic documentary capture. Map imagery and place data are used only where provider terms, attribution and transformation rights permit it.
+
+## The Mecha loop
 
 ```mermaid
 flowchart LR
     I["💡 Idea"] --> R["🔎 Research"]
-    R --> S["🧭 Strategy"]
-    S --> C["✍️ Create"]
+    R --> P["🗺️ Route / Storyboard"]
+    P --> C["🎬 Create"]
     C --> A["✅ Review"]
-    A --> P["🚀 Publish"]
-    P --> M["📈 Measure"]
-    M --> L["🧠 Learn"]
-    L -. insights .-> R
+    A --> D["🚀 Distribute"]
+    D --> M["📈 Measure"]
+    M -. learn .-> R
 ```
 
-## Why build it?
-
-AI makes content cheap to generate. That does **not** make content valuable.
-
-Mecha uses AI to increase the leverage of **original thinking, evidence, taste and iteration**. It should help answer:
-
-> What is worth creating, how should we create it, where should it go, and what did we learn?
-
-## Initial market
-
-| Concern | Decision |
-|---|---|
-| Product/code documentation | English |
-| Initial generated-content locale | Spanish — Spain (`es-ES`) |
-| Future languages | Supported through localization boundaries |
-| Initial operator | Human creator |
-| Automation philosophy | Progressive, observable and reversible |
-
-Spanish-first does not mean Spanish-only. Locale, audience and channel are explicit domain concepts from day one.
-
-## The Mecha loop
-
-<details><summary><b>1 · Ignite — capture an idea</b></summary><br>
-Turn a rough thought, question, observation or opportunity into a structured content seed without forcing the creator through a large form.
-</details>
-
-<details><summary><b>2 · Explore — research before generating</b></summary><br>
-Gather trustworthy sources, competing perspectives, trends and supporting material. Preserve provenance so claims can be traced to evidence.
-</details>
-
-<details><summary><b>3 · Shape — choose the right content</b></summary><br>
-Recommend audience, angle, format and channels. A topic may become a long-form video, short, article, thread, book section—or nothing at all.
-</details>
-
-<details><summary><b>4 · Create — produce reusable assets</b></summary><br>
-Generate a content brief and channel-specific derivatives while maintaining a canonical source of truth. Human review remains part of the workflow.
-</details>
-
-<details><summary><b>5 · Release — publish safely</b></summary><br>
-Use modular channel adapters, approval gates, schedules and idempotent publication records instead of coupling the core domain to platform APIs.
-</details>
-
-<details><summary><b>6 · Learn — close the loop</b></summary><br>
-Normalize analytics and revenue signals across platforms. Feed evidence back into future research and strategy rather than blindly optimizing for views.
-</details>
-
-## Product map
+## Architecture at a glance
 
 ```mermaid
 flowchart TB
-    H["Creator / Operator"] --> W["Mecha Workspace"]
-    W --> O["Workflow Orchestrator"]
-    O --> RE["Research"]
-    O --> ST["Strategy"]
-    O --> CR["Creation"]
-    O --> RV["Review"]
-    O --> PU["Publishing"]
-    O --> AN["Analytics"]
-    RE --> K[("Knowledge & Sources")]
-    CR --> AS[("Content & Assets")]
-    PU --> CH["Channel Adapters"]
-    CH --> YT["YouTube"]
-    CH --> SO["Social"]
-    CH --> WR["Written platforms"]
-    AN --> MT[("Metrics & Experiments")]
-    MT -. feedback .-> ST
+    W["Mecha Workspace"] --> O["Workflow Orchestrator"]
+    O --> N["Natural Worlds"]
+    O --> C["City Walks"]
+    N --> G["Model & Media Gateways"]
+    C --> G
+    C --> M["Map / Geospatial Gateway"]
+    G --> H["GPT / Claude"]
+    G --> L["Local models via vLLM"]
+    N --> P["Publishing Gateway"]
+    C --> P
+    P --> S["YouTube · Instagram · TikTok"]
 ```
+
+The model gateway supports hosted proprietary providers such as GPT and Claude and an OpenAI-compatible local endpoint served with vLLM. Provider SDKs remain outside the domain, so a workflow can select models by capability, privacy, quality, latency and cost.
+
+The City Walks pipeline uses a mapping abstraction for routes, places, coordinates and eligible imagery. A feasibility and policy gate must confirm current Google Maps Platform rights before any imagery is stored, transformed or rendered; alternative providers and licensed footage remain supported.
 
 ## Roadmap at a glance
 
 | Phase | Outcome |
 |---|---|
-| **0 · Foundation** | Agree product boundaries, architecture and roadmap |
-| **1 · Workspace** | Capture and manage an idea end-to-end |
-| **2 · Research & Strategy** | Turn ideas into evidence-backed content plans |
-| **3 · Creation** | Produce reviewable canonical content + derivatives |
-| **4 · Publishing** | Release through modular channel integrations |
-| **5 · Analytics** | Measure outcomes and run experiments |
-| **6 · Monetization** | Connect content performance to revenue opportunities |
-| **7 · Agentic Automation** | Automate safe parts of the loop with observable agents |
-| **8 · Scale** | Add locales, channels, brands and production hardening |
+| **0 · Foundation** | Agree brands, boundaries, architecture and roadmap |
+| **1 · Workspace** | Manage ideas and two separate brand workspaces |
+| **2 · Research & Locations** | Build dossiers, routes, storyboards and the map-policy ADR |
+| **3 · Model Gateway** | Connect GPT/Claude and local models through vLLM |
+| **4 · Media Creation** | Produce one reviewed master for each content product |
+| **5 · Publishing** | Render derivatives and publish through channel adapters |
+| **6 · Analytics** | Measure each brand and run experiments |
+| **7 · Monetization** | Connect performance to revenue opportunities |
+| **8 · Agentic Automation** | Automate validated steps with observable agents |
+| **9 · Scale** | Add locales, brands, models, channels and hardening |
 
 See the detailed [implementation roadmap](docs/ROADMAP.md).
 
@@ -120,9 +86,11 @@ See the detailed [implementation roadmap](docs/ROADMAP.md).
 
 - **Value before volume.**
 - **Research before generation.**
+- **Separate brands, shared platform.**
 - **Canonical content, many derivatives.**
 - **Human agency at consequential boundaries.**
 - **Provider independence.**
+- **Rights, provenance and disclosure by design.**
 - **Observability by default.**
 - **Learn from outcomes.**
 - **Localization is architecture.**
