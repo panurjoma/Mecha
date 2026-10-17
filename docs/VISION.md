@@ -1,5 +1,8 @@
 # Product Vision
 
+> **Current launch scope (2026-10-17): one Spanish-from-Spain YouTube channel first.** The earlier two-brand / six-account rollout below is a future portfolio direction, superseded for the first release by the [YouTube-first discovery proposal](YOUTUBE_FIRST_DISCOVERY.md) and revised [roadmap](ROADMAP.md). Channel, budget and providers await creator feedback; no implementation has started.
+
+
 ## Mission
 Mecha helps a creator turn a promising idea into original, evidence-backed content and continuously learn which ideas, formats and channels create real value.
 
