@@ -1,3 +1,5 @@
+> **Current priority: two Shorts channel tracks.** See the [tutorial audit and revised implementation proposal](docs/SHORTS_STRATEGY_AUDIT.md). Existing long-form plans below are deferred. The current application is a landscape proof; vertical rendering, rankings and clip composition are not implemented yet.
+
 <div align="center">
 
 <img src="assets/mecha-flame.svg" alt="Mecha flame" width="150" />
