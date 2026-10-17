@@ -1,81 +1,43 @@
 # Implementation Roadmap
 
-The roadmap validates the **two content loops before agent complexity**. Each phase ends in a demonstrable vertical slice.
+Updated 2026-10-17: launch **one es-ES YouTube channel first**. Channel choice and budget are pending interactive feedback. See [channel discovery, tools and costs](YOUTUBE_FIRST_DISCOVERY.md). Natural Worlds and City Walks remain portfolio options; their parallel launch is superseded.
 
-## Phase 0 — Foundation
-Agree product vision, the Natural Worlds and City Walks brands, architecture, domain vocabulary, lifecycle, localization, responsible-synthetic-media policy and roadmap. **Exit:** foundation PR accepted.
+## Phase 0 — Finish foundation
+Review five concepts, select one editorial theme, target audience, narration style, pilot length and monthly incremental budget. Complete the reference-channel audit with explicit per-video coverage and resolve tool/pricing uncertainties. Record provider decisions and measurable pilot acceptance criteria. Finalize PR #2 with the creator before implementation.
 
-## Phase 1 — Content Workspace
-Build the application/API skeleton, persistence/migrations, brand profiles, Idea CRUD, locale/audience metadata, workflow state, minimal operator UI, tests and CI. Configure two isolated brand workspaces and their intended YouTube, Instagram and TikTok accounts. **Demo:** enter an `es-ES` idea for either brand and inspect its lifecycle.
+## Phase 1 — Produce a small proof
+After foundation resolution, implement only the minimal episode workflow: brief, sources/claims, script revisions, timed shot list, asset lineage and cost ledger. Create a 60–90 second proof with one selected workflow. Compare es-ES voice quality, realism, editing effort and cost. Avoid building a broad operator platform first.
+**Exit:** reviewed proof with measured cost and production time.
 
-## Phase 2 — Research, Locations & Strategy
-Build research and map-provider interfaces, source provenance, claims/evidence, location dossiers, POIs, route plans, opportunity assessment, format recommendations, content briefs and human review.
+## Phase 2 — Deliver one complete pilot
+Extend the proof into a proposed 6–8 minute episode for the selected channel. Use one provider per necessary capability; retain provider ports. Include narration, selected generated shots, licensed assets, original diagrams, subtitles, thumbnail, description, disclosure and FFmpeg assembly.
+Persist attempts, cap spend, resume jobs and retain rights/source evidence.
+**Exit:** reviewed master and release package meeting agreed factual, visual, audio and budget criteria.
 
-Run a specific Google Maps Platform feasibility spike covering authorized APIs, attribution, storage/retention, rendering and derivative-use constraints. Record an ADR and identify an alternative provider or licensed-footage path before committing to Google imagery.
+## Phase 3 — Validate YouTube publishing
+Begin with a manual private upload for review. Implement a YouTube adapter only after checking current API/OAuth/quota/access requirements. Persist external IDs, approval, upload state, retry and duplicate prevention.
+**Exit:** approved episode reaches the intended visibility with an auditable publication record.
 
-**Demo:** (a) landscape idea → sourced location/ecology dossier; (b) city + conditions → sourced route and narrative stops.
+## Phase 4 — Repeat and learn
+Produce three episodes in the SAME theme. Track actual cost per accepted minute, human editing hours, failed generations, impressions, click-through rate, early retention and average view duration where available. Do not promise growth or earnings from reference-channel outliers.
+**Exit:** decide whether quality and repeatability justify further automation.
 
-## Phase 3 — Model Gateway
-Create capability-oriented model ports and structured output contracts. Implement hosted adapters for OpenAI GPT and Anthropic Claude plus an OpenAI-compatible adapter for a local vLLM endpoint. Add routing policy, health checks, timeouts, retries, fallbacks, token/cost/latency records, prompt versions and small provider-neutral evaluations.
+## Phase 5 — Expand validated workflows
+Add a minimal operator interface, deeper analytics and selective automation as justified. Add extra providers, local vLLM serving or agents only when measured requirements support them.
 
-**Demo:** run the same research-to-storyboard task with one hosted model and one local model, compare outputs and preserve lineage.
+## Deferred portfolio
+Natural Worlds (realistic simulated drone landscapes/wildlife), City Walks (sourced real-city journeys), further brands, Instagram, TikTok, monetization and localization remain potential later work. Do not provision six accounts or require two production pipelines for the first launch.
+If a selected episode needs geospatial data/imagery, conduct the existing provider-rights feasibility spike before use; this is not a universal first-pilot dependency.
 
-## Phase 4 — Media Creation
-Build canonical content, storyboard/timeline editing, asset/object storage, revision history, image/video/audio provider ports and asynchronous workers. Add deterministic assembly with FFmpeg, subtitles, narration, upscaling/encoding and review gates.
+## Proposed implementation PRs
+1. Minimal episode/claim/shot/cost contracts and engineering baseline.
+2. Selected research/script/voice/visual workflow and 60–90 second proof.
+3. Resumable assets, deterministic assembly and complete pilot release package.
+4. YouTube publication adapter following manual private-upload validation.
+5. Episode metrics, production-cost review and repeatability improvements.
 
-Deliver two thin vertical slices:
-- **Natural Worlds:** one short photorealistic simulated drone journey over a real landscape, optionally with realistic wildlife.
-- **City Walks:** one short route-based city walk using only permitted/licensed visual inputs, enriched with sourced contextual narration.
+## Cross-cutting acceptance
+English documentation/code, audience content in Spanish from Spain. Original storytelling, traceable claims, licensed assets and clearly identified synthetic reconstructions. Provider-independent boundaries; concrete adapters only where needed. Meaningful behavioral tests for implementation changes, media QA, persisted workflow state, cost caps and approval before public release.
 
-**Demo:** approved brief → reviewed master video with provenance, rights/attribution and AI-disclosure metadata.
-
-## Phase 5 — Platform Derivatives & Publishing
-Build the channel contract, OAuth/secrets, brand-to-account mapping, publication state, preview/approval, idempotency/retries and external IDs. Produce 9:16 short-form and 16:9 YouTube derivatives as appropriate, plus captions, titles, descriptions, hashtags, subtitles and thumbnails.
-
-Implement adapters in this order, subject to API access: YouTube, Instagram, then TikTok. Never make browser automation the default publishing mechanism.
-
-**Demo:** one approved master → platform-valid release packages → publish to a test/draft destination → durable external records.
-
-## Phase 6 — Analytics & Experimentation
-Build analytics ingestion, normalized cross-platform metrics, collection jobs, brand dashboards, experiments and learning summaries. Keep Natural Worlds and City Walks performance separate while permitting portfolio-level comparison. **Demo:** publication → metrics → experiment result → next-content recommendation.
-
-## Phase 7 — Monetization
-Add revenue events, affiliate attribution, sponsor/opportunity records, CTA tracking, revenue by brand/content/channel and opportunity suggestions. **Demo:** trace revenue back to publication → derivative → master → idea.
-
-## Phase 8 — Agentic Automation
-Automate validated workflows using durable orchestration, permissions, human checkpoints, retries/timeouts, tracing, budgets, evaluations and recovery. Candidate roles: Research, Location Planner, Storyboarder, Editor, Publisher and Analyst.
-
-**Rule:** agents automate workflows that already work; they do not compensate for an undefined product or bypass rights and policy gates.
-
-## Phase 9 — Scale & Localization
-Add locales/markets, further brands and channels, team roles, production hardening, queues/workers, justified service extraction, richer recommendations and additional local/hosted model backends.
-
-## Cross-cutting work
-Quality/evaluation, observability, security, responsible synthetic media, rights/attribution, provider-term reviews, cost control and developer experience evolve throughout all phases.
-
-## Decision gate after every phase
-1. Did this reduce meaningful creator effort?
-2. Did quality remain acceptable or improve?
-3. Are the inputs, transformations, rights and disclosures traceable?
-4. What did outcomes teach us?
-5. Which assumption was validated or falsified?
-6. Is the next automation worth its complexity?
-
-## Proposed PR sequence after foundation approval
-1. Bootstrap application + engineering baseline
-2. Brand, idea and lifecycle model
-3. Minimal operator workspace
-4. Research/location provider ports + provenance
-5. Google Maps feasibility spike + ADR
-6. Location dossier, route plan and content brief
-7. Model gateway + GPT/Claude adapter
-8. vLLM-compatible local adapter + comparison evaluation
-9. Asset store + asynchronous media job
-10. Natural Worlds vertical slice
-11. City Walks vertical slice
-12. Platform derivative renderer
-13. YouTube publishing adapter
-14. Instagram and TikTok adapters
-15. Analytics ingestion + first closed-loop experiment
-
-This sequence is deliberately reviewable and can change after the Phase 0 review.
+## Current review status
+Documentation proposal committed to the existing foundation branch. Channel, budget, voice and final providers are not yet selected. Reference audit is incomplete. PR remains open for the requested interactive feedback; implementation has not started.
