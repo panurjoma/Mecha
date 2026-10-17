@@ -1,3 +1,5 @@
+> **Current launch scope (2026-10-17): one Spanish-from-Spain YouTube channel first.** The earlier two-brand / six-account rollout below is a future portfolio direction, superseded for the first release by the [YouTube-first discovery proposal](docs/YOUTUBE_FIRST_DISCOVERY.md) and revised [roadmap](docs/ROADMAP.md). Channel, budget and providers await creator feedback; no implementation has started.
+
 <div align="center">
 
 <img src="assets/mecha-flame.svg" alt="Mecha flame" width="150" />
