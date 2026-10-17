@@ -1,5 +1,8 @@
 # Architecture
 
+> **Current launch scope (2026-10-17): one Spanish-from-Spain YouTube channel first.** The earlier two-brand / six-account rollout below is a future portfolio direction, superseded for the first release by the [YouTube-first discovery proposal](YOUTUBE_FIRST_DISCOVERY.md) and revised [roadmap](ROADMAP.md). Channel, budget and providers await creator feedback; no implementation has started.
+
+
 ## Architectural intent
 Start as a **modular monolith with explicit domain boundaries**, not as a distributed multi-agent system. Agents are an orchestration technique—not the domain model. The first two content products are separate brands configured on one shared platform.
 
