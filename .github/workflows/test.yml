@@ -1,0 +1,30 @@
+name: Test episode workflow
+on:
+  push:
+  pull_request:
+permissions:
+  contents: read
+jobs:
+  workflow:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python-version: ['3.11', '3.12']
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python-version }}
+      - run: sudo apt-get update && sudo apt-get install -y ffmpeg fonts-dejavu-core
+      - run: python -m pip install -e .
+      - run: python -m unittest discover -s tests -v
+  animation:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: sudo apt-get update && sudo apt-get install -y ffmpeg fonts-dejavu-core libcairo2-dev libpango1.0-dev pkg-config
+      - run: python -m pip install -e '.[animation]'
+      - run: MECHA_TEST_MANIM=1 python -m unittest discover -s tests -v

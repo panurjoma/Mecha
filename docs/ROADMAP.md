@@ -6,6 +6,8 @@ Updated 2026-10-17: launch **one es-ES YouTube channel first**. Physics & Engine
 The creator selected physics/engineering first and narrowed the reference audit to the two latest videos; both transcript and automated audiovisual reviews are complete. The approved baseline is Python + Manim + FFmpeg, optional Blender, mixed ChatGPT/Claude assistance and own voice. Capture audience, topic, pilot style and paid budget during implementation; do not purchase services as part of foundation approval. Record provider decisions and measurable pilot acceptance criteria. Finalize PR #2 with the creator before implementation.
 
 ## Phase 1 — Produce a small proof
+Implementation slice: the local Python CLI, validated episode input, immutable SQLite revisions, feedback/approval history, narration import, portable bundle handoff, card/Manim preview renderers and FFmpeg assembly are available. See [operator guide](ASSISTANT_WORKFLOW.md). The included orbit example is an unapproved developer proof; creator episode selection, recording and final review remain outstanding.
+
 After foundation resolution, implement only the minimal episode workflow: brief, sources/claims, script revisions, timed shot list, asset lineage and cost ledger. Create a 60–90 second proof with one selected workflow. Compare es-ES voice quality, realism, editing effort and cost. Avoid building a broad operator platform first.
 **Exit:** reviewed proof with measured cost and production time.
 
@@ -40,4 +42,5 @@ If a selected episode needs geospatial data/imagery, conduct the existing provid
 English documentation/code, audience content in Spanish from Spain. Original storytelling, traceable claims, licensed assets and clearly identified synthetic reconstructions. Provider-independent boundaries; concrete adapters only where needed. Meaningful behavioral tests for implementation changes, media QA, persisted workflow state, cost caps and approval before public release.
 
 ## Current review status
-Documentation proposal committed to the existing foundation branch. Physics is the confirmed first channel. Both latest-video audits are complete within the narrowed scope. Tool baseline and own voice are approved; ChatGPT/Claude start operator-assisted without API-spend authorization. First topic, style details and any paid budget remain for implementation. Foundation documentation is ready for the authorized merge; implementation has not started.
+Foundation PR #2 is merged. Physics is the confirmed first channel. Both latest-video audits are complete within the narrowed scope. Tool baseline and own voice are approved; ChatGPT/Claude start operator-assisted without API-spend authorization. The first local implementation adds the episode workspace and preview pipeline. The first creator-approved topic, recording, visual review and any paid budget remain outstanding.
+

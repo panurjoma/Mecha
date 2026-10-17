@@ -56,8 +56,22 @@ Reference analysis informs original storytelling; it does not establish which AI
 
 ## Repository status
 
-**Planning / Foundation — no production implementation yet.**
+**First local implementation — assistant-operated episode workspace.**
 
-[PR #2](../../pull/2) contains the foundation, revised roadmap, [two-video audit](docs/REFERENCE_AUDIT_LAST_TWO.md) and [physics-first plan](docs/PHYSICS_CHANNEL_PLAN.md). Physics, Python + Manim + FFmpeg, optional Blender, ChatGPT/Claude assistance and own narration are approved. Foundation documentation is ready for merge; topic and production details will be settled during implementation. API spending and new subscriptions are not approved.
+[PR #2](../../pull/2) merged the foundation. The first application now imports episode scripts/storyboards, preserves revisions and corrections in SQLite, imports your recording, renders previews and exports portable project bundles. The assistant operates it; the creator can stay in conversation. See the [conversation workflow and handoff guide](docs/ASSISTANT_WORKFLOW.md).
+
+```sh
+python -m pip install -e .
+mecha doctor
+mecha ingest examples/orbit-proof.json --note 'Illustrative draft, not creator-approved'
+mecha review orbit-proof review-r1.md
+mecha render orbit-proof --renderer cards
+mecha export orbit-proof orbit-proof-r1.zip
+```
+
+FFmpeg and fonts are required for the labeled card storyboard. Install `.[animation]` and native dependencies for real Manim animation, then use `--renderer manim`. The sample is a 60-second unapproved proof, initially silent. No paid API calls or public publishing are implemented. Blender is optional future work.
+
+Tests: `python -m unittest discover -s tests -v`. Native animation integration: `MECHA_TEST_MANIM=1 python -m unittest discover -s tests -v` with Manim installed. GitHub Actions runs both the core and native-animation jobs.
 
 [Issue #1](../../issues/1) tracks foundation planning.
+

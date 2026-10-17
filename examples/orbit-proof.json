@@ -1,0 +1,38 @@
+{
+  "schema_version": 1,
+  "id": "orbit-proof",
+  "topic": "¿Por qué un satélite no se cae?",
+  "audience": "Personas curiosas sin formación técnica",
+  "locale": "es-ES",
+  "storytelling": "Pregunta cotidiana → corregir la idea de que no hay gravedad → caída continua con velocidad lateral → recapitulación. Prueba editorial de 60 segundos, no un episodio aprobado.",
+  "sources": [
+    {"id": "nasa-orbit", "title": "NASA: What Is an Orbit?", "url": "https://spaceplace.nasa.gov/orbits/en/"},
+    {"id": "nasa-gravity", "title": "NASA: Gravity and Mechanics", "url": "https://science.nasa.gov/learn/basics-of-space-flight/chapter3-4/"}
+  ],
+  "scenes": [
+    {
+      "id": "question",
+      "title": "¿Por qué no se cae?",
+      "narration": "Un satélite está en el espacio, pero la gravedad sigue actuando sobre él. Entonces, ¿por qué no acaba chocando contra la Tierra? La clave está en combinar la caída con el movimiento lateral.",
+      "duration_seconds": 15,
+      "visual": {"kind": "card", "caption": "La gravedad sigue presente en una órbita."},
+      "claims": [{"text": "La gravedad terrestre actúa sobre un satélite en órbita.", "source_ids": ["nasa-gravity"]}]
+    },
+    {
+      "id": "orbit",
+      "title": "Caer mientras avanzas",
+      "narration": "Imagina que lanzas un objeto hacia un lado. Mientras avanza, la gravedad curva su trayectoria. En una órbita ideal, la velocidad lateral es suficiente para que el objeto siga cayendo sin alcanzar el suelo. El satélite no está suspendido: está en caída libre alrededor de la Tierra.",
+      "duration_seconds": 30,
+      "visual": {"kind": "orbit", "caption": "La gravedad curva la trayectoria; la velocidad es tangente a la órbita.", "turns": 1},
+      "claims": [{"text": "Un satélite en una órbita ideal está en caída libre.", "source_ids": ["nasa-orbit", "nasa-gravity"]}]
+    },
+    {
+      "id": "recap",
+      "title": "No flota: está cayendo",
+      "narration": "La idea esencial es esta: estar en órbita no significa escapar de la gravedad. Nuestro dibujo es una simplificación, sin atmósfera y sin escala real. Con esa imagen, ya podemos empezar a entender cómo se mantienen en órbita los satélites de comunicaciones.",
+      "duration_seconds": 15,
+      "visual": {"kind": "card", "caption": "Órbita idealizada: gravedad + velocidad lateral. Sin atmósfera; no a escala."},
+      "claims": [{"text": "Una nave en órbita no ha escapado de la gravedad de la Tierra.", "source_ids": ["nasa-gravity"]}]
+    }
+  ]
+}
