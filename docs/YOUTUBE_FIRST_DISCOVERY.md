@@ -1,3 +1,5 @@
+> **Decision update — 2026-10-17:** the creator selected Physics & Engineering Explained first. Later portfolio: AI Explained, Relaxing Aerial Journeys and Current Affairs Explained. The five earlier concepts below are historical alternatives. The all-video audit request was narrowed to the latest TWO uploads; [both audits are complete](REFERENCE_AUDIT_LAST_TWO.md). vidIQ is connected; 80 credits were used for discovery, metadata, transcripts and audiovisual review. See the authoritative [physics plan](PHYSICS_CHANNEL_PLAN.md) and [roadmap](ROADMAP.md). Earlier pending/channel/access statements below describe the previous discovery stage.
+
 # YouTube-first channel discovery
 Updated: 2026-10-17. Status: working proposal awaiting creator feedback.
 
