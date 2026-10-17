@@ -1,5 +1,10 @@
 # Working with Mecha through conversation
 
+## Before every script or correction
+Read [Script, Storytelling and YouTube Guardrails](SCRIPT_GUIDELINES.md) from the current repo ref and record its commit SHA. It defines the science audience, balanced conversational/technical tone, source checks, originality, disclosure decisions and advertiser-suitability review. Apply it to all drafts and related packaging. This is mandatory for the assistant, not terminal work for the creator.
+
+Keep the required companion editorial review alongside the persistent episode bundle; v0.1 exports only project history and optional audio, not arbitrary sidecar files. Recheck official YouTube policies and actual rendered assets before release; script approval alone is not a policy clearance.
+
 ## What the creator does
 1. Say: “Create an episode about [topic], for [audience], around [duration].” Topic alone is enough to begin; the assistant proposes missing details.
 2. Review the proposed angle, source-backed script and storyboard here in chat.
