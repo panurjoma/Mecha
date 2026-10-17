@@ -1,10 +1,9 @@
 # Architecture
 
-> **Current launch scope (2026-10-17): one Spanish-from-Spain YouTube channel first.** The earlier two-brand / six-account rollout below is a future portfolio direction, superseded for the first release by the [YouTube-first discovery proposal](YOUTUBE_FIRST_DISCOVERY.md) and revised [roadmap](ROADMAP.md). Channel, budget and providers await creator feedback; no implementation has started.
-
+> **Current scope:** physics/engineering is the first and only initial YouTube channel. The later portfolio is AI Explained, Relaxing Aerial Journeys and Current Affairs Explained. See [physics-first contracts and production plan](PHYSICS_CHANNEL_PLAN.md). Earlier landscape/city pipelines below describe future extensions, not launch requirements.
 
 ## Architectural intent
-Start as a **modular monolith with explicit domain boundaries**, not as a distributed multi-agent system. Agents are an orchestration technique—not the domain model. The first two content products are separate brands configured on one shared platform.
+Start as a **modular monolith with explicit domain boundaries**, not as a distributed multi-agent system. Agents are an orchestration technique—not the domain model. The first product is one physics/engineering brand on a shared platform designed to support later brands.
 
 ```mermaid
 flowchart TB
@@ -29,7 +28,13 @@ flowchart TB
  MODEL --> LOCAL["OpenAI-compatible local endpoint: vLLM"]
 ```
 
-## Initial content pipelines
+## First production pipeline
+
+`creator topic → sourced brief/claims → reviewed script → timed diagram/shot plan → voice and visual proof → deterministic render → review → private upload → approved YouTube publication`
+
+Use Python, Manim Community and FFmpeg as the recommended proof stack; add Blender only for needed 3D scenes. One selected text adapter and narration provider are sufficient. This is a recommendation pending cost and sample review, not an instruction to provision paid services. Store EpisodeBrief, ClaimEvidence, ScriptRevision, SceneSpec, RenderManifest, CostLedger and ReviewDecision; parameters include units, scale caveats and source links. Revision hashes prevent stale approvals. A CLI-driven proof precedes a broad web workspace.
+
+## Future location-based content pipelines
 
 ### Natural Worlds
 `real location → sourced location dossier → scene/storyboard → realistic landscape/wildlife generation → continuity/upscale/edit → disclosure and review → platform derivatives → publish`
@@ -60,7 +65,7 @@ Raw provider imagery is not assumed to be reusable or editable. Each asset carri
 A reproducible job graph handles storyboards, image/video generation, optional licensed source footage, temporal consistency, interpolation, upscaling, audio, narration, subtitles, captions, thumbnails and final encoding. Large assets live in object storage; the application database stores metadata and lineage. CPU/GPU work runs asynchronously through workers with resumable job state.
 
 ## Publishing architecture
-A `ChannelAccount` belongs to a brand and platform. Initial combinations are six accounts: Natural Worlds and City Walks × YouTube, Instagram and TikTok.
+A `ChannelAccount` belongs to a brand and platform. Initially configure ONE Physics & Engineering YouTube account. Later brands and Instagram/TikTok adapters remain deferred.
 
 Channel adapters own OAuth, upload/resumable upload, platform metadata, scheduling capability, idempotency and external IDs. The core produces a platform-neutral release package; adapters validate duration, aspect ratio, codec, caption and thumbnail constraints. Unsupported scheduling falls back to an approved publish queue rather than browser automation.
 
