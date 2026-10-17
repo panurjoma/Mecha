@@ -1,5 +1,7 @@
 # Product Vision
 
+> **Approved baseline (2026-10-17):** Python + Manim + FFmpeg, optional Blender, ChatGPT/OpenAI plus Claude/Anthropic assistance, and the creator’s own recorded voice. Initial AI use is operator-assisted; API usage and cloud compute are separately costed, with no new paid services authorized. See [approved choices](PHYSICS_CHANNEL_PLAN.md#approved-technology-baseline--2026-10-17).
+
 Mecha turns a creator’s topic into original, researched and reviewable media, initially in Spanish from Spain. Technical documentation and code are English.
 
 ## Confirmed first product
