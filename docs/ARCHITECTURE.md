@@ -1,5 +1,7 @@
 # Architecture
 
+> **Approved baseline (2026-10-17):** Python + Manim + FFmpeg, optional Blender, ChatGPT/OpenAI plus Claude/Anthropic assistance, and the creator’s own recorded voice. Initial AI use is operator-assisted; API usage and cloud compute are separately costed, with no new paid services authorized. See [approved choices](PHYSICS_CHANNEL_PLAN.md#approved-technology-baseline--2026-10-17).
+
 > **Current scope:** physics/engineering is the first and only initial YouTube channel. The later portfolio is AI Explained, Relaxing Aerial Journeys and Current Affairs Explained. See [physics-first contracts and production plan](PHYSICS_CHANNEL_PLAN.md). Earlier landscape/city pipelines below describe future extensions, not launch requirements.
 
 ## Architectural intent
