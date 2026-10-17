@@ -1,5 +1,8 @@
 # Architecture
 
+
+> **Strategy update (2026-10-17): Shorts-first, two channel tracks.** The creator replaced the immediate long-form launch strategy with two Shorts workflows inspired by the [two-tutorial audit](SHORTS_STRATEGY_AUDIT.md). Preserve Tiene su Física as the proposed micro-explainer track; confirm the second channel's subject before launch. Existing own-voice, originality and no-equation defaults remain. Earlier long-form durations and single-track milestones below are historical/deferred where inconsistent. This is a planning update: the current Python renderer is still landscape and needs a separate vertical implementation.
+
 > **Approved baseline (2026-10-17):** Python + Manim + FFmpeg, optional Blender, ChatGPT/OpenAI plus Claude/Anthropic assistance, and the creator’s own recorded voice. Initial AI use is operator-assisted; API usage and cloud compute are separately costed, with no new paid services authorized. See [approved choices](PHYSICS_CHANNEL_PLAN.md#approved-technology-baseline--2026-10-17).
 
 > **Current scope:** physics/engineering is the first and only initial YouTube channel. The later portfolio is AI Explained, Relaxing Aerial Journeys and Current Affairs Explained. See [physics-first contracts and production plan](PHYSICS_CHANNEL_PLAN.md). Earlier landscape/city pipelines below describe future extensions, not launch requirements.
