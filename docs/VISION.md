@@ -1,62 +1,32 @@
 # Product Vision
 
-> **Current launch scope (2026-10-17): one Spanish-from-Spain YouTube channel first.** The earlier two-brand / six-account rollout below is a future portfolio direction, superseded for the first release by the [YouTube-first discovery proposal](YOUTUBE_FIRST_DISCOVERY.md) and revised [roadmap](ROADMAP.md). Channel, budget and providers await creator feedback; no implementation has started.
+Mecha turns a creator’s topic into original, researched and reviewable media, initially in Spanish from Spain. Technical documentation and code are English.
 
+## Confirmed first product
+**Physics & Engineering Explained** is the first YouTube channel. Use the creator’s satellite/communications expertise to explain space, communications, aircraft and everyday engineered systems, expanding later into fluid mechanics, electricity and energy.
+Aim for intuitive understanding with accurate diagrams, concrete examples, explicit assumptions and checked units. Accessible language must preserve the mechanism being taught.
 
-## Mission
-Mecha helps a creator turn a promising idea into original, evidence-backed content and continuously learn which ideas, formats and channels create real value.
+## Portfolio
+1. Physics & Engineering Explained — first implementation.
+2. AI Explained — complex AI ideas made accessible.
+3. Relaxing Aerial Journeys — realistic drone-style journeys for relaxation.
+4. Current Affairs Explained — context for news, conflicts and emerging technology.
 
-## Product thesis
-Generative AI reduces the cost of producing media, but abundance increases the importance of selection, originality, evidence and taste. Mecha therefore treats **content generation as one step in a larger decision loop**, not as the product itself.
+The later three are not launching in parallel; their order remains undecided. Urbanism/city walks are optional future work, company histories are parked, and Instagram/TikTok are deferred.
 
-**Idea → Research → Strategy → Creation → Review → Publication → Measurement → Learning**
+## Creator’s role
+The creator proposes topics step by step, reviews angle and technical depth, edits the script, approves a short voice/visual proof, reviews the master and approves publication. Automate production work around these checkpoints with persisted revisions and cost visibility.
 
-## Initial user and market
-The first user is an individual creator/operator who wants AI leverage without surrendering editorial control.
+## First validation
+Produce a 60–90 second proof, then one proposed 6–8 minute pilot, then three episodes in the same theme to measure quality, effort and cost. A large multi-brand platform and autonomous agents are later decisions.
 
-The initial content audience is primarily in **Spain**, and generated content defaults to **Spanish from Spain (`es-ES`)**. Source code and developer/architecture documentation remain in English.
+## Principles
+Original explanations; sourced claims; physics and unit checks; provider independence; explicit rights and generation lineage; resumable jobs; transparent costs; approval before public release.
+Cinematic reconstructions do not establish scientific accuracy or represent genuine documentary footage. News uses dated sources and corrections. Aerial journeys use factual geography and appropriate synthetic disclosure.
 
-## Initial content brands
-Mecha initially supports two separate content products, each with its own identity and accounts on YouTube, Instagram and TikTok.
-
-### 1. Natural Worlds
-Cinematic, realistic videos that simulate drone flights over identifiable real landscapes and natural environments. Scenes may include photorealistic wildlife, but not cartoon animals. The objective is to give viewers an evocative preview of what visiting a real paradise could feel like.
-
-The product must distinguish generated or simulated imagery from documentary footage, verify real-place facts, and avoid implying that synthetic wildlife or events were actually captured at the location.
-
-### 2. City Walks
-Immersive videos that simulate walking through real cities under different conditions, enriched with concise cultural, historical and practical context in Spanish.
-
-A map provider may supply routes, coordinates, points of interest and permitted imagery. AI can improve pacing, remove unsuitable segments, enhance presentation and generate narration or overlays. Google Maps and Street View usage is conditional on API capabilities, attribution, licensing and derivative-work rules; Mecha must also support alternative providers or properly licensed source footage.
-
-The brands share orchestration, research, generation, review, publishing and analytics capabilities, while preserving separate channel credentials, editorial profiles and performance histories.
-
-## Jobs to be done
-1. Capture an idea with minimal friction.
-2. Determine whether it is worth developing.
-3. Research it using attributable sources.
-4. Find an audience, angle and suitable formats.
-5. Plan a real location, route, scene or narrative.
-6. Produce a strong canonical piece of content.
-7. Derive platform-specific video, image, caption, audio and metadata assets.
-8. Review realism, provenance, rights, safety and editorial quality.
-9. Publish through supported channels.
-10. Measure content, audience and eventually revenue outcomes.
-11. Feed evidence back into future decisions.
-
-## In scope
-Idea/content workspace; research and provenance; two initial content brands; location and route planning; pluggable proprietary and local LLMs; pluggable image/video generation; human review; YouTube, Instagram and TikTok adapters; scheduling/publication state; normalized analytics; experimentation; monetization signals; agentic orchestration where useful; localization starting with `es-ES`.
-
-## Not in scope initially
-Fully autonomous unsupervised publishing; mass generation for volume; training foundation models; building media foundation models; scraping, recording or republishing map imagery outside provider terms; claiming synthetic footage is authentic capture; every social platform in the MVP; premature multi-tenant SaaS; hard-coding around one AI or mapping provider.
-
-## Product principles
-- **Originality over automation.**
-- **Evidence over confident generation.**
-- **One source, many expressions.**
-- **Separate brands, shared platform.**
-- **Human control at consequential boundaries.**
-- **Respect rights, attribution and platform policies.**
-- **Disclose simulated or materially AI-generated reality.**
-- **Learn, don't merely report.**
-- **Spanish-first, localization-ready.**
+## Planning references
+- [Physics plan and input checklist](PHYSICS_CHANNEL_PLAN.md)
+- [Two-video reference audit](REFERENCE_AUDIT_LAST_TWO.md)
+- [Roadmap](ROADMAP.md)
+- [Architecture](ARCHITECTURE.md)
+- [Earlier discovery options](YOUTUBE_FIRST_DISCOVERY.md) — historical proposal, superseded where inconsistent with the confirmed portfolio.
