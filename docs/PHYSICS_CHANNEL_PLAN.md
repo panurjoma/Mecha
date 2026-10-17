@@ -1,4 +1,7 @@
 # Physics and Engineering — first-channel plan
+
+
+> **Strategy update (2026-10-17): Shorts-first, two channel tracks.** The creator replaced the immediate long-form launch strategy with two Shorts workflows inspired by the [two-tutorial audit](SHORTS_STRATEGY_AUDIT.md). Preserve Tiene su Física as the proposed micro-explainer track; confirm the second channel's subject before launch. Existing own-voice, originality and no-equation defaults remain. Earlier long-form durations and single-track milestones below are historical/deferred where inconsistent. This is a planning update: the current Python renderer is still landscape and needs a separate vertical implementation.
 Status: physics-channel priority and technology baseline APPROVED on 2026-10-17. Own voice selected. First topic confirmed: why a satellite does not fall to Earth. Public brand name, style details and any paid budget remain implementation decisions. See [launch identity draft](CHANNEL_LAUNCH_DRAFT.md). Documentation language: English. Audience language: Spanish from Spain.
 
 ## Approved technology baseline — 2026-10-17
