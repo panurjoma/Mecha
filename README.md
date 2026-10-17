@@ -35,7 +35,7 @@ Only one YouTube channel launches initially. Later-channel order is undecided. C
 
 Topic → sourced brief → script and technical review → timed storyboard → voice/visual proof → render and review → private upload → approved publication → learning.
 
-Recommended starting stack: **Python, Manim Community and FFmpeg**, one selected text adapter and a narration choice. Blender is available for specific 3D needs; cinematic generation is optional. See the [costs and creator input checklist](docs/PHYSICS_CHANNEL_PLAN.md).
+Recommended starting stack: **Python, Manim Community and FFmpeg**, ChatGPT/Claude assistance and the creator’s recorded narration. Blender is available for specific 3D needs; cinematic generation is optional. See the [costs and creator input checklist](docs/PHYSICS_CHANNEL_PLAN.md).
 
 ## Roadmap
 
@@ -58,6 +58,6 @@ Reference analysis informs original storytelling; it does not establish which AI
 
 **Planning / Foundation — no production implementation yet.**
 
-[PR #2](../../pull/2) contains the foundation, revised roadmap, [two-video audit](docs/REFERENCE_AUDIT_LAST_TWO.md) and [physics-first plan](docs/PHYSICS_CHANNEL_PLAN.md). Physics is selected; first topic, voice, visual style and budget remain for feedback before finalizing the foundation.
+[PR #2](../../pull/2) contains the foundation, revised roadmap, [two-video audit](docs/REFERENCE_AUDIT_LAST_TWO.md) and [physics-first plan](docs/PHYSICS_CHANNEL_PLAN.md). Physics, Python + Manim + FFmpeg, optional Blender, ChatGPT/Claude assistance and own narration are approved. Foundation documentation is ready for merge; topic and production details will be settled during implementation. API spending and new subscriptions are not approved.
 
 [Issue #1](../../issues/1) tracks foundation planning.
