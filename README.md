@@ -8,7 +8,7 @@
 
 **An AI-assisted engine for original, researched, reviewable digital content.**
 
-[Vision](docs/VISION.md) · [Architecture](docs/ARCHITECTURE.md) · [Roadmap](docs/ROADMAP.md) · [Physics plan](docs/PHYSICS_CHANNEL_PLAN.md) · [Reference audit](docs/REFERENCE_AUDIT_LAST_TWO.md)
+[Vision](docs/VISION.md) · [Architecture](docs/ARCHITECTURE.md) · [Roadmap](docs/ROADMAP.md) · [Physics plan](docs/PHYSICS_CHANNEL_PLAN.md) · [Script guardrails](docs/SCRIPT_GUIDELINES.md) · [Reference audit](docs/REFERENCE_AUDIT_LAST_TWO.md)
 
 `Spanish (Spain) first` · `English docs & code` · `Human-guided` · `YouTube first`
 
