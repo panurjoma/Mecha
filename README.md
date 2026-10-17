@@ -1,5 +1,3 @@
-> **Current launch scope (2026-10-17): one Spanish-from-Spain YouTube channel first.** The earlier two-brand / six-account rollout below is a future portfolio direction, superseded for the first release by the [YouTube-first discovery proposal](docs/YOUTUBE_FIRST_DISCOVERY.md) and revised [roadmap](docs/ROADMAP.md). Channel, budget and providers await creator feedback; no implementation has started.
-
 <div align="center">
 
 <img src="assets/mecha-flame.svg" alt="Mecha flame" width="150" />
@@ -8,103 +6,58 @@
 
 ### One idea lights everything.
 
-**An AI-assisted engine for researching, creating, distributing and learning from original digital content.**
+**An AI-assisted engine for original, researched, reviewable digital content.**
 
-[Vision](docs/VISION.md) · [Architecture](docs/ARCHITECTURE.md) · [Roadmap](docs/ROADMAP.md) · [Planning issue](../../issues/1)
+[Vision](docs/VISION.md) · [Architecture](docs/ARCHITECTURE.md) · [Roadmap](docs/ROADMAP.md) · [Physics plan](docs/PHYSICS_CHANNEL_PLAN.md) · [Reference audit](docs/REFERENCE_AUDIT_LAST_TWO.md)
 
-`Spanish (Spain) first` · `English docs & code` · `Human-guided` · `Multi-brand` · `Multi-platform`
+`Spanish (Spain) first` · `English docs & code` · `Human-guided` · `YouTube first`
 
 </div>
 
----
+## First launch: Physics & Engineering Explained
 
-## What is Mecha?
+Make complex systems understandable through simple explanations, accurate diagrams and concrete applications. Begin with the creator’s expertise in satellites and communications, then expand into space, aircraft, fluid mechanics, electricity and energy.
 
-**Mecha** means *wick* or *fuse* in Spanish: the small thing that starts something much larger. It starts with a human idea and helps transform it into researched, reviewable, publishable content.
+The creator chooses topics one at a time and reviews the angle, script, technical accuracy, visual proof and final release. Proposed first topic: **Why doesn’t a satellite fall to Earth?** Topic and public brand name await selection.
 
-## The first two content products
+## Planned portfolio
 
-| Brand | Viewer experience | Core inputs | Initial channels |
-|---|---|---|---|
-| **Natural Worlds** | Photorealistic simulated drone journeys over real landscapes and natural environments, including realistic wildlife where appropriate | Verified geography/ecology + AI image/video generation | YouTube, Instagram, TikTok |
-| **City Walks** | Immersive walks through real cities under varied conditions, enriched with sourced local context | Routes, places and permitted/licensed visual inputs + AI enhancement | YouTube, Instagram, TikTok |
+| Channel | Viewer experience | Status |
+|---|---|---|
+| Physics & Engineering Explained | Intuitive explanations of how physical and engineered systems work | **First implementation** |
+| AI Explained | Complex AI concepts and technologies explained simply | Later |
+| Relaxing Aerial Journeys | Realistic drone-style journeys for relaxation | Later |
+| Current Affairs Explained | Context for world news, conflicts and emerging technology | Later |
 
-Each product has its own three social accounts, editorial identity, credentials and analytics. Both reuse the same Mecha research, model, media, review and publishing platform.
+Only one YouTube channel launches initially. Later-channel order is undecided. City walks/urbanism are optional future work; company histories are parked. Instagram and TikTok are deferred.
 
-Synthetic scenes are not presented as authentic documentary capture. Map imagery and place data are used only where provider terms, attribution and transformation rights permit it.
+## Production workflow
 
-## The Mecha loop
+Topic → sourced brief → script and technical review → timed storyboard → voice/visual proof → render and review → private upload → approved publication → learning.
 
-```mermaid
-flowchart LR
-    I["💡 Idea"] --> R["🔎 Research"]
-    R --> P["🗺️ Route / Storyboard"]
-    P --> C["🎬 Create"]
-    C --> A["✅ Review"]
-    A --> D["🚀 Distribute"]
-    D --> M["📈 Measure"]
-    M -. learn .-> R
-```
+Recommended starting stack: **Python, Manim Community and FFmpeg**, one selected text adapter and a narration choice. Blender is available for specific 3D needs; cinematic generation is optional. See the [costs and creator input checklist](docs/PHYSICS_CHANNEL_PLAN.md).
 
-## Architecture at a glance
+## Roadmap
 
-```mermaid
-flowchart TB
-    W["Mecha Workspace"] --> O["Workflow Orchestrator"]
-    O --> N["Natural Worlds"]
-    O --> C["City Walks"]
-    N --> G["Model & Media Gateways"]
-    C --> G
-    C --> M["Map / Geospatial Gateway"]
-    G --> H["GPT / Claude"]
-    G --> L["Local models via vLLM"]
-    N --> P["Publishing Gateway"]
-    C --> P
-    P --> S["YouTube · Instagram · TikTok"]
-```
-
-The model gateway supports hosted proprietary providers such as GPT and Claude and an OpenAI-compatible local endpoint served with vLLM. Provider SDKs remain outside the domain, so a workflow can select models by capability, privacy, quality, latency and cost.
-
-The City Walks pipeline uses a mapping abstraction for routes, places, coordinates and eligible imagery. A feasibility and policy gate must confirm current Google Maps Platform rights before any imagery is stored, transformed or rendered; alternative providers and licensed footage remain supported.
-
-## Roadmap at a glance
-
-| Phase | Outcome |
+| Stage | Demonstrable outcome |
 |---|---|
-| **0 · Foundation** | Agree brands, boundaries, architecture and roadmap |
-| **1 · Workspace** | Manage ideas and two separate brand workspaces |
-| **2 · Research & Locations** | Build dossiers, routes, storyboards and the map-policy ADR |
-| **3 · Model Gateway** | Connect GPT/Claude and local models through vLLM |
-| **4 · Media Creation** | Produce one reviewed master for each content product |
-| **5 · Publishing** | Render derivatives and publish through channel adapters |
-| **6 · Analytics** | Measure each brand and run experiments |
-| **7 · Monetization** | Connect performance to revenue opportunities |
-| **8 · Agentic Automation** | Automate validated steps with observable agents |
-| **9 · Scale** | Add locales, brands, models, channels and hardening |
+| Foundation | Agree physics-channel format, voice, first topic and spend |
+| Short proof | A reviewed 60–90 second sequence |
+| Full pilot | One reviewed 6–8 minute episode and release package |
+| YouTube | Private upload, creator approval and reliable publication |
+| Repeatability | Three episodes with measured production cost and effort |
+| Expansion | Add only capabilities justified by results |
 
-See the detailed [implementation roadmap](docs/ROADMAP.md).
+## Architecture
 
-## Design principles
+Start as a modular monolith with provider ports and durable episode state. Keep scripts, source claims, diagram parameters, asset lineage, costs and approvals linked. Cache approved assets and rerender only affected scenes.
 
-- **Value before volume.**
-- **Research before generation.**
-- **Separate brands, shared platform.**
-- **Canonical content, many derivatives.**
-- **Human agency at consequential boundaries.**
-- **Provider independence.**
-- **Rights, provenance and disclosure by design.**
-- **Observability by default.**
-- **Learn from outcomes.**
-- **Localization is architecture.**
+Reference analysis informs original storytelling; it does not establish which AI tools another creator uses. Precise mechanisms are rendered from reviewed parameters, and synthetic illustrations are identified appropriately.
 
 ## Repository status
 
-> 🚧 **Planning / Foundation**
+**Planning / Foundation — no production implementation yet.**
 
-No production implementation is intentionally included in the first PR. We first agree on what Mecha should become and the order in which to validate it.
+[PR #2](../../pull/2) contains the foundation, revised roadmap, [two-video audit](docs/REFERENCE_AUDIT_LAST_TWO.md) and [physics-first plan](docs/PHYSICS_CHANNEL_PLAN.md). Physics is selected; first topic, voice, visual style and budget remain for feedback before finalizing the foundation.
 
-Track the foundation in [Issue #1](../../issues/1).
-
----
-
-<div align="center"><b>🔥 Mecha — one idea lights everything.</b></div>
+[Issue #1](../../issues/1) tracks foundation planning.
