@@ -1,5 +1,18 @@
 # Physics and Engineering — first-channel plan
-Status: channel priority CONFIRMED by creator on 2026-10-17. Public brand name, first topic, style, voice and spend remain open. Documentation language: English. Audience language: Spanish from Spain.
+Status: physics-channel priority and technology baseline APPROVED on 2026-10-17. Own voice selected. Public brand name, first topic, style details and any paid budget remain implementation decisions. Documentation language: English. Audience language: Spanish from Spain.
+
+## Approved technology baseline — 2026-10-17
+
+- Python + Manim Community + FFmpeg approved. Manim is a Python animation library for diagrams, vectors, orbits and other explanatory graphics; FFmpeg assembles and encodes video/audio/subtitles.
+- Blender approved as optional, used only where 3D improves understanding. These tools have no software subscription fee; hardware, electricity, optional assets/add-ons and cloud rendering are separate.
+- Use a mix of ChatGPT/OpenAI and Claude/Anthropic for drafting and critical review. Start with operator-assisted use of existing access. Automatic API adapters are a later implementation step with separately priced usage and explicit credential setup; no API spending or new subscriptions approved.
+- Own recorded voice is selected. ElevenLabs is deferred because its free plan is non-commercial and limited; do not assume free commercial narration.
+- Keep es-ES as the working launch locale. Recommend Spanish first with broadly understandable technical vocabulary for Spain and Latin America; the creator is still considering language. English localization can reuse reviewed scenes after the format works.
+- Connecting the assistants to YouTube is an intended future capability, not a completed connection. The current verified vidIQ connection returned no owned channel. Do not infer ChatGPT/Claude publishing authorization.
+- Foundation documentation may now be merged. Topic, public name, cadence, style details and any paid budget are episode/implementation decisions, not blockers for this planning PR.
+
+Spanish positioning: established science channels such as QuantumFracture and Date un Vlog demonstrate an existing audience and competition. A satellite/communications/practical-engineering focus is a proposed differentiator; no quantitative Spanish-versus-English competition, revenue or demand study has been completed.
+Sources: https://docs.manim.community/en/stable/ ; https://www.blender.org/about/license/ ; https://ffmpeg.org/about.html ; https://elevenlabs.io/terms-of-use-eu ; https://www.rtve.es/play/videos/fecyt/sciencetruck-2-fisica-youtuber-jose-luis-crespo/5730676/
 
 ## Confirmed portfolio
 | Priority | Channel concept | Scope | Launch status |
@@ -74,7 +87,7 @@ Defaults proposed for feedback: es-ES, curious non-specialists, 6–8 minutes, c
 - First topic: proposed orbit episode or a creator-supplied alternative.
 - Audience/depth: general curiosity, secondary-school level or technically curious adults.
 - Visual style: mostly clean diagrams, mostly cinematic, or hybrid (recommended).
-- Narration: creator recording or synthetic es-ES; evaluate a sample before locking a voice.
+- Narration is selected: creator recording. Review recording quality and pronunciation using a short sample.
 - Monthly/new-service budget and approximate episode frequency.
 - Available computer/OS and optional GPU for rendering/local models.
 - Any reference channels, branding preferences or prohibited analogies.
