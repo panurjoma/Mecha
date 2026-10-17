@@ -1,5 +1,8 @@
 # Script, Storytelling and YouTube Guardrails
 
+
+> **Strategy update (2026-10-17): Shorts-first, two channel tracks.** The creator replaced the immediate long-form launch strategy with two Shorts workflows inspired by the [two-tutorial audit](SHORTS_STRATEGY_AUDIT.md). Preserve Tiene su Física as the proposed micro-explainer track; confirm the second channel's subject before launch. Existing own-voice, originality and no-equation defaults remain. Earlier long-form durations and single-track milestones below are historical/deferred where inconsistent. This is a planning update: the current Python renderer is still landscape and needs a separate vertical implementation.
+
 Applies to every Mecha script, revision, storyboard, narration plan, title, thumbnail and release package.
 Owner: creator/editor. Policy sources last checked: **2026-10-17**. Technical documentation is English; initial audience content is Spanish from Spain.
 
@@ -14,7 +17,7 @@ Before drafting or changing audience-facing material, the assistant MUST:
 This file defines an assistant/editor review process. The current CLI enforces JSON structure and revision state; it does NOT automatically judge truth, copyright, YouTube compliance, originality or earnings. No script is “YouTube certified” by passing a local test.
 
 ## 2. Audience, language and voice — creator requirements
-- Platform first: YouTube long-form. Audience: curious people interested in science, assuming NO prior physics or mathematics knowledge.
+- Platform first: YouTube Shorts. Shorts-first instructions in SHORTS_STRATEGY_AUDIT.md supersede earlier long-form pacing/length defaults. Audience: curious people interested in science, assuming NO prior physics or mathematics knowledge.
 - Storytelling and visual intuition come first. Do not include equations, derivations, symbolic notation or dense mathematical graphs by default. Teach mechanisms through everyday situations, analogies, simple animations and clearly explained quantities. Only add an equation when the creator explicitly asks for it or specifically approves a proposed exception; it must not be necessary to follow the story. Internal calculations remain necessary for scientific accuracy even when omitted from narration and visuals.
 - Use es-ES with accessible vocabulary understood across the Spanish-speaking audience. Keep code and documentation English.
 - Mix conversational phrasing with precise technical terms. Introduce a term in ordinary language before relying on it; explain acronyms on first use.
@@ -128,3 +131,6 @@ If a required decision is unresolved, flag it and resolve before public release.
 ## 8. Maintenance
 This guide supersedes inconsistent earlier tone/policy assumptions in discovery notes. The creator can change editorial preferences; current platform requirements still govern platform use.
 Update this document when verified official rules change, preserving source links and review dates. Use primary YouTube/Google documentation for policy claims, not influencer advice or another channel's apparent success.
+
+## Shorts-specific editorial defaults
+Use a clear first-second visual/question, one learning payoff, compact narration and mobile-readable captions. For micro-explainers test roughly 25–40 seconds; for original ranking/commentary test 35–60 seconds. These are editorial hypotheses, not platform requirements. Avoid long greetings, filler and copying a competitor's script. Rankings require explicit comparison criteria, substantive original explanation and cleared assets. Do not mechanically apply the long-form eight-minute/mid-roll guidance above to Shorts. Do not adopt tutorial advice to conceal AI, download unlicensed social clips, manufacture engagement or guarantee earnings. Use the official Shorts monetization/classification sources linked in the strategy audit.
