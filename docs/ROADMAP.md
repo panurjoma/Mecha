@@ -1,9 +1,9 @@
 # Implementation Roadmap
 
-Updated 2026-10-17: launch **one es-ES YouTube channel first**. Channel choice and budget are pending interactive feedback. See [channel discovery, tools and costs](YOUTUBE_FIRST_DISCOVERY.md). Natural Worlds and City Walks remain portfolio options; their parallel launch is superseded.
+Updated 2026-10-17: launch **one es-ES YouTube channel first**. Physics & Engineering Explained is selected as the first channel. First topic, voice, style and budget are pending interactive feedback. See [channel discovery, tools and costs](YOUTUBE_FIRST_DISCOVERY.md). The confirmed four-channel portfolio is Physics & Engineering, AI Explained, Relaxing Aerial Journeys and Current Affairs Explained; only physics launches first. See the [physics plan](PHYSICS_CHANNEL_PLAN.md) and [completed two-video reference audit](REFERENCE_AUDIT_LAST_TWO.md).
 
 ## Phase 0 — Finish foundation
-Review five concepts, select one editorial theme, target audience, narration style, pilot length and monthly incremental budget. Complete the reference-channel audit with explicit per-video coverage and resolve tool/pricing uncertainties. Record provider decisions and measurable pilot acceptance criteria. Finalize PR #2 with the creator before implementation.
+The creator selected physics/engineering first and narrowed the reference audit to the two latest videos; both transcript and automated audiovisual reviews are complete. Agree target audience, first topic, narration style, pilot length and monthly incremental budget. Resolve remaining tool/pricing uncertainties. Record provider decisions and measurable pilot acceptance criteria. Finalize PR #2 with the creator before implementation.
 
 ## Phase 1 — Produce a small proof
 After foundation resolution, implement only the minimal episode workflow: brief, sources/claims, script revisions, timed shot list, asset lineage and cost ledger. Create a 60–90 second proof with one selected workflow. Compare es-ES voice quality, realism, editing effort and cost. Avoid building a broad operator platform first.
@@ -26,7 +26,7 @@ Produce three episodes in the SAME theme. Track actual cost per accepted minute,
 Add a minimal operator interface, deeper analytics and selective automation as justified. Add extra providers, local vLLM serving or agents only when measured requirements support them.
 
 ## Deferred portfolio
-Natural Worlds (realistic simulated drone landscapes/wildlife), City Walks (sourced real-city journeys), further brands, Instagram, TikTok, monetization and localization remain potential later work. Do not provision six accounts or require two production pipelines for the first launch.
+AI Explained, Relaxing Aerial Journeys and Current Affairs Explained form the later portfolio. Urbanism/city walks, company histories, Instagram, TikTok, monetization and localization remain potential later work. Do not provision six accounts or require two production pipelines for the first launch.
 If a selected episode needs geospatial data/imagery, conduct the existing provider-rights feasibility spike before use; this is not a universal first-pilot dependency.
 
 ## Proposed implementation PRs
@@ -40,4 +40,4 @@ If a selected episode needs geospatial data/imagery, conduct the existing provid
 English documentation/code, audience content in Spanish from Spain. Original storytelling, traceable claims, licensed assets and clearly identified synthetic reconstructions. Provider-independent boundaries; concrete adapters only where needed. Meaningful behavioral tests for implementation changes, media QA, persisted workflow state, cost caps and approval before public release.
 
 ## Current review status
-Documentation proposal committed to the existing foundation branch. Channel, budget, voice and final providers are not yet selected. Reference audit is incomplete. PR remains open for the requested interactive feedback; implementation has not started.
+Documentation proposal committed to the existing foundation branch. Physics is the confirmed first channel. Both latest-video audits are complete within the narrowed scope. First topic, budget, voice and final providers are not yet selected. PR remains open for the requested interactive feedback; implementation has not started.
