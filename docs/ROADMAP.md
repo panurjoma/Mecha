@@ -1,5 +1,8 @@
 # Implementation Roadmap
 
+
+> **Strategy update (2026-10-17): Shorts-first, two channel tracks.** The creator replaced the immediate long-form launch strategy with two Shorts workflows inspired by the [two-tutorial audit](SHORTS_STRATEGY_AUDIT.md). Preserve Tiene su Física as the proposed micro-explainer track; confirm the second channel's subject before launch. Existing own-voice, originality and no-equation defaults remain. Earlier long-form durations and single-track milestones below are historical/deferred where inconsistent. This is a planning update: the current Python renderer is still landscape and needs a separate vertical implementation.
+
 Updated 2026-10-17: launch **one es-ES YouTube channel first**. Physics & Engineering Explained is selected as the first channel. Python, Manim, FFmpeg, optional Blender, mixed ChatGPT/Claude assistance and own narration are approved. First topic, style details and paid budget are implementation decisions. See [channel discovery, tools and costs](YOUTUBE_FIRST_DISCOVERY.md). The confirmed four-channel portfolio is Physics & Engineering, AI Explained, Relaxing Aerial Journeys and Current Affairs Explained; only physics launches first. See the [physics plan](PHYSICS_CHANNEL_PLAN.md) and [completed two-video reference audit](REFERENCE_AUDIT_LAST_TWO.md).
 
 ## Phase 0 — Foundation approved
