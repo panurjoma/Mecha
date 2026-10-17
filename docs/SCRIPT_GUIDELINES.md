@@ -14,7 +14,8 @@ Before drafting or changing audience-facing material, the assistant MUST:
 This file defines an assistant/editor review process. The current CLI enforces JSON structure and revision state; it does NOT automatically judge truth, copyright, YouTube compliance, originality or earnings. No script is “YouTube certified” by passing a local test.
 
 ## 2. Audience, language and voice — creator requirements
-- Platform first: YouTube long-form. Audience: curious people interested in science, without assuming specialist training.
+- Platform first: YouTube long-form. Audience: curious people interested in science, assuming NO prior physics or mathematics knowledge.
+- Storytelling and visual intuition come first. Do not include equations, derivations, symbolic notation or dense mathematical graphs by default. Teach mechanisms through everyday situations, analogies, simple animations and clearly explained quantities. Only add an equation when the creator explicitly asks for it or specifically approves a proposed exception; it must not be necessary to follow the story. Internal calculations remain necessary for scientific accuracy even when omitted from narration and visuals.
 - Use es-ES with accessible vocabulary understood across the Spanish-speaking audience. Keep code and documentation English.
 - Mix conversational phrasing with precise technical terms. Introduce a term in ordinary language before relying on it; explain acronyms on first use.
 - Sound like a knowledgeable person explaining an interesting mechanism to a friend. Use short and varied sentences, concrete examples and occasional light humor. Avoid dense lectures, forced slang, patronizing language and unnecessary profanity.
