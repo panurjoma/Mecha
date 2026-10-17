@@ -1,5 +1,5 @@
 # Physics and Engineering — first-channel plan
-Status: physics-channel priority and technology baseline APPROVED on 2026-10-17. Own voice selected. Public brand name, first topic, style details and any paid budget remain implementation decisions. Documentation language: English. Audience language: Spanish from Spain.
+Status: physics-channel priority and technology baseline APPROVED on 2026-10-17. Own voice selected. First topic confirmed: why a satellite does not fall to Earth. Public brand name, style details and any paid budget remain implementation decisions. See [launch identity draft](CHANNEL_LAUNCH_DRAFT.md). Documentation language: English. Audience language: Spanish from Spain.
 
 ## Approved technology baseline — 2026-10-17
 
@@ -30,7 +30,7 @@ Target assumption for review: curious adults without specialist training; intuit
 Working name option: “Así Funciona”. Availability and identity have not been checked.
 
 ## Recommended pilot and initial series
-Proposed first episode: “Why doesn’t a satellite fall to Earth?”
+Creator-selected first episode (2026-10-17): “Why doesn’t a satellite fall to Earth?”
 Core outcome: understand orbit as continuous free fall with sideways velocity. Distinguish orbital motion from hovering. Clearly label idealizations and scale.
 Follow-up candidates, chosen one at a time by the creator:
 1. How does internet reach an airplane?
@@ -38,7 +38,7 @@ Follow-up candidates, chosen one at a time by the creator:
 3. Why does a satellite seem fixed in the sky?
 4. How does an antenna send information through empty space?
 Later bridges: lift, pumps/pipe pressure, electricity generation, heat transfer and control/communications algorithms.
-No episode is selected automatically; creator supplies or chooses the next topic.
+The creator selected the first topic; subsequent topics will also be supplied or chosen by the creator.
 
 ## Technology recommendation
 | Capability | Start with | Cost / qualification |
