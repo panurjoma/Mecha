@@ -1,5 +1,5 @@
 # Physics-channel launch draft
-Created 2026-10-17. Status: proposed identity, NOT yet approved or registered.
+Created 2026-10-17. Status: creator APPROVED the name “Tiene su Física” and channel description on 2026-10-17. Channel creation has NOT been completed or verified.
 Guides consulted at commit 59ed600cb9a933b60ee548bf074706efa3b448d3: AGENTS.md, docs/SCRIPT_GUIDELINES.md, docs/ASSISTANT_WORKFLOW.md.
 Creator confirmed the first episode topic: **Why doesn't a satellite fall to Earth?** Narration/script still require review.
 
@@ -44,3 +44,8 @@ Sources: https://support.google.com/youtube/answer/10456525?hl=en ; https://supp
 ## Next creator actions
 Choose/adjust name and identity → check/register handle in YouTube → finalize assets at platform dimensions → apply description/profile/banner → prepare and review the first original episode.
 Channel creation and publishing have NOT been performed.
+
+## Creator update — 2026-10-17
+The creator will create the additional channel under their existing Google account. The connected vidIQ tool cannot create channels or edit channel descriptions; the browser attempt reached Google sign-in, so no channel was created and no description was published. Await the actual channel URL/ID before claiming setup success.
+
+Future idea: a cooking channel. Park this in the backlog only; no name, scope, channel creation, research or implementation is selected. Physics remains the first active channel.
