@@ -10,7 +10,7 @@ This is the ranking tutorial (the second URL originally supplied). Folder names 
 
 Evidence reviewed: 2026-10-17 using the previously retrieved vidIQ English transcript and completed visual walkthrough. Timestamps are approximate. Visual findings are automated observations, not independently verified OCR. No screenshot image files or complete on-screen prompt texts were returned. This folder contains independent paraphrase and analysis, not a full transcript or copied tutorial assets. Revenue, speed and growth claims are the presenter's claims, not verified Mecha results.
 
-Read [the strategy audit](../docs/SHORTS_STRATEGY_AUDIT.md), [script guidelines](../docs/SCRIPT_GUIDELINES.md) and [assistant workflow](../docs/ASSISTANT_WORKFLOW.md) before production. Exact ranking subject/name remains open. The creator requests this documentation; no subscription, borrowed-clip reuse or public upload is authorized.
+Read [the strategy audit](../docs/SHORTS_STRATEGY_AUDIT.md), [script guidelines](../docs/SCRIPT_GUIDELINES.md) and [assistant workflow](../../docs/ASSISTANT_WORKFLOW.md) before production. Exact ranking subject/name remains open. The creator requests this documentation; no subscription, borrowed-clip reuse or public upload is authorized.
 
 ## Mecha workflow
 Choose subject and comparison criterion → research sources and permitted assets → original explained ranking → creator review → own narration → timed original/licensed visuals → vertical render when implemented → rights/factual/disclosure review → final creator approval.

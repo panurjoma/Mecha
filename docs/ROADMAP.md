@@ -1,49 +1,23 @@
-# Implementation Roadmap
+# Roadmap — The Edge Kitchen first
 
+Updated 2026-10-23. Earlier channel roadmaps are retained in [Proposals](../Proposals/README.md). This plan does not imply that future capabilities are implemented.
 
-> **Strategy update (2026-10-17): Shorts-first, two channel tracks.** The creator replaced the immediate long-form launch strategy with two Shorts workflows inspired by the [two-tutorial audit](SHORTS_STRATEGY_AUDIT.md). Preserve Tiene su Física as the proposed micro-explainer track; confirm the second channel's subject before launch. Existing own-voice, originality and no-equation defaults remain. Earlier long-form durations and single-track milestones below are historical/deferred where inconsistent. This is a planning update: the current Python renderer is still landscape and needs a separate vertical implementation.
+| Stage | Deliverable | State / acceptance |
+|---|---|---|
+| Existing foundation | Local Python episode workflow, SQLite revisions, review, audio and portable bundles | Implemented; current media output is landscape cards / fixed Manim |
+| Kitchen continuity | Reconciled floor plan, compatible image references and versioned asset manifest | Next; creator approves island orientation and clear sofa separation |
+| World experiment | Marble trial, spatial review and export assessment | Prompt ready; not generated; Blender remains an optional fallback |
+| Motion proof | Short shot with the same kitchen, believable cooking action and stable geometry | Planned; compare providers within the €50 total pilot cap |
+| Cooking application slice | Register approved external clips and kitchen versions; validate paths/durations/rights; assemble clips with narration | Not implemented; first new code slice after accepted media proof |
+| Recipe pilot | Reviewed recipe, script, storyboard, creator audio and final rendered video | Recipe, format, avatar and duration undecided |
+| Channel release | Studio setup, accurate packaging/disclosure and private review before explicit publication | Manual first; no publishing integration |
+| Localization and iteration | English audio if available and approved; measure audience response, cost and effort | Later; no fixed cadence or earnings promise |
 
-Updated 2026-10-17: launch **one es-ES YouTube channel first**. Physics & Engineering Explained is selected as the first channel. Python, Manim, FFmpeg, optional Blender, mixed ChatGPT/Claude assistance and own narration are approved. First topic, style details and paid budget are implementation decisions. See [channel discovery, tools and costs](YOUTUBE_FIRST_DISCOVERY.md). The confirmed four-channel portfolio is Physics & Engineering, AI Explained, Relaxing Aerial Journeys and Current Affairs Explained; only physics launches first. See the [physics plan](PHYSICS_CHANNEL_PLAN.md) and [completed two-video reference audit](REFERENCE_AUDIT_LAST_TWO.md).
+## First implementation scope
+Extend the existing application with an explicit cooking asset manifest and a reviewed external-clip composition path. Keep the existing SQLite revision model. Record the kitchen/world version and each clip's source, rights, duration and approval state. Validate media with FFmpeg/ffprobe, assemble deterministically and retain render receipts.
 
-## Phase 0 — Foundation approved
-The creator selected physics/engineering first and narrowed the reference audit to the two latest videos; both transcript and automated audiovisual reviews are complete. The approved baseline is Python + Manim + FFmpeg, optional Blender, mixed ChatGPT/Claude assistance and own voice. Capture audience, topic, pilot style and paid budget during implementation; do not purchase services as part of foundation approval. Record provider decisions and measurable pilot acceptance criteria. Finalize PR #2 with the creator before implementation.
+Determine the exact schema after inspecting one real world export and one accepted motion clip. Do not guess Marble APIs/export contracts or make the application execute arbitrary generated Python. Keep existing fixtures and tests.
 
-## Phase 1 — Produce a small proof
-Implementation slice: the local Python CLI, validated episode input, immutable SQLite revisions, feedback/approval history, narration import, portable bundle handoff, card/Manim preview renderers and FFmpeg assembly are available. See [operator guide](ASSISTANT_WORKFLOW.md). The included orbit example is an unapproved developer proof; creator episode selection, recording and final review remain outstanding.
+Acceptance: a creator-approved recipe scene can be assembled from known approved clips plus recorded narration, exported/restored with documented media references, and reviewed without direct CLI work by the creator. Handle missing/private assets explicitly; never silently replace them.
 
-After foundation resolution, implement only the minimal episode workflow: brief, sources/claims, script revisions, timed shot list, asset lineage and cost ledger. Create a 60–90 second proof with one selected workflow. Compare es-ES voice quality, realism, editing effort and cost. Avoid building a broad operator platform first.
-**Exit:** reviewed proof with measured cost and production time.
-
-## Phase 2 — Deliver one complete pilot
-Extend the proof into a proposed 6–8 minute episode for the selected channel. Use one provider per necessary capability; retain provider ports. Include narration, selected generated shots, licensed assets, original diagrams, subtitles, thumbnail, description, disclosure and FFmpeg assembly.
-Persist attempts, cap spend, resume jobs and retain rights/source evidence.
-**Exit:** reviewed master and release package meeting agreed factual, visual, audio and budget criteria.
-
-## Phase 3 — Validate YouTube publishing
-Begin with a manual private upload for review. Implement a YouTube adapter only after checking current API/OAuth/quota/access requirements. Persist external IDs, approval, upload state, retry and duplicate prevention.
-**Exit:** approved episode reaches the intended visibility with an auditable publication record.
-
-## Phase 4 — Repeat and learn
-Produce three episodes in the SAME theme. Track actual cost per accepted minute, human editing hours, failed generations, impressions, click-through rate, early retention and average view duration where available. Do not promise growth or earnings from reference-channel outliers.
-**Exit:** decide whether quality and repeatability justify further automation.
-
-## Phase 5 — Expand validated workflows
-Add a minimal operator interface, deeper analytics and selective automation as justified. Add extra providers, local vLLM serving or agents only when measured requirements support them.
-
-## Deferred portfolio
-AI Explained, Relaxing Aerial Journeys and Current Affairs Explained form the later portfolio. Urbanism/city walks, company histories, Instagram, TikTok, monetization and localization remain potential later work. Do not provision six accounts or require two production pipelines for the first launch.
-If a selected episode needs geospatial data/imagery, conduct the existing provider-rights feasibility spike before use; this is not a universal first-pilot dependency.
-
-## Proposed implementation PRs
-1. Minimal episode/claim/shot/cost contracts and engineering baseline.
-2. Selected research/script/voice/visual workflow and 60–90 second proof.
-3. Resumable assets, deterministic assembly and complete pilot release package.
-4. YouTube publication adapter following manual private-upload validation.
-5. Episode metrics, production-cost review and repeatability improvements.
-
-## Cross-cutting acceptance
-English documentation/code, audience content in Spanish from Spain. Original storytelling, traceable claims, licensed assets and clearly identified synthetic reconstructions. Provider-independent boundaries; concrete adapters only where needed. Meaningful behavioral tests for implementation changes, media QA, persisted workflow state, cost caps and approval before public release.
-
-## Current review status
-Foundation PR #2 is merged. Physics is the confirmed first channel. Both latest-video audits are complete within the narrowed scope. Tool baseline and own voice are approved; ChatGPT/Claude start operator-assisted without API-spend authorization. The first local implementation adds the episode workspace and preview pipeline. The first creator-approved topic, recording, visual review and any paid budget remain outstanding.
-
+No new runtime implementation, account connection, paid generation or publication is part of this documentation change.

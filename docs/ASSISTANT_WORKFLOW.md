@@ -1,7 +1,9 @@
 # Working with Mecha through conversation
 
+**Active launch: The Edge Kitchen.** Earlier physics and Shorts plans are deferred to [Proposals](../Proposals/README.md). The orbit commands below remain developer examples; the current renderer does not produce cooking footage.
+
 ## Before every script or correction
-Read [Script, Storytelling and YouTube Guardrails](SCRIPT_GUIDELINES.md) from the current repo ref and record its commit SHA. It defines the science audience, balanced conversational/technical tone, source checks, originality, disclosure decisions and advertiser-suitability review. Apply it to all drafts and related packaging. This is mandatory for the assistant, not terminal work for the creator.
+Read [Script, Storytelling and YouTube Guardrails](SCRIPT_GUIDELINES.md) from the current repo ref and record its commit SHA. Read the [The Edge Kitchen brief](THE_EDGE_KITCHEN.md) as well. These define the cooking audience, recipe checks, source review, originality, disclosure decisions and advertiser-suitability review. Apply it to all drafts and related packaging. This is mandatory for the assistant, not terminal work for the creator.
 
 Keep the required companion editorial review alongside the persistent episode bundle; v0.1 exports only project history and optional audio, not arbitrary sidecar files. Recheck official YouTube policies and actual rendered assets before release; script approval alone is not a policy clearance.
 
@@ -106,4 +108,4 @@ No automatic ChatGPT/Claude API integration, paid generation, arbitrary generate
 
 The core workflow has no third-party Python dependencies. FFmpeg rendering needs local codecs/fonts; Manim has optional native dependencies. Resource bounds cover JSON size, scene count/duration, bundle/audio size and subprocess timeouts, but this is a trusted local single-operator application, not a hardened multi-tenant service.
 
-Next: agree first episode → review script/style → test narration timing → refine visual templates → produce a reviewed full pilot → add authenticated publishing separately.
+Next: reconcile and approve kitchen references → test the [Marble world prompt](MARBLE_WORLD_PROMPT.md) → review one cooking motion proof → implement an external-clip/asset workflow → choose the first recipe and produce a reviewed pilot. Publishing integration remains separate future work.

@@ -10,7 +10,7 @@ This is the curiosity/microdocumentary tutorial (the first URL originally suppli
 
 Evidence reviewed: 2026-10-17 using the previously retrieved vidIQ English transcript and completed visual walkthrough. Timestamps are approximate. Visual findings are automated observations, not independently verified OCR. No screenshot image files or complete on-screen prompt texts were returned. This folder contains independent paraphrase and analysis, not a full transcript or copied tutorial assets. Revenue, speed and growth claims are the presenter's claims, not verified Mecha results.
 
-Read [the strategy audit](../docs/SHORTS_STRATEGY_AUDIT.md), [script guidelines](../docs/SCRIPT_GUIDELINES.md) and [assistant workflow](../docs/ASSISTANT_WORKFLOW.md) before production.
+Read [the strategy audit](../docs/SHORTS_STRATEGY_AUDIT.md), [script guidelines](../docs/SCRIPT_GUIDELINES.md) and [assistant workflow](../../docs/ASSISTANT_WORKFLOW.md) before production.
 
 ## Mecha workflow
 Topic → verify one interesting mechanism → original short script → creator correction/approval → own recording → timed original diagrams/licensed visuals → reviewed vertical edit when implemented → disclosure/rights/quality review → creator release approval.
