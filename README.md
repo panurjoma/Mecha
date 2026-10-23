@@ -30,6 +30,9 @@ The creator chooses topics one at a time and reviews the angle, script, technica
 | AI Explained | Complex AI concepts and technologies explained simply | Later |
 | Relaxing Aerial Journeys | Realistic drone-style journeys for relaxation | Later |
 | Current Affairs Explained | Context for world news, conflicts and emerging technology | Later |
+| AI Cooking (working title) | AI-generated cooking videos featuring recipes, preparation steps and food visuals; production format to be decided | Planned; documentation only |
+
+AI Cooking is a separate planned channel, not an extension of the science or Shorts brands. See [AI Cooking channel brief](docs/AI_COOKING_CHANNEL.md). The name, video duration, visuals, narration, publishing cadence and tools are not yet selected.
 
 Only one YouTube channel launches initially. Later-channel order is undecided. City walks/urbanism are optional future work; company histories are parked. Instagram and TikTok are deferred.
 
