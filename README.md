@@ -22,6 +22,6 @@ The Python CLI validates episode data and stores immutable revisions, feedback, 
 ## Next deliverable
 Validate one consistent kitchen reference set, try a navigable world, and review a short cooking motion proof before commissioning a full recipe video. The first recipe, avatar, duration and publishing cadence remain to be selected. The approved total pilot budget is **€50**, not a separate allowance for every tool.
 
-All previous channel research is retained in `Proposals/`; it does not determine current production priorities. Application code, tests and existing examples are retained.
+All previous channel research is retained in [`Proposals/`](Proposals/README.md); it does not determine current production priorities. Application code, tests and existing examples are retained.
 
 Code and project documentation are English. Audience content starts in Spanish from Spain. Rendering, script approval and a stored world never constitute permission to publish.
