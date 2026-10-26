@@ -1,63 +1,67 @@
 1
-00:00:03,300 --> 00:00:08,500
+00:00:05,300 --> 00:00:09,500
 Empezamos con un puerro, picado bien finito.
 
 2
-00:00:09,300 --> 00:00:14,500
-Luego una cebolla en
-láminas. Nada complicado.
+00:00:10,300 --> 00:00:14,000
+Luego una cebolla en láminas.
 
 3
-00:00:15,300 --> 00:00:20,000
+00:00:14,800 --> 00:00:19,500
 El pimiento verde entra
 primero en la sartén.
 
 4
-00:00:20,800 --> 00:00:25,500
-Ahora se une la cebolla.
-Que se ablanden juntos.
+00:00:20,300 --> 00:00:25,000
+Suma la cebolla y cocina
+hasta que esté tierna.
 
 5
-00:00:26,300 --> 00:00:31,500
-Cocina despacio hasta que
-todo quede tierno y dulce.
+00:00:25,800 --> 00:00:29,000
+Aparta la verdura tierna en un plato.
 
 6
-00:00:32,300 --> 00:00:37,500
+00:00:29,800 --> 00:00:34,000
 Echa la nata y deja que se temple con calma.
 
 7
-00:00:38,300 --> 00:00:43,500
+00:00:34,800 --> 00:00:39,000
 Añade el queso azul y
 remueve hasta que se funda.
 
 8
-00:00:44,300 --> 00:00:49,500
-Los ñoquis solo necesitan
-un minuto en agua hirviendo.
+00:00:39,800 --> 00:00:44,000
+Mientras, hierve los ñoquis solo un minuto.
 
 9
-00:00:50,300 --> 00:00:55,500
-Vuelve a meter el puerro
+00:00:44,800 --> 00:00:49,000
+Vuelve a meter la verdura
 en la salsa cremosa.
 
 10
-00:00:56,300 --> 00:01:01,500
-Corta los tomates cherry por
-la mitad, para dar frescor.
+00:00:49,800 --> 00:00:53,000
+Parte unos tomates cherry por la mitad.
 
 11
-00:01:02,300 --> 00:01:07,500
-Añade los ñoquis a la salsa y mézclalo todo.
+00:00:53,800 --> 00:00:57,000
+Échalos a la salsa.
 
 12
-00:01:08,300 --> 00:01:13,500
-Sirve el plato bien caliente.
+00:00:57,800 --> 00:01:01,000
+Escurre bien los ñoquis.
 
 13
-00:01:14,300 --> 00:01:19,500
-Termina con mucho Gruyère rallado.
+00:01:01,800 --> 00:01:06,000
+Añade los ñoquis a la salsa y mézclalo todo.
 
 14
-00:01:20,300 --> 00:01:25,500
-Y listo. Cremoso, reconfortante y a comer.
+00:01:06,800 --> 00:01:11,000
+Sirve el plato bien caliente.
+
+15
+00:01:11,800 --> 00:01:15,500
+Termina con mucho Gruyère rallado.
+
+16
+00:01:16,300 --> 00:01:20,500
+Y listo. Cremoso y reconfortante.

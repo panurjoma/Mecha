@@ -74,6 +74,9 @@ def main():
     f_ = fmt(meta, a.format)
     cfg = meta["voice"][a.lang]
     cap_file = vdir / f_["captions"][a.lang]
+    voice_script = cap_file.with_name(cap_file.stem + ".voice.srt")  # made by make_captions.py: captions + cover and end card lines
+    if voice_script.exists():
+        cap_file = voice_script
     cues = parse_srt(cap_file)
     tempo_max = f_.get("tempo_max", 1.08)
     ffmpeg = find_ffmpeg()

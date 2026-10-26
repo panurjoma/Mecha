@@ -6,7 +6,9 @@ caption on its clip and writes the .srt named in formats.<format>.captions.<lang
 a clip, run it again (run_pipeline.py does it for you) and every caption moves with its clip.
 Timeline: [moving hook] -> cover card -> clips in order -> end card. A hook clip (the first segment, "hook": true) may have a
 caption too. Short: the caption fills the clip minus 0.2 s; video: it starts 0.3 s in and ends 0.5 s before the cut, which is
-the window the voice-over uses (see make_voice.py). Segments without a caption get none. Does nothing when no segment has one.
+the window the voice-over uses (see make_voice.py). Segments without a caption get none.
+For a video with voice-over it also writes <captions>.voice.srt: the same lines plus formats.<format>.cover_caption and
+end_caption (spoken over the cover card and the end card, not burned in). make_voice.py reads that file when it exists. Does nothing when no segment has one.
 """
 import argparse
 
@@ -25,7 +27,14 @@ def wrap(text, width):
     return best[0] + "\n" + best[1]
 
 
-def build_cues(f_, lang):
+def voice_srt(f_, lang):
+    """Path of the voice script: the captions plus voice-only lines (over the cover card and the end card)."""
+    from pathlib import Path
+    cap = Path(f_["captions"][lang])
+    return cap.with_name(cap.stem + ".voice.srt")
+
+
+def build_cues(f_, lang, voice=False):
     short = f_["h"] > f_["w"]
     width = 22 if short else 44
     cues, t, hook = [], 0.0, f_["hook_dur"]
@@ -39,6 +48,15 @@ def build_cues(f_, lang):
             a, b = (t, t + s["dur"] - 0.2) if short else (t + 0.3, t + s["dur"] - 0.5)
             cues.append((a, b, wrap(text, width)))
         t += s["dur"]
+    if voice:  # lines spoken over the cover card and the end card, never burned onto those cards
+        cc = (f_.get("cover_caption") or {}).get(lang)
+        if cc:
+            c0 = hook + 0.0
+            cues.append((c0 + 0.3, c0 + f_["cover_dur"] - 0.3, cc))
+        ec = (f_.get("end_caption") or {}).get(lang)
+        if ec:
+            cues.append((t + 0.5, t + f_["endcard_dur"] - 0.5, ec))
+        cues.sort()
     return cues
 
 
@@ -56,6 +74,10 @@ def main():
     cues = build_cues(f_, a.lang)
     write_srt(vdir / f_["captions"][a.lang], cues)
     print(f"{len(cues)} captions written to {f_['captions'][a.lang]}")
+    if f_["voice"]:
+        vs = voice_srt(f_, a.lang)
+        write_srt(vdir / vs, build_cues(f_, a.lang, voice=True))
+        print(f"voice script written to {vs}")
 
 
 if __name__ == "__main__":
