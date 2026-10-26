@@ -53,8 +53,12 @@ at the end. The footage is filmed by the channel owner; only the cover image is 
     2. **Cut and join** (`cut_rough.py`): put the moments together in filming order (file name and modified time agree)
        with the clips' own sound. Nothing else yet: no cover, captions, music or cleaning.
     3. **Clean**: remove light reflections and glare, denoise, sharpen, colour, only after the order and length are agreed.
-    4. **Cover and end card**, then **captions** (English first, Spanish second), then **voice** (video only) and **music**
-       (chosen by the owner, royalty-free), then the final file and the YouTube text.
+    4. **Cover**, then **captions** (English first, Spanish second), then **voice** (video only) and **music**
+       (chosen by the owner, royalty-free).
+    5. **Bill and price estimate**, last: list the ingredients seen in the footage in `input/<id>/price.json` (same format as
+       the first video: items in English and Spanish, price, servings) using average Spanish supermarket prices, labelled as
+       an estimate. It feeds the price end card (`make_endcard.py`) and the video description's price list.
+    6. Final file and YouTube text.
     The short repeats as little as possible (one idea per moment, short captions, no voice). The video may add secondary
     details (extra moments, a fuller explanation, voice-over). Never redo an earlier stage to change a later one.
 
