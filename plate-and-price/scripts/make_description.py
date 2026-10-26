@@ -21,7 +21,7 @@ T = {
         "costs": "What it costs (estimated supermarket prices)",
         "total": "Total {total} for {n}, which is {per} a serving.",
         "chapters": "Chapters",
-        "music": "Music: {song} by {artist}",
+        "music": "Music: {song} by {artist} ({license})",
         "short_price": "The whole dinner for {n} costs about {total}, so {per} a serving.",
     },
     "es": {
@@ -30,7 +30,7 @@ T = {
         "costs": "Lo que cuesta (precios estimados de supermercado)",
         "total": "Total {total} para {n}, es decir {per} por ración.",
         "chapters": "Capítulos",
-        "music": "Música: {song} de {artist}",
+        "music": "Música: {song} de {artist} ({license})",
         "short_price": "La cena entera para {n} cuesta unos {total}, o sea {per} por ración.",
     },
 }
@@ -89,7 +89,7 @@ def build(video_id, kind, lang, use_llm=False):
             body += [t["chapters"]] + [f"{mmss(c['at'])} {c[lang]}" for c in chapters] + [""]
         song = meta["audio"].get("song", {})
         if song.get("licensed"):
-            body += [t["music"].format(song=song["title"], artist=song["artist"]), ""]
+            body += [t["music"].format(song=song["title"], artist=song["artist"], license=song.get("license_url", "licensed")), ""]
         body += [d["closing"][lang], "", " ".join(d["hashtags"][lang])]
 
     notes = [f"Prices are estimates (price.json). Channel: {chan['name']}."]

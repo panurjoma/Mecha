@@ -8,3 +8,5 @@ input/*/*.key
 *.MP4
 *.mov
 *.MOV
+input/*/*.mp3
+music/*.mp3

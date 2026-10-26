@@ -53,6 +53,14 @@ The video takes several minutes to render (1080p, slow preset). For a new langua
    same format as the first video). It makes the price end card and the price list in the video description.
 The short keeps repetition to a minimum; the video can carry more secondary detail. See directive 18 in `CLAUDE.md`.
 
+## Music from an API (royalty-free, automatic)
+`python pick_music.py <id>` asks the Jamendo API for an instrumental chill track that is long enough, keeps only tracks
+whose Creative Commons licence allows commercial use and editing (settings in `config/music.json`), downloads it to
+`input/<id>/music.mp3` and sets `audio` in `video.json`. The description then credits it with its licence link.
+Needs a free `JAMENDO_CLIENT_ID` in `.env` (devportal.jamendo.com). Use `--list` to see candidates first, `--mood` and
+`--start` to steer it. Tracks already used for other recipes are avoided (`music/catalog.json`). Read Jamendo's API
+terms for your use; the picker's licence filter is a safeguard, not legal advice. Changing the track only rebuilds music, mix and final.
+
 ## Layers: change one thing without redoing the rest
 Videos are built as layers, each a file in `<output>/<recipe>/layers/` with a `.key` fingerprint of its inputs.
 Run the same command again and only the layers whose inputs changed are rebuilt (the log shows `[built]` or `[cached]`).

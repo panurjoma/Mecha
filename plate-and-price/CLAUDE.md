@@ -56,7 +56,7 @@ at the end. The footage is filmed by the channel owner; only the cover image is 
        small bright reflections is cut at stage 2 with `shutter` (blends 120 fps frames); stage 3 adds denoise, tamed highlights,
        white balance, colour and light sharpening.
     4. **Cover**, then **captions** (English first, Spanish second), then **voice** (video only) and **music**
-       (chosen by the owner, royalty-free).
+       (chosen by the owner, or picked by `pick_music.py` from the Jamendo API; always royalty-free, never a commercial song).
     5. **Bill and price estimate**, last: list the ingredients seen in the footage in `input/<id>/price.json` (same format as
        the first video: items in English and Spanish, price, servings) using average Spanish supermarket prices, labelled as
        an estimate. It feeds the price end card (`make_endcard.py`) and the video description's price list.

@@ -1,0 +1,12 @@
+{
+  "provider": "jamendo",
+  "min_length_s": 100,
+  "moods": {
+    "short": ["chillout", "groove", "lounge", "easylistening"],
+    "video": ["chillout", "lounge", "acoustic", "easylistening"]
+  },
+  "speed": ["low", "medium"],
+  "vocalinstrumental": "instrumental",
+  "allowed_licenses": ["/licenses/by/", "/publicdomain/", "/licenses/zero/"],
+  "note": "Only tracks whose Creative Commons URL has no NonCommercial (nc), NoDerivatives (nd) or ShareAlike (sa) part are used: the channel earns money and the music is cut and faded. Check the Jamendo API terms for your use."
+}
