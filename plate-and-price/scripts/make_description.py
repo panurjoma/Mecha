@@ -16,8 +16,8 @@ from common import OUTPUT_DIR, fmt, load_json, load_env, video_dir
 
 T = {
     "en": {
-        "short_title": "{title} for {per} a serving #Shorts",
-        "video_title": "{title} | Dinner for two for {per} a serving",
+        "short_title": "{title} #Shorts",
+        "video_title": "{title}",
         "costs": "What it costs (estimated supermarket prices)",
         "total": "Total {total} for {n}, which is {per} a serving.",
         "chapters": "Chapters",
@@ -25,8 +25,8 @@ T = {
         "short_price": "The whole dinner for {n} costs about {total}, so {per} a serving.",
     },
     "es": {
-        "short_title": "{title} por {per} la ración #Shorts",
-        "video_title": "{title} | Cena para dos por {per} la ración",
+        "short_title": "{title} #Shorts",
+        "video_title": "{title}",
         "costs": "Lo que cuesta (precios estimados de supermercado)",
         "total": "Total {total} para {n}, es decir {per} por ración.",
         "chapters": "Capítulos",

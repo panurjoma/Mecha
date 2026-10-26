@@ -151,8 +151,8 @@ def main():
     f_ = fmt(meta, kind)
     o, au, enh = f_["output"], meta["audio"], meta.get("enhance", {})
     W, H, fps, total = f_["w"], f_["h"], f_["fps"], f_["total"]
-    raw = vdir / meta["raw"]
-    rw, rh = probe_size(raw)
+    raw = vdir / meta["raw"] if meta.get("raw") else None
+    rw, rh = probe_size(raw) if raw else (0, 0)
     cues = parse_srt(vdir / f_["captions"][lang])
     cover, endcard = pick(vdir, "cover", kind, lang), pick(vdir, "endcard", kind, lang)
     if cover is None or endcard is None:
@@ -168,10 +168,17 @@ def main():
             raise SystemExit("no voice: run make_voice.py or put voice_<format>_<lang>.wav in the input folder")
 
     # 1. picture layers
-    k_footage = build_cached(L / f"footage_{kind}.mp4",
-                             digest("footage", code(build_footage), code(zoom_expr), code(enhance_filters), sig(raw), f_["segments"],
-                                    f_["layout"], W, H, fps, f_["zoom_amount"], enh, rw, rh),
-                             lambda t: build_footage(t, ffmpeg, raw, f_, enh, rw, rh), f"footage_{kind}", "footage" in force)
+    if raw is None:  # recipes cut from several recordings: the footage is the cleaned cut (cut_rough.py + clean_footage.py)
+        footage = L / f"clean_{kind}.mp4"
+        if not footage.exists():
+            raise SystemExit("no clean cut yet: run cut_rough.py and clean_footage.py first")
+        k_footage = digest("footage-from-clean", sig(footage))
+    else:
+        footage = L / f"footage_{kind}.mp4"
+        k_footage = build_cached(footage,
+                                 digest("footage", code(build_footage), code(zoom_expr), code(enhance_filters), sig(raw), f_["segments"],
+                                        f_["layout"], W, H, fps, f_["zoom_amount"], enh, rw, rh),
+                                 lambda t: build_footage(t, ffmpeg, raw, f_, enh, rw, rh), f"footage_{kind}", "footage" in force)
     stills = {}
     for name, img, dur, zoom in (("cover", cover, f_["cover_dur"], 0.05), ("endcard", endcard, f_["endcard_dur"], 0.04)):
         stills[name] = (L / f"still_{kind}_{lang}_{name}.mp4",
@@ -183,7 +190,7 @@ def main():
     k_cap = build_cached(L / f"captioned_{kind}_{lang}.mp4",
                          digest("captioned", code(build_captioned), code(write_ass), k_footage, stills["cover"][1], stills["endcard"][1],
                                 cues, f_["caption_style"], W, H, fps, o["crf"]),
-                         lambda t: build_captioned(t, ffmpeg, stills["cover"][0], L / f"footage_{kind}.mp4", stills["endcard"][0], cues, f_),
+                         lambda t: build_captioned(t, ffmpeg, stills["cover"][0], footage, stills["endcard"][0], cues, f_),
                          f"captions {kind} {lang}", "captions" in force)
     # 3. sound layers
     k_music = build_cached(L / f"music_{kind}.wav", digest("music", code(build_music), sig(song_src), au["start"], total),
