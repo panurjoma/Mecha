@@ -40,6 +40,33 @@ Output (in `PLATE_OUTPUT_DIR`, see `.env.example`): `<format>_<lang>.mp4` and a 
 The video takes several minutes to render (1080p, slow preset). For a new language, run
 `python translate_captions.py <recipe-name> --format video --to es` (needs an LLM key in `.env`), then run with `--lang es`.
 
+## Layers: change one thing without redoing the rest
+Videos are built as layers, each a file in `<output>/<recipe>/layers/` with a `.key` fingerprint of its inputs.
+Run the same command again and only the layers whose inputs changed are rebuilt (the log shows `[built]` or `[cached]`).
+The only tool needed is **FFmpeg**, which the scripts already use (through `imageio-ffmpeg`, nothing to install).
+
+| Layer (file) | Built from | Rebuilds when you change | Time |
+|---|---|---|---|
+| `footage_<format>.mp4` | raw video, clips, zoom, layout | clip times, zoom, layout, the raw video | slow (1-5 min), shared by all languages |
+| `still_<format>_<lang>_cover/endcard.mp4` | cover and end-card images | the AI cover, the prices, the end card | seconds |
+| `captioned_<format>_<lang>.mp4` | the layers above + captions | the captions file or caption style | about 30 s |
+| `voice_<format>_tts_<lang>.wav` (in `input/`) | captions + voice name | the captions, the voice name or rate | seconds |
+| `music_<format>.wav` | the song | the song or its start time | seconds |
+| `mix_<format>_<lang>.wav` | music + voice | the voice, the music volume | seconds |
+| `<format>_<lang>.mp4` (final) | captioned picture + mix | anything above (the picture is copied, not re-encoded) | seconds |
+| `<format>_<lang>_review.mp4` | the final file | anything above | seconds |
+
+Typical changes:
+- **New captions:** edit `captions_<format>_<lang>.srt` and run again. The footage is reused; for the video the voice is
+  regenerated from the new captions.
+- **New voice:** change `voice` in `video.json` (or record your own `voice_video_<lang>.wav`) and run again. Only the voice,
+  the mix and the final file are rebuilt, so the picture is not touched.
+- **New song:** change `audio` in `video.json`; only the music, mix and final rebuild.
+- **New language:** run with `--lang es`; the footage and the music are reused.
+- **Force a rebuild:** `--force captions,mix` (layers: `footage, stills, captions, voice, music, mix, final, review`, or `all`).
+
+The layer folder is outside git and can be deleted at any time; it will be rebuilt. It can be large (a few hundred MB).
+
 ## YouTube title, description and tags
 `run_pipeline.py` also writes `description_<format>_<lang>.md` next to each video: TITLE, DESCRIPTION, TAGS and a NOTES
 section for you (not for YouTube). English by default; `--lang es` writes the Spanish one. You can run it alone:

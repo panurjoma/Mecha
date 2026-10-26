@@ -3,6 +3,7 @@
 usage: python run_pipeline.py <video-id> --format short|video --lang en
   short: captions + music, 1080x1920 for YouTube Shorts.
   video: captions + voice-over + music, 1920x1080 for the YouTube channel.
+Every video layer is cached (see layers.py): only the layers whose inputs changed are rebuilt; --force rebuilds chosen ones.
 Steps: translate captions if missing -> AI cover check -> cover -> price end card -> (voice) -> edit/render -> YouTube
 title, description and tags (description_<format>_<lang>.md). Prints one JSON line with the output paths and the text. Run it with
 `uv run --with pillow --with imageio-ffmpeg --with edge-tts python run_pipeline.py ...` if those are not installed.
@@ -26,7 +27,9 @@ def main():
     ap.add_argument("video_id")
     ap.add_argument("--format", default="short", choices=["short", "video"])
     ap.add_argument("--lang", default="en")
+    ap.add_argument("--force", default="", help="layers to rebuild even if unchanged: footage,stills,captions,voice,music,mix,final,review,all")
     a = ap.parse_args()
+    force = {x.strip() for x in a.force.split(",") if x.strip()}
     kind = a.format
     vdir = video_dir(a.video_id)
     meta = load_json(vdir / "video.json")
@@ -40,8 +43,8 @@ def main():
     if not (vdir / f"endcard_{kind}.png").exists():
         step("make_endcard.py", a.video_id, "--format", kind, "--lang", a.lang)
     if f_["voice"] and not (vdir / f"voice_{kind}_{a.lang}.wav").exists():  # your own recording wins over TTS
-        step("make_voice.py", a.video_id, "--format", kind, "--lang", a.lang)
-    step("edit_short.py", a.video_id, "--format", kind, "--lang", a.lang)
+        step("make_voice.py", a.video_id, "--format", kind, "--lang", a.lang, *(["--force"] if force & {"voice", "all"} else []))
+    step("edit_short.py", a.video_id, "--format", kind, "--lang", a.lang, *(["--force", ",".join(force - {"voice"})] if force - {"voice"} else []))
 
     from make_description import build  # after the render so a description problem never loses the video
     desc_file, yt_title, yt_body = build(a.video_id, kind, a.lang)

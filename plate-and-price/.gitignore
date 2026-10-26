@@ -3,3 +3,4 @@ output/
 __pycache__/
 input/*/raw*.mp4
 input/*/*.wav
+input/*/*.key

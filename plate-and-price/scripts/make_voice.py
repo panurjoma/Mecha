@@ -1,8 +1,9 @@
 """Make a calm voice-over from the captions with a free text-to-speech engine (edge-tts), one line per caption.
 
-usage: python make_voice.py <video-id> --format video --lang en
-Output: input/<id>/voice_<format>_tts_<lang>.wav (same length as the video). If you record your own voice, save it as
-input/<id>/voice_<format>_<lang>.wav on the output timeline; edit_short.py prefers that file over the generated one.
+usage: python make_voice.py <video-id> --format video --lang en [--force]
+Output: input/<id>/voice_<format>_tts_<lang>.wav (same length as the video). It is a layer: if the captions, the voice
+name, the rate and the timing are unchanged, the file is reused and nothing is generated. If you record your own voice,
+save it as input/<id>/voice_<format>_<lang>.wav on the output timeline; edit_short.py prefers that file.
 
 The voice is never rushed: speed is only raised up to video.json formats.<format>.tempo_max (default 1.08), and a
 warning is printed for any caption whose speech is still longer than its window (shorten that caption or widen it).
@@ -16,6 +17,7 @@ import tempfile
 from pathlib import Path
 
 from common import find_ffmpeg, fmt, load_json, parse_srt, run, video_dir
+from layers import build_cached, code, digest, sig
 
 
 def duration(ffmpeg, path):
@@ -41,20 +43,7 @@ async def synth(cues, voice, rate, tmp):
     return files
 
 
-def main():
-    ap = argparse.ArgumentParser()
-    ap.add_argument("video_id")
-    ap.add_argument("--format", default="video", choices=["short", "video"])
-    ap.add_argument("--lang", default="en")
-    a = ap.parse_args()
-    vdir = video_dir(a.video_id)
-    meta = load_json(vdir / "video.json")
-    f_ = fmt(meta, a.format)
-    cfg = meta["voice"][a.lang]
-    cues = parse_srt(vdir / f_["captions"][a.lang])
-    tempo_max = f_.get("tempo_max", 1.08)
-    ffmpeg = find_ffmpeg()
-
+def build_voice(out, ffmpeg, cues, cfg, tempo_max, total):
     with tempfile.TemporaryDirectory() as tmp:
         files = asyncio.run(synth(cues, cfg["voice"], cfg["rate"], tmp))
         cmd, chains = [ffmpeg, "-hide_banner", "-y"], []
@@ -67,12 +56,32 @@ def main():
             cmd += ["-i", str(f)]
             ms = round(start * 1000)
             chains.append(f"[{i}:a]atempo={tempo:.3f},adelay={ms}|{ms},aformat=sample_rates=44100:channel_layouts=stereo[a{i}]")
-        chains.append("".join(f"[a{i}]" for i in range(len(files))) + f"amix=inputs={len(files)}:normalize=0,apad,atrim=0:{f_['total']}[out]")
+        chains.append("".join(f"[a{i}]" for i in range(len(files))) + f"amix=inputs={len(files)}:normalize=0,apad,atrim=0:{total}[out]")
         graph = Path(tmp) / "g.txt"
         graph.write_text(";\n".join(chains), encoding="utf-8")
-        out = vdir / f"voice_{a.format}_tts_{a.lang}.wav"
         run(cmd + ["-filter_complex_script", str(graph), "-map", "[out]", "-ar", "44100", str(out)])
-    print("wrote", out)
+
+
+def main():
+    ap = argparse.ArgumentParser()
+    ap.add_argument("video_id")
+    ap.add_argument("--format", default="video", choices=["short", "video"])
+    ap.add_argument("--lang", default="en")
+    ap.add_argument("--force", action="store_true")
+    a = ap.parse_args()
+    vdir = video_dir(a.video_id)
+    meta = load_json(vdir / "video.json")
+    f_ = fmt(meta, a.format)
+    cfg = meta["voice"][a.lang]
+    cap_file = vdir / f_["captions"][a.lang]
+    cues = parse_srt(cap_file)
+    tempo_max = f_.get("tempo_max", 1.08)
+    ffmpeg = find_ffmpeg()
+    out = vdir / f"voice_{a.format}_tts_{a.lang}.wav"
+    key = digest("voice", code(build_voice), code(synth), sig(cap_file), cfg, tempo_max, f_["total"])
+    build_cached(out, key, lambda tmp: build_voice(tmp, ffmpeg, cues, cfg, tempo_max, f_["total"]),
+                 f"voice {a.format} {a.lang} ({cfg['voice']})", a.force)
+    print("voice file:", out)
 
 
 if __name__ == "__main__":

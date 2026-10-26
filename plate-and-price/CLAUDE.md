@@ -39,6 +39,13 @@ at the end. The footage is filmed by the channel owner; only the cover image is 
     price list, chapters (from `video.json`) and hashtags; the short's is brief. The text is also in the review email.
     Never credit music in the description unless it is licensed for the channel.
 
+17. **Layered generation, always.** A video is never rendered in one go. It is built from separate layers that are cached
+    (`scripts/layers.py`): footage, cover and end-card clips, captions burned onto the picture, music, voice, mix, final.
+    Changing the captions, the voice, the song, the cover or the clips rebuilds only the layers that depend on it, so the
+    owner can change one thing and re-upload quickly. Any new script or step must follow this: produce its output as a
+    cached layer with a fingerprint of its inputs, never overwrite another layer's file, and never re-render the footage
+    just to change text or sound. Run with `--force <layer>` only when a rebuild is really needed.
+
 ## Two products from the same inputs
 | | Short (`short_<lang>.mp4`) | Video (`video_<lang>.mp4`) |
 |---|---|---|
