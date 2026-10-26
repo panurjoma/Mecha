@@ -60,17 +60,27 @@ at the end. The footage is filmed by the channel owner; only the cover image is 
     5. **Bill and price estimate**, last: list the ingredients seen in the footage in `input/<id>/price.json` (same format as
        the first video: items in English and Spanish, price, servings) using average Spanish supermarket prices, labelled as
        an estimate. It feeds the price end card (`make_endcard.py`) and the video description's price list.
-    6. **Critics** (directive 19), then the final file and YouTube text.
+    6. **Critics** (four agents, three rounds, directive 19), then the final file and YouTube text.
     The short repeats as little as possible (one idea per moment, short captions, no voice). The video may add secondary
     details (extra moments, a fuller explanation, voice-over). Never redo an earlier stage to change a later one.
 
-19. **Critics before final.** Every short and video is judged by three reviewer roles (`review/roles/`: casual viewer,
-    short-form strategist, food editor) from evidence built by `scripts/review_pack.py` (contact sheet, caption timeline,
-    pacing facts). They run in parallel as agents (Claude Code) or through `scripts/review_video.py` (n8n, needs an LLM key).
-    Their numbered fixes are applied where they make sense, only the layers that change are rebuilt, and the critics run
-    again (two rounds at most). The owner can allow the short to grow by some seconds when the critics ask for it.
-    Judge against what real viewers and the platform reward now: a moving hook in the first 1-2 s, a clear arc, the finished
-    dish shown clearly at the end, captions inside the safe area, music from second 0, a clean ending.
+19. **Four critics, three rounds.** Before a short or video is final, four reviewer agents judge it from different
+    perspectives (`.claude/agents/`): `audience-sociologist` (who watches, trust, social meaning, accessibility),
+    `engagement-analyst` (hook, retention, pacing, loop), `marketing-strategist` (promise, brand, price moment, calls to
+    action) and `video-craft-editor` (recipe continuity, camera perspective, hero shots, picture and audio craft). They read
+    the evidence made by `scripts/review_pack.py` (contact sheets, caption timeline, facts, sheets of every recording) and each
+    answers with `SCORE: x/10`, problems, a hook suggestion and numbered fixes. Run three rounds per product (short and
+    video): apply the fixes that make sense, rebuild, review again, and keep the scores in `review/history/<id>.md` so the
+    progression is visible. The owner can allow a product to grow when the critics ask for it. Judge against what real viewers
+    and the platform reward now. In n8n `scripts/review_video.py` runs the same four agents through an LLM key.
+20. **Every shot that goes into an official short or video is cleaned first.** Glare, small flickering highlights,
+    blown whites, colour cast and noise are removed by the clean stage (`scripts/clean_footage.py`) for every shot, including a
+    shot added later and the hook. `run_pipeline.py` always runs `cut_rough.py` then `clean_footage.py` before it builds
+    anything, so an uncleaned shot can never reach a final file. Never use a frame straight from the recordings.
+21. **A moving hook opens every product.** The first 1-2 s show an appetizing moving shot (a clip repeated later: cheese
+    falling, a pour, a glossy stir) before the cover card. It is the first segment of `segments` with `"hook": true`.
+    Captions live in the segments (`caption.en`, `caption.es`) and `make_captions.py` places them, so adding or retiming a
+    clip never needs hand-edited caption files.
 
 ## Two products from the same inputs
 | | Short (`short_<lang>.mp4`) | Video (`video_<lang>.mp4`) |

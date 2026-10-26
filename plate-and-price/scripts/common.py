@@ -60,6 +60,8 @@ def fmt(meta, kind):
     f["w"], f["h"] = f["output"]["width"], f["output"]["height"]
     f["fps"] = f["output"]["fps"]
     f["total"] = f["cover_dur"] + sum(s["dur"] for s in f["segments"]) + f["endcard_dur"]
+    # an optional moving hook: the first segment, flagged "hook": true, is shown before the cover card
+    f["hook_dur"] = f["segments"][0]["dur"] if f["segments"] and f["segments"][0].get("hook") else 0
     return f
 
 

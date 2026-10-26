@@ -53,11 +53,17 @@ The video takes several minutes to render (1080p, slow preset). For a new langua
    same format as the first video). It makes the price end card and the price list in the video description.
 The short keeps repetition to a minimum; the video can carry more secondary detail. See directive 18 in `CLAUDE.md`.
 
-## Critic review
-`python review_pack.py <id> --format short --lang en` builds a contact sheet, the caption timeline and pacing numbers in
-`<output>/<id>/review/`. The three roles in `review/roles/` judge them (see `review/README.md`). In Claude Code they run as
-parallel agents; `python review_video.py <id> --format short` does the same through Claude or OpenAI and writes
-`<format>_<lang>_review.md` (needs a key in `.env`, otherwise it is skipped).
+## Critic review (four agents)
+Agents in `.claude/agents/`: `audience-sociologist`, `engagement-analyst`, `marketing-strategist`, `video-craft-editor`.
+`python review_pack.py <id> --format short --lang en` builds what they read in `<output>/<id>/review/` (contact sheets, facts,
+sheets of every recording). In Claude Code run one agent each in parallel; `python review_video.py <id> --format short` does
+the same through Claude or OpenAI (needs a key in `.env`, otherwise skipped). Three rounds per product; scores and fixes go in
+`review/history/<id>.md` (see `review/README.md`).
+
+## Hook, captions and cleaning (standard for every recipe)
+- Hook: first segment with `"hook": true`, shown before the cover card (directive 21).
+- Captions: `caption.en` / `caption.es` inside each segment; `make_captions.py` writes the .srt files.
+- Every shot is cleaned by `clean_footage.py` before it can be used; `run_pipeline.py` runs cut, clean, captions, then the build.
 
 ## Music from an API (royalty-free, automatic)
 `python pick_music.py <id>` asks the Jamendo API for an instrumental chill track that is long enough, keeps only tracks

@@ -4,7 +4,7 @@ usage: python run_pipeline.py <video-id> --format short|video --lang en
   short: captions + music, 1080x1920 for YouTube Shorts.
   video: captions + voice-over + music, 1920x1080 for the YouTube channel.
 Every video layer is cached (see layers.py): only the layers whose inputs changed are rebuilt; --force rebuilds chosen ones.
-Steps: translate captions if missing -> AI cover check -> cover -> price end card -> (voice) -> edit/render -> YouTube
+Steps: (recordings cut from several files: cut the clips, then clean every shot) -> captions from the clips -> translate captions if missing -> AI cover check -> cover -> price end card -> (voice) -> edit/render -> YouTube
 title, description and tags (description_<format>_<lang>.md). Prints one JSON line with the output paths and the text. Run it with
 `uv run --with pillow --with imageio-ffmpeg --with edge-tts python run_pipeline.py ...` if those are not installed.
 """
@@ -35,6 +35,10 @@ def main():
     meta = load_json(vdir / "video.json")
     f_ = fmt(meta, kind)
 
+    if not meta.get("raw"):  # recipes cut from several recordings: every shot is cut, then cleaned, before anything official is built
+        step("cut_rough.py", a.video_id, "--format", kind)
+        step("clean_footage.py", a.video_id, "--format", kind)
+    step("make_captions.py", a.video_id, "--format", kind, "--lang", a.lang)  # captions follow the clips (no-op without segment captions)
     if not (vdir / f_["captions"][a.lang]).exists():
         step("translate_captions.py", a.video_id, "--format", kind, "--to", a.lang)
     step("make_cover_ai.py", a.video_id, check=False)  # only reports when an AI cover image is missing

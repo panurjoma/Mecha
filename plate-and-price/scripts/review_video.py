@@ -1,4 +1,4 @@
-"""Run the reviewer roles (review/roles/*.md) on a finished short or video through an LLM, for use in n8n.
+"""Run the four reviewer agents (.claude/agents/*.md) on a finished short or video through an LLM, for use in n8n.
 
 usage: python review_video.py <video-id> --format short|video --lang en
 Needs ANTHROPIC_API_KEY or OPENAI_API_KEY in .env. Runs review_pack.py first, then sends each role's instructions with the
@@ -30,10 +30,11 @@ def main():
     facts = (pack / f"{a.format}_{a.lang}_facts.md").read_text(encoding="utf-8")
     sheets = sorted(pack.glob(f"{a.format}_{a.lang}_sheet_*.jpg"))
     parts = []
-    for role in sorted((ROOT / "review" / "roles").glob("*.md")):
+    for role in sorted((ROOT / ".claude" / "agents").glob("*.md")):
+        body = role.read_text(encoding="utf-8").split("---", 2)[-1].strip()  # the agent file without its frontmatter
         text = complete(f"Evidence for the {a.format} ({a.lang}):\n\n{facts}\n\nThe contact sheets are attached (one frame per "
-                        "second, time-stamped). Keep the answer under 350 words.", system=role.read_text(encoding="utf-8"),
-                        max_tokens=1200, images=sheets)
+                        "second, time-stamped). Keep the answer under 350 words.", system=body,
+                        max_tokens=1200, images=sheets + sorted(pack.glob("sources_sheet_*.jpg")))
         parts.append(f"## {role.stem}\n\n{text.strip()}\n")
     out = pack / f"{a.format}_{a.lang}_review.md"
     out.write_text(f"# Critic review: {a.video_id} {a.format} {a.lang}\n\n" + "\n".join(parts), encoding="utf-8")

@@ -33,88 +33,144 @@
       "endcard_dur": 3,
       "segments": [
         {
+          "src": "GH011594.MP4",
+          "src_start": 4.6,
+          "dur": 1.5,
+          "cx": 0.5,
+          "hook": true,
+          "note": "hook: Gruyere snow falling on the plate"
+        },
+        {
           "src": "GH011565.MP4",
           "src_start": 29,
           "dur": 3,
           "cx": 0.4,
-          "note": "chopping the leek"
+          "note": "chopping the leek",
+          "caption": {
+            "en": "Chop a leek, nice and fine",
+            "es": "Corta un puerro bien fino"
+          }
         },
         {
           "src": "GH011567.MP4",
           "src_start": 3.5,
           "dur": 2,
           "cx": 0.3,
-          "note": "cutting the onion"
+          "note": "cutting the onion",
+          "caption": {
+            "en": "Onion goes next",
+            "es": "Ahora la cebolla"
+          }
         },
         {
           "src": "GH011568.MP4",
           "src_start": 2.2,
           "dur": 3,
           "cx": 0.4,
-          "note": "green pepper into the pan"
+          "note": "green pepper into the pan",
+          "caption": {
+            "en": "Green pepper into the pan",
+            "es": "El pimiento verde a la sartén"
+          }
         },
         {
           "src": "GH011569.MP4",
           "src_start": 2,
           "dur": 2,
           "cx": 0.5,
-          "note": "onion joins the pepper"
+          "note": "onion joins the pepper",
+          "caption": {
+            "en": "Then the onion joins",
+            "es": "Y se suma la cebolla"
+          }
         },
         {
           "src": "GH011573.MP4",
           "src_start": 12.5,
           "dur": 3,
           "cx": 0.5,
-          "note": "leek, pepper and onion cooked soft, oil"
+          "note": "leek, pepper and onion cooked soft, oil",
+          "caption": {
+            "en": "Cook it soft and sweet",
+            "es": "Cocina hasta que esté tierno"
+          }
         },
         {
           "src": "GH011578.MP4",
           "src_start": 2.5,
           "dur": 2.5,
           "cx": 0.5,
-          "note": "cream into the pan"
+          "note": "cream into the pan",
+          "caption": {
+            "en": "Pour in the cream",
+            "es": "Echa la nata"
+          }
         },
         {
           "src": "GH011579.MP4",
           "src_start": 2.5,
           "dur": 3,
           "cx": 0.5,
-          "note": "blue cheese into the cream"
+          "note": "blue cheese into the cream",
+          "caption": {
+            "en": "Melt in the blue cheese",
+            "es": "Derrite el queso azul"
+          }
         },
         {
           "src": "GH011581.MP4",
           "src_start": 1,
           "dur": 3,
           "cx": 0.5,
-          "note": "gnocchi into boiling water"
+          "note": "gnocchi into boiling water",
+          "caption": {
+            "en": "Gnocchi in boiling water",
+            "es": "Ñoquis al agua hirviendo"
+          }
         },
         {
           "src": "GH011585.MP4",
           "src_start": 2,
           "dur": 3,
           "cx": 0.5,
-          "note": "the soft leek goes into the sauce"
+          "note": "the soft leek goes into the sauce",
+          "caption": {
+            "en": "Add the soft leeks",
+            "es": "Suma el puerro pochado"
+          }
         },
         {
           "src": "GH011591.MP4",
           "src_start": 1.5,
           "dur": 3,
           "cx": 0.5,
-          "note": "gnocchi and tomatoes into the sauce"
+          "note": "gnocchi and tomatoes into the sauce",
+          "caption": {
+            "en": "Gnocchi and tomatoes in",
+            "es": "Ñoquis y tomates cherry"
+          }
         },
         {
           "src": "GH011592.MP4",
           "src_start": 0.5,
           "dur": 3,
           "cx": 0.5,
-          "note": "glossy pan of finished gnocchi"
+          "note": "glossy pan of finished gnocchi",
+          "caption": {
+            "en": "Stir it all together",
+            "es": "Mezcla todo bien"
+          }
         },
         {
           "src": "GH011594.MP4",
           "src_start": 4,
           "dur": 3,
           "cx": 0.5,
-          "note": "Gruyere on top"
+          "note": "Gruyere on top",
+          "caption": {
+            "en": "Grate Gruyère on top",
+            "es": "Gruyère rallado por encima"
+          }
         },
         {
           "src": "GH011595.MP4",
@@ -122,7 +178,11 @@
           "dur": 3,
           "cx": 0.5,
           "note": "wide reveal of the finished plate (full width over a blurred background)",
-          "layout": "blurpad"
+          "layout": "blurpad",
+          "caption": {
+            "en": "Dinner is ready",
+            "es": "A cenar"
+          }
         }
       ],
       "shutter": 3,
@@ -155,102 +215,166 @@
       "endcard_dur": 6,
       "segments": [
         {
+          "src": "GH011594.MP4",
+          "src_start": 4.6,
+          "dur": 2.0,
+          "cx": 0.5,
+          "hook": true,
+          "note": "hook: Gruyere snow falling on the plate"
+        },
+        {
           "src": "GH011565.MP4",
           "src_start": 26,
           "dur": 6,
           "cx": 0.5,
-          "note": "chopping the leek"
+          "note": "chopping the leek",
+          "caption": {
+            "en": "Let's start with a leek, chopped nice and fine.",
+            "es": "Empezamos con un puerro, picado bien finito."
+          }
         },
         {
           "src": "GH011567.MP4",
           "src_start": 3,
           "dur": 6,
           "cx": 0.5,
-          "note": "cutting the onion"
+          "note": "cutting the onion",
+          "caption": {
+            "en": "Then an onion, sliced thin. Nothing fancy here.",
+            "es": "Luego una cebolla en láminas. Nada complicado."
+          }
         },
         {
           "src": "GH011568.MP4",
           "src_start": 0,
           "dur": 5.5,
           "cx": 0.5,
-          "note": "green pepper into the pan"
+          "note": "green pepper into the pan",
+          "caption": {
+            "en": "The green pepper goes into the pan first.",
+            "es": "El pimiento verde entra primero en la sartén."
+          }
         },
         {
           "src": "GH011569.MP4",
           "src_start": 1.5,
           "dur": 5.5,
           "cx": 0.5,
-          "note": "onion joins the pepper"
+          "note": "onion joins the pepper",
+          "caption": {
+            "en": "Now the onion joins it. Let them soften together.",
+            "es": "Ahora se une la cebolla. Que se ablanden juntos."
+          }
         },
         {
           "src": "GH011573.MP4",
           "src_start": 10,
           "dur": 6,
           "cx": 0.5,
-          "note": "leek, pepper and onion softened"
+          "note": "leek, pepper and onion softened",
+          "caption": {
+            "en": "Cook it slowly until everything is soft and sweet.",
+            "es": "Cocina despacio hasta que todo quede tierno y dulce."
+          }
         },
         {
           "src": "GH011578.MP4",
           "src_start": 2.5,
           "dur": 6,
           "cx": 0.5,
-          "note": "cream into the pan"
+          "note": "cream into the pan",
+          "caption": {
+            "en": "Pour in the cream and let it warm up gently.",
+            "es": "Echa la nata y deja que se temple con calma."
+          }
         },
         {
           "src": "GH011579.MP4",
           "src_start": 5,
           "dur": 6,
           "cx": 0.5,
-          "note": "blue cheese melting in"
+          "note": "blue cheese melting in",
+          "caption": {
+            "en": "Stir in the blue cheese until it melts away.",
+            "es": "Añade el queso azul y remueve hasta que se funda."
+          }
         },
         {
           "src": "GH011581.MP4",
           "src_start": 0.5,
           "dur": 6,
           "cx": 0.5,
-          "note": "gnocchi into the water"
+          "note": "gnocchi into the water",
+          "caption": {
+            "en": "The gnocchi only need a minute in boiling water.",
+            "es": "Los ñoquis solo necesitan un minuto en agua hirviendo."
+          }
         },
         {
           "src": "GH011585.MP4",
           "src_start": 1.5,
           "dur": 6,
           "cx": 0.5,
-          "note": "the leek goes into the sauce"
+          "note": "the leek goes into the sauce",
+          "caption": {
+            "en": "Bring the soft leek back into the creamy sauce.",
+            "es": "Vuelve a meter el puerro en la salsa cremosa."
+          }
         },
         {
           "src": "GH011586.MP4",
           "src_start": 1.5,
           "dur": 6,
           "cx": 0.5,
-          "note": "cutting cherry tomatoes"
+          "note": "cutting cherry tomatoes",
+          "caption": {
+            "en": "Cut the cherry tomatoes in half for some freshness.",
+            "es": "Corta los tomates cherry por la mitad, para dar frescor."
+          }
         },
         {
           "src": "GH011591.MP4",
           "src_start": 0.5,
           "dur": 6,
           "cx": 0.5,
-          "note": "gnocchi into the sauce"
+          "note": "gnocchi into the sauce",
+          "caption": {
+            "en": "Add the gnocchi to the sauce and mix it all together.",
+            "es": "Añade los ñoquis a la salsa y mézclalo todo."
+          }
         },
         {
           "src": "GH011593.MP4",
           "src_start": 12,
           "dur": 6,
           "cx": 0.5,
-          "note": "plating"
+          "note": "plating",
+          "caption": {
+            "en": "Plate it up while it is nice and hot.",
+            "es": "Sirve el plato bien caliente."
+          }
         },
         {
           "src": "GH011594.MP4",
           "src_start": 4,
           "dur": 6,
           "cx": 0.5,
-          "note": "Gruyere on top"
+          "note": "Gruyere on top",
+          "caption": {
+            "en": "Finish with plenty of grated Gruyère.",
+            "es": "Termina con mucho Gruyère rallado."
+          }
         },
         {
           "src": "GH011595.MP4",
           "src_start": 3,
           "dur": 6,
           "cx": 0.5,
-          "note": "first spoonful"
+          "note": "first spoonful",
+          "caption": {
+            "en": "And that's it. Creamy, cosy and ready to eat.",
+            "es": "Y listo. Cremoso, reconfortante y a comer."
+          }
         }
       ],
       "shutter": 3,

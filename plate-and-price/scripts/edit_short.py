@@ -89,18 +89,24 @@ def build_footage(tmp, ffmpeg, raw, f_, enh, rw, rh):
         run(cmd + ["-filter_complex_script", "graph.txt", "-map", "[vout]", *CLIP, "-r", str(fps), str(tmp)], cwd=d)
 
 
-def build_still(tmp, ffmpeg, img, dur, W, H, fps, zoom_to):
+def build_still(tmp, ffmpeg, img, dur, W, H, fps, zoom_to, fade_in=True):
     n = round(dur * fps)
     vf = (f"scale={W * 2}:{H * 2}:flags=lanczos,zoompan=z='1+{zoom_to}*on/{n}':x='iw/2-(iw/zoom/2)':y='ih/2-(ih/zoom/2)'"
-          f":d=1:s={W}x{H}:fps={fps},fade=t=in:st=0:d=0.3,setsar=1,format=yuv420p")
+          f":d=1:s={W}x{H}:fps={fps}{',fade=t=in:st=0:d=0.3' if fade_in else ''},setsar=1,format=yuv420p")
     run([ffmpeg, "-hide_banner", "-y", "-loop", "1", "-framerate", str(fps), "-t", str(dur), "-i", str(img), "-vf", vf,
          *CLIP, "-r", str(fps), str(tmp)])
 
 
 def build_captioned(tmp, ffmpeg, cover, footage, endcard, cues, f_):
+    h = f_["hook_dur"]  # a moving hook plays first, then the cover card, then the rest of the footage
     with tempfile.TemporaryDirectory() as d:
         write_ass(Path(d) / "captions.ass", cues, f_["w"], f_["h"], f_["caption_style"])
-        (Path(d) / "graph.txt").write_text("[0:v][1:v][2:v]concat=n=3:v=1:a=0[vc];[vc]subtitles=captions.ass[vout]", encoding="utf-8")
+        if h:
+            graph = (f"[1:v]trim=0:{h},setpts=PTS-STARTPTS[hk];[1:v]trim=start={h},setpts=PTS-STARTPTS[rest];"
+                     "[hk][0:v][rest][2:v]concat=n=4:v=1:a=0[vc];[vc]subtitles=captions.ass[vout]")
+        else:
+            graph = "[0:v][1:v][2:v]concat=n=3:v=1:a=0[vc];[vc]subtitles=captions.ass[vout]"
+        (Path(d) / "graph.txt").write_text(graph, encoding="utf-8")
         run([ffmpeg, "-hide_banner", "-y", "-i", str(cover), "-i", str(footage), "-i", str(endcard),
              "-filter_complex_script", "graph.txt", "-map", "[vout]", "-c:v", "libx264", "-preset", "medium",
              "-crf", str(f_["output"]["crf"]), "-pix_fmt", "yuv420p", "-an", "-r", str(f_["fps"]), str(tmp)], cwd=d)
@@ -182,15 +188,16 @@ def main():
                                  lambda t: build_footage(t, ffmpeg, raw, f_, enh, rw, rh), f"footage_{kind}", "footage" in force)
     stills = {}
     for name, img, dur, zoom in (("cover", cover, f_["cover_dur"], 0.05), ("endcard", endcard, f_["endcard_dur"], 0.04)):
+        fade = not (name == "cover" and f_["hook_dur"])  # no dip to black between the hook and the cover
         stills[name] = (L / f"still_{kind}_{lang}_{name}.mp4",
-                        digest("still", code(build_still), sig(img), dur, W, H, fps, zoom))
+                        digest("still", code(build_still), sig(img), dur, W, H, fps, zoom, fade))
         build_cached(stills[name][0], stills[name][1],
-                     lambda t, img=img, dur=dur, zoom=zoom: build_still(t, ffmpeg, img, dur, W, H, fps, zoom),
+                     lambda t, img=img, dur=dur, zoom=zoom, fade=fade: build_still(t, ffmpeg, img, dur, W, H, fps, zoom, fade),
                      f"still {name}", "stills" in force)
     # 2. captions burned onto the picture
     k_cap = build_cached(L / f"captioned_{kind}_{lang}.mp4",
                          digest("captioned", code(build_captioned), code(write_ass), k_footage, stills["cover"][1], stills["endcard"][1],
-                                cues, f_["caption_style"], W, H, fps, o["crf"]),
+                                cues, f_["caption_style"], W, H, fps, o["crf"], f_["hook_dur"]),
                          lambda t: build_captioned(t, ffmpeg, stills["cover"][0], footage, stills["endcard"][0], cues, f_),
                          f"captions {kind} {lang}", "captions" in force)
     # 3. sound layers
