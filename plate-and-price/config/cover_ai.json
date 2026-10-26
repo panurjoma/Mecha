@@ -1,0 +1,8 @@
+{
+  "provider": "file",
+  "openai": {"model": "gpt-image-1"},
+  "style": "Photographed in a bowl on a bright tomato-red tablecloth with a cream linen napkin and wooden chopsticks, warm natural light, steam rising, shallow depth of field, colours of tomato red and cream.",
+  "made_with": {
+    "udon-teriyaki-secreto-iberico-gambones": "Higgsfield z_image (free plan), 0.15 credits each. Prompt: appetizing food photograph of udon noodles glossy with dark teriyaki sauce, topped with seared pink king prawns, thin slices of roasted pork, sliced mushrooms, orange carrot sticks and chopped green spring onion, in a deep white bowl on a bright tomato-red tablecloth with a cream linen napkin and wooden chopsticks, warm natural light, steam rising, shallow depth of field"
+  }
+}

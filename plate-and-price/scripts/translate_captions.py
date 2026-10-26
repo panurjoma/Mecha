@@ -1,12 +1,13 @@
 """Translate captions_en.srt into another language with an LLM, keeping the timings.
 
-usage: python translate_captions.py video-001 --to es [--provider anthropic|openai]
-Writes input/<id>/captions_<lang>.srt. Existing files are kept unless --force.
+usage: python translate_captions.py <video-id> --format short|video --to es [--provider anthropic|openai]
+Translates formats.<format>.captions.en into captions.<lang> (file name from video.json), keeping timings.
+Existing files are kept unless --force.
 """
 import argparse
 import json
 
-from common import ROOT, load_json, parse_srt, write_srt
+from common import fmt, load_json, parse_srt, video_dir, write_srt
 from llm_client import complete
 
 LANGS = {"es": "Spanish (Spain)", "fr": "French", "de": "German", "it": "Italian", "pt": "Portuguese"}
@@ -15,17 +16,19 @@ LANGS = {"es": "Spanish (Spain)", "fr": "French", "de": "German", "it": "Italian
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("video_id")
+    ap.add_argument("--format", default="short", choices=["short", "video"])
     ap.add_argument("--to", required=True)
     ap.add_argument("--provider")
     ap.add_argument("--force", action="store_true")
     a = ap.parse_args()
-    vdir = ROOT / "input" / a.video_id
-    out = vdir / f"captions_{a.to}.srt"
+    vdir = video_dir(a.video_id)
+    meta = load_json(vdir / "video.json")
+    f_ = fmt(meta, a.format)
+    out = vdir / f_["captions"].get(a.to, f"captions_{a.format}_{a.to}.srt")
     if out.exists() and not a.force:
         print("exists, keeping", out)
         return
-    meta = load_json(vdir / "video.json")
-    cues = parse_srt(vdir / meta["captions"]["en"])
+    cues = parse_srt(vdir / f_["captions"]["en"])
     texts = [t for _, _, t in cues]
     reply = complete(
         f"Translate these on-screen cooking captions into {LANGS.get(a.to, a.to)}. Keep each caption short, natural and "

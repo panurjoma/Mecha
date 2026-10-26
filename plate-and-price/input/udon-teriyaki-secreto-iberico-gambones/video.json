@@ -1,0 +1,237 @@
+{
+  "id": "udon-teriyaki-secreto-iberico-gambones",
+  "title": {
+    "en": "Udon teriyaki with Iberian pork and prawns",
+    "es": "Udon teriyaki con secreto ibérico y gambones"
+  },
+  "raw": "raw.mp4",
+  "cover": {
+    "frame_time_fallback": 75.5,
+    "ai": {
+      "9x16": "cover_ai_9x16.png",
+      "16x9": "cover_ai_16x9.png"
+    }
+  },
+  "audio": {
+    "source": "raw",
+    "start": 0,
+    "volume": 1.0,
+    "volume_with_voice": 0.3,
+    "fade_out": 2.0,
+    "song": {
+      "title": "Last Train to London",
+      "artist": "Electric Light Orchestra",
+      "detected_by": "Shazam",
+      "licensed": false
+    }
+  },
+  "enhance": {
+    "denoise": true,
+    "sharpen": 0.6,
+    "saturation": 1.08,
+    "contrast": 1.04
+  },
+  "voice": {
+    "en": {
+      "engine": "edge-tts",
+      "voice": "en-US-AndrewNeural",
+      "rate": "-6%"
+    },
+    "es": {
+      "engine": "edge-tts",
+      "voice": "es-ES-AlvaroNeural",
+      "rate": "-6%"
+    }
+  },
+  "formats": {
+    "short": {
+      "layout": "fill",
+      "voice": false,
+      "zoom_amount": 0.12,
+      "output": {
+        "width": 1080,
+        "height": 1920,
+        "fps": 30,
+        "crf": 18,
+        "review_bitrate": "2800k"
+      },
+      "cover_dur": 2,
+      "endcard_dur": 3,
+      "captions": {
+        "en": "captions_short_en.srt",
+        "es": "captions_short_es.srt"
+      },
+      "caption_style": {
+        "font": "Arial",
+        "size": 66,
+        "align": 8,
+        "margin_v": 280,
+        "outline": 5,
+        "bold": true
+      },
+      "segments": [
+        {
+          "src_start": 6.0,
+          "dur": 3,
+          "zoom": "out",
+          "note": "chopping"
+        },
+        {
+          "src_start": 12.5,
+          "dur": 3,
+          "zoom": "in",
+          "note": "oil and garlic in the pan"
+        },
+        {
+          "src_start": 18.0,
+          "dur": 3,
+          "zoom": "out",
+          "note": "mushrooms and onion"
+        },
+        {
+          "src_start": 24.0,
+          "dur": 3,
+          "zoom": "in",
+          "note": "udon package"
+        },
+        {
+          "src_start": 30.0,
+          "dur": 3,
+          "zoom": "out",
+          "note": "loosening noodles in hot water"
+        },
+        {
+          "src_start": 43.0,
+          "dur": 3,
+          "zoom": "in",
+          "note": "teriyaki sauce"
+        },
+        {
+          "src_start": 48.0,
+          "dur": 3,
+          "zoom": "out",
+          "note": "prawns"
+        },
+        {
+          "src_start": 51.0,
+          "dur": 3,
+          "zoom": "in",
+          "note": "secreto on the griddle"
+        },
+        {
+          "src_start": 57.0,
+          "dur": 3,
+          "zoom": "out",
+          "note": "tossing noodles"
+        },
+        {
+          "src_start": 66.0,
+          "dur": 3,
+          "zoom": "in",
+          "note": "finished pan"
+        },
+        {
+          "src_start": 72.0,
+          "dur": 3,
+          "zoom": "out",
+          "note": "noodle lift"
+        },
+        {
+          "src_start": 75.0,
+          "dur": 3,
+          "zoom": "in",
+          "note": "plated"
+        }
+      ]
+    },
+    "video": {
+      "layout": "blurpad",
+      "voice": true,
+      "zoom_amount": 0.07,
+      "tempo_max": 1.08,
+      "output": {
+        "width": 1920,
+        "height": 1080,
+        "fps": 30,
+        "crf": 18,
+        "review_bitrate": "1900k"
+      },
+      "cover_dur": 3,
+      "endcard_dur": 6,
+      "captions": {
+        "en": "captions_video_en.srt",
+        "es": "captions_video_es.srt"
+      },
+      "caption_style": {
+        "font": "Arial",
+        "size": 54,
+        "align": 2,
+        "margin_v": 70,
+        "outline": 4,
+        "bold": true
+      },
+      "segments": [
+        {
+          "src_start": 6,
+          "dur": 6,
+          "zoom": "in"
+        },
+        {
+          "src_start": 12,
+          "dur": 6,
+          "zoom": "out"
+        },
+        {
+          "src_start": 18,
+          "dur": 6,
+          "zoom": "in"
+        },
+        {
+          "src_start": 24,
+          "dur": 6,
+          "zoom": "out"
+        },
+        {
+          "src_start": 30,
+          "dur": 6,
+          "zoom": "in"
+        },
+        {
+          "src_start": 36,
+          "dur": 6,
+          "zoom": "out"
+        },
+        {
+          "src_start": 42,
+          "dur": 6,
+          "zoom": "in"
+        },
+        {
+          "src_start": 48,
+          "dur": 6,
+          "zoom": "out"
+        },
+        {
+          "src_start": 54,
+          "dur": 6,
+          "zoom": "in"
+        },
+        {
+          "src_start": 60,
+          "dur": 6,
+          "zoom": "out"
+        },
+        {
+          "src_start": 66,
+          "dur": 6,
+          "zoom": "in"
+        },
+        {
+          "src_start": 72,
+          "dur": 6,
+          "zoom": "out"
+        }
+      ]
+    }
+  }
+}

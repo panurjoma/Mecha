@@ -1,4 +1,4 @@
-"""Shared helpers: paths, ffmpeg lookup, .env loading, SRT parsing."""
+"""Shared helpers: paths, ffmpeg lookup, .env loading, SRT parsing, per-format settings."""
 import json
 import os
 import re
@@ -6,7 +6,7 @@ import shutil
 import subprocess
 from pathlib import Path
 
-ROOT = Path(__file__).resolve().parent.parent
+ROOT = Path(__file__).resolve().parent.parent  # .../plate-and-price (the folder inside the git repo)
 
 
 def load_env():
@@ -19,6 +19,11 @@ def load_env():
         if line and not line.startswith("#") and "=" in line:
             k, v = line.split("=", 1)
             os.environ.setdefault(k.strip(), v.strip().strip('"').strip("'"))
+
+
+load_env()
+# Rendered videos are not part of the repo: set PLATE_OUTPUT_DIR in .env to keep them elsewhere.
+OUTPUT_DIR = Path(os.environ.get("PLATE_OUTPUT_DIR") or ROOT / "output")
 
 
 def find_ffmpeg():
@@ -42,6 +47,27 @@ def run(cmd, cwd=None):
 
 def load_json(path):
     return json.loads(Path(path).read_text(encoding="utf-8"))
+
+
+def video_dir(video_id):
+    return ROOT / "input" / video_id
+
+
+def fmt(meta, kind):
+    """Settings of one product ('short' or 'video'): output size, layout, segments, captions, style, durations."""
+    f = dict(meta["formats"][kind])
+    f["kind"] = kind
+    f["w"], f["h"] = f["output"]["width"], f["output"]["height"]
+    f["fps"] = f["output"]["fps"]
+    f["total"] = f["cover_dur"] + sum(s["dur"] for s in f["segments"]) + f["endcard_dur"]
+    return f
+
+
+def probe_size(path):
+    """(width, height) of the first video stream, read from ffmpeg's banner."""
+    err = subprocess.run([find_ffmpeg(), "-hide_banner", "-i", str(path)], capture_output=True, text=True).stderr
+    m = re.search(r"Video:.*?, (\d{2,5})x(\d{2,5})", err)
+    return int(m.group(1)), int(m.group(2))
 
 
 def find_font(bold=True):

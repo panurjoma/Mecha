@@ -19,7 +19,7 @@
             {
               "id": "p1",
               "name": "videoId",
-              "value": "video-001",
+              "value": "udon-teriyaki-secreto-iberico-gambones",
               "type": "string"
             },
             {
@@ -31,7 +31,7 @@
             {
               "id": "p3",
               "name": "projectDir",
-              "value": "C:\\Users\\panur\\OneDrive\\Documentos\\GITProjects\\Mecha\\plate-and-price",
+              "value": "C:\\Users\\panur\\OneDrive\\Documentos\\GITProjects\\Mecha\\plate-and-price\\_repo\\plate-and-price",
               "type": "string"
             }
           ]
@@ -49,7 +49,7 @@
     },
     {
       "parameters": {
-        "command": "=uv run --with pillow --with imageio-ffmpeg python \"{{ $json.projectDir }}\\scripts\\run_pipeline.py\" {{ $json.videoId }} --lang {{ $json.lang }}"
+        "command": "=uv run --with pillow --with imageio-ffmpeg --with edge-tts python \"{{ $json.projectDir }}\\scripts\\run_pipeline.py\" {{ $json.videoId }} --format short --lang {{ $json.lang }}"
       },
       "id": "a1000000-0000-4000-8000-000000000003",
       "name": "Edit short (ffmpeg pipeline)",
@@ -63,7 +63,7 @@
     {
       "parameters": {
         "operation": "read",
-        "fileSelector": "={{ $('Params').item.json.projectDir }}\\output\\{{ $('Params').item.json.videoId }}\\short_{{ $('Params').item.json.lang }}_review.mp4",
+        "fileSelector": "={{ $('Params').item.json.projectDir }}\\..\\..\\output\\{{ $('Params').item.json.videoId }}\\short_{{ $('Params').item.json.lang }}_review.mp4",
         "options": {
           "dataPropertyName": "data"
         }

@@ -1,9 +1,11 @@
-"""Make a voice-over from the captions with a free text-to-speech engine (edge-tts), timed to each caption.
+"""Make a calm voice-over from the captions with a free text-to-speech engine (edge-tts), one line per caption.
 
-usage: python make_voice.py video-001 --lang en
-Output: input/<id>/voice_tts_<lang>.wav (same length as the video). If you record your own voice, save it as
-input/<id>/voice_<lang>.wav on the output timeline; edit_short.py --voice prefers that file over the generated one.
+usage: python make_voice.py <video-id> --format video --lang en
+Output: input/<id>/voice_<format>_tts_<lang>.wav (same length as the video). If you record your own voice, save it as
+input/<id>/voice_<format>_<lang>.wav on the output timeline; edit_short.py prefers that file over the generated one.
 
+The voice is never rushed: speed is only raised up to video.json formats.<format>.tempo_max (default 1.08), and a
+warning is printed for any caption whose speech is still longer than its window (shorten that caption or widen it).
 edge-tts is free and needs no key, but it sends the caption text to Microsoft's online voice service (unofficial API).
 """
 import argparse
@@ -13,7 +15,7 @@ import subprocess
 import tempfile
 from pathlib import Path
 
-from common import ROOT, find_ffmpeg, load_json, parse_srt, run
+from common import find_ffmpeg, fmt, load_json, parse_srt, run, video_dir
 
 
 def duration(ffmpeg, path):
@@ -27,7 +29,14 @@ async def synth(cues, voice, rate, tmp):
     files = []
     for i, (_, _, text) in enumerate(cues):
         p = Path(tmp) / f"c{i}.mp3"
-        await edge_tts.Communicate(" ".join(text.split()), voice, rate=rate).save(str(p))
+        for attempt in range(1, 5):  # the free service sometimes answers with no audio: retry with a growing pause
+            try:
+                await edge_tts.Communicate(" ".join(text.split()), voice, rate=rate).save(str(p))
+                break
+            except edge_tts.exceptions.NoAudioReceived:
+                if attempt == 4:
+                    raise
+                await asyncio.sleep(2 * attempt)
         files.append(p)
     return files
 
@@ -35,28 +44,33 @@ async def synth(cues, voice, rate, tmp):
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("video_id")
+    ap.add_argument("--format", default="video", choices=["short", "video"])
     ap.add_argument("--lang", default="en")
     a = ap.parse_args()
-    vdir = ROOT / "input" / a.video_id
+    vdir = video_dir(a.video_id)
     meta = load_json(vdir / "video.json")
+    f_ = fmt(meta, a.format)
     cfg = meta["voice"][a.lang]
-    cues = parse_srt(vdir / meta["captions"][a.lang])
-    total = sum(s["dur"] for s in meta["segments"]) + meta["cover"]["dur"] + meta["endcard"]["dur"]
+    cues = parse_srt(vdir / f_["captions"][a.lang])
+    tempo_max = f_.get("tempo_max", 1.08)
     ffmpeg = find_ffmpeg()
 
     with tempfile.TemporaryDirectory() as tmp:
         files = asyncio.run(synth(cues, cfg["voice"], cfg["rate"], tmp))
         cmd, chains = [ffmpeg, "-hide_banner", "-y"], []
-        for i, ((start, end, _), f) in enumerate(zip(cues, files)):
-            window = max(end - start - 0.1, 0.5)
-            tempo = min(max(duration(ffmpeg, f) / window, 1.0), 1.4)  # speed up a little rather than overrun the caption
+        for i, ((start, end, text), f) in enumerate(zip(cues, files)):
+            natural = duration(ffmpeg, f)
+            window = end - start
+            tempo = min(max(natural / window, 1.0), tempo_max)
+            if natural / tempo > window:
+                print(f"WARNING caption {i + 1}: speech {natural / tempo:.1f}s is longer than its window {window:.1f}s")
             cmd += ["-i", str(f)]
             ms = round(start * 1000)
             chains.append(f"[{i}:a]atempo={tempo:.3f},adelay={ms}|{ms},aformat=sample_rates=44100:channel_layouts=stereo[a{i}]")
-        chains.append("".join(f"[a{i}]" for i in range(len(files))) + f"amix=inputs={len(files)}:normalize=0,apad,atrim=0:{total}[out]")
+        chains.append("".join(f"[a{i}]" for i in range(len(files))) + f"amix=inputs={len(files)}:normalize=0,apad,atrim=0:{f_['total']}[out]")
         graph = Path(tmp) / "g.txt"
         graph.write_text(";\n".join(chains), encoding="utf-8")
-        out = vdir / f"voice_tts_{a.lang}.wav"
+        out = vdir / f"voice_{a.format}_tts_{a.lang}.wav"
         run(cmd + ["-filter_complex_script", str(graph), "-map", "[out]", "-ar", "44100", str(out)])
     print("wrote", out)
 
