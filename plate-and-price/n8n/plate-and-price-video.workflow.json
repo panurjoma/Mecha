@@ -63,7 +63,7 @@
     {
       "parameters": {
         "operation": "read",
-        "fileSelector": "={{ $('Params').item.json.projectDir }}\\output\\{{ $('Params').item.json.videoId }}\u000bideo_{{ $('Params').item.json.lang }}_review.mp4",
+        "fileSelector": "={{ $('Params').item.json.projectDir }}\\output\\{{ $('Params').item.json.videoId }}\\video_{{ $('Params').item.json.lang }}_review.mp4",
         "options": {
           "dataPropertyName": "data"
         }
