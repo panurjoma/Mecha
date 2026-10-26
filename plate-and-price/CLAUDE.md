@@ -60,9 +60,17 @@ at the end. The footage is filmed by the channel owner; only the cover image is 
     5. **Bill and price estimate**, last: list the ingredients seen in the footage in `input/<id>/price.json` (same format as
        the first video: items in English and Spanish, price, servings) using average Spanish supermarket prices, labelled as
        an estimate. It feeds the price end card (`make_endcard.py`) and the video description's price list.
-    6. Final file and YouTube text.
+    6. **Critics** (directive 19), then the final file and YouTube text.
     The short repeats as little as possible (one idea per moment, short captions, no voice). The video may add secondary
     details (extra moments, a fuller explanation, voice-over). Never redo an earlier stage to change a later one.
+
+19. **Critics before final.** Every short and video is judged by three reviewer roles (`review/roles/`: casual viewer,
+    short-form strategist, food editor) from evidence built by `scripts/review_pack.py` (contact sheet, caption timeline,
+    pacing facts). They run in parallel as agents (Claude Code) or through `scripts/review_video.py` (n8n, needs an LLM key).
+    Their numbered fixes are applied where they make sense, only the layers that change are rebuilt, and the critics run
+    again (two rounds at most). The owner can allow the short to grow by some seconds when the critics ask for it.
+    Judge against what real viewers and the platform reward now: a moving hook in the first 1-2 s, a clear arc, the finished
+    dish shown clearly at the end, captions inside the safe area, music from second 0, a clean ending.
 
 ## Two products from the same inputs
 | | Short (`short_<lang>.mp4`) | Video (`video_<lang>.mp4`) |

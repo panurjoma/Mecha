@@ -53,6 +53,12 @@ The video takes several minutes to render (1080p, slow preset). For a new langua
    same format as the first video). It makes the price end card and the price list in the video description.
 The short keeps repetition to a minimum; the video can carry more secondary detail. See directive 18 in `CLAUDE.md`.
 
+## Critic review
+`python review_pack.py <id> --format short --lang en` builds a contact sheet, the caption timeline and pacing numbers in
+`<output>/<id>/review/`. The three roles in `review/roles/` judge them (see `review/README.md`). In Claude Code they run as
+parallel agents; `python review_video.py <id> --format short` does the same through Claude or OpenAI and writes
+`<format>_<lang>_review.md` (needs a key in `.env`, otherwise it is skipped).
+
 ## Music from an API (royalty-free, automatic)
 `python pick_music.py <id>` asks the Jamendo API for an instrumental chill track that is long enough, keeps only tracks
 whose Creative Commons licence allows commercial use and editing (settings in `config/music.json`), downloads it to

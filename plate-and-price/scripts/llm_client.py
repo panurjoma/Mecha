@@ -36,13 +36,20 @@ def pick_provider(provider=None):
     raise RuntimeError("No LLM key: set ANTHROPIC_API_KEY or OPENAI_API_KEY in the environment or .env")
 
 
-def complete(prompt, system="", provider=None, model=None, max_tokens=2000):
+def complete(prompt, system="", provider=None, model=None, max_tokens=2000, images=()):
+    """images: optional jpg/png paths, sent with the prompt (Claude only; other providers get the text alone)."""
     provider = pick_provider(provider)
     if provider == "anthropic":
+        content = prompt
+        if images:
+            import base64
+            content = [{"type": "image", "source": {"type": "base64", "media_type": "image/png" if str(p).endswith(".png") else "image/jpeg",
+                                                     "data": base64.b64encode(open(p, "rb").read()).decode()}} for p in images]
+            content.append({"type": "text", "text": prompt})
         r = _post("https://api.anthropic.com/v1/messages",
                   {"x-api-key": os.environ["ANTHROPIC_API_KEY"], "anthropic-version": "2023-06-01"},
                   {"model": model or os.environ.get("CLAUDE_MODEL", "claude-sonnet-5-5"), "max_tokens": max_tokens,
-                   "system": system, "messages": [{"role": "user", "content": prompt}]})
+                   "system": system, "messages": [{"role": "user", "content": content}]})
         return "".join(b["text"] for b in r["content"] if b["type"] == "text")
     if provider == "openai":
         msgs = ([{"role": "system", "content": system}] if system else []) + [{"role": "user", "content": prompt}]
