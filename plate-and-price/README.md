@@ -46,7 +46,9 @@ The video takes several minutes to render (1080p, slow preset). For a new langua
    sideways for a vertical short). List them in filming order.
 3. Cut and join: `python cut_rough.py <id> --format short` (and `--format video`) gives `<output>/<id>/rough_<format>.mp4`
    with the clips' own sound. Check order and length before going on.
-4. Clean (glare, noise, sharpness, colour), cover, captions, voice, music: see the layers below.
+4. Clean: `python clean_footage.py <id> --format short|video` gives `<output>/<id>/clean_<format>.mp4` (settings in `video.json`
+   "clean"; `shutter` in each format removes the sparkle of small reflections in 120 fps GoPro files). Then cover
+   (`make_cover_ai.py`/`make_cover.py`), captions, voice, music: see the layers below.
 5. Last, the bill: write `price.json` (ingredients seen in the footage, average Spanish supermarket prices, an estimate,
    same format as the first video). It makes the price end card and the price list in the video description.
 The short keeps repetition to a minimum; the video can carry more secondary detail. See directive 18 in `CLAUDE.md`.

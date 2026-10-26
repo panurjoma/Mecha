@@ -52,7 +52,9 @@ at the end. The footage is filmed by the channel owner; only the cover image is 
        Short: about 3 s per moment, about 35 s in total with the cover and end card. Video: about 6 s per moment, about 90 s.
     2. **Cut and join** (`cut_rough.py`): put the moments together in filming order (file name and modified time agree)
        with the clips' own sound. Nothing else yet: no cover, captions, music or cleaning.
-    3. **Clean**: remove light reflections and glare, denoise, sharpen, colour, only after the order and length are agreed.
+    3. **Clean** (`clean_footage.py`, settings in `video.json` "clean"): only after the order and length are agreed. Sparkle from
+       small bright reflections is cut at stage 2 with `shutter` (blends 120 fps frames); stage 3 adds denoise, tamed highlights,
+       white balance, colour and light sharpening.
     4. **Cover**, then **captions** (English first, Spanish second), then **voice** (video only) and **music**
        (chosen by the owner, royalty-free).
     5. **Bill and price estimate**, last: list the ingredients seen in the footage in `input/<id>/price.json` (same format as

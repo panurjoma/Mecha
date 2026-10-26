@@ -1,7 +1,7 @@
 {
   "id": "video-2",
   "title": {
-    "en": "Gnocchi with leek, blue cheese and Gruyere",
+    "en": "Gnocchi with leek, blue cheese and Gruyère",
     "es": "Ñoquis con puerro, queso azul y Gruyère"
   },
   "title_note": "provisional: confirm the recipe name before the cover stage",
@@ -106,7 +106,8 @@
           "cx": 0.5,
           "note": "first spoonful"
         }
-      ]
+      ],
+      "shutter": 3
     },
     "video": {
       "layout": "fill",
@@ -221,7 +222,17 @@
           "cx": 0.5,
           "note": "first spoonful"
         }
-      ]
+      ],
+      "shutter": 3
+    }
+  },
+  "clean": {
+    "warmth": 5800
+  },
+  "cover": {
+    "ai": {
+      "9x16": "cover_ai_9x16.png",
+      "16x9": "cover_ai_16x9.png"
     }
   }
 }

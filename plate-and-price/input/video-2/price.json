@@ -1,0 +1,14 @@
+{
+  "_note": "ESTIMATE made up by Claude from average Spanish supermarket prices (Oct 2026), not from receipts. Edit the numbers to your real shopping.",
+  "servings": 2,
+  "items": [
+    {"en": "Potato gnocchi (500 g)", "es": "Ñoquis de patata (500 g)", "price": 1.90},
+    {"en": "Cooking cream (200 ml)", "es": "Nata para cocinar (200 ml)", "price": 1.10},
+    {"en": "Blue cheese (100 g)", "es": "Queso azul (100 g)", "price": 2.20},
+    {"en": "Gruyère, grated (50 g)", "es": "Gruyère rallado (50 g)", "price": 1.30},
+    {"en": "Leek", "es": "Puerro", "price": 0.90},
+    {"en": "Green pepper and onion", "es": "Pimiento verde y cebolla", "price": 1.10},
+    {"en": "Cherry tomatoes (100 g)", "es": "Tomates cherry (100 g)", "price": 0.80},
+    {"en": "Oil, butter, pepper (pantry share)", "es": "Aceite, mantequilla y pimienta (despensa)", "price": 0.40}
+  ]
+}

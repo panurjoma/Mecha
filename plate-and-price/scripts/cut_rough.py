@@ -5,6 +5,8 @@ Reads input/<id>/video.json formats.<format>.segments: each is {src, src_start, 
 input/<id>/ (default: meta["raw"]), cx (0..1, default 0.5) says where to crop sideways when a wide clip goes into a
 vertical short. Segments are joined in the order listed, which is the order they were filmed (file name = recording
 order). The clip's own sound is kept, with a very short fade at each join so nothing clicks.
+"shutter" (default 1) blends that many source frames into each output frame, like a slower shutter: the sparkle of
+small bright reflections that appears when a 120 fps recording is simply thinned to 30 fps goes away.
 Output layer: <OUTPUT_DIR>/<id>/layers/rough_<format>.mp4 (also copied to <OUTPUT_DIR>/<id>/rough_<format>.mp4).
 It is cached: only a change to the segments, the layout or the recordings rebuilds it.
 """
@@ -29,16 +31,18 @@ def clip_seconds(ffmpeg, path):
 
 def build_rough(tmp, ffmpeg, vdir, raw, f_):
     W, H, fps = f_["w"], f_["h"], f_["fps"]
+    n_blend = f_.get("shutter", 1)  # blend this many source frames (120 fps) into each output frame: motion blur, no sparkle
+    blend = f"tmix=frames={n_blend}:weights='{' '.join(['1'] * n_blend)}'," if n_blend > 1 else ""
     cmd, chains = [ffmpeg, "-hide_banner", "-y"], []
     for i, s in enumerate(f_["segments"]):
         cmd += ["-ss", str(s["src_start"]), "-t", str(s["dur"]), "-i", str(vdir / s.get("src", raw))]
         if f_["layout"] == "blurpad":  # same recipe as the final footage: sharp clip over a blurred copy
-            vf = (f"[{i}:v]fps={fps},split[b{i}][f{i}];[b{i}]scale={W}:{H}:force_original_aspect_ratio=increase,crop={W}:{H},"
+            vf = (f"[{i}:v]{blend}fps={fps},split[b{i}][f{i}];[b{i}]scale={W}:{H}:force_original_aspect_ratio=increase,crop={W}:{H},"
                   f"boxblur=30:5[bb{i}];[f{i}]scale={W}:{H}:force_original_aspect_ratio=decrease[ff{i}];"
                   f"[bb{i}][ff{i}]overlay=(W-w)/2:(H-h)/2,setsar=1,format=yuv420p[v{i}]")
         else:  # fill: scale up to cover the frame, crop sideways around cx
             cx = s.get("cx", 0.5)
-            vf = (f"[{i}:v]fps={fps},scale={W}:{H}:force_original_aspect_ratio=increase:flags=lanczos,"
+            vf = (f"[{i}:v]{blend}fps={fps},scale={W}:{H}:force_original_aspect_ratio=increase:flags=lanczos,"
                   f"crop={W}:{H}:x='(iw-{W})*{cx}':y='(ih-{H})/2',setsar=1,format=yuv420p[v{i}]")
         d = s["dur"]
         af = (f"[{i}:a]aresample=48000,aformat=sample_fmts=fltp:channel_layouts=stereo,"
@@ -71,7 +75,7 @@ def main():
             raise SystemExit(f"{n}: {s['src_start']} + {s['dur']} s runs past the end of the clip ({length[n]:.1f} s)")
     out_dir = OUTPUT_DIR / a.video_id
     layer = out_dir / "layers" / f"rough_{a.format}.mp4"
-    key = digest("rough", code(build_rough), [quick(vdir / s) for s in srcs], f_["segments"], f_["layout"], f_["w"], f_["h"], f_["fps"], raw)
+    key = digest("rough", code(build_rough), [quick(vdir / s) for s in srcs], f_["segments"], f_.get("shutter", 1), f_["layout"], f_["w"], f_["h"], f_["fps"], raw)
     build_cached(layer, key, lambda t: build_rough(t, ffmpeg, vdir, raw, f_), f"rough cut {a.format}", a.force)
     final = out_dir / f"rough_{a.format}.mp4"
     shutil.copyfile(layer, final)

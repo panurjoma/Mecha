@@ -96,10 +96,10 @@ def make(video_id, kind, lang):
         for ln in wrap(d, title, font(104), W - 150):
             d.text((W / 2, y), ln, font=font(104), fill="white", anchor="mm", stroke_width=3, stroke_fill=dark)
             y += 128
-        cx, cy, r = W / 2, 1650, 140
+        cx, cy, r = W / 2, 1650, 165
         d.ellipse([cx - r, cy - r, cx + r, cy + r], fill=c["tomato"], outline=c["cream"], width=8)
-        d.text((cx, cy - 18), f"{chan['currency']}{per:.0f}", font=font(130), fill="white", anchor="mm")
-        d.text((cx, cy + 82), per_label, font=font(38), fill=c["cream"], anchor="mm")
+        d.text((cx, cy - 22), f"{chan['currency']}{per:.2f}", font=font(100), fill="white", anchor="mm")
+        d.text((cx, cy + 66), per_label, font=font(36), fill=c["cream"], anchor="mm")
     else:  # 16:9 video cover and thumbnail
         im = background(vdir, meta, "16x9", W, H).convert("RGBA")
         shade = Image.new("RGBA", (W, H), dark + (0,))
@@ -108,13 +108,18 @@ def make(video_id, kind, lang):
         d = ImageDraw.Draw(im)
         d.rounded_rectangle([90, 90, 90 + 520, 190], radius=50, fill=c["tomato"])
         d.text((350, 140), chan["name"].upper(), font=font(46), fill="white", anchor="mm")
-        y = 330
-        for ln in wrap(d, title, font(112), 900):
-            d.text((90, y), ln, font=font(112), fill="white", anchor="lm", stroke_width=3, stroke_fill=dark)
-            y += 136
-        d.rounded_rectangle([90, y + 40, 90 + 560, y + 230], radius=40, fill=c["tomato"])
-        d.text((90 + 280, y + 112), f"{chan['currency']}{per:.2f}", font=font(100), fill="white", anchor="mm")
-        d.text((90 + 280, y + 188), per_label, font=font(40), fill=c["cream"], anchor="mm")
+        for size in (112, 100, 92, 84, 76):  # long titles shrink so they stay within three lines
+            lines = wrap(d, title, font(size), 900)
+            if len(lines) <= 3:
+                break
+        y = 320
+        for ln in lines:
+            d.text((90, y), ln, font=font(size), fill="white", anchor="lm", stroke_width=3, stroke_fill=dark)
+            y += round(size * 1.2)
+        top = H - 90 - 190  # price badge sits at a fixed place at the bottom, whatever the title length
+        d.rounded_rectangle([90, top, 90 + 560, top + 190], radius=40, fill=c["tomato"])
+        d.text((90 + 280, top + 72), f"{chan['currency']}{per:.2f}", font=font(100), fill="white", anchor="mm")
+        d.text((90 + 280, top + 152), per_label, font=font(40), fill=c["cream"], anchor="mm")
 
     out = vdir / f"cover_{kind}_{lang}.png"
     im.convert("RGB").save(out)
