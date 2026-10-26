@@ -46,6 +46,18 @@ at the end. The footage is filmed by the channel owner; only the cover image is 
     cached layer with a fingerprint of its inputs, never overwrite another layer's file, and never re-render the footage
     just to change text or sound. Run with `--force <layer>` only when a rebuild is really needed.
 
+18. **Work in stages, doing the least needed at each one.** A product goes through these stages in order, each one a cached
+    layer, and a stage is only started when the owner has seen the previous one:
+    1. **Select**: pick the moments from the recordings (several files are normal; `segments[].src`, `src_start`, `dur`).
+       Short: about 3 s per moment, about 35 s in total with the cover and end card. Video: about 6 s per moment, about 90 s.
+    2. **Cut and join** (`cut_rough.py`): put the moments together in filming order (file name and modified time agree)
+       with the clips' own sound. Nothing else yet: no cover, captions, music or cleaning.
+    3. **Clean**: remove light reflections and glare, denoise, sharpen, colour, only after the order and length are agreed.
+    4. **Cover and end card**, then **captions** (English first, Spanish second), then **voice** (video only) and **music**
+       (chosen by the owner, royalty-free), then the final file and the YouTube text.
+    The short repeats as little as possible (one idea per moment, short captions, no voice). The video may add secondary
+    details (extra moments, a fuller explanation, voice-over). Never redo an earlier stage to change a later one.
+
 ## Two products from the same inputs
 | | Short (`short_<lang>.mp4`) | Video (`video_<lang>.mp4`) |
 |---|---|---|

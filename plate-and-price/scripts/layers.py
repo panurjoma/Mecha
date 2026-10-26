@@ -23,6 +23,15 @@ def sig(path):
     return h.hexdigest()[:16]
 
 
+def quick(path):
+    """Cheap fingerprint of a large file (name, size, modified time): use it for multi-GB raw footage instead of sig()."""
+    p = Path(path)
+    if not p.exists():
+        return "missing"
+    st = p.stat()
+    return f"{p.name}:{st.st_size}:{int(st.st_mtime)}"
+
+
 def code(fn):
     """Fingerprint of a function's source, so editing the build code invalidates its layer."""
     return hashlib.sha1(inspect.getsource(fn).encode()).hexdigest()[:8]

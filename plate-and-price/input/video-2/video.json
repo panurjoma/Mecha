@@ -1,0 +1,227 @@
+{
+  "id": "video-2",
+  "title": {
+    "en": "Gnocchi with leek, blue cheese and Gruyere",
+    "es": "Ñoquis con puerro, queso azul y Gruyère"
+  },
+  "title_note": "provisional: confirm the recipe name before the cover stage",
+  "recordings": "GoPro POV clips GH011564..GH011595, 1080p 120 fps, kept in filming order (file name and modified time agree)",
+  "audio": {
+    "source": "none",
+    "start": 0,
+    "volume": 1.0,
+    "volume_with_voice": 0.3,
+    "fade_out": 2.0,
+    "song": null
+  },
+  "formats": {
+    "short": {
+      "layout": "fill",
+      "voice": false,
+      "zoom_amount": 0.12,
+      "output": {
+        "width": 1080,
+        "height": 1920,
+        "fps": 30,
+        "crf": 18,
+        "review_bitrate": "2800k"
+      },
+      "cover_dur": 2,
+      "endcard_dur": 3,
+      "segments": [
+        {
+          "src": "GH011565.MP4",
+          "src_start": 29,
+          "dur": 3,
+          "cx": 0.4,
+          "note": "chopping the leek"
+        },
+        {
+          "src": "GH011567.MP4",
+          "src_start": 3,
+          "dur": 3,
+          "cx": 0.3,
+          "note": "cutting the onion"
+        },
+        {
+          "src": "GH011569.MP4",
+          "src_start": 2,
+          "dur": 3,
+          "cx": 0.5,
+          "note": "onion into the green pepper"
+        },
+        {
+          "src": "GH011578.MP4",
+          "src_start": 2,
+          "dur": 3,
+          "cx": 0.5,
+          "note": "cream into the pan"
+        },
+        {
+          "src": "GH011579.MP4",
+          "src_start": 6,
+          "dur": 3,
+          "cx": 0.5,
+          "note": "blue cheese melting in"
+        },
+        {
+          "src": "GH011581.MP4",
+          "src_start": 1,
+          "dur": 3,
+          "cx": 0.5,
+          "note": "gnocchi into the water"
+        },
+        {
+          "src": "GH011585.MP4",
+          "src_start": 2,
+          "dur": 3,
+          "cx": 0.5,
+          "note": "the leek goes into the sauce"
+        },
+        {
+          "src": "GH011589.MP4",
+          "src_start": 1,
+          "dur": 3,
+          "cx": 0.5,
+          "note": "cherry tomatoes in"
+        },
+        {
+          "src": "GH011591.MP4",
+          "src_start": 1.5,
+          "dur": 3,
+          "cx": 0.5,
+          "note": "gnocchi into the sauce"
+        },
+        {
+          "src": "GH011594.MP4",
+          "src_start": 4,
+          "dur": 3,
+          "cx": 0.5,
+          "note": "Gruyere on top"
+        },
+        {
+          "src": "GH011595.MP4",
+          "src_start": 5.5,
+          "dur": 3,
+          "cx": 0.5,
+          "note": "first spoonful"
+        }
+      ]
+    },
+    "video": {
+      "layout": "fill",
+      "voice": true,
+      "zoom_amount": 0.07,
+      "tempo_max": 1.08,
+      "output": {
+        "width": 1920,
+        "height": 1080,
+        "fps": 30,
+        "crf": 18,
+        "review_bitrate": "1900k"
+      },
+      "cover_dur": 3,
+      "endcard_dur": 6,
+      "segments": [
+        {
+          "src": "GH011565.MP4",
+          "src_start": 26,
+          "dur": 6,
+          "cx": 0.5,
+          "note": "chopping the leek"
+        },
+        {
+          "src": "GH011567.MP4",
+          "src_start": 3,
+          "dur": 6,
+          "cx": 0.5,
+          "note": "cutting the onion"
+        },
+        {
+          "src": "GH011568.MP4",
+          "src_start": 0,
+          "dur": 5.5,
+          "cx": 0.5,
+          "note": "green pepper into the pan"
+        },
+        {
+          "src": "GH011569.MP4",
+          "src_start": 1.5,
+          "dur": 5.5,
+          "cx": 0.5,
+          "note": "onion joins the pepper"
+        },
+        {
+          "src": "GH011573.MP4",
+          "src_start": 10,
+          "dur": 6,
+          "cx": 0.5,
+          "note": "leek, pepper and onion softened"
+        },
+        {
+          "src": "GH011578.MP4",
+          "src_start": 2.5,
+          "dur": 6,
+          "cx": 0.5,
+          "note": "cream into the pan"
+        },
+        {
+          "src": "GH011579.MP4",
+          "src_start": 5,
+          "dur": 6,
+          "cx": 0.5,
+          "note": "blue cheese melting in"
+        },
+        {
+          "src": "GH011581.MP4",
+          "src_start": 0.5,
+          "dur": 6,
+          "cx": 0.5,
+          "note": "gnocchi into the water"
+        },
+        {
+          "src": "GH011585.MP4",
+          "src_start": 1.5,
+          "dur": 6,
+          "cx": 0.5,
+          "note": "the leek goes into the sauce"
+        },
+        {
+          "src": "GH011586.MP4",
+          "src_start": 1.5,
+          "dur": 6,
+          "cx": 0.5,
+          "note": "cutting cherry tomatoes"
+        },
+        {
+          "src": "GH011591.MP4",
+          "src_start": 0.5,
+          "dur": 6,
+          "cx": 0.5,
+          "note": "gnocchi into the sauce"
+        },
+        {
+          "src": "GH011593.MP4",
+          "src_start": 12,
+          "dur": 6,
+          "cx": 0.5,
+          "note": "plating"
+        },
+        {
+          "src": "GH011594.MP4",
+          "src_start": 4,
+          "dur": 6,
+          "cx": 0.5,
+          "note": "Gruyere on top"
+        },
+        {
+          "src": "GH011595.MP4",
+          "src_start": 3,
+          "dur": 6,
+          "cx": 0.5,
+          "note": "first spoonful"
+        }
+      ]
+    }
+  }
+}

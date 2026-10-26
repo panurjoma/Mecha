@@ -40,6 +40,15 @@ Output (in `PLATE_OUTPUT_DIR`, see `.env.example`): `<format>_<lang>.mp4` and a 
 The video takes several minutes to render (1080p, slow preset). For a new language, run
 `python translate_captions.py <recipe-name> --format video --to es` (needs an LLM key in `.env`), then run with `--lang es`.
 
+## Stages for a new recipe (do the least needed at each)
+1. Drop the recordings in `input/<id>/` (GoPro files like `GH011564.MP4` are fine; they stay out of git).
+2. Pick the moments in `video.json`: `segments` per format with `src`, `src_start`, `dur`, optional `cx` (0..1, where to crop
+   sideways for a vertical short). List them in filming order.
+3. Cut and join: `python cut_rough.py <id> --format short` (and `--format video`) gives `<output>/<id>/rough_<format>.mp4`
+   with the clips' own sound. Check order and length before going on.
+4. Clean (glare, noise, sharpness, colour), cover and end card, captions, voice, music, final: see the layers below.
+The short keeps repetition to a minimum; the video can carry more secondary detail. See directive 18 in `CLAUDE.md`.
+
 ## Layers: change one thing without redoing the rest
 Videos are built as layers, each a file in `<output>/<recipe>/layers/` with a `.key` fingerprint of its inputs.
 Run the same command again and only the layers whose inputs changed are rebuilt (the log shows `[built]` or `[cached]`).
