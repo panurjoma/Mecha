@@ -85,6 +85,17 @@ at the end. The footage is filmed by the channel owner; only the cover image is 
     Captions live in the segments (`caption.en`, `caption.es`) and `make_captions.py` places them, so adding or retiming a
     clip never needs hand-edited caption files.
 
+22. **Images from an API: one provider per situation, paid only with a check.** Covers, thumbnails and brand images are made
+    in one of two ways. For now the assistant uses the Higgsfield tools (free-plan model z_image) after checking the credit
+    balance (provider `higgsfield`, no key in `.env`). For the next videos the only image provider is the OpenAI
+    subscription (provider `openai`, `OPENAI_API_KEY` in `.env`, run by `scripts/make_cover_ai.py`). The exact model id goes
+    in `OPENAI_IMAGE_MODEL`; the owner calls it "gpt astra 6" and that id is unverified, so a wrong id shows as an API error,
+    never a guess, and model names stay in config and `.env`, not hardcoded as facts. The Claude subscription is not used to
+    make images. Every image obeys directives 3, 8, 10 and 17: no text or logos inside the image, a paid call only after the
+    credit and the estimated cost are checked (the script prints the estimate and needs `--confirm-paid`), keys only in
+    `.env` and never printed, and the image is a cached layer with a `.key` that is not regenerated when the prompt and
+    settings are the same.
+
 ## Two products from the same inputs
 | | Short (`short_<lang>.mp4`) | Video (`video_<lang>.mp4`) |
 |---|---|---|
@@ -111,7 +122,8 @@ versions win over generated ones).
 
 ## Tools and connections
 - Edit: ffmpeg through `uv run --with pillow --with imageio-ffmpeg --with edge-tts python scripts/<script>.py`.
-- AI cover: `scripts/make_cover_ai.py` (provider in `config/cover_ai.json`: `file` or paid `openai`, only with `--confirm-paid`).
+- AI cover: `scripts/make_cover_ai.py` (provider in `config/cover_ai.json`: `openai` for next videos, paid, only with
+  `--confirm-paid`; `higgsfield` run by the assistant; `file`; see directive 22).
   The first cover was made with Higgsfield z_image (the only image model the free plan allows).
 - LLM (optional): `scripts/llm_client.py` for Claude or OpenAI, keys in `.env`.
 - ComfyUI (optional quality step): `scripts/comfy_client.py` and `.mcp.json` (comfy-mcp). RTX 3060 Laptop with 6 GB:

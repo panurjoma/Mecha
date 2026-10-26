@@ -1,67 +1,69 @@
 1
-00:00:05,300 --> 00:00:09,500
-Empezamos con un puerro, picado bien finito.
+00:00:05,300 --> 00:00:08,500
+Empezamos con un puerro bien picado.
 
 2
-00:00:10,300 --> 00:00:14,000
+00:00:09,300 --> 00:00:12,000
 Luego una cebolla en láminas.
 
 3
-00:00:14,800 --> 00:00:19,500
-El pimiento verde entra
-primero en la sartén.
+00:00:12,800 --> 00:00:16,500
+El pimiento verde va primero a la sartén.
 
 4
-00:00:20,300 --> 00:00:25,000
-Suma la cebolla y cocina
-hasta que esté tierna.
+00:00:17,300 --> 00:00:20,000
+Ahora se suma la cebolla.
 
 5
-00:00:25,800 --> 00:00:29,000
-Aparta la verdura tierna en un plato.
+00:00:20,800 --> 00:00:24,500
+Cocina despacio hasta que esté tierno.
 
 6
-00:00:29,800 --> 00:00:34,000
-Echa la nata y deja que se temple con calma.
+00:00:25,300 --> 00:00:27,500
+Apártalo aparte.
 
 7
-00:00:34,800 --> 00:00:39,000
+00:00:28,300 --> 00:00:32,500
+Echa la nata y deja que se temple con calma.
+
+8
+00:00:33,300 --> 00:00:37,500
 Añade el queso azul y
 remueve hasta que se funda.
 
-8
-00:00:39,800 --> 00:00:44,000
+9
+00:00:38,300 --> 00:00:42,500
 Mientras, hierve los ñoquis solo un minuto.
 
-9
-00:00:44,800 --> 00:00:49,000
+10
+00:00:43,300 --> 00:00:47,500
 Vuelve a meter la verdura
 en la salsa cremosa.
 
-10
-00:00:49,800 --> 00:00:53,000
-Parte unos tomates cherry por la mitad.
-
 11
-00:00:53,800 --> 00:00:57,000
-Échalos a la salsa.
+00:00:48,300 --> 00:00:51,500
+Echa los tomates cherry a la salsa.
 
 12
-00:00:57,800 --> 00:01:01,000
-Escurre bien los ñoquis.
+00:00:52,300 --> 00:00:54,500
+Escurre los ñoquis.
 
 13
-00:01:01,800 --> 00:01:06,000
+00:00:55,300 --> 00:00:59,500
 Añade los ñoquis a la salsa y mézclalo todo.
 
 14
-00:01:06,800 --> 00:01:11,000
-Sirve el plato bien caliente.
+00:01:00,300 --> 00:01:03,000
+Remueve bien.
 
 15
-00:01:11,800 --> 00:01:15,500
-Termina con mucho Gruyère rallado.
+00:01:03,800 --> 00:01:08,000
+Sirve el plato bien caliente.
 
 16
-00:01:16,300 --> 00:01:20,500
+00:01:08,800 --> 00:01:12,000
+Termina con mucho Gruyère rallado.
+
+17
+00:01:12,800 --> 00:01:17,000
 Y listo. Cremoso y reconfortante.

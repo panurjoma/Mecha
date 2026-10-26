@@ -81,7 +81,7 @@ def draw(video_id, kind, lang):
         item_rows(90, W - 90, top + 380 + 70, 80, 42, 44)
         if lab.get("cta"):
             d.text((W / 2, H - 150), lab["cta"], font=font(48), fill=c["tomato"], anchor="mm")
-        d.text((W / 2, H - 70), lab["note"], font=font(36, False), fill=c["charcoal"], anchor="mm")
+        d.text((W / 2, H - 70), lab["note"], font=font(42, False), fill=c["charcoal"], anchor="mm")
     else:  # landscape (video): ingredient list on the left, big price on the right
         split = int(W * 0.60)
         d.rectangle([split, 0, W, H], fill=c["tomato"])
@@ -90,7 +90,7 @@ def draw(video_id, kind, lang):
             d.text((90, y), ln, font=font(64), fill=c["charcoal"], anchor="lm")
             y += 80
         item_rows(90, split - 90, y + 70, 86, 38, 42)
-        d.text((90, H - 60), lab["note"], font=font(30, False), fill=c["charcoal"], anchor="lm")
+        d.text((90, H - 60), lab["note"], font=font(40, False), fill=c["charcoal"], anchor="lm")
         cx = split + (W - split) / 2
         if icon.exists():
             ic, mask = round_icon(170)

@@ -254,18 +254,18 @@
         {
           "src": "GH011565.MP4",
           "src_start": 26,
-          "dur": 5,
+          "dur": 4,
           "cx": 0.5,
           "note": "chopping the leek",
           "caption": {
-            "en": "Start with a leek, chopped nice and fine.",
-            "es": "Empezamos con un puerro, picado bien finito."
+            "en": "Start with a leek, chopped fine.",
+            "es": "Empezamos con un puerro bien picado."
           }
         },
         {
           "src": "GH011567.MP4",
           "src_start": 3,
-          "dur": 4.5,
+          "dur": 3.5,
           "cx": 0.5,
           "note": "slicing the onion",
           "caption": {
@@ -276,39 +276,50 @@
         {
           "src": "GH011568.MP4",
           "src_start": 0,
-          "dur": 5.5,
+          "dur": 4.5,
           "cx": 0.5,
           "note": "green pepper into the pan",
           "caption": {
             "en": "Green pepper goes into the hot pan first.",
-            "es": "El pimiento verde entra primero en la sartén."
+            "es": "El pimiento verde va primero a la sartén."
+          }
+        },
+        {
+          "src": "GH011569.MP4",
+          "src_start": 1,
+          "dur": 3.5,
+          "cx": 0.5,
+          "note": "onion into the pan with the pepper",
+          "caption": {
+            "en": "Now the onion joins it.",
+            "es": "Ahora se suma la cebolla."
           }
         },
         {
           "src": "GH011573.MP4",
           "src_start": 10,
-          "dur": 5.5,
+          "dur": 4.5,
           "cx": 0.5,
           "note": "leek, pepper and onion cooked soft, oil",
           "caption": {
-            "en": "Add the onion and cook slowly until it is soft and sweet.",
-            "es": "Suma la cebolla y cocina hasta que esté tierna."
+            "en": "Cook slowly until it is soft and sweet.",
+            "es": "Cocina despacio hasta que esté tierno."
           }
         },
         {
           "src": "GH011577.MP4",
           "src_start": 4,
-          "dur": 4,
+          "dur": 3,
           "cx": 0.5,
           "note": "the soft veg tipped onto a plate",
           "caption": {
-            "en": "Set the soft veg aside on a plate.",
-            "es": "Aparta la verdura tierna en un plato."
+            "en": "Set it aside on a plate.",
+            "es": "Apártalo aparte."
           }
         },
         {
           "src": "GH011578.MP4",
-          "src_start": 4.0,
+          "src_start": 4,
           "dur": 5,
           "cx": 0.5,
           "note": "cream swirling in the pan",
@@ -351,36 +362,25 @@
           }
         },
         {
-          "src": "GH011586.MP4",
-          "src_start": 1.5,
-          "dur": 4,
-          "cx": 0.5,
-          "note": "cutting cherry tomatoes",
-          "caption": {
-            "en": "Halve some cherry tomatoes for freshness.",
-            "es": "Parte unos tomates cherry por la mitad."
-          }
-        },
-        {
           "src": "GH011589.MP4",
           "src_start": 0.8,
           "dur": 4,
           "cx": 0.5,
           "note": "cherry tomatoes slide into the sauce",
           "caption": {
-            "en": "Tip them into the sauce.",
-            "es": "Échalos a la salsa."
+            "en": "Tip the cherry tomatoes into the sauce.",
+            "es": "Echa los tomates cherry a la salsa."
           }
         },
         {
           "src": "GH011587.MP4",
           "src_start": 3,
-          "dur": 4,
+          "dur": 3,
           "cx": 0.5,
           "note": "draining the gnocchi",
           "caption": {
             "en": "Drain the gnocchi well.",
-            "es": "Escurre bien los ñoquis."
+            "es": "Escurre los ñoquis."
           }
         },
         {
@@ -392,6 +392,17 @@
           "caption": {
             "en": "Add the gnocchi to the sauce and mix it all together.",
             "es": "Añade los ñoquis a la salsa y mézclalo todo."
+          }
+        },
+        {
+          "src": "GH011592.MP4",
+          "src_start": 3,
+          "dur": 3.5,
+          "cx": 0.5,
+          "note": "glossy pan stirred",
+          "caption": {
+            "en": "Give it a good stir.",
+            "es": "Remueve bien."
           }
         },
         {
@@ -408,7 +419,7 @@
         {
           "src": "GH011594.MP4",
           "src_start": 4,
-          "dur": 4.5,
+          "dur": 4,
           "cx": 0.5,
           "note": "Gruyere on top",
           "caption": {
@@ -470,7 +481,7 @@
       },
       "end_caption": {
         "en": "Total €9.70 for two, €4.85 a serving. Follow for more.",
-        "es": "Total 9,70 euros para dos, 4,85 la ración. Suscríbete."
+        "es": "Total 9,70 euros, 4,85 la ración. Suscríbete."
       }
     }
   },

@@ -1,6 +1,18 @@
 {
-  "provider": "file",
-  "openai": {"model": "gpt-image-1"},
+  "provider": "openai",
+  "_provider_help": "openai = default for the next videos (paid, only with --confirm-paid). higgsfield = the assistant makes the image with the Higgsfield tools (z_image, free plan) after checking the credit balance; no key in .env. file = only check the files exist.",
+  "openai": {
+    "model": "gpt-image-1",
+    "model_env": "OPENAI_IMAGE_MODEL",
+    "_model_help": "Default only. The env variable wins. The owner's 'gpt astra 6' is unverified: put the exact API model id in OPENAI_IMAGE_MODEL; a wrong id is reported as an API error.",
+    "quality": null,
+    "sizes": {"9x16": "1024x1536", "16x9": "1536x1024"}
+  },
+  "higgsfield": {"model": "z_image"},
+  "estimated_cost_usd": {
+    "_help": "The owner fills this from OpenAI's price page (null = unknown). The script prints what it knows and never guesses.",
+    "image": null
+  },
   "style": "Photographed in a bowl on a bright tomato-red tablecloth with a cream linen napkin and wooden chopsticks, warm natural light, steam rising, shallow depth of field, colours of tomato red and cream.",
   "made_with": {
     "udon-teriyaki-secreto-iberico-gambones": "Higgsfield z_image (free plan), 0.15 credits each. Prompt: appetizing food photograph of udon noodles glossy with dark teriyaki sauce, topped with seared pink king prawns, thin slices of roasted pork, sliced mushrooms, orange carrot sticks and chopped green spring onion, in a deep white bowl on a bright tomato-red tablecloth with a cream linen napkin and wooden chopsticks, warm natural light, steam rising, shallow depth of field"

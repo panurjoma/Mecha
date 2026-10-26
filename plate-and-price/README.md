@@ -124,10 +124,35 @@ options: `en-US-AndrewMultilingualNeural` (warm, confident), `en-US-GuyNeural`, 
 ## The AI cover
 Every product opens with a cover card: an AI image of the finished dish with the channel branding on top.
 - The image files are named in `video.json` (`cover.ai`). `make_cover_ai.py` reports when one is missing.
-- Provider is set in `config/cover_ai.json`: `file` (add the image by hand or have Claude generate it) or `openai`
-  (paid, runs only with `--confirm-paid` after you check your credit).
+- Provider is set in `config/cover_ai.json`: `openai` (next videos), `higgsfield` or `file` (see "Generating images
+  with an API" below; `openai` is paid and runs only with `--confirm-paid` after you check your credit).
 - The first covers were generated with Higgsfield `z_image`, the only image model the free plan allows.
 - `make_cover.py` adds the title, price per serving and channel name. The same 16:9 cover is the YouTube thumbnail.
+
+## Generating images with an API
+For covers, thumbnails and brand images. Keys go in `.env` (git-ignored); the script never prints them.
+Providers (`provider` in `config/cover_ai.json`):
+- **`openai`** (default for the next videos, paid): the OpenAI image API makes the pixels. Needs `OPENAI_API_KEY` and the
+  model id in `OPENAI_IMAGE_MODEL`. The owner calls the model "gpt astra 6"; I cannot verify that such a model id exists, so
+  put the exact API id from your OpenAI account there. If it is wrong, the script stops and shows the API error. With no
+  variable it uses `openai.model` from the config (`gpt-image-1`, only a default).
+- **`higgsfield`**: the assistant makes the image with the Higgsfield tools (free-plan model `z_image`) after checking the
+  credit balance. No key in `.env`. The script only reports a missing file and prints the prompt to use.
+- **`file`**: the script only checks the image files exist (made by hand).
+
+Env variables (`.env.example`): `OPENAI_API_KEY`, `OPENAI_IMAGE_MODEL`.
+Config keys: `provider` (`openai|higgsfield|file`), `openai.model`, `openai.model_env`, `openai.quality`, `openai.sizes`,
+`higgsfield.model`, `estimated_cost_usd.image` (fill it from OpenAI's price page; `null` means unknown), `style`.
+
+Run (from `scripts/`):
+```
+uv run --with pillow python make_cover_ai.py <recipe-name> [--ratio 9x16|16x9] [--balance-usd N] [--confirm-paid] [--force]
+```
+Without `--confirm-paid` it only prints the plan and the estimated cost and stops. It cannot read your account balance:
+check your credit first (directive 3); `--balance-usd` makes it stop if your credit is below a known estimate. Each image
+is a cached layer (`<image>.key`): the same prompt and settings are not generated again, a hand-made or Higgsfield image
+with no `.key` is never overwritten, and `--force` regenerates. Images contain no text or logos; `make_cover.py` adds the
+words. Not tested: no paid call has been run; the script has only been syntax-checked and imported.
 
 ## n8n
 Import `n8n/plate-and-price-short.workflow.json` and `n8n/plate-and-price-video.workflow.json`. Each is: Manual Trigger,
