@@ -3,8 +3,8 @@
 usage: python run_pipeline.py <video-id> --format short|video --lang en
   short: captions + music, 1080x1920 for YouTube Shorts.
   video: captions + voice-over + music, 1920x1080 for the YouTube channel.
-Steps: translate captions if missing -> AI cover check -> cover -> price end card -> (voice) -> edit/render.
-Prints one JSON line with the output paths. Run it with
+Steps: translate captions if missing -> AI cover check -> cover -> price end card -> (voice) -> edit/render -> YouTube
+title, description and tags (description_<format>_<lang>.md). Prints one JSON line with the output paths and the text. Run it with
 `uv run --with pillow --with imageio-ffmpeg --with edge-tts python run_pipeline.py ...` if those are not installed.
 """
 import argparse
@@ -43,9 +43,12 @@ def main():
         step("make_voice.py", a.video_id, "--format", kind, "--lang", a.lang)
     step("edit_short.py", a.video_id, "--format", kind, "--lang", a.lang)
 
+    from make_description import build  # after the render so a description problem never loses the video
+    desc_file, yt_title, yt_body = build(a.video_id, kind, a.lang)
     out = OUTPUT_DIR / a.video_id
     print(json.dumps({"video_id": a.video_id, "format": kind, "lang": a.lang, "master": str(out / f"{kind}_{a.lang}.mp4"),
-                      "review": str(out / f"{kind}_{a.lang}_review.mp4"), "title": meta["title"][a.lang]}))
+                      "review": str(out / f"{kind}_{a.lang}_review.mp4"), "title": meta["title"][a.lang],
+                      "youtube_title": yt_title, "description_file": str(desc_file), "description": yt_body}))
 
 
 if __name__ == "__main__":

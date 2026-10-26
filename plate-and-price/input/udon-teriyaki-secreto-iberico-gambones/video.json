@@ -34,13 +34,13 @@
   "voice": {
     "en": {
       "engine": "edge-tts",
-      "voice": "en-US-AndrewNeural",
-      "rate": "-6%"
+      "voice": "en-US-AvaMultilingualNeural",
+      "rate": "-4%"
     },
     "es": {
       "engine": "edge-tts",
-      "voice": "es-ES-AlvaroNeural",
-      "rate": "-6%"
+      "voice": "es-ES-XimenaNeural",
+      "rate": "-4%"
     }
   },
   "formats": {
@@ -231,6 +231,79 @@
           "dur": 6,
           "zoom": "out"
         }
+      ],
+      "chapters": [
+        {
+          "at": 0,
+          "en": "Intro and prep",
+          "es": "Intro y preparación"
+        },
+        {
+          "at": 15,
+          "en": "Mushrooms and udon",
+          "es": "Champiñones y udon"
+        },
+        {
+          "at": 33,
+          "en": "Teriyaki sauce",
+          "es": "Salsa teriyaki"
+        },
+        {
+          "at": 45,
+          "en": "Prawns and pork",
+          "es": "Gambones y secreto"
+        },
+        {
+          "at": 57,
+          "en": "Toss, serve and price",
+          "es": "Mezcla, sirve y precio"
+        }
+      ]
+    }
+  },
+  "description": {
+    "hook": {
+      "en": "Fresh udon noodles, sticky teriyaki sauce, juicy king prawns and Iberian pork secreto. A dinner for two that feels like a treat and costs about {per} a serving.",
+      "es": "Udon fresco, salsa teriyaki pegajosa, gambones jugosos y secreto ibérico. Una cena para dos que sabe a capricho y cuesta unos {per} por ración."
+    },
+    "closing": {
+      "en": "Tell me in the comments what you would cook next, and what you want to see the price of.",
+      "es": "Cuéntame en los comentarios qué cocinarías después y de qué plato quieres ver el precio."
+    },
+    "keywords": {
+      "en": [
+        "easy dinner",
+        "udon teriyaki",
+        "udon noodles",
+        "teriyaki sauce",
+        "king prawns",
+        "dinner for two",
+        "cheap dinner",
+        "recipe cost"
+      ],
+      "es": [
+        "cena fácil",
+        "udon teriyaki",
+        "fideos udon",
+        "salsa teriyaki",
+        "gambones",
+        "cena para dos",
+        "cena barata",
+        "precio de la receta"
+      ]
+    },
+    "hashtags": {
+      "en": [
+        "#EasyDinner",
+        "#Udon",
+        "#Teriyaki",
+        "#DinnerIdeas"
+      ],
+      "es": [
+        "#CenaFacil",
+        "#Udon",
+        "#Teriyaki",
+        "#IdeasDeCena"
       ]
     }
   }

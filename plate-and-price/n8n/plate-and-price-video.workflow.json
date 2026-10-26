@@ -84,7 +84,7 @@
         "sendTo": "pablohl50@gmail.com",
         "subject": "=Plate & Price VIDEO review: {{ $('Params').item.json.videoId }} ({{ $('Params').item.json.lang }})",
         "emailType": "text",
-        "message": "=Review the captions, music, zoom pacing and the price end card. Reply with changes, for example: caption 3 too long, swap the song, price of the prawns is 6.20.",
+        "message": "=Review the captions, music, zoom pacing, voice and the price end card. Reply with changes, for example: caption 3 too long, swap the song, price of the prawns is 6.20.\n\nYOUTUBE TITLE\n{{ JSON.parse($('Edit video (ffmpeg pipeline + voice)').item.json.stdout.trim().split(String.fromCharCode(10)).pop()).youtube_title }}\n\nYOUTUBE DESCRIPTION\n{{ JSON.parse($('Edit video (ffmpeg pipeline + voice)').item.json.stdout.trim().split(String.fromCharCode(10)).pop()).description }}\n\n(The same text is saved as description_video_<lang>.md next to the video.)",
         "options": {
           "attachmentsUi": {
             "attachmentsBinary": [

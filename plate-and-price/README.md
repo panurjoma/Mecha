@@ -40,6 +40,26 @@ Output (in `PLATE_OUTPUT_DIR`, see `.env.example`): `<format>_<lang>.mp4` and a 
 The video takes several minutes to render (1080p, slow preset). For a new language, run
 `python translate_captions.py <recipe-name> --format video --to es` (needs an LLM key in `.env`), then run with `--lang es`.
 
+## YouTube title, description and tags
+`run_pipeline.py` also writes `description_<format>_<lang>.md` next to each video: TITLE, DESCRIPTION, TAGS and a NOTES
+section for you (not for YouTube). English by default; `--lang es` writes the Spanish one. You can run it alone:
+`python make_description.py <recipe-name> --format video --lang en`.
+- **Short:** a title ending in #Shorts, a two-line hook, the cost per serving and hashtags.
+- **Video:** hook, the estimated price list and total, chapters, a closing line and hashtags. Chapters come from
+  `formats.video.chapters` in `video.json` (they must start at 0:00, be at least three, and last at least 10 s each).
+- The hook, closing line, keywords and hashtags are in `video.json` under `description`. Add `--llm` to have Claude or
+  OpenAI rewrite the hook in the same close tone (needs a key in `.env`; not tested yet).
+- The text is also placed in the review email by both n8n workflows.
+- The music is never credited unless `audio.song.licensed` is true.
+
+## Tone and voices
+Captions, narration and descriptions are written in a close, natural tone (see directives 14 and 15 in `CLAUDE.md`).
+The voice-over uses `en-US-AvaMultilingualNeural` (English) and `es-ES-XimenaNeural` (Spanish) from the free edge-tts
+service, set in `video.json` under `voice`. Other options: `en-US-BrianMultilingualNeural` (casual, male),
+`en-US-AndrewMultilingualNeural` (warm, male), `en-US-EmmaMultilingualNeural` (cheerful), `es-ES-AlvaroNeural`,
+`es-ES-ElviraNeural`. List them all with `edge-tts --list-voices`. For the most natural result, record your own voice as
+`input/<recipe-name>/voice_video_<lang>.wav`.
+
 ## The AI cover
 Every product opens with a cover card: an AI image of the finished dish with the channel branding on top.
 - The image files are named in `video.json` (`cover.ai`). `make_cover_ai.py` reports when one is missing.
