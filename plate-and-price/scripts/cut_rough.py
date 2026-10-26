@@ -6,7 +6,7 @@ input/<id>/ (default: meta["raw"]), layout ("fill" or "blurpad" for this clip on
 wide clip over a blurred copy, for example a final wide shot in a vertical short), cx (0..1, default 0.5) says where to crop sideways when a wide clip goes into a
 vertical short. Segments are joined in the order listed, which is the order they were filmed (file name = recording
 order). The clip's own sound is kept, with a very short fade at each join so nothing clicks.
-"shutter" (default 1) blends that many source frames into each output frame, like a slower shutter: the sparkle of
+"shutter" (default 1; a segment may set its own, for a fast move that must stay sharp) blends that many source frames into each output frame, like a slower shutter: the sparkle of
 small bright reflections that appears when a 120 fps recording is simply thinned to 30 fps goes away.
 Output layer: <OUTPUT_DIR>/<id>/layers/rough_<format>.mp4 (also copied to <OUTPUT_DIR>/<id>/rough_<format>.mp4).
 It is cached: only a change to the segments, the layout or the recordings rebuilds it.
@@ -32,10 +32,10 @@ def clip_seconds(ffmpeg, path):
 
 def build_rough(tmp, ffmpeg, vdir, raw, f_):
     W, H, fps = f_["w"], f_["h"], f_["fps"]
-    n_blend = f_.get("shutter", 1)  # blend this many source frames (120 fps) into each output frame: motion blur, no sparkle
-    blend = f"tmix=frames={n_blend}:weights='{' '.join(['1'] * n_blend)}'," if n_blend > 1 else ""
     cmd, chains = [ffmpeg, "-hide_banner", "-y"], []
     for i, s in enumerate(f_["segments"]):
+        n_blend = s.get("shutter", f_.get("shutter", 1))  # source frames (120 fps) blended into each output frame; 1 = sharp
+        blend = f"tmix=frames={n_blend}:weights='{' '.join(['1'] * n_blend)}'," if n_blend > 1 else ""
         cmd += ["-ss", str(s["src_start"]), "-t", str(s["dur"]), "-i", str(vdir / s.get("src", raw))]
         if s.get("layout", f_["layout"]) == "blurpad":  # same recipe as the final footage: sharp clip over a blurred copy
             vf = (f"[{i}:v]{blend}fps={fps},split[b{i}][f{i}];[b{i}]scale={W}:{H}:force_original_aspect_ratio=increase,crop={W}:{H},"

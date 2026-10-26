@@ -92,6 +92,7 @@ def make(video_id, kind, lang):
         pill_w = 520
         d.rounded_rectangle([(W - pill_w) / 2, 150, (W + pill_w) / 2, 250], radius=50, fill=c["tomato"])
         d.text((W / 2, 200), chan["name"].upper(), font=font(46), fill="white", anchor="mm")
+        d.text((W / 2, 295), chan["tagline"][lang], font=font(40), fill="white", anchor="mm", stroke_width=3, stroke_fill=dark)
         y = 1060
         for ln in wrap(d, title, font(104), W - 150):
             d.text((W / 2, y), ln, font=font(104), fill="white", anchor="mm", stroke_width=3, stroke_fill=dark)

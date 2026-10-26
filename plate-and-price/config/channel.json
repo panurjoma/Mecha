@@ -13,8 +13,24 @@
     "sand": "#F2E4CC"
   },
   "endcard_labels": {
-    "en": {"total": "Total", "serves": "serves {n}", "per": "per serving", "note": "Estimated supermarket prices"},
-    "es": {"total": "Total", "serves": "para {n}", "per": "por ración", "note": "Precios estimados de supermercado"}
+    "en": {
+      "total": "Total",
+      "serves": "serves {n}",
+      "per": "per serving",
+      "note": "Estimated supermarket prices",
+      "cta": "Follow for the next dinner"
+    },
+    "es": {
+      "total": "Total",
+      "serves": "para {n}",
+      "per": "por ración",
+      "note": "Precios estimados de supermercado",
+      "cta": "Sigue para la próxima cena"
+    }
   },
-  "handles_to_check": ["@plateandprice", "@plateandpriceshorts", "@plate.and.price"]
+  "handles_to_check": [
+    "@plateandprice",
+    "@plateandpriceshorts",
+    "@plate.and.price"
+  ]
 }

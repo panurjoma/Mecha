@@ -53,12 +53,14 @@ The video takes several minutes to render (1080p, slow preset). For a new langua
    same format as the first video). It makes the price end card and the price list in the video description.
 The short keeps repetition to a minimum; the video can carry more secondary detail. See directive 18 in `CLAUDE.md`.
 
-## Critic review (four agents)
-Agents in `.claude/agents/`: `audience-sociologist`, `engagement-analyst`, `marketing-strategist`, `video-craft-editor`.
-`python review_pack.py <id> --format short --lang en` builds what they read in `<output>/<id>/review/` (contact sheets, facts,
-sheets of every recording). In Claude Code run one agent each in parallel; `python review_video.py <id> --format short` does
-the same through Claude or OpenAI (needs a key in `.env`, otherwise skipped). Three rounds per product; scores and fixes go in
-`review/history/<id>.md` (see `review/README.md`).
+## Critic review (seven agents, Claude Opus 5.5)
+Agents in `.claude/agents/`: `audience-sociologist`, `engagement-analyst`, `marketing-strategist`, `video-craft-editor`,
+`audio-voice-reviewer`, `recipe-price-checker`, `discoverability-strategist`.
+`python review_pack.py <id> --format short --lang en` builds what they read in `<output>/<id>/review/` (contact sheets,
+facts with measured audio, the price table and recipe notes, the YouTube text and thumbnail, sheets of every recording). Run
+`make_description.py` first so the discoverability reviewer has the text. In Claude Code run one agent each in parallel;
+`python review_video.py <id> --format short` does the same through Claude or OpenAI (needs a key in `.env`, otherwise skipped;
+it uses each agent's `model:` line). Three rounds per product; scores and fixes go in `review/history/<id>.md`.
 
 ## Hook, captions and cleaning (standard for every recipe)
 - Hook: first segment with `"hook": true`, shown before the cover card (directive 21).

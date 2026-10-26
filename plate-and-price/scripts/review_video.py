@@ -31,10 +31,12 @@ def main():
     sheets = sorted(pack.glob(f"{a.format}_{a.lang}_sheet_*.jpg"))
     parts = []
     for role in sorted((ROOT / ".claude" / "agents").glob("*.md")):
-        body = role.read_text(encoding="utf-8").split("---", 2)[-1].strip()  # the agent file without its frontmatter
+        head, body = role.read_text(encoding="utf-8").split("---", 2)[1:]  # frontmatter, then the instructions
+        body = body.strip()
+        model = next((ln.split(":", 1)[1].strip() for ln in head.splitlines() if ln.startswith("model:")), None)
         text = complete(f"Evidence for the {a.format} ({a.lang}):\n\n{facts}\n\nThe contact sheets are attached (one frame per "
                         "second, time-stamped). Keep the answer under 350 words.", system=body,
-                        max_tokens=1200, images=sheets + sorted(pack.glob("sources_sheet_*.jpg")))
+                        max_tokens=1200, model=model, images=sheets + sorted(pack.glob("sources_sheet_*.jpg")))
         parts.append(f"## {role.stem}\n\n{text.strip()}\n")
     out = pack / f"{a.format}_{a.lang}_review.md"
     out.write_text(f"# Critic review: {a.video_id} {a.format} {a.lang}\n\n" + "\n".join(parts), encoding="utf-8")

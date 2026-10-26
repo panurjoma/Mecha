@@ -7,6 +7,7 @@ Reads <OUTPUT_DIR>/<id>/layers/rough_<format>.mp4 and writes layers/clean_<forma
   highlights  top of the tone curve (0..1, default 0.94): lower values tame blown whites and glints more
   shadows     lift for dark areas (default 0.03)
   warmth      colour temperature in kelvin, 6500 = neutral (default 6500; lower = warmer)
+  cast        [shadows, midtones, highlights] blue push against a yellow-green cast (default 0,0,0)
   saturation, contrast, sharpen (default 1.08, 1.04, 0.35)
 The sparkle of small bright reflections is first reduced in the cut (the "shutter" setting); this stage handles the rest.
 Cached: only a change to these settings or to the rough cut rebuilds it.
@@ -18,7 +19,7 @@ from common import OUTPUT_DIR, find_ffmpeg, load_json, run, video_dir
 from layers import build_cached, code, digest, sig
 
 DEFAULTS = {"denoise": [3, 2, 6, 6], "highlights": 0.94, "shadows": 0.03, "warmth": 6500,
-            "saturation": 1.08, "contrast": 1.04, "sharpen": 0.35}
+            "saturation": 1.08, "contrast": 1.04, "sharpen": 0.35, "cast": [0, 0, 0]}
 
 
 def clean_filters(c):
@@ -29,6 +30,8 @@ def clean_filters(c):
          f"curves=all='0/{lo} 0.3/0.3 0.7/0.69 0.9/{hi * 0.94:.3f} 1/{hi}'"]  # lift blacks a little, squeeze the whites
     if c["warmth"] != 6500:
         f.append(f"colortemperature=temperature={c['warmth']}")
+    if any(c["cast"]):  # push shadows, midtones, highlights towards blue to cancel a yellow-green kitchen light
+        f.append(f"colorbalance=bs={c['cast'][0]}:bm={c['cast'][1]}:bh={c['cast'][2]}")
     f += [f"eq=saturation={c['saturation']}:contrast={c['contrast']}", f"unsharp=5:5:{c['sharpen']}:5:5:0", "format=yuv420p"]
     return f
 

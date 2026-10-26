@@ -29,21 +29,26 @@
         "crf": 18,
         "review_bitrate": "2800k"
       },
-      "cover_dur": 2,
-      "endcard_dur": 3,
+      "cover_dur": 1.5,
+      "endcard_dur": 4,
       "segments": [
         {
           "src": "GH011594.MP4",
-          "src_start": 4.6,
+          "src_start": 3.6,
           "dur": 1.5,
           "cx": 0.5,
+          "note": "hook: Gruyere snow falling on the plate (sharp, no frame blending)",
+          "caption": {
+            "en": "Easy dinners. Real prices.",
+            "es": "Cenas fáciles. Precios reales."
+          },
           "hook": true,
-          "note": "hook: Gruyere snow falling on the plate"
+          "shutter": 1
         },
         {
           "src": "GH011565.MP4",
-          "src_start": 29,
-          "dur": 3,
+          "src_start": 31,
+          "dur": 2,
           "cx": 0.4,
           "note": "chopping the leek",
           "caption": {
@@ -53,9 +58,9 @@
         },
         {
           "src": "GH011567.MP4",
-          "src_start": 3.5,
-          "dur": 2,
-          "cx": 0.3,
+          "src_start": 8,
+          "dur": 1.5,
+          "cx": 0.35,
           "note": "cutting the onion",
           "caption": {
             "en": "Onion goes next",
@@ -74,20 +79,9 @@
           }
         },
         {
-          "src": "GH011569.MP4",
-          "src_start": 2,
-          "dur": 2,
-          "cx": 0.5,
-          "note": "onion joins the pepper",
-          "caption": {
-            "en": "Then the onion joins",
-            "es": "Y se suma la cebolla"
-          }
-        },
-        {
           "src": "GH011573.MP4",
           "src_start": 12.5,
-          "dur": 3,
+          "dur": 2.5,
           "cx": 0.5,
           "note": "leek, pepper and onion cooked soft, oil",
           "caption": {
@@ -97,21 +91,21 @@
         },
         {
           "src": "GH011578.MP4",
-          "src_start": 2.5,
-          "dur": 2.5,
+          "src_start": 4.5,
+          "dur": 2,
           "cx": 0.5,
-          "note": "cream into the pan",
+          "note": "cream swirling in the pan",
           "caption": {
             "en": "Pour in the cream",
             "es": "Echa la nata"
           }
         },
         {
-          "src": "GH011579.MP4",
-          "src_start": 2.5,
-          "dur": 3,
+          "src": "GH011580.MP4",
+          "src_start": 0.5,
+          "dur": 2,
           "cx": 0.5,
-          "note": "blue cheese into the cream",
+          "note": "blue cheese chunks melting in the sauce",
           "caption": {
             "en": "Melt in the blue cheese",
             "es": "Derrite el queso azul"
@@ -124,14 +118,14 @@
           "cx": 0.5,
           "note": "gnocchi into boiling water",
           "caption": {
-            "en": "Gnocchi in boiling water",
-            "es": "Ñoquis al agua hirviendo"
+            "en": "Meanwhile, boil the gnocchi",
+            "es": "Mientras, hierve los ñoquis"
           }
         },
         {
           "src": "GH011585.MP4",
           "src_start": 2,
-          "dur": 3,
+          "dur": 2.5,
           "cx": 0.5,
           "note": "the soft leek goes into the sauce",
           "caption": {
@@ -140,14 +134,47 @@
           }
         },
         {
+          "src": "GH011586.MP4",
+          "src_start": 1.5,
+          "dur": 1.5,
+          "cx": 0.5,
+          "note": "cutting cherry tomatoes",
+          "caption": {
+            "en": "Cut some cherry tomatoes",
+            "es": "Corta tomates cherry"
+          }
+        },
+        {
+          "src": "GH011587.MP4",
+          "src_start": 5,
+          "dur": 2,
+          "cx": 0.5,
+          "note": "draining the gnocchi",
+          "caption": {
+            "en": "Drain the gnocchi",
+            "es": "Escurre los ñoquis"
+          }
+        },
+        {
+          "src": "GH011589.MP4",
+          "src_start": 1.0,
+          "dur": 2.5,
+          "cx": 0.5,
+          "note": "cherry tomatoes slide into the sauce",
+          "caption": {
+            "en": "Tomatoes into the sauce",
+            "es": "Los tomates a la salsa"
+          }
+        },
+        {
           "src": "GH011591.MP4",
           "src_start": 1.5,
-          "dur": 3,
+          "dur": 2.5,
           "cx": 0.5,
-          "note": "gnocchi and tomatoes into the sauce",
+          "note": "gnocchi into the sauce",
           "caption": {
-            "en": "Gnocchi and tomatoes in",
-            "es": "Ñoquis y tomates cherry"
+            "en": "Gnocchi join the sauce",
+            "es": "Los ñoquis a la salsa"
           }
         },
         {
@@ -159,7 +186,8 @@
           "caption": {
             "en": "Stir it all together",
             "es": "Mezcla todo bien"
-          }
+          },
+          "shutter": 2
         },
         {
           "src": "GH011594.MP4",
@@ -173,16 +201,16 @@
           }
         },
         {
-          "src": "GH011595.MP4",
-          "src_start": 0.3,
+          "src": "GH011594.MP4",
+          "src_start": 11,
           "dur": 3,
           "cx": 0.5,
-          "note": "wide reveal of the finished plate (full width over a blurred background)",
-          "layout": "blurpad",
+          "note": "the finished plate, steady and sharp",
           "caption": {
             "en": "Dinner is ready",
             "es": "A cenar"
-          }
+          },
+          "shutter": 2
         }
       ],
       "shutter": 3,
@@ -415,7 +443,14 @@
     }
   },
   "clean": {
-    "warmth": 5800
+    "warmth": 5800,
+    "cast": [
+      0.05,
+      0.07,
+      0.03
+    ],
+    "shadows": 0.04,
+    "highlights": 0.95
   },
   "cover": {
     "ai": {

@@ -68,18 +68,20 @@ def draw(video_id, kind, lang):
             ic, mask = round_icon(200)
             img.paste(ic, (440, 60), mask)
         d.text((W / 2, 285), chan["name"], font=font(52), fill=c["cream"], anchor="mm")
-        y = 440
-        for ln in wrap(title, font(60), W - 140):
-            d.text((W / 2, y), ln, font=font(60), fill=c["charcoal"], anchor="mm")
-            y += 76
-        y = item_rows(90, W - 90, y + 90, 78, 40, 44)
-        top = max(y + 30, 1240)
-        d.rounded_rectangle([70, top, W - 70, top + 360], radius=44, fill=c["tomato"])
-        d.text((W / 2, top + 80), f"{lab['total']} {money(total, cur)}  ·  {lab['serves'].format(n=price['servings'])}",
+        y = 405
+        for ln in wrap(title, font(58), W - 140):
+            d.text((W / 2, y), ln, font=font(58), fill=c["charcoal"], anchor="mm")
+            y += 72
+        top = y + 10  # price block first and big, above the bottom 20 % where the app draws its buttons
+        d.rounded_rectangle([70, top, W - 70, top + 380], radius=44, fill=c["tomato"])
+        d.text((W / 2, top + 70), f"{lab['total']} {money(total, cur)}  ·  {lab['serves'].format(n=price['servings'])}",
                font=font(50), fill=c["cream"], anchor="mm")
-        d.text((W / 2, top + 220), money(per, cur), font=font(190), fill="white", anchor="mm")
-        d.text((W / 2, top + 320), lab["per"], font=font(52), fill=c["cream"], anchor="mm")
-        d.text((W / 2, H - 80), lab["note"], font=font(34, False), fill=c["charcoal"], anchor="mm")
+        d.text((W / 2, top + 215), money(per, cur), font=font(210), fill="white", anchor="mm")
+        d.text((W / 2, top + 330), lab["per"], font=font(56), fill=c["cream"], anchor="mm")
+        item_rows(90, W - 90, top + 380 + 70, 80, 42, 44)
+        if lab.get("cta"):
+            d.text((W / 2, H - 150), lab["cta"], font=font(48), fill=c["tomato"], anchor="mm")
+        d.text((W / 2, H - 70), lab["note"], font=font(36, False), fill=c["charcoal"], anchor="mm")
     else:  # landscape (video): ingredient list on the left, big price on the right
         split = int(W * 0.60)
         d.rectangle([split, 0, W, H], fill=c["tomato"])

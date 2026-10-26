@@ -60,19 +60,22 @@ at the end. The footage is filmed by the channel owner; only the cover image is 
     5. **Bill and price estimate**, last: list the ingredients seen in the footage in `input/<id>/price.json` (same format as
        the first video: items in English and Spanish, price, servings) using average Spanish supermarket prices, labelled as
        an estimate. It feeds the price end card (`make_endcard.py`) and the video description's price list.
-    6. **Critics** (four agents, three rounds, directive 19), then the final file and YouTube text.
+    6. **Critics** (seven agents, three rounds, directive 19), then the final file and YouTube text.
     The short repeats as little as possible (one idea per moment, short captions, no voice). The video may add secondary
     details (extra moments, a fuller explanation, voice-over). Never redo an earlier stage to change a later one.
 
-19. **Four critics, three rounds.** Before a short or video is final, four reviewer agents judge it from different
-    perspectives (`.claude/agents/`): `audience-sociologist` (who watches, trust, social meaning, accessibility),
-    `engagement-analyst` (hook, retention, pacing, loop), `marketing-strategist` (promise, brand, price moment, calls to
-    action) and `video-craft-editor` (recipe continuity, camera perspective, hero shots, picture and audio craft). They read
-    the evidence made by `scripts/review_pack.py` (contact sheets, caption timeline, facts, sheets of every recording) and each
-    answers with `SCORE: x/10`, problems, a hook suggestion and numbered fixes. Run three rounds per product (short and
-    video): apply the fixes that make sense, rebuild, review again, and keep the scores in `review/history/<id>.md` so the
-    progression is visible. The owner can allow a product to grow when the critics ask for it. Judge against what real viewers
-    and the platform reward now. In n8n `scripts/review_video.py` runs the same four agents through an LLM key.
+19. **Seven critics, three rounds.** Before a short or video is final, seven reviewer agents judge it from different
+    perspectives (`.claude/agents/`, all set to Claude Opus 5.5): `audience-sociologist` (who watches, trust, social
+    meaning, accessibility), `engagement-analyst` (hook, retention, pacing, loop), `marketing-strategist` (promise, brand,
+    price moment, calls to action), `video-craft-editor` (recipe continuity, perspective, hero shots, picture craft),
+    `audio-voice-reviewer` (measured loudness, voice-over pacing and naturalness, music balance), `recipe-price-checker`
+    (steps, claims and the Spanish price estimate) and `discoverability-strategist` (title, description, tags, thumbnail,
+    search habits). They read the evidence made by `scripts/review_pack.py` (contact sheets, caption timeline, facts, measured
+    audio, price table, YouTube text, thumbnail, sheets of every recording) and each answers with `SCORE: x/10`, problems,
+    a hook suggestion and numbered fixes. Run three rounds per product (short and video): apply the fixes that make sense,
+    rebuild, review again, and keep the scores in `review/history/<id>.md`. The owner can allow a product to grow when the
+    critics ask for it. In n8n `scripts/review_video.py` runs the same agents through an LLM key. Compliance and licensing
+    is deliberately not a critic; the owner decides about music rights.
 20. **Every shot that goes into an official short or video is cleaned first.** Glare, small flickering highlights,
     blown whites, colour cast and noise are removed by the clean stage (`scripts/clean_footage.py`) for every shot, including a
     shot added later and the hook. `run_pipeline.py` always runs `cut_rough.py` then `clean_footage.py` before it builds
