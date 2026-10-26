@@ -60,10 +60,10 @@ Los ñoquis a la salsa
 Mezcla todo bien
 
 15
-00:00:33,000 --> 00:00:35,800
-Gruyère rallado
-por encima
+00:00:33,000 --> 00:00:35,300
+Sírvelo en el plato
 
 16
-00:00:36,000 --> 00:00:38,800
-A cenar
+00:00:35,500 --> 00:00:38,300
+Gruyère por
+encima. A cenar

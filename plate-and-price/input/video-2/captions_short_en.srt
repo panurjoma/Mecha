@@ -62,9 +62,10 @@ Gnocchi join the sauce
 Stir it all together
 
 15
-00:00:33,000 --> 00:00:35,800
-Grate Gruyère on top
+00:00:33,000 --> 00:00:35,300
+Plate it up
 
 16
-00:00:36,000 --> 00:00:38,800
+00:00:35,500 --> 00:00:38,300
+Gruyère on top.
 Dinner is ready
