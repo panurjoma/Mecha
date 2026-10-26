@@ -26,6 +26,7 @@ from pathlib import Path
 from common import OUTPUT_DIR, find_ffmpeg, fmt, load_json, parse_srt, probe_size, run, video_dir
 from layers import build_cached, code, digest, sig
 
+LOUD = "loudnorm=I=-15:TP=-1.5:LRA=11"  # streaming-level loudness (the music alone was about -24 dB, too quiet for a phone)
 CLIP = ["-c:v", "libx264", "-preset", "fast", "-crf", "14", "-pix_fmt", "yuv420p", "-an"]  # near-lossless intermediates
 
 
@@ -114,10 +115,10 @@ def build_mix(tmp, ffmpeg, music, voice, au, total):
     fade = f"afade=t=out:st={total - au['fade_out']}:d={au['fade_out']}"
     if voice:
         graph = (f"[0:a]volume={au['volume_with_voice']}[m];[1:a]volume=1.4[vo];"
-                 f"[m][vo]amix=inputs=2:duration=first:normalize=0,{fade}[a]")
+                 f"[m][vo]amix=inputs=2:duration=first:normalize=0,{LOUD},{fade}[a]")
         run([ffmpeg, "-hide_banner", "-y", "-i", str(music), "-i", str(voice), "-filter_complex", graph, "-map", "[a]", str(tmp)])
     else:
-        run([ffmpeg, "-hide_banner", "-y", "-i", str(music), "-af", f"volume={au['volume']},{fade}", str(tmp)])
+        run([ffmpeg, "-hide_banner", "-y", "-i", str(music), "-af", f"volume={au['volume']},{LOUD},{fade}", str(tmp)])
 
 
 def build_final(tmp, ffmpeg, captioned, mix):

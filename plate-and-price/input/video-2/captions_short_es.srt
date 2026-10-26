@@ -1,44 +1,57 @@
 1
 00:00:02,000 --> 00:00:04,800
-Corta un puerro bien fino
+Corta un puerro
+bien fino
 
 2
-00:00:05,000 --> 00:00:07,800
+00:00:05,000 --> 00:00:06,800
 Ahora la cebolla
 
 3
-00:00:08,000 --> 00:00:10,800
-A la sartén con
-el pimiento verde
+00:00:07,000 --> 00:00:09,800
+El pimiento
+verde a la sartén
 
 4
-00:00:11,000 --> 00:00:13,800
-Echa la nata
+00:00:10,000 --> 00:00:11,800
+Y se suma la cebolla
 
 5
-00:00:14,000 --> 00:00:16,800
-Derrite el queso azul
+00:00:12,000 --> 00:00:14,800
+Cocina hasta
+que esté tierno
 
 6
-00:00:17,000 --> 00:00:19,800
-Ñoquis al agua hirviendo
+00:00:15,000 --> 00:00:17,300
+Echa la nata
 
 7
-00:00:20,000 --> 00:00:22,800
-Suma el puerro pochado
+00:00:17,500 --> 00:00:20,300
+Derrite el queso azul
 
 8
-00:00:23,000 --> 00:00:25,800
-Y los tomates cherry
+00:00:20,500 --> 00:00:23,300
+Ñoquis al
+agua hirviendo
 
 9
-00:00:26,000 --> 00:00:28,800
-Los ñoquis a la salsa
+00:00:23,500 --> 00:00:26,300
+Suma el puerro pochado
 
 10
-00:00:29,000 --> 00:00:31,800
-Gruyère rallado por encima
+00:00:26,500 --> 00:00:29,300
+Ñoquis y
+tomates cherry
 
 11
-00:00:32,000 --> 00:00:34,800
+00:00:29,500 --> 00:00:32,300
+Mezcla todo bien
+
+12
+00:00:32,500 --> 00:00:35,300
+Gruyère rallado
+por encima
+
+13
+00:00:35,500 --> 00:00:38,300
 A cenar

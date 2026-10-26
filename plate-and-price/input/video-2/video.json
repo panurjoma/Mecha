@@ -41,59 +41,73 @@
         },
         {
           "src": "GH011567.MP4",
-          "src_start": 3,
-          "dur": 3,
+          "src_start": 3.5,
+          "dur": 2,
           "cx": 0.3,
           "note": "cutting the onion"
         },
         {
+          "src": "GH011568.MP4",
+          "src_start": 2.2,
+          "dur": 3,
+          "cx": 0.4,
+          "note": "green pepper into the pan"
+        },
+        {
           "src": "GH011569.MP4",
           "src_start": 2,
+          "dur": 2,
+          "cx": 0.5,
+          "note": "onion joins the pepper"
+        },
+        {
+          "src": "GH011573.MP4",
+          "src_start": 12.5,
           "dur": 3,
           "cx": 0.5,
-          "note": "onion into the green pepper"
+          "note": "leek, pepper and onion cooked soft, oil"
         },
         {
           "src": "GH011578.MP4",
-          "src_start": 2,
-          "dur": 3,
+          "src_start": 2.5,
+          "dur": 2.5,
           "cx": 0.5,
           "note": "cream into the pan"
         },
         {
           "src": "GH011579.MP4",
-          "src_start": 6,
+          "src_start": 2.5,
           "dur": 3,
           "cx": 0.5,
-          "note": "blue cheese melting in"
+          "note": "blue cheese into the cream"
         },
         {
           "src": "GH011581.MP4",
           "src_start": 1,
           "dur": 3,
           "cx": 0.5,
-          "note": "gnocchi into the water"
+          "note": "gnocchi into boiling water"
         },
         {
           "src": "GH011585.MP4",
           "src_start": 2,
           "dur": 3,
           "cx": 0.5,
-          "note": "the leek goes into the sauce"
-        },
-        {
-          "src": "GH011589.MP4",
-          "src_start": 1,
-          "dur": 3,
-          "cx": 0.5,
-          "note": "cherry tomatoes in"
+          "note": "the soft leek goes into the sauce"
         },
         {
           "src": "GH011591.MP4",
           "src_start": 1.5,
           "dur": 3,
           "cx": 0.5,
-          "note": "gnocchi into the sauce"
+          "note": "gnocchi and tomatoes into the sauce"
+        },
+        {
+          "src": "GH011592.MP4",
+          "src_start": 0.5,
+          "dur": 3,
+          "cx": 0.5,
+          "note": "glossy pan of finished gnocchi"
         },
         {
           "src": "GH011594.MP4",
@@ -104,10 +118,11 @@
         },
         {
           "src": "GH011595.MP4",
-          "src_start": 5.5,
+          "src_start": 0.3,
           "dur": 3,
           "cx": 0.5,
-          "note": "first spoonful"
+          "note": "wide reveal of the finished plate (full width over a blurred background)",
+          "layout": "blurpad"
         }
       ],
       "shutter": 3,
@@ -117,10 +132,10 @@
       },
       "caption_style": {
         "font": "Arial",
-        "size": 66,
+        "size": 80,
         "align": 8,
         "margin_v": 280,
-        "outline": 5,
+        "outline": 6,
         "bold": true
       }
     },

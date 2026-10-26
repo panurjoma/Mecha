@@ -1,44 +1,56 @@
 1
 00:00:02,000 --> 00:00:04,800
-Chop a leek, nice and fine
+Chop a leek,
+nice and fine
 
 2
-00:00:05,000 --> 00:00:07,800
+00:00:05,000 --> 00:00:06,800
 Onion goes next
 
 3
-00:00:08,000 --> 00:00:10,800
-Into the pan
-with green pepper
+00:00:07,000 --> 00:00:09,800
+Green pepper
+into the pan
 
 4
-00:00:11,000 --> 00:00:13,800
-Pour in the cream
+00:00:10,000 --> 00:00:11,800
+Then the onion joins
 
 5
-00:00:14,000 --> 00:00:16,800
-Melt in the blue cheese
+00:00:12,000 --> 00:00:14,800
+Cook it soft and sweet
 
 6
-00:00:17,000 --> 00:00:19,800
-Gnocchi in boiling water
+00:00:15,000 --> 00:00:17,300
+Pour in the cream
 
 7
-00:00:20,000 --> 00:00:22,800
-Add the soft leeks
+00:00:17,500 --> 00:00:20,300
+Melt in the
+blue cheese
 
 8
-00:00:23,000 --> 00:00:25,800
-Cherry tomatoes too
+00:00:20,500 --> 00:00:23,300
+Gnocchi in
+boiling water
 
 9
-00:00:26,000 --> 00:00:28,800
-Gnocchi join the sauce
+00:00:23,500 --> 00:00:26,300
+Add the soft leeks
 
 10
-00:00:29,000 --> 00:00:31,800
-Grate Gruyère on top
+00:00:26,500 --> 00:00:29,300
+Gnocchi and
+tomatoes in
 
 11
-00:00:32,000 --> 00:00:34,800
+00:00:29,500 --> 00:00:32,300
+Stir it all together
+
+12
+00:00:32,500 --> 00:00:35,300
+Grate Gruyère on top
+
+13
+00:00:35,500 --> 00:00:38,300
 Dinner is ready

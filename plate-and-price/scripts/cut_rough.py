@@ -2,7 +2,8 @@
 
 usage: python cut_rough.py <video-id> --format short|video [--force]
 Reads input/<id>/video.json formats.<format>.segments: each is {src, src_start, dur[, cx]} where src is a recording in
-input/<id>/ (default: meta["raw"]), cx (0..1, default 0.5) says where to crop sideways when a wide clip goes into a
+input/<id>/ (default: meta["raw"]), layout ("fill" or "blurpad" for this clip only: blurpad keeps the whole width of a
+wide clip over a blurred copy, for example a final wide shot in a vertical short), cx (0..1, default 0.5) says where to crop sideways when a wide clip goes into a
 vertical short. Segments are joined in the order listed, which is the order they were filmed (file name = recording
 order). The clip's own sound is kept, with a very short fade at each join so nothing clicks.
 "shutter" (default 1) blends that many source frames into each output frame, like a slower shutter: the sparkle of
@@ -36,7 +37,7 @@ def build_rough(tmp, ffmpeg, vdir, raw, f_):
     cmd, chains = [ffmpeg, "-hide_banner", "-y"], []
     for i, s in enumerate(f_["segments"]):
         cmd += ["-ss", str(s["src_start"]), "-t", str(s["dur"]), "-i", str(vdir / s.get("src", raw))]
-        if f_["layout"] == "blurpad":  # same recipe as the final footage: sharp clip over a blurred copy
+        if s.get("layout", f_["layout"]) == "blurpad":  # same recipe as the final footage: sharp clip over a blurred copy
             vf = (f"[{i}:v]{blend}fps={fps},split[b{i}][f{i}];[b{i}]scale={W}:{H}:force_original_aspect_ratio=increase,crop={W}:{H},"
                   f"boxblur=30:5[bb{i}];[f{i}]scale={W}:{H}:force_original_aspect_ratio=decrease[ff{i}];"
                   f"[bb{i}][ff{i}]overlay=(W-w)/2:(H-h)/2,setsar=1,format=yuv420p[v{i}]")
