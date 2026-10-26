@@ -54,10 +54,9 @@ section for you (not for YouTube). English by default; `--lang es` writes the Sp
 
 ## Tone and voices
 Captions, narration and descriptions are written in a close, natural tone (see directives 14 and 15 in `CLAUDE.md`).
-The voice-over uses `en-US-AvaMultilingualNeural` (English) and `es-ES-XimenaNeural` (Spanish) from the free edge-tts
-service, set in `video.json` under `voice`. Other options: `en-US-BrianMultilingualNeural` (casual, male),
-`en-US-AndrewMultilingualNeural` (warm, male), `en-US-EmmaMultilingualNeural` (cheerful), `es-ES-AlvaroNeural`,
-`es-ES-ElviraNeural`. List them all with `edge-tts --list-voices`. For the most natural result, record your own voice as
+The voice-over is always a male voice: `en-US-BrianMultilingualNeural` (English, casual and approachable) and
+`es-ES-AlvaroNeural` (Spanish, friendly) from the free edge-tts service, set in `video.json` under `voice`. Other male
+options: `en-US-AndrewMultilingualNeural` (warm, confident), `en-US-GuyNeural`, `es-MX-JorgeNeural`. List them all with `edge-tts --list-voices`. For the most natural result, record your own voice as
 `input/<recipe-name>/voice_video_<lang>.wav`.
 
 ## The AI cover

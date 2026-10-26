@@ -29,8 +29,8 @@ at the end. The footage is filmed by the channel owner; only the cover image is 
 13. **One copy of every file.** This folder is a clone of the repo, so there are no duplicates. Only rendered videos live
     outside git (in `plate-and-price/output/`, set by `PLATE_OUTPUT_DIR` in `.env`), plus raw footage and voice `.wav` files.
 
-14. **Natural voices, never robotic.** The voice-over uses the most conversational neural voices available (Ava for English,
-    Ximena for Spanish, both set in `video.json` "voice"), slightly slowed, reading sentences written to be spoken. If a voice
+14. **Natural voices, never robotic.** The voice-over uses the most conversational neural voices available (a male voice in both languages:
+    Brian for English, Álvaro for Spanish, both set in `video.json` "voice"; do not switch to a female voice), slightly slowed, reading sentences written to be spoken. If a voice
     sounds stiff, change the voice name or the wording, not the speed. Your own recorded voice always wins.
 15. **Close, natural tone everywhere.** Captions, voice script and descriptions sound like a friend talking in the kitchen:
     second person, contractions, short sentences, warm and direct, no corporate or marketing phrases, no emojis.

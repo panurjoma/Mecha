@@ -34,12 +34,12 @@
   "voice": {
     "en": {
       "engine": "edge-tts",
-      "voice": "en-US-AvaMultilingualNeural",
+      "voice": "en-US-BrianMultilingualNeural",
       "rate": "-4%"
     },
     "es": {
       "engine": "edge-tts",
-      "voice": "es-ES-XimenaNeural",
+      "voice": "es-ES-AlvaroNeural",
       "rate": "-4%"
     }
   },
