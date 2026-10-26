@@ -1,0 +1,20 @@
+{
+  "name": "Plate & Price",
+  "tagline": {
+    "en": "Easy dinners. Real prices.",
+    "es": "Cenas fáciles. Precios reales."
+  },
+  "currency": "€",
+  "review_email": "pablohl50@gmail.com",
+  "colors": {
+    "tomato": "#E5432D",
+    "cream": "#FFF4E0",
+    "charcoal": "#2B2B2B",
+    "sand": "#F2E4CC"
+  },
+  "endcard_labels": {
+    "en": {"total": "Total", "serves": "serves {n}", "per": "per serving", "note": "Estimated supermarket prices"},
+    "es": {"total": "Total", "serves": "para {n}", "per": "por ración", "note": "Precios estimados de supermercado"}
+  },
+  "handles_to_check": ["@plateandprice", "@plateandpriceshorts", "@plate.and.price"]
+}

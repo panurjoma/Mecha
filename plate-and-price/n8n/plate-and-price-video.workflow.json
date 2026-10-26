@@ -1,0 +1,166 @@
+{
+  "name": "Plate & Price - VIDEO (voice-over + captions), email for review",
+  "nodes": [
+    {
+      "parameters": {},
+      "id": "a1000000-0000-4000-8000-000000000001",
+      "name": "Manual Trigger",
+      "type": "n8n-nodes-base.manualTrigger",
+      "typeVersion": 1,
+      "position": [
+        0,
+        0
+      ]
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "p1",
+              "name": "videoId",
+              "value": "video-001",
+              "type": "string"
+            },
+            {
+              "id": "p2",
+              "name": "lang",
+              "value": "en",
+              "type": "string"
+            },
+            {
+              "id": "p3",
+              "name": "projectDir",
+              "value": "C:\\Users\\panur\\OneDrive\\Documentos\\GITProjects\\Mecha\\plate-and-price",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "a1000000-0000-4000-8000-000000000002",
+      "name": "Params",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        220,
+        0
+      ]
+    },
+    {
+      "parameters": {
+        "command": "=uv run --with pillow --with imageio-ffmpeg --with edge-tts python \"{{ $json.projectDir }}\\scripts\\run_pipeline.py\" {{ $json.videoId }} --lang {{ $json.lang }} --voice"
+      },
+      "id": "a1000000-0000-4000-8000-000000000003",
+      "name": "Edit video (ffmpeg pipeline + voice)",
+      "type": "n8n-nodes-base.executeCommand",
+      "typeVersion": 1,
+      "position": [
+        440,
+        0
+      ]
+    },
+    {
+      "parameters": {
+        "operation": "read",
+        "fileSelector": "={{ $('Params').item.json.projectDir }}\\output\\{{ $('Params').item.json.videoId }}\u000bideo_{{ $('Params').item.json.lang }}_review.mp4",
+        "options": {
+          "dataPropertyName": "data"
+        }
+      },
+      "id": "a1000000-0000-4000-8000-000000000004",
+      "name": "Read review video",
+      "type": "n8n-nodes-base.readWriteFile",
+      "typeVersion": 1,
+      "position": [
+        660,
+        0
+      ]
+    },
+    {
+      "parameters": {
+        "resource": "message",
+        "operation": "send",
+        "sendTo": "pablohl50@gmail.com",
+        "subject": "=Plate & Price VIDEO review: {{ $('Params').item.json.videoId }} ({{ $('Params').item.json.lang }})",
+        "emailType": "text",
+        "message": "=Review the captions, music, zoom pacing and the price end card. Reply with changes, for example: caption 3 too long, swap the song, price of the prawns is 6.20.",
+        "options": {
+          "attachmentsUi": {
+            "attachmentsBinary": [
+              {
+                "property": "data"
+              }
+            ]
+          }
+        }
+      },
+      "id": "a1000000-0000-4000-8000-000000000005",
+      "name": "Email for review",
+      "type": "n8n-nodes-base.gmail",
+      "typeVersion": 2.1,
+      "position": [
+        880,
+        0
+      ],
+      "credentials": {
+        "gmailOAuth2": {
+          "id": "REPLACE_IN_N8N",
+          "name": "Gmail account"
+        }
+      }
+    }
+  ],
+  "connections": {
+    "Manual Trigger": {
+      "main": [
+        [
+          {
+            "node": "Params",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Params": {
+      "main": [
+        [
+          {
+            "node": "Edit video (ffmpeg pipeline + voice)",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Read review video": {
+      "main": [
+        [
+          {
+            "node": "Email for review",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Edit video (ffmpeg pipeline + voice)": {
+      "main": [
+        [
+          {
+            "node": "Read review video",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "pinData": {},
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "active": false,
+  "tags": []
+}

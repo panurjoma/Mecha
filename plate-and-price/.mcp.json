@@ -1,0 +1,8 @@
+{
+  "mcpServers": {
+    "comfy-mcp": {
+      "command": "C:\\Users\\panur\\AppData\\Roaming\\Python\\Python310\\Scripts\\comfy-mcp.exe",
+      "args": []
+    }
+  }
+}

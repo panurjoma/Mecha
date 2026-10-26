@@ -1,0 +1,13 @@
+{
+  "_note": "ESTIMATE made up by Claude from typical Spanish supermarket prices (Oct 2026), not from receipts. Edit the numbers to your real shopping.",
+  "servings": 2,
+  "items": [
+    {"en": "Fresh udon noodles (2 x 200 g)", "es": "Udon fresco (2 x 200 g)", "price": 2.40},
+    {"en": "Secreto ibérico (250 g)", "es": "Secreto ibérico (250 g)", "price": 5.20},
+    {"en": "King prawns (4)", "es": "Gambones (4)", "price": 5.50},
+    {"en": "Mushrooms, button + shiitake (250 g)", "es": "Champiñón y shiitake (250 g)", "price": 2.20},
+    {"en": "Onion, carrot, garlic, spring onion", "es": "Cebolla, zanahoria, ajo, cebolleta", "price": 1.30},
+    {"en": "Teriyaki sauce (soy, rice wine, brown sugar)", "es": "Salsa teriyaki (soja, vino de arroz, azúcar moreno)", "price": 1.10},
+    {"en": "Oil and spices (pantry share)", "es": "Aceite y especias (despensa)", "price": 0.30}
+  ]
+}

@@ -1,0 +1,6 @@
+.env
+output/
+__pycache__/
+input/*/raw*.mp4
+_repo/
+input/*/*.wav
