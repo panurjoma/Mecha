@@ -118,21 +118,14 @@ at the end. The footage is filmed by the channel owner; only the cover image is 
     audio-voice when there is a voice-over) review English and Spanish separately; engagement, craft and audio-voice on a
     music-only short review the shared cut once (`language:` in each agent file, table in `review/README.md`).
 
-25. **Captions must be easy to read on a phone.** Prefer slightly larger, high-contrast coloured captions in the channel
-    palette (cream `#FFF4E0` with a charcoal outline and shadow); avoid relying on colour alone for meaning. For a
-    1080x1920 short, start around 78 px bold with a 6 px dark outline rather than the older 66 px white style, then
-    inspect the rendered English and Spanish frames. Keep short phrases to one or two lines, avoid the food action,
-    keep all text above the bottom 20% and clear of the right-side controls. Check long lines and accented characters
-    after every caption change. `caption_style.color`, `size`, `outline`, `margin_l`, `margin_r` and `margin_v` in
-    `video.json` control the cached caption layer. Every critic round includes caption colour, size, contrast and
-    placement checks; rebuild only captions and dependent layers when just the style changes.
-
 25. **Captions must be easy to read.** Burned-in captions are large, warm yellow (`color` FFE27A) with a dark outline, and on the
     video a soft dark box behind the text. Defaults: short size 92, outline 7, in the top third (align 8, margin_v 250, clear of
     the app buttons at the bottom and the right edge); video size 74, outline 9, box, bottom centre a little above the edge
     (margin_v 85). They are set per format in `video.json` under `caption_style` (`size`, `outline`, `color`, `box`, `margin_v`, `align`).
     Keep lines short (two lines at most, about 22 characters per line on the short) and off the key action. Change the style
-    only when the critics ask for a legibility improvement; only the captioned layer and the final file rebuild.
+    only when the critics ask for a legibility improvement; only the captioned layer and the final file rebuild. Keep all text above the
+    bottom 20 %, avoid relying on colour alone for meaning, check long lines and accented characters (Ñ, é) after every caption
+    change by looking at rendered English and Spanish frames, and have every critic round check caption colour, size, contrast and placement.
 
 ## Two products from the same inputs
 | | Short (`short_<lang>.mp4`) | Video (`video_<lang>.mp4`) |
