@@ -240,7 +240,7 @@
         "review_bitrate": "1900k"
       },
       "cover_dur": 3,
-      "endcard_dur": 8,
+      "endcard_dur": 7,
       "segments": [
         {
           "src": "GH011594.MP4",
@@ -276,7 +276,7 @@
         {
           "src": "GH011568.MP4",
           "src_start": 0,
-          "dur": 4.5,
+          "dur": 4,
           "cx": 0.5,
           "note": "green pepper into the pan",
           "caption": {
@@ -296,11 +296,11 @@
           }
         },
         {
-          "src": "GH011573.MP4",
-          "src_start": 10,
+          "src": "GH011572.MP4",
+          "src_start": 1,
           "dur": 4.5,
           "cx": 0.5,
-          "note": "leek, pepper and onion cooked soft, oil",
+          "note": "leek, pepper and onion softening, calm and sharp",
           "caption": {
             "en": "Cook slowly until it is soft and sweet.",
             "es": "Cocina despacio hasta que esté tierno."
@@ -335,7 +335,7 @@
           "cx": 0.5,
           "note": "blue cheese chunks melting in the sauce",
           "caption": {
-            "en": "Stir in the blue cheese until it melts away.",
+            "en": "Stir in the blue cheese until it melts.",
             "es": "Añade el queso azul y remueve hasta que se funda."
           }
         },
@@ -419,23 +419,23 @@
         {
           "src": "GH011594.MP4",
           "src_start": 4,
-          "dur": 4,
+          "dur": 3,
           "cx": 0.5,
           "note": "Gruyere on top",
           "caption": {
-            "en": "Finish with plenty of grated Gruyère.",
-            "es": "Termina con mucho Gruyère rallado."
+            "en": "Finish with grated Gruyère.",
+            "es": "Termina con Gruyère rallado."
           }
         },
         {
           "src": "GH011594.MP4",
           "src_start": 9.6,
-          "dur": 5,
+          "dur": 3.5,
           "cx": 0.5,
           "note": "the finished plate, steady and sharp",
           "caption": {
-            "en": "And that's it. Creamy, cosy and ready to eat.",
-            "es": "Y listo. Cremoso y reconfortante."
+            "en": "And that's it. Ready to eat.",
+            "es": "Y listo. A comer."
           },
           "shutter": 2
         }
@@ -447,10 +447,10 @@
       },
       "caption_style": {
         "font": "Arial",
-        "size": 54,
+        "size": 60,
         "align": 2,
         "margin_v": 70,
-        "outline": 4,
+        "outline": 5,
         "bold": true
       },
       "chapters": [
@@ -460,17 +460,17 @@
           "es": "Preparar las verduras"
         },
         {
-          "at": 32,
+          "at": 27,
           "en": "Creamy blue cheese sauce",
           "es": "Salsa cremosa de queso azul"
         },
         {
-          "at": 47,
+          "at": 42,
           "en": "Gnocchi, tomatoes and the sauce",
           "es": "Ñoquis, tomates y la salsa"
         },
         {
-          "at": 66,
+          "at": 63,
           "en": "Plate and price",
           "es": "Emplatado y precio"
         }
@@ -480,8 +480,8 @@
         "es": "Ñoquis al queso azul."
       },
       "end_caption": {
-        "en": "Total €9.70 for two, €4.85 a serving. Follow for more.",
-        "es": "Total 9,70 euros, 4,85 la ración. Suscríbete."
+        "en": "Total €9.70, €4.85 a serving. Follow for more.",
+        "es": "Total 9,70 euros, 4,85 la ración. Sigue."
       }
     }
   },
