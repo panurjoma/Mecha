@@ -182,6 +182,24 @@ at the end. The footage is filmed by the channel owner; only the cover image is 
     order. The short has no length limit (directive 28), so every key step gets a moment. Before writing the segments, look at the
     frames of each recording and write down where the action is.
 
+32. **The YouTube skill pack (`.claude/skills/yt-*`).** Nine skills from a third-party MIT pack are installed (source, commit and what
+    was left out in `.claude/skills/YT-PACK.md`); they only write text and never publish. They fit the pipeline like this, and they
+    never override the owner's fixed rules (dish-name-only title, the cover card with the title and the price, no personal names):
+    - **Selection and cutting (stage 1):** `yt-edit` (`deadair.py`) on the Whisper transcript of a spoken recording lists dead air, filler
+      and retakes with timecodes; use it as a hint for `src_start` and `dur`, not as an automatic cut.
+    - **Hook:** `yt-script` (`hookscore.py`, 21 hook formulas) scores the hook caption of a short or video; it is a heuristic, a low
+      score is a prompt to reread the hook, not a verdict.
+    - **Title and cover text:** `yt-package` (`title.py`) is an advisory lint (60 and 40 character cuts, no repeated words, three words on a
+      thumbnail); the owner's rules win where they differ (the cover carries the title and the price).
+    - **Chapters:** `yt-chapters` (`chapters.py`) checks a chapter list (starts at 0:00, at least 3, each at least 10 s); `make_description.py`
+      already enforces the same rule.
+    - **After a video is published (owner's data):** `yt-retention` reads the Studio retention export and finds the hook leak, cliffs and
+      slide, and its findings feed the next recipe's selection and hook; `yt-audit` reviews the whole channel and ends in one fix;
+      `yt-comment` triages comments and drafts short replies (the owner posts them); `yt-viral` ranks what works in the niche from public
+      data; `yt-plan` plans a week of uploads sized to the owner's time.
+    The channel voice for all of them is `brand/voice.md`; keep it up to date. The discoverability critic also runs the "query test": write
+    the three searches the video should win and check the title and the first two description lines contain those words.
+
 ## Two products from the same inputs
 | | Short (`short_<lang>.mp4`) | Video (`video_<lang>.mp4`) |
 |---|---|---|

@@ -136,6 +136,14 @@ section for you (not for YouTube). English by default; `--lang es` writes the Sp
 - The text is also placed in the review email by both n8n workflows.
 - The music is never credited unless `audio.song.licensed` is true.
 
+## YouTube skill pack (`.claude/skills/yt-*`)
+Nine skills from the MIT pack https://github.com/Jakeschincariol/youtube-agent-skill are installed in `.claude/skills/` (details, commit and what
+was left out in `.claude/skills/YT-PACK.md`). They only write text and run read-only scripts (standard library, no network); nothing is published.
+Use them as in CLAUDE.md directive 32: `yt-edit` (dead air and retakes from a transcript), `yt-script` (hook formulas and hook score), `yt-package`
+(title and thumbnail lint), `yt-chapters` (chapter rules), and, with the owner's data after publishing, `yt-retention`, `yt-audit`, `yt-comment`,
+`yt-viral` and `yt-plan`. Their voice profile is `brand/voice.md`. In Claude Code they are called as `/yt-retention`, `/yt-edit`, and so on.
+Not tested yet in this project.
+
 ## Tone and voices
 Captions, narration and descriptions are written in a close, natural tone (see directives 14 and 15 in `CLAUDE.md`).
 The voice-over is always a male voice: `en-US-BrianMultilingualNeural` (English, casual and approachable) and
