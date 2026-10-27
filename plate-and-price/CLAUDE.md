@@ -160,6 +160,10 @@ at the end. The footage is filmed by the channel owner; only the cover image is 
     stage and in every critic round (`[picture]` lever). Keep the crop modest (about 1.5 at most on 1080p footage, to stay sharp),
     and prefer a different moment over a heavy crop if the unwanted thing cannot be cropped out. A crop only rebuilds the footage
     layer and what depends on it. `"layout": "blurpad"` ignores `crop`.
+    Whatever the crop, the format stays the same (1080x1920 short, 1920x1080 video) and the picture fills the whole frame in both
+    formats: no black bars, empty corners or missing edges. The build enforces it (`crop` below 1 is refused, `cx`/`cy` are kept
+    inside the picture); in the short, a blurred copy behind a wide shot (`blurpad`) is the only allowed background and it is never
+    empty. Check the rendered frames of every cropped moment for gaps, stretching or softness before the product is final.
 
 ## Two products from the same inputs
 | | Short (`short_<lang>.mp4`) | Video (`video_<lang>.mp4`) |

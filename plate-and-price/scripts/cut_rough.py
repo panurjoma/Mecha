@@ -7,7 +7,8 @@ wide clip over a blurred copy, for example a final wide shot in a vertical short
 vertical short. Segments are joined in the order listed, which is the order they were filmed (file name = recording
 order). The clip's own sound is kept, with a very short fade at each join so nothing clicks.
 "crop" (default 1), "cx" and "cy" (0..1, default 0.5): crop is a zoom factor, 1.25 keeps the central 80 % of the picture, and cx/cy
-choose which part of it is kept (0 = left/top edge, 1 = right/bottom edge). Use it in the short and in the horizontal video to leave
+choose which part of it is kept (0 = left/top edge, 1 = right/bottom edge). The output size never changes (1080x1920 short, 1920x1080 video) and the picture always fills the whole frame, with nothing empty at the edges:
+crop below 1 is refused and cx/cy are kept inside 0..1. Use it in the short and in the horizontal video to leave
 out something that should not be seen (a name, clutter, a person, the edge of the counter) or to tighten a shot. The whole
 camera frame does not have to appear.
 "speed" (default 1; 2 plays the moment twice as fast): a slow moment such as chopping an onion or garlic can be sped up so it takes
@@ -51,8 +52,10 @@ def build_rough(tmp, ffmpeg, vdir, raw, f_):
                   f"boxblur=30:5[bb{i}];[f{i}]scale={W}:{H}:force_original_aspect_ratio=decrease[ff{i}];"
                   f"[bb{i}][ff{i}]overlay=(W-w)/2:(H-h)/2,setsar=1,format=yuv420p[v{i}]")
         else:  # fill: scale up to cover the frame, crop sideways around cx
-            cx, cy = s.get("cx", 0.5), s.get("cy", 0.5)
-            zoom = float(s.get("crop", 1))  # >1 keeps only the part of the picture at (cx, cy): 1.25 keeps 80 % of the frame
+            cx, cy = min(max(float(s.get("cx", 0.5)), 0.0), 1.0), min(max(float(s.get("cy", 0.5)), 0.0), 1.0)  # inside the picture
+            zoom = float(s.get("crop", 1))
+            if zoom < 1:  # zooming out would leave empty edges: the frame must always be completely filled
+                raise SystemExit(f"segment {i + 1}: crop {zoom} is below 1; use blurpad layout to show a wider picture instead")  # >1 keeps only the part of the picture at (cx, cy): 1.25 keeps 80 % of the frame
             vf = (f"[{i}:v]{blend}{fast}fps={fps},scale=ceil({W}*{zoom}/2)*2:ceil({H}*{zoom}/2)*2:force_original_aspect_ratio=increase:flags=lanczos,"
                   f"crop={W}:{H}:x='(iw-{W})*{cx}':y='(ih-{H})*{cy}',setsar=1,format=yuv420p[v{i}]")
         d = s["dur"]
