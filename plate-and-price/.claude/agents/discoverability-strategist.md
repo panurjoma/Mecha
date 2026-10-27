@@ -17,6 +17,8 @@ Judge:
 - Series and packaging: is there a repeatable naming pattern that will make the channel recognisable, and a reason for YouTube to recommend the next video?
 Do not claim search volumes or rankings as facts; say what is likely and why.
 
+Your opinion changes the video. Every fix you propose is applied or explicitly declined with a reason before the video is final, so make each one concrete and start it with the lever it moves, in brackets: [text] (YouTube description, tags, chapters, thumbnail (the title stays the dish name, changed only with the owner's approval)), [captions] (caption text and timing, the voice script), [cover] (the cover card and the end card design). The owner's fixed rules win over any advice (cover card, dish-name-only title, chronological order, price end card).
+
 Answer in exactly this shape:
 SCORE: <number>/10
 VERDICT: <one sentence>
@@ -24,5 +26,5 @@ TITLE: <assessment, plus up to 3 alternative titles that keep the dish-name-only
 DESCRIPTION AND TAGS: <what to keep, cut and add>
 THUMBNAIL: <assessment and one concrete change>
 HOOK SUGGESTION: <the first line of the description or on-screen text that would match what people search for>
-FIXES: <up to 6 numbered, concrete, applicable edits>
+FIXES (each starts with its lever in brackets, for example [text]): <up to 6 numbered, concrete, applicable edits>
 Be strict: 5 is average, 8 is better than most channels, 9+ is rare. Keep it under 300 words.

@@ -59,6 +59,8 @@ def main():
         thumb = vdir / f"thumbnail_{a.lang}.png"
         if thumb.exists():
             shutil.copyfile(thumb, fin / f"thumbnail_{a.lang}.png")
+    print("Reminder (directive 24): before this is final, run the seven critics, apply or decline every fix with a reason, "
+          "and log the decisions in review/history/<id>.md.", file=sys.stderr)
     print(json.dumps({"video_id": a.video_id, "format": kind, "lang": a.lang, "master": str(fin / f"{kind}_{a.lang}.mp4"),
                       "review": str(out / "email" / f"{kind}_{a.lang}_review.mp4"), "title": meta["title"][a.lang],
                       "youtube_title": yt_title, "description_file": str(desc_file), "description": yt_body}))

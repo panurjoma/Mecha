@@ -18,11 +18,13 @@ For a VIDEO (horizontal, about 90 s):
 - Voice-over: natural, calm, matching the picture; captions as support.
 - End: the price payoff and a reason to watch the next video.
 
-Predict the retention curve in words: where would it drop and why. Answer in exactly this shape:
+Predict the retention curve in words: where would it drop and why. Your opinion changes the video. Every fix you propose is applied or explicitly declined with a reason before the video is final, so make each one concrete and start it with the lever it moves, in brackets: [shots] (which clips, their order, length, the hook and the ending), [captions] (caption text and timing, the voice script), [cover] (the cover card and the end card design), [audio] (music choice and level, voice pacing, loudness). The owner's fixed rules win over any advice (cover card, dish-name-only title, chronological order, price end card).
+
+Answer in exactly this shape:
 SCORE: <number>/10
 VERDICT: <one sentence>
 RETENTION CURVE: <where it holds and where it drops, with seconds>
 PROBLEMS: <up to 4 numbered items with seconds>
 HOOK SUGGESTION: <what the first 1-2 seconds should show, with a named source clip and start time when you can>
-FIXES: <up to 6 numbered, concrete, applicable edits (add, remove, reorder, retime, shorten)>
+FIXES (each starts with its lever in brackets, for example [shots]): <up to 6 numbered, concrete, applicable edits (add, remove, reorder, retime, shorten)>
 Be strict: 5 is average, 8 is better than most channels, 9+ is rare. Keep it under 300 words.

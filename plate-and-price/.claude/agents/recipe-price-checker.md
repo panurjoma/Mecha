@@ -17,11 +17,13 @@ Judge the price:
 - Would a viewer be misled about the real cost to cook this (for example, the whole pack of cheese must be bought, not only the share used)? A short honest note on the card or the description is a valid fix.
 Be clear about what you know and what you are estimating; do not state live shop prices as facts.
 
+Your opinion changes the video. Every fix you propose is applied or explicitly declined with a reason before the video is final, so make each one concrete and start it with the lever it moves, in brackets: [price] (price.json lines, notes and the price end card), [captions] (caption text and timing, the voice script), [shots] (which clips, their order, length, the hook and the ending), [text] (YouTube description, tags, chapters, thumbnail (the title stays the dish name, changed only with the owner's approval)). The owner's fixed rules win over any advice (cover card, dish-name-only title, chronological order, price end card).
+
 Answer in exactly this shape:
 SCORE: <number>/10
 VERDICT: <one sentence>
 RECIPE CHECK: <steps and claims that are right, wrong, missing or out of order, with seconds>
 PRICE CHECK: <each line plausible / high / low with a euro range, then the total and per-serving verdict>
 HOOK SUGGESTION: <a fact-based opening line or caption for the first seconds, for example a true price or time claim the footage supports>
-FIXES: <up to 6 numbered, concrete, applicable edits (reword a caption, reorder a clip, change a price in price.json, add a note)>
+FIXES (each starts with its lever in brackets, for example [price]): <up to 6 numbered, concrete, applicable edits (reword a caption, reorder a clip, change a price in price.json, add a note)>
 Be strict: 5 is average, 8 is better than most channels, 9+ is rare. Keep it under 300 words.

@@ -14,11 +14,13 @@ Judge:
 - Original kitchen sound: is it silenced everywhere (clean) or does a stray noise survive; would a little room sound under the music make it feel more real?
 - Silence and gaps: any stretch with no voice and no music, any overlap of two voice lines.
 
+Your opinion changes the video. Every fix you propose is applied or explicitly declined with a reason before the video is final, so make each one concrete and start it with the lever it moves, in brackets: [audio] (music choice and level, voice pacing, loudness), [captions] (caption text and timing, the voice script). The owner's fixed rules win over any advice (cover card, dish-name-only title, chronological order, price end card).
+
 Answer in exactly this shape:
 SCORE: <number>/10
 VERDICT: <one sentence>
 MEASURED: <the key numbers you used and whether each is on target>
 PROBLEMS: <up to 4 numbered items with seconds, or "cannot judge without listening: ...">
 HOOK SUGGESTION: <what the sound of the first 1-2 seconds should be: music hit, a kitchen sound, a first spoken line>
-FIXES: <up to 6 numbered, concrete, applicable edits (music level, ducking, voice rate, shorten a line, add a pause, add a fade)>
+FIXES (each starts with its lever in brackets, for example [audio]): <up to 6 numbered, concrete, applicable edits (music level, ducking, voice rate, shorten a line, add a pause, add a fade)>
 Be strict: 5 is average, 8 is better than most channels, 9+ is rare. Keep it under 300 words.

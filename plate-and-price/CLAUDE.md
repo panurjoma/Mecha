@@ -103,6 +103,18 @@ at the end. The footage is filmed by the channel owner; only the cover image is 
     exactly the current version of each product. The small email copies go to `<output>/<id>/email/`, the intermediate layers
     stay in `layers/`, and the critics' evidence in `review/`. Never leave work-in-progress or duplicate versions in `final/`.
 
+24. **Every critic shapes the final video.** All seven agents (directive 19) give an opinion every time a short or video is
+    generated, and none is skipped. Each opinion has a place where it changes the result: `audience-sociologist` and
+    `engagement-analyst` change captions, shot selection and order, the hook and the cover length; `marketing-strategist` changes
+    the cover, captions, price moment and calls to action; `video-craft-editor` changes shots, picture clean-up and framing;
+    `audio-voice-reviewer` changes music level, loudness and the voice script; `recipe-price-checker` changes the steps in the
+    captions and the prices (`price.json`); `discoverability-strategist` changes the description, tags, chapters, thumbnail and
+    the keywords in the captions (the title stays the dish name and changes only with the owner's approval). Every fix is tagged
+    with its lever (`[captions]`, `[shots]`, `[picture]`, `[audio]`, `[text]`, `[price]`, `[cover]`) and, after each round, is either
+    applied or declined with a reason in `review/history/<id>.md` (a decision log per agent). Conflicts are settled in this order:
+    the owner's fixed rules, then the fix several agents agree on, then the most serious problem. No product is final until all
+    seven were consulted, their fixes decided, and the changed layers rebuilt. `run_pipeline.py` reminds you of this at the end.
+
 ## Two products from the same inputs
 | | Short (`short_<lang>.mp4`) | Video (`video_<lang>.mp4`) |
 |---|---|---|

@@ -14,11 +14,13 @@ Judge:
 - Picture quality: glare, blown whites, small flickering highlights, colour cast, noise, shake. Each shot used must have been through the clean-up stage; flag any shot that still looks raw (flat grey, yellow cast, harsh glints).
 - Captions and audio craft: captions inside the safe area and not covering the action; for a video, the voice-over lines match what is on screen; music level steady.
 
+Your opinion changes the video. Every fix you propose is applied or explicitly declined with a reason before the video is final, so make each one concrete and start it with the lever it moves, in brackets: [shots] (which clips, their order, length, the hook and the ending), [picture] (clean-up, grade, framing and layout), [captions] (caption text and timing, the voice script), [audio] (music choice and level, voice pacing, loudness). The owner's fixed rules win over any advice (cover card, dish-name-only title, chronological order, price end card).
+
 Answer in exactly this shape:
 SCORE: <number>/10
 VERDICT: <one sentence>
 STEPS: <missing or weak recipe moments, each with a source clip and a start time to use>
 PROBLEMS: <up to 4 numbered items with seconds>
 HOOK SUGGESTION: <the single best moving, appetizing 1-2 s moment in the recordings to open with, with the source clip and start time>
-FIXES: <up to 6 numbered, concrete, applicable edits (add, remove, reorder, retime, replace a shot)>
+FIXES (each starts with its lever in brackets, for example [shots]): <up to 6 numbered, concrete, applicable edits (add, remove, reorder, retime, replace a shot)>
 Be strict: 5 is average, 8 is better than most channels, 9+ is rare. Keep it under 300 words.

@@ -62,6 +62,10 @@ facts with measured audio, the price table and recipe notes, the YouTube text an
 `python review_video.py <id> --format short` does the same through Claude or OpenAI (needs a key in `.env`, otherwise skipped;
 it uses each agent's `model:` line). Three rounds per product; scores and fixes go in `review/history/<id>.md`.
 
+Every critic changes something (directive 24): captions and the voice script, shot selection, picture clean-up, audio, price
+lines, description and tags, the covers. Fixes carry a lever tag and are applied or declined with a reason in the decision log
+of `review/history/<id>.md`. None of the seven is skipped.
+
 ## Hook, captions and cleaning (standard for every recipe)
 - Hook: first segment with `"hook": true`, shown before the cover card (directive 21).
 - Captions: `caption.en` / `caption.es` inside each segment; `make_captions.py` writes the .srt files.

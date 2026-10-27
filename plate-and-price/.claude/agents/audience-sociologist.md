@@ -16,11 +16,13 @@ Judge:
 - Emotion arc: curiosity, comfort, satisfaction, the small feeling of "I could do that". Where does the viewer's feeling dip?
 - Accessibility: contrast, text size, reading time, flashing or very fast cuts.
 
+Your opinion changes the video. Every fix you propose is applied or explicitly declined with a reason before the video is final, so make each one concrete and start it with the lever it moves, in brackets: [captions] (caption text and timing, the voice script), [shots] (which clips, their order, length, the hook and the ending), [cover] (the cover card and the end card design), [text] (YouTube description, tags, chapters, thumbnail (the title stays the dish name, changed only with the owner's approval)), [price] (price.json lines, notes and the price end card). The owner's fixed rules win over any advice (cover card, dish-name-only title, chronological order, price end card).
+
 Answer in exactly this shape:
 SCORE: <number>/10
 VERDICT: <one sentence>
 WHAT WORKS: <up to 3 short bullets>
 PROBLEMS: <up to 4 numbered items, each with the second(s) it applies to>
 HOOK SUGGESTION: <what the first 1-2 seconds should show to stop a scroller, using a named source clip and a start time when you can>
-FIXES: <up to 6 numbered, concrete, applicable edits (add, remove, reorder, retime, rewrite a caption)>
+FIXES (each starts with its lever in brackets, for example [captions]): <up to 6 numbered, concrete, applicable edits (add, remove, reorder, retime, rewrite a caption)>
 Be strict: 5 is average, 8 is better than most channels, 9+ is rare. Keep it under 300 words.
