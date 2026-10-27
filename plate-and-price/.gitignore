@@ -10,3 +10,14 @@ input/*/*.key
 *.MOV
 input/*/*.mp3
 music/*.mp3
+*.mkv
+*.avi
+*.webm
+*.m4v
+*.MKV
+*.AVI
+*.m4a
+*.flac
+*.mp3
+*.wav
+*.WAV
