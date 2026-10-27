@@ -138,6 +138,14 @@ at the end. The footage is filmed by the channel owner; only the cover image is 
     layer trims the silence edge-tts adds to each line before measuring it, and warns when a line is longer than its window.
     Spanish and English are reviewed separately for both products because the voice differs by language.
 
+27. **The vertical crop does not have to be the centre.** The recordings are horizontal (1920x1080) and the short is vertical, so
+    each short moment shows a vertical slice of the frame. `segments[].cx` (0 = left edge, 0.5 = centre, 1 = right edge) chooses
+    that slice per moment, and it must be chosen on purpose, not left at 0.5: look at where the action is (the knife, the pan, the
+    plate, the hands) and shift the crop left or right to keep it, and any key detail such as a bottle or an ingredient, inside the
+    frame. A moment whose action is wider than the slice may use `"layout": "blurpad"` (whole width over a blurred copy).
+    Check this at the selection stage and in every critic round (the `[picture]` lever covers `cx` and `layout`); a change only
+    rebuilds the footage layer and what depends on it. The horizontal video shows the whole width and is not affected.
+
 ## Two products from the same inputs
 | | Short (`short_<lang>.mp4`) | Video (`video_<lang>.mp4`) |
 |---|---|---|

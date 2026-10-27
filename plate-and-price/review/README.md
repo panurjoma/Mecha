@@ -30,7 +30,7 @@ Each agent has levers, the places where its opinion lands. Every fix it proposes
 |---|---|---|
 | `[captions]` | caption text and timing, the voice script (`segments[].caption`, `cover_caption`, `end_caption`) | all seven agents |
 | `[shots]` | which clips, order, length, speed (`segments[].speed`: speed up a slow moment such as chopping), the hook, the ending (`segments`) | sociologist, engagement, marketing, craft, recipe-price |
-| `[picture]` | clean-up, grade, framing, layout (`clean`, per-clip `layout`, `cx`) | craft |
+| `[picture]` | clean-up, grade, framing: where the vertical crop sits (`cx` 0 left to 1 right, not always the centre), layout (`clean`, per-clip `layout`, `cx`) | craft |
 | `[audio]` | music choice and level, voice pacing, loudness (`audio`, voice settings) | audio-voice, engagement, craft |
 | `[text]` | description, tags, chapters, thumbnail; the title only with the owner's approval | discoverability, sociologist, marketing, recipe-price |
 | `[price]` | `price.json` lines and notes, the price end card | recipe-price, marketing, sociologist |
