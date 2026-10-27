@@ -24,3 +24,14 @@ Not applied: removing the 1.5 s cover card (owner rule), running "so far" price 
 Spanish video and short: same cut, rebuilt with their own voice and captions; not reviewed separately.
 Not applied: shortening the cover card (owner rule), running "so far" price tags, a price tease line during the cooking, a new cover variant.
 Three further agents (audio-voice, recipe-price, discoverability) were added later and have not scored this recipe yet.
+
+## Short with AI (short_ia, Spanish only): rounds 1 and 2
+Made with the owner's newer rules (no length limit, non-centred crops, zoom, speed, AI upscaling, voice-over; directives 26-31). Two rounds, Spanish only.
+
+| Round | Sociologist | Marketing | Recipe-price | Discoverability | Audio-voice | Engagement | Craft | Average | What changed before this round |
+|---|---|---|---|---|---|---|---|---|---|
+| 1 | 6 | 7 | 6 | 7 | 6 | 7 | 6.5 | 6.5 | 20 moments, 52 s, cx per clip, two blurpad zoom-outs, AI upscale, voice |
+| 2 | 7 | 7 | 7 | 7 | 7 | 7 | 7 | 7.0 | Fill crops instead of blurpad, green pepper really tipped in, new cover matching the plate, no repeated words in the voice script, hook names the dish, price list revised, "sin carne" |
+| final tweak | not reviewed | | | | | | | | Forkful shot dropped (blurred), ending on the steady whole plate (GH011594), soft-veg shot reframed, "Remueve" |
+
+Decisions: price.json lowered to 8.70 EUR total (4.35 per serving: leek 0.60, pepper and onion 0.70, cherry tomatoes 0.50) after the price critic, applied only to the new short for now (the older gnocchi products still show 9.70 until rebuilt; the owner decides); "vegetariana" and "cena barata/económica" removed from the description and tags; leek-into-the-pan shot not added (no suitable footage). Open: the unlicensed song.

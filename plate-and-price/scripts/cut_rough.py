@@ -21,9 +21,11 @@ Output layer: <OUTPUT_DIR>/<id>/layers/rough_<format>.mp4 (also copied to <OUTPU
 It is cached: only a change to the segments, the layout or the recordings rebuilds it.
 """
 import argparse
+import os
 import re
 import shutil
 import subprocess
+import sys
 import tempfile
 from pathlib import Path
 
@@ -177,6 +179,9 @@ def main():
     shutil.copyfile(layer, final)
     footage = sum(s["dur"] for s in f_["segments"])
     print(f"rough={final} ({len(f_['segments'])} clips, {footage:.1f} s of footage; cover and end card add {f_['cover_dur'] + f_['endcard_dur']} s)")
+    if ai:  # the ncnn/Vulkan library can crash while it is torn down at exit, after the layer is finished: leave without that
+        sys.stdout.flush()
+        os._exit(0)
 
 
 if __name__ == "__main__":

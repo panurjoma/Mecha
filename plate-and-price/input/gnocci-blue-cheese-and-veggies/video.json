@@ -510,19 +510,19 @@
         "review_bitrate": "2800k"
       },
       "cover_dur": 1.5,
-      "endcard_dur": 4,
+      "endcard_dur": 5,
       "segments": [
         {
           "src": "GH011592.MP4",
           "src_start": 4.5,
-          "dur": 2.0,
+          "dur": 2.4,
           "cx": 0.45,
           "hook": true,
           "shutter": 1,
           "note": "hook: glossy pan of finished gnocchi (sharp, no frame blending)",
           "caption": {
-            "en": "Dinner for two",
-            "es": "Cena para dos"
+            "en": "Blue cheese gnocchi, for two",
+            "es": "Ñoquis al queso azul, para dos"
           }
         },
         {
@@ -539,22 +539,22 @@
         },
         {
           "src": "GH011567.MP4",
-          "src_start": 3,
+          "src_start": 4.5,
           "dur": 2.2,
-          "cx": 0.5,
+          "cx": 0.42,
           "note": "slicing the onion (sped up)",
           "caption": {
             "en": "And the onion",
             "es": "Y la cebolla"
           },
-          "speed": 1.5
+          "speed": 1.3
         },
         {
           "src": "GH011568.MP4",
-          "src_start": 0.4,
+          "src_start": 3.0,
           "dur": 2.2,
-          "cx": 0.43,
-          "note": "green pepper into the pan",
+          "cx": 0.72,
+          "note": "green pepper tipped into the pan",
           "caption": {
             "en": "Green pepper in the pan",
             "es": "El pimiento a la sartén"
@@ -567,37 +567,40 @@
           "cx": 0.43,
           "note": "onion into the pan with the pepper",
           "caption": {
-            "en": "Add the onion",
-            "es": "Suma la cebolla"
+            "en": "All over low heat",
+            "es": "Todo a fuego suave"
           }
         },
         {
           "src": "GH011573.MP4",
-          "src_start": 10,
+          "src_start": 10.4,
           "dur": 2.4,
-          "cx": 0.28,
+          "cx": 0.3,
           "note": "leek, pepper and onion cooked soft (sped up)",
           "caption": {
             "en": "Cook until soft",
             "es": "Hasta que esté tierno"
           },
-          "speed": 1.5
+          "speed": 1.5,
+          "crop": 1.1
         },
         {
           "src": "GH011577.MP4",
-          "src_start": 4,
+          "src_start": 5.8,
           "dur": 2.2,
           "cx": 0.5,
           "note": "the soft veg tipped onto a plate",
           "caption": {
             "en": "Set the veg aside",
             "es": "Reserva la verdura"
-          }
+          },
+          "cy": 0.6,
+          "crop": 1.2
         },
         {
           "src": "GH011578.MP4",
           "src_start": 4,
-          "dur": 2.4,
+          "dur": 1.8,
           "cx": 0.38,
           "note": "cream swirling in the pan",
           "caption": {
@@ -618,9 +621,9 @@
         },
         {
           "src": "GH011581.MP4",
-          "src_start": 0.5,
+          "src_start": 2.5,
           "dur": 2.4,
-          "cx": 0.35,
+          "cx": 0.45,
           "note": "gnocchi into boiling water",
           "caption": {
             "en": "Boil the gnocchi",
@@ -641,14 +644,14 @@
         {
           "src": "GH011584.MP4",
           "src_start": 0.2,
-          "dur": 2.2,
+          "dur": 1.4,
           "cx": 0.55,
           "note": "the sauce stirred smooth (sped up)",
           "caption": {
-            "en": "Stir the sauce",
-            "es": "Remueve la salsa"
+            "en": "Stir",
+            "es": "Remueve"
           },
-          "speed": 1.3
+          "speed": 1.6
         },
         {
           "src": "GH011585.MP4",
@@ -657,8 +660,8 @@
           "cx": 0.43,
           "note": "the soft veg back into the sauce",
           "caption": {
-            "en": "Veg back in",
-            "es": "Vuelve a echar la verdura"
+            "en": "Add the veg",
+            "es": "Añade la verdura"
           }
         },
         {
@@ -674,15 +677,14 @@
         },
         {
           "src": "GH011587.MP4",
-          "src_start": 3,
+          "src_start": 4.5,
           "dur": 2.4,
-          "cx": 0.5,
-          "note": "draining the gnocchi: wide, zoomed out",
+          "cx": 0.82,
+          "note": "draining the gnocchi: the colander in the slice",
           "caption": {
             "en": "Drain the gnocchi",
             "es": "Escurre los ñoquis"
-          },
-          "layout": "blurpad"
+          }
         },
         {
           "src": "GH011591.MP4",
@@ -691,32 +693,32 @@
           "cx": 0.38,
           "note": "gnocchi into the sauce",
           "caption": {
-            "en": "Gnocchi into the sauce",
-            "es": "Los ñoquis a la salsa"
-          }
-        },
-        {
-          "src": "GH011592.MP4",
-          "src_start": 3,
-          "dur": 2.2,
-          "cx": 0.5,
-          "note": "glossy pan stirred",
-          "caption": {
-            "en": "Mix it all",
-            "es": "Mezcla bien"
+            "en": "All into the sauce",
+            "es": "Todo a la salsa"
           }
         },
         {
           "src": "GH011593.MP4",
-          "src_start": 27,
+          "src_start": 27.5,
+          "dur": 1.8,
+          "cx": 0.45,
+          "note": "the spoon lifts the gnocchi (not the hook's moment)",
+          "caption": {
+            "en": "Mix it all",
+            "es": "Mezcla bien"
+          },
+          "cy": 0.55
+        },
+        {
+          "src": "GH011593.MP4",
+          "src_start": 30,
           "dur": 2.6,
-          "cx": 0.5,
-          "note": "pan and plate: wide, zoomed out",
+          "cx": 0.58,
+          "note": "plating, the slice follows the spoon and plate",
           "caption": {
             "en": "Plate it up",
             "es": "Sírvelo en el plato"
-          },
-          "layout": "blurpad"
+          }
         },
         {
           "src": "GH011594.MP4",
@@ -731,16 +733,14 @@
         },
         {
           "src": "GH011594.MP4",
-          "src_start": 11,
-          "dur": 2.6,
-          "cx": 0.57,
-          "note": "the finished plate, tighter and steady",
+          "src_start": 11.5,
+          "dur": 3.0,
+          "cx": 0.6,
+          "note": "the finished plate with cheese, steady and whole",
           "caption": {
             "en": "Dinner is ready",
             "es": "Y a cenar"
-          },
-          "cy": 0.5,
-          "crop": 1.15
+          }
         }
       ],
       "shutter": 3,
@@ -755,7 +755,8 @@
         "margin_v": 250,
         "outline": 7,
         "bold": true,
-        "color": "FFE27A"
+        "color": "FFE27A",
+        "box": true
       },
       "tempo_max": 1.0,
       "ai_upscale": {
@@ -763,8 +764,8 @@
         "note": "realesr-animevideov3-x2 through realesrgan-ncnn-py (local GPU, no LLM)"
       },
       "end_caption": {
-        "en": "Under ten euros for two.",
-        "es": "Menos de diez euros para dos."
+        "en": "About eight euros seventy for two.",
+        "es": "Unos ocho con setenta para dos."
       }
     }
   },
@@ -799,8 +800,8 @@
   },
   "description": {
     "hook": {
-      "en": "Easy dinner, real price: soft gnocchi in a creamy blue cheese sauce with leek, green pepper, onion and cherry tomatoes, finished with grated Gruyère. A cosy vegetarian dinner for two that costs about {per} a serving.",
-      "es": "Cena fácil, precio real: ñoquis tiernos en salsa cremosa de queso azul con puerro, pimiento verde, cebolla y tomates cherry, y Gruyère rallado por encima. Una cena vegetariana para dos que cuesta unos {per} por ración."
+      "en": "Easy dinner, real price: soft gnocchi in a creamy blue cheese sauce with leek, green pepper, onion and cherry tomatoes, finished with grated Gruyère. A cosy meatless dinner for two that costs about {per} a serving.",
+      "es": "Cena fácil, precio real: ñoquis tiernos en salsa cremosa de queso azul con puerro, pimiento verde, cebolla y tomates cherry, y Gruyère rallado por encima. Una cena sin carne para dos que cuesta unos {per} por ración."
     },
     "closing": {
       "en": "Tell me in the comments what you would cook next, and what you want to see the price of.",
@@ -828,14 +829,14 @@
         "ñoquis en salsa de queso azul",
         "ñoquis cremosos",
         "receta de ñoquis",
-        "cena vegetariana",
         "cena para dos",
         "precio de la receta",
-        "cena barata",
-        "cena económica",
         "receta fácil",
         "noquis al queso azul",
-        "cena sin carne"
+        "cena sin carne",
+        "ñoquis con verduras",
+        "salsa de queso azul",
+        "gnocchi al queso azul"
       ]
     },
     "hashtags": {

@@ -47,3 +47,14 @@ Scores out of 10 from the seven reviewer agents (AI reviewers working from conta
 | 3 | all | [audio] replace "September" | open | owner decision; needs a licensed or royalty-free track |
 
 Not reviewed after the final tweak. Open: the AI cover still looks like crumbs; the song is unlicensed; nothing has been pushed.
+
+## Short with AI (short_ia, Spanish only): rounds 1 and 2
+New product made after the owner's rules for longer shorts (no length limit), non-centred crops, zoom, speed, and AI upscaling (directives 27-31). Seven agents, Spanish only (two rounds, the owner's rule).
+
+| Round | Sociologist | Marketing | Recipe-price | Discoverability | Audio-voice | Engagement | Craft | Average | What changed before this round |
+|---|---|---|---|---|---|---|---|---|---|
+| 1 | 6 | 6 | 7 | 6 | 6 | 6 | 6 | 6.1 | 24 moments, 56 s, cx per clip, two blurpad zoom-outs, AI upscale, voice, first AI cover |
+| 2 | 7.5 | 7 | 8 | 7 | 7 | 7 | 7 | 7.2 | Blurpads replaced by fill crops, garlic/onion/lemon/honey framed, new cover, hook line names the dish, end line spoken, no repeat of the hook |
+| final tweak | not reviewed | | | | | | | | Onion and final plate retimed, pour reframed, "Bien dorada", spoken price "dos con cincuenta cada uno" (end card 5.5 s), "cena barata" tag removed |
+
+Decision log (short_ia): blurpad shots dropped for fill crops (marketing, sociologist, engagement, craft, applied); cover regenerated three times (applied, a first try produced walnuts, then browned chunks); "Aceite y aliño" and "Sal gorda" kept (key steps, declined); pan-sizzle / kitchen sound declined; AI vs plain resize judged by the critics: small gain (crisper edges and bubbles, no artifacts). Open: unlicensed song; the final plate cannot be shown whole in a vertical slice.
