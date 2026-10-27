@@ -61,7 +61,7 @@ def build(video_id, kind, lang, use_llm=False):
     price = load_json(vdir / "price.json")
     chan = load_json(vdir.parent.parent / "config" / "channel.json")
     f_ = fmt(meta, kind)
-    t, d = T[lang], meta["description"]
+    t, d = T[lang], {**meta["description"], **f_.get("description", {})}
     items = price["items"]
     total = round(sum(i["price"] for i in items), 2)
     per = round(total / price["servings"], 2)
@@ -75,6 +75,12 @@ def build(video_id, kind, lang, use_llm=False):
         yt_title = t["short_title"].format(title=title, per=money(per, lang))
         body = [hook, "", t["short_price"].format(n=n, total=money(total, lang), per=money(per, lang)), "",
                 d["closing"][lang], "", " ".join(d["hashtags"][lang] + ["#Shorts"])]
+        if f_.get("include_price_breakdown"):
+            body += ["", t["costs"]]
+            body += [f"- {i[lang]}: {money(i['price'], lang)}" for i in items]
+        note = (f_.get("price_note") or {}).get(lang)
+        if note:
+            body += ["", note]
     else:
         yt_title = t["video_title"].format(title=title, per=money(per, lang))
         body = [hook, "", t["costs"]]

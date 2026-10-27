@@ -84,6 +84,7 @@ def make(video_id, kind, lang):
     dark = (20, 14, 10)
 
     if H >= W:  # 9:16 short cover
+        phone_safe = f_.get("phone_safe_cover", False)
         im = background(vdir, meta, "9x16", W, H).convert("RGBA")
         shade = Image.new("RGBA", (W, H), dark + (0,))
         shade.putalpha(vgradient((W, H), 80, 150))
@@ -93,14 +94,17 @@ def make(video_id, kind, lang):
         d.rounded_rectangle([(W - pill_w) / 2, 150, (W + pill_w) / 2, 250], radius=50, fill=c["tomato"])
         d.text((W / 2, 200), chan["name"].upper(), font=font(46), fill="white", anchor="mm")
         d.text((W / 2, 295), chan["tagline"][lang], font=font(40), fill="white", anchor="mm", stroke_width=3, stroke_fill=dark)
-        y = 1060
-        for ln in wrap(d, title, font(104), W - 150):
-            d.text((W / 2, y), ln, font=font(104), fill="white", anchor="mm", stroke_width=3, stroke_fill=dark)
-            y += 128
-        cx, cy, r = W / 2, 1650, 165
+        title_size = 96 if phone_safe else 104
+        y = 870 if phone_safe else 1060
+        for ln in wrap(d, title, font(title_size), W - 180):
+            d.text((W / 2, y), ln, font=font(title_size), fill="white", anchor="mm", stroke_width=3, stroke_fill=dark)
+            y += 112 if phone_safe else 128
+        cx, cy, r = W / 2, (1360 if phone_safe else 1650), 165
         d.ellipse([cx - r, cy - r, cx + r, cy + r], fill=c["tomato"], outline=c["cream"], width=8)
-        d.text((cx, cy - 22), (f"{chan['currency']}{per:.2f}" if lang == "en" else f"{per:.2f}".replace(".", ",") + f" {chan['currency']}"), font=font(100), fill="white", anchor="mm")
-        d.text((cx, cy + 66), per_label, font=font(36), fill=c["cream"], anchor="mm")
+        d.text((cx, cy - 22), (f"{chan['currency']}{per:.2f}" if lang == "en" else f"{per:.2f}".replace(".", ",") + f" {chan['currency']}"), font=font(80 if phone_safe else 100), fill="white", anchor="mm")
+        d.text((cx, cy + (48 if phone_safe else 66)), per_label, font=font(36), fill=c["cream"], anchor="mm")
+        if phone_safe:
+            d.text((cx, cy + 100), "Estimate" if lang == "en" else "Estimado", font=font(32), fill=c["cream"], anchor="mm")
     else:  # 16:9 video cover and thumbnail
         im = background(vdir, meta, "16x9", W, H).convert("RGBA")
         shade = Image.new("RGBA", (W, H), dark + (0,))

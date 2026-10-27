@@ -25,7 +25,7 @@ DEFAULTS = {"denoise": [3, 2, 6, 6], "highlights": 0.94, "shadows": 0.03, "warmt
 def clean_filters(c):
     d = c["denoise"]
     hi, lo = c["highlights"], c["shadows"]
-    f = ["scale=in_range=pc:out_range=tv:flags=lanczos",  # GoPro files are full range: put them in normal video range
+    f = [f"scale=in_range={c.get('input_range', 'pc')}:out_range=tv:flags=lanczos",  # edited inputs may already be TV range
          f"hqdn3d={d[0]}:{d[1]}:{d[2]}:{d[3]}",
          f"curves=all='0/{lo} 0.3/0.3 0.7/0.69 0.9/{hi * 0.94:.3f} 1/{hi}'"]  # lift blacks a little, squeeze the whites
     if c["warmth"] != 6500:

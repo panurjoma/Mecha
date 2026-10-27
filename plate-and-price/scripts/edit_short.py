@@ -26,7 +26,7 @@ import tempfile
 from pathlib import Path
 
 from common import OUTPUT_DIR, archive_old, final_dir, find_ffmpeg, fmt, load_json, parse_srt, probe_size, run, video_dir
-from layers import build_cached, code, digest, key_of, sig
+from layers import build_cached, code, digest, key_of, picture_segments, sig
 
 LOUD = "loudnorm=I=-15:TP=-2.5:LRA=11"  # streaming-level loudness (the music alone was about -24 dB, too quiet for a phone)
 CLIP = ["-c:v", "libx264", "-preset", "fast", "-crf", "14", "-pix_fmt", "yuv420p", "-an"]  # near-lossless intermediates
@@ -37,14 +37,24 @@ def ass_time(t):
     return f"{cs // 360000}:{cs // 6000 % 60:02}:{cs // 100 % 60:02}.{cs % 100:02}"
 
 
+def ass_color(hex_rgb, alpha="00"):
+    """'FFE27A' (RGB) -> '&H00' + BGR as libass wants it."""
+    r, g, b = hex_rgb[0:2], hex_rgb[2:4], hex_rgb[4:6]
+    return f"&H{alpha}{b}{g}{r}"
+
+
 def write_ass(path, cues, w, h, st):
+    # Brand colours improve phone readability; ASS stores colour in BGR order.
+    colour = st.get("color", "#FFFFFF").lstrip("#")
+    primary = f"&H00{colour[4:6]}{colour[2:4]}{colour[0:2]}"
     head = (
         f"[Script Info]\nScriptType: v4.00+\nPlayResX: {w}\nPlayResY: {h}\nWrapStyle: 2\n\n"
         "[V4+ Styles]\nFormat: Name,Fontname,Fontsize,PrimaryColour,SecondaryColour,OutlineColour,BackColour,"
         "Bold,Italic,Underline,StrikeOut,ScaleX,ScaleY,Spacing,Angle,BorderStyle,Outline,Shadow,Alignment,"
         "MarginL,MarginR,MarginV,Encoding\n"
-        f"Style: Cap,{st['font']},{st['size']},&H00FFFFFF,&H00FFFFFF,&H00202020,&H80000000,"
-        f"{-1 if st.get('bold', True) else 0},0,0,0,100,100,0,0,1,{st['outline']},2,{st['align']},60,60,{st['margin_v']},1\n\n"
+        f"Style: Cap,{st['font']},{st['size']},{primary},{primary},&H00202020,&H80000000,"
+        f"{-1 if st.get('bold', True) else 0},0,0,0,100,100,0,0,1,{st['outline']},2,{st['align']},"
+        f"{st.get('margin_l', 60)},{st.get('margin_r', 60)},{st['margin_v']},1\n\n"
         "[Events]\nFormat: Layer,Start,End,Style,Name,MarginL,MarginR,MarginV,Effect,Text\n"
     )
     lines = [f"Dialogue: 0,{ass_time(a)},{ass_time(b)},Cap,,0,0,0,,{{\\fad(120,120)}}{t.replace(chr(10), chr(92) + 'N')}"
@@ -158,7 +168,7 @@ def main():
     vdir = video_dir(a.video_id)
     meta = load_json(vdir / "video.json")
     f_ = fmt(meta, kind)
-    o, au, enh = f_["output"], meta["audio"], meta.get("enhance", {})
+    o, au, enh = f_["output"], {**meta["audio"], **f_.get("audio", {})}, meta.get("enhance", {})
     W, H, fps, total = f_["w"], f_["h"], f_["fps"], f_["total"]
     raw = vdir / meta["raw"] if meta.get("raw") else None
     rw, rh = probe_size(raw) if raw else (0, 0)
@@ -177,7 +187,7 @@ def main():
             raise SystemExit("no voice: run make_voice.py or put voice_<format>_<lang>.wav in the input folder")
 
     # 1. picture layers
-    if raw is None:  # recipes cut from several recordings: the footage is the cleaned cut (cut_rough.py + clean_footage.py)
+    if raw is None or f_.get("clean_first"):  # cleaned cut, including opted-in single-file products
         footage = L / f"clean_{kind}.mp4"
         if not footage.exists():
             raise SystemExit("no clean cut yet: run cut_rough.py and clean_footage.py first")
@@ -185,7 +195,7 @@ def main():
     else:
         footage = L / f"footage_{kind}.mp4"
         k_footage = build_cached(footage,
-                                 digest("footage", code(build_footage), code(zoom_expr), code(enhance_filters), sig(raw), f_["segments"],
+                                 digest("footage", code(build_footage), code(zoom_expr), code(enhance_filters), sig(raw), picture_segments(f_["segments"]),
                                         f_["layout"], W, H, fps, f_["zoom_amount"], enh, rw, rh),
                                  lambda t: build_footage(t, ffmpeg, raw, f_, enh, rw, rh), f"footage_{kind}", "footage" in force)
     stills = {}
@@ -206,7 +216,7 @@ def main():
     k_music = build_cached(L / f"music_{kind}.wav", digest("music", code(build_music), sig(song_src), au["start"], total),
                            lambda t: build_music(t, ffmpeg, song_src, au, total), f"music {kind}", "music" in force)
     k_mix = build_cached(L / f"mix_{kind}_{lang}.wav",
-                         digest("mix", code(build_mix), k_music, sig(voice) if voice else "no voice", au["volume"],
+                         digest("mix", code(build_mix), LOUD, k_music, sig(voice) if voice else "no voice", au["volume"],
                                 au["volume_with_voice"], au["fade_out"], total),
                          lambda t: build_mix(t, ffmpeg, L / f"music_{kind}.wav", voice, au, total),
                          f"mix {kind} {lang}" + (f" (voice: {voice.name})" if voice else " (music only)"), "mix" in force)

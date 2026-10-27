@@ -5,6 +5,11 @@ filmed by the channel owner. This folder turns one raw recording plus a few text
 them for approval: a **short** (vertical, captions + music) and a **video** (horizontal, calm voice-over made from the
 captions + captions + music). Project rules are in `CLAUDE.md`.
 
+Codex reads `AGENTS.md` and uses the seven roles in `.codex/agents/`; see [review/codex.md](review/codex.md).
+The actual input-to-final execution path, including the gnocchi reference and legacy differences, is documented in
+[review/pipeline-flow.md](review/pipeline-flow.md). Every run checks larger, high-contrast brand-colour captions
+(CLAUDE.md directive 25); inspect both language renders for legibility and phone-safe placement.
+
 ## Set up the channel (files to use first)
 | In YouTube Studio | File |
 |---|---|
@@ -65,6 +70,9 @@ it uses each agent's `model:` line). Three rounds per product; scores and fixes 
 Every critic changes something (directive 24): captions and the voice script, shot selection, picture clean-up, audio, price
 lines, description and tags, the covers. Fixes carry a lever tag and are applied or declined with a reason in the decision log
 of `review/history/<id>.md`. None of the seven is skipped.
+
+Captions are large and warm yellow with a dark outline (the video adds a soft dark box); the settings are `caption_style` in
+`video.json` (directive 25).
 
 ## Hook, captions and cleaning (standard for every recipe)
 - Hook: first segment with `"hook": true`, shown before the cover card (directive 21).

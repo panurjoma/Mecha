@@ -34,8 +34,10 @@ def main():
     vdir = video_dir(a.video_id)
     meta = load_json(vdir / "video.json")
     f_ = fmt(meta, kind)
+    print("Caption guideline (directive 25): prefer larger high-contrast brand-colour text; inspect both languages, "
+          "food visibility and phone-safe placement in the rendered review pack.", file=sys.stderr)
 
-    if not meta.get("raw"):  # recipes cut from several recordings: every shot is cut, then cleaned, before anything official is built
+    if not meta.get("raw") or f_.get("clean_first"):  # opt legacy single-file products into the same cached cleaning stages
         step("cut_rough.py", a.video_id, "--format", kind)
         step("clean_footage.py", a.video_id, "--format", kind)
     step("make_captions.py", a.video_id, "--format", kind, "--lang", a.lang)  # captions follow the clips (no-op without segment captions)

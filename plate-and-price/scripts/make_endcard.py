@@ -68,7 +68,27 @@ def draw(video_id, kind, lang):
             d.line([x0, y - step / 2, x1, y - step / 2], fill=c["sand"], width=3)
         return y
 
-    if H >= W:  # portrait (short)
+    if H >= W and f_.get("phone_safe_card"):
+        # Keep the full bill and its estimate label above the Shorts bottom controls.
+        cx = W * 0.46
+        d.rounded_rectangle([90, 150, W - 170, 245], radius=35, fill=c["tomato"])
+        d.text((cx, 198), chan["name"], font=font(48), fill=c["cream"], anchor="mm")
+        y = 330
+        for ln in wrap(title, font(54), W - 240):
+            d.text((cx, y), ln, font=font(54), fill=c["charcoal"], anchor="mm")
+            y += 66
+        top = max(490, y + 15)
+        d.rounded_rectangle([90, top, W - 170, top + 330], radius=40, fill=c["tomato"])
+        total_label = "Estimated total" if lang == "en" else "Total estimado"
+        d.text((cx, top + 55), f"{total_label} {money(total, cur)}  ·  {lab['serves'].format(n=price['servings'])}",
+               font=font(38), fill=c["cream"], anchor="mm")
+        d.text((cx, top + 175), money(per, cur), font=font(168), fill="white", anchor="mm")
+        d.text((cx, top + 280), lab["per"], font=font(48), fill=c["cream"], anchor="mm")
+        item_rows(90, W - 170, top + 390, 66, 38, 40)
+        d.text((cx, 1400), "Estimated cost · amounts used" if lang == "en" else "Coste estimado · cantidad usada",
+               font=font(36, False), fill=c["charcoal"], anchor="mm")
+        d.text((cx, 1470), lab["cta"], font=font(40), fill=c["tomato"], anchor="mm")
+    elif H >= W:  # portrait (short)
         d.rectangle([0, 0, W, 330], fill=c["tomato"])
         if icon.exists():
             ic, mask = round_icon(200)

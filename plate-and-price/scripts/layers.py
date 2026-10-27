@@ -41,6 +41,11 @@ def digest(*parts):
     return hashlib.sha1(json.dumps(parts, sort_keys=True, default=str).encode()).hexdigest()[:16]
 
 
+def picture_segments(segments):
+    """Caption wording and editorial notes do not change the footage layer."""
+    return [{k: v for k, v in segment.items() if k not in {"caption", "note"}} for segment in segments]
+
+
 def key_of(path):
     side = Path(str(path) + ".key")
     return side.read_text().strip() if side.exists() else None

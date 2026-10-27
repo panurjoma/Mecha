@@ -9,7 +9,7 @@
     "source": "Earth, Wind & Fire - September (Official HD Video).mp3",
     "start": 0,
     "volume": 1.0,
-    "volume_with_voice": 0.2,
+    "volume_with_voice": 0.15,
     "fade_out": 2.0,
     "song": {
       "title": "September",
@@ -33,17 +33,17 @@
       "endcard_dur": 4,
       "segments": [
         {
-          "src": "GH011594.MP4",
-          "src_start": 3.6,
+          "src": "GH011592.MP4",
+          "src_start": 4.5,
           "dur": 1.5,
           "cx": 0.5,
-          "note": "hook: Gruyere snow falling on the plate (sharp, no frame blending)",
+          "hook": true,
+          "shutter": 1,
+          "note": "hook: glossy pan of finished gnocchi (sharp, no frame blending)",
           "caption": {
             "en": "Easy dinners. Real prices.",
             "es": "Cenas fáciles. Precios reales."
-          },
-          "hook": true,
-          "shutter": 1
+          }
         },
         {
           "src": "GH011565.MP4",
@@ -123,14 +123,14 @@
           }
         },
         {
-          "src": "GH011585.MP4",
-          "src_start": 4,
+          "src": "GH011584.MP4",
+          "src_start": 0.5,
           "dur": 2.5,
           "cx": 0.5,
-          "note": "the soft leek goes into the sauce",
+          "note": "the sauce stirred smooth",
           "caption": {
-            "en": "Add the soft leeks",
-            "es": "Suma el puerro tierno"
+            "en": "Stir the sauce smooth",
+            "es": "Remueve la salsa"
           }
         },
         {
@@ -142,17 +142,6 @@
           "caption": {
             "en": "Cut some cherry tomatoes",
             "es": "Corta tomates cherry"
-          }
-        },
-        {
-          "src": "GH011587.MP4",
-          "src_start": 5,
-          "dur": 2,
-          "cx": 0.5,
-          "note": "draining the gnocchi",
-          "caption": {
-            "en": "Drain the gnocchi",
-            "es": "Escurre los ñoquis"
           }
         },
         {
@@ -182,7 +171,7 @@
           "src_start": 0.5,
           "dur": 3,
           "cx": 0.5,
-          "note": "glossy pan of finished gnocchi",
+          "note": "glossy pan stirred",
           "caption": {
             "en": "Stir it all together",
             "es": "Mezcla todo bien"
@@ -191,10 +180,10 @@
         },
         {
           "src": "GH011593.MP4",
-          "src_start": 5,
+          "src_start": 27,
           "dur": 2.5,
           "cx": 0.5,
-          "note": "spoon moves the gnocchi from the pan to the plate",
+          "note": "the plate with gnocchi next to the pan",
           "caption": {
             "en": "Plate it up",
             "es": "Sírvelo en el plato"
@@ -202,10 +191,10 @@
         },
         {
           "src": "GH011594.MP4",
-          "src_start": 10.5,
+          "src_start": 11,
           "dur": 3,
           "cx": 0.5,
-          "note": "the finished plate with Gruyere, steady and sharp",
+          "note": "the finished plate, steady and sharp",
           "caption": {
             "en": "Gruyère on top. Dinner is ready",
             "es": "Gruyère por encima. A cenar"
@@ -220,11 +209,12 @@
       },
       "caption_style": {
         "font": "Arial",
-        "size": 80,
+        "size": 92,
         "align": 8,
-        "margin_v": 280,
-        "outline": 6,
-        "bold": true
+        "margin_v": 250,
+        "outline": 7,
+        "bold": true,
+        "color": "FFE27A"
       }
     },
     "video": {
@@ -243,13 +233,13 @@
       "endcard_dur": 8,
       "segments": [
         {
-          "src": "GH011594.MP4",
-          "src_start": 4.6,
+          "src": "GH011592.MP4",
+          "src_start": 4.5,
           "dur": 2.0,
           "cx": 0.5,
-          "note": "hook: Gruyere snow falling on the plate (sharp)",
           "hook": true,
-          "shutter": 1
+          "shutter": 1,
+          "note": "hook: glossy pan of finished gnocchi (sharp, no frame blending)"
         },
         {
           "src": "GH011565.MP4",
@@ -292,7 +282,7 @@
           "note": "onion into the pan with the pepper",
           "caption": {
             "en": "Now the onion joins it.",
-            "es": "Suma la cebolla."
+            "es": "Añade la cebolla."
           }
         },
         {
@@ -309,12 +299,12 @@
         {
           "src": "GH011577.MP4",
           "src_start": 4,
-          "dur": 3,
+          "dur": 3.5,
           "cx": 0.5,
           "note": "the soft veg tipped onto a plate",
           "caption": {
             "en": "Set it aside on a plate.",
-            "es": "Resérvalo."
+            "es": "Resérvalo en un plato."
           }
         },
         {
@@ -358,7 +348,7 @@
           "note": "seasoning the sauce with pepper",
           "caption": {
             "en": "Season with a little pepper.",
-            "es": "Sazona con pimienta."
+            "es": "Sazona con un poco de pimienta."
           }
         },
         {
@@ -369,7 +359,7 @@
           "note": "the sauce stirred smooth",
           "caption": {
             "en": "Stir until the sauce is smooth.",
-            "es": "Remueve la salsa."
+            "es": "Remueve hasta que esté suave."
           }
         },
         {
@@ -397,12 +387,12 @@
         {
           "src": "GH011587.MP4",
           "src_start": 3,
-          "dur": 3,
+          "dur": 3.5,
           "cx": 0.5,
           "note": "draining the gnocchi",
           "caption": {
             "en": "Drain the gnocchi well.",
-            "es": "Escúrrelos bien."
+            "es": "Escurre los ñoquis."
           }
         },
         {
@@ -424,15 +414,15 @@
           "note": "glossy pan stirred",
           "caption": {
             "en": "Give it a good stir.",
-            "es": "Remueve bien."
+            "es": "Remueve bien la salsa."
           }
         },
         {
           "src": "GH011593.MP4",
-          "src_start": 5,
+          "src_start": 27,
           "dur": 5,
           "cx": 0.5,
-          "note": "spoon moves the gnocchi from the pan to the plate",
+          "note": "the plate with gnocchi next to the pan",
           "caption": {
             "en": "Plate it up while it is nice and hot.",
             "es": "Sirve el plato bien caliente."
@@ -446,18 +436,18 @@
           "note": "Gruyere on top",
           "caption": {
             "en": "Finish with grated Gruyère.",
-            "es": "Gruyère rallado."
+            "es": "Termina con Gruyère."
           }
         },
         {
           "src": "GH011594.MP4",
-          "src_start": 9.6,
-          "dur": 3.5,
+          "src_start": 11,
+          "dur": 3,
           "cx": 0.5,
           "note": "the finished plate, steady and sharp",
           "caption": {
             "en": "And that's it. Ready to eat.",
-            "es": "Y a comer."
+            "es": "Y listo, a comer."
           },
           "shutter": 2
         }
@@ -469,11 +459,13 @@
       },
       "caption_style": {
         "font": "Arial",
-        "size": 66,
+        "size": 74,
         "align": 2,
-        "margin_v": 70,
-        "outline": 6,
-        "bold": true
+        "margin_v": 85,
+        "outline": 9,
+        "bold": true,
+        "color": "FFE27A",
+        "box": true
       },
       "chapters": [
         {
@@ -482,19 +474,19 @@
           "es": "Preparar las verduras"
         },
         {
-          "at": 24,
-          "en": "Creamy blue cheese sauce",
-          "es": "Salsa cremosa de queso azul"
+          "at": 25,
+          "en": "Creamy blue cheese sauce for gnocchi",
+          "es": "Salsa cremosa de queso azul para ñoquis"
         },
         {
-          "at": 46,
+          "at": 47,
           "en": "Gnocchi, tomatoes and the sauce",
           "es": "Ñoquis, tomates y la salsa"
         },
         {
-          "at": 66,
-          "en": "Plate and price",
-          "es": "Emplatado y precio"
+          "at": 67,
+          "en": "Plate it up and what it costs",
+          "es": "Emplatado y cuánto cuesta"
         }
       ],
       "cover_caption": {
@@ -555,7 +547,10 @@
         "pasta recipe",
         "vegetarian dinner",
         "dinner for two",
-        "recipe cost"
+        "recipe cost",
+        "budget dinner",
+        "easy pasta",
+        "gnocchi with leek"
       ],
       "es": [
         "cena fácil",
@@ -565,7 +560,10 @@
         "receta de ñoquis",
         "cena vegetariana",
         "cena para dos",
-        "precio de la receta"
+        "precio de la receta",
+        "cena barata",
+        "cena económica",
+        "receta fácil"
       ]
     },
     "hashtags": {

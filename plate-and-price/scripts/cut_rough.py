@@ -19,7 +19,7 @@ import tempfile
 from pathlib import Path
 
 from common import OUTPUT_DIR, find_ffmpeg, fmt, load_json, run, video_dir
-from layers import build_cached, code, digest, quick
+from layers import build_cached, code, digest, picture_segments, quick
 
 CUT = ["-c:v", "libx264", "-preset", "fast", "-crf", "16", "-pix_fmt", "yuv420p", "-c:a", "aac", "-b:a", "192k"]
 
@@ -76,7 +76,7 @@ def main():
             raise SystemExit(f"{n}: {s['src_start']} + {s['dur']} s runs past the end of the clip ({length[n]:.1f} s)")
     out_dir = OUTPUT_DIR / a.video_id
     layer = out_dir / "layers" / f"rough_{a.format}.mp4"
-    key = digest("rough", code(build_rough), [quick(vdir / s) for s in srcs], f_["segments"], f_.get("shutter", 1), f_["layout"], f_["w"], f_["h"], f_["fps"], raw)
+    key = digest("rough", code(build_rough), [quick(vdir / s) for s in srcs], picture_segments(f_["segments"]), f_.get("shutter", 1), f_["layout"], f_["w"], f_["h"], f_["fps"], raw)
     build_cached(layer, key, lambda t: build_rough(t, ffmpeg, vdir, raw, f_), f"rough cut {a.format}", a.force)
     final = out_dir / f"rough_{a.format}.mp4"
     shutil.copyfile(layer, final)

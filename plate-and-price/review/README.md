@@ -1,5 +1,10 @@
 # Reviewer agents
 
+Codex equivalents of all seven roles are in `../.codex/agents/*.toml`; see [codex.md](codex.md) for usage.
+Every round checks the caption preference in CLAUDE.md directive 25: slightly larger, high-contrast brand-colour
+captions, checked in English and Spanish with the food and phone controls visible. Flag small text, weak contrast,
+long lines and captions covering the action; use `[captions]` fixes to address them.
+
 Seven agents in `../.claude/agents/` (model `claude-opus-5-5`) judge a finished short or video:
 
 | Agent | Lens | Special evidence |

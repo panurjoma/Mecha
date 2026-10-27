@@ -47,7 +47,7 @@
     "short": {
       "layout": "fill",
       "voice": false,
-      "zoom_amount": 0.12,
+      "zoom_amount": 0,
       "output": {
         "width": 1080,
         "height": 1920,
@@ -56,93 +56,253 @@
         "review_bitrate": "2800k"
       },
       "cover_dur": 2,
-      "endcard_dur": 3,
+      "endcard_dur": 5,
       "captions": {
         "en": "captions_short_en.srt",
         "es": "captions_short_es.srt"
       },
       "caption_style": {
         "font": "Arial",
-        "size": 66,
+        "size": 78,
         "align": 8,
         "margin_v": 280,
-        "outline": 5,
-        "bold": true
+        "outline": 6,
+        "bold": true,
+        "color": "#FFF4E0",
+        "margin_l": 100,
+        "margin_r": 190
       },
       "segments": [
         {
-          "src_start": 6.0,
+          "src_start": 72,
+          "dur": 2,
+          "zoom": "out",
+          "caption": {
+            "en": "Udon teriyaki",
+            "es": "Udon teriyaki"
+          },
+          "note": "moving noodle-lift teaser",
+          "hook": true
+        },
+        {
+          "src_start": 6,
+          "dur": 2,
+          "zoom": "out",
+          "caption": {
+            "en": "Slice your garlic",
+            "es": "Corta el ajo"
+          },
+          "note": "garlic prep, after original intro"
+        },
+        {
+          "src_start": 13,
+          "dur": 2.5,
+          "zoom": "out",
+          "caption": {
+            "en": "Garlic into warm oil",
+            "es": "Ajo y un poco de aceite"
+          },
+          "note": "garlic enters the pan"
+        },
+        {
+          "src_start": 21.5,
+          "dur": 2.5,
+          "zoom": "out",
+          "caption": {
+            "en": "Add your veg",
+            "es": "Añade las verduras"
+          },
+          "note": "vegetables dropped into the pan"
+        },
+        {
+          "src_start": 25,
+          "dur": 1.2,
+          "zoom": "out",
+          "caption": {
+            "en": "Fresh udon",
+            "es": "Udon fresco"
+          },
+          "note": "brief noodle packet identification"
+        },
+        {
+          "src_start": 30,
+          "dur": 2.5,
+          "zoom": "out",
+          "caption": {
+            "en": "Loosen in hot water",
+            "es": "Separa los fideos en agua"
+          },
+          "note": "noodles enter hot water"
+        },
+        {
+          "src_start": 43.5,
           "dur": 3,
           "zoom": "out",
-          "note": "chopping"
+          "caption": {
+            "en": "Mix your teriyaki sauce",
+            "es": "Mezcla la salsa teriyaki"
+          },
+          "note": "sauce bowl and brown sugar"
         },
         {
-          "src_start": 12.5,
-          "dur": 3,
-          "zoom": "in",
-          "note": "oil and garlic in the pan"
+          "src_start": 48.3,
+          "dur": 1.7,
+          "zoom": "out",
+          "caption": {
+            "en": "Prawns, cooked and ready",
+            "es": "Gambones ya cocinados"
+          },
+          "note": "cooked prawns shown; searing not in this source"
         },
         {
-          "src_start": 18.0,
+          "src_start": 50.5,
           "dur": 3,
           "zoom": "out",
-          "note": "mushrooms and onion"
+          "caption": {
+            "en": "Sear your Iberian pork",
+            "es": "Dora el secreto ibérico"
+          },
+          "note": "pork on the griddle"
         },
         {
-          "src_start": 24.0,
-          "dur": 3,
-          "zoom": "in",
-          "note": "udon package"
-        },
-        {
-          "src_start": 30.0,
-          "dur": 3,
+          "src_start": 55,
+          "dur": 2,
           "zoom": "out",
-          "note": "loosening noodles in hot water"
+          "caption": {
+            "en": "Add udon and sauce",
+            "es": "Udon y salsa a la sartén"
+          },
+          "note": "noodles added to vegetables"
         },
         {
-          "src_start": 43.0,
-          "dur": 3,
-          "zoom": "in",
-          "note": "teriyaki sauce"
-        },
-        {
-          "src_start": 48.0,
-          "dur": 3,
+          "src_start": 57,
+          "dur": 2,
           "zoom": "out",
-          "note": "prawns"
+          "caption": {
+            "en": "Pour in the sauce",
+            "es": "Vierte la salsa"
+          },
+          "note": "sauce poured over noodles"
         },
         {
-          "src_start": 51.0,
-          "dur": 3,
-          "zoom": "in",
-          "note": "secreto on the griddle"
-        },
-        {
-          "src_start": 57.0,
-          "dur": 3,
+          "src_start": 59,
+          "dur": 2,
           "zoom": "out",
-          "note": "tossing noodles"
+          "caption": {
+            "en": "Toss to coat",
+            "es": "Mezcla todo bien"
+          },
+          "note": "noodles tossed with sauce"
         },
         {
-          "src_start": 66.0,
-          "dur": 3,
-          "zoom": "in",
+          "src_start": 62,
+          "dur": 1.8,
+          "zoom": "out",
+          "caption": {
+            "en": "Finish with spring onion",
+            "es": "Termina con cebolleta"
+          },
+          "note": "spring onion garnish added"
+        },
+        {
+          "src_start": 66,
+          "dur": 1.5,
+          "zoom": "out",
+          "caption": {
+            "en": "Ready to share",
+            "es": "Para compartir"
+          },
           "note": "finished pan"
         },
         {
-          "src_start": 72.0,
-          "dur": 3,
+          "src_start": 71.5,
+          "dur": 2,
           "zoom": "out",
-          "note": "noodle lift"
+          "caption": {
+            "en": "Plate it up",
+            "es": "Sirve los fideos"
+          },
+          "note": "noodles lifted onto the plate"
         },
         {
-          "src_start": 75.0,
-          "dur": 3,
-          "zoom": "in",
-          "note": "plated"
+          "src_start": 74,
+          "dur": 1.6,
+          "zoom": "out",
+          "caption": {
+            "en": "Dinner for two",
+            "es": "Cena para dos"
+          },
+          "note": "wide plated reveal before dark close-up"
         }
-      ]
+      ],
+      "clean_first": true,
+      "phone_safe_cover": true,
+      "phone_safe_card": true,
+      "include_price_breakdown": true,
+      "clean": {
+        "input_range": "tv",
+        "denoise": [
+          1.5,
+          1.5,
+          4,
+          4
+        ],
+        "highlights": 0.96,
+        "shadows": 0.015,
+        "saturation": 1.04,
+        "contrast": 1.02,
+        "sharpen": 0.25
+      },
+      "price_note": {
+        "en": "Estimate for the amounts used, not a receipt: quantities and two servings are provisional. Whole packs cost more. Pork, prawns, wheat and soy; check your sauce labels.",
+        "es": "Estimación de las cantidades usadas, sin recibo: cantidades y dos raciones pendientes de confirmar. Los envases enteros cuestan más. Cerdo, gambones, trigo y soja; revisa las etiquetas de las salsas."
+      },
+      "description": {
+        "hook": {
+          "en": "Udon teriyaki with Iberian pork, king prawns and vegetables. For two, at an estimated {per} a serving using provisional quantities.",
+          "es": "Udon teriyaki con secreto ibérico, gambones y verduras. Para dos, con un coste estimado de {per} por ración y cantidades provisionales."
+        },
+        "closing": {
+          "en": "Save this for your next dinner for two. Follow Plate & Price for the next dinner and its price.",
+          "es": "Guárdalo para tu próxima cena para dos. Sigue a Plate & Price para ver la próxima cena y su precio."
+        },
+        "keywords": {
+          "en": [
+            "udon teriyaki",
+            "udon noodles",
+            "Iberian pork",
+            "king prawns",
+            "Japanese-inspired dinner",
+            "dinner for two",
+            "recipe cost",
+            "Plate and Price"
+          ],
+          "es": [
+            "udon teriyaki",
+            "fideos udon",
+            "secreto ibérico",
+            "gambones",
+            "cena de inspiración japonesa",
+            "cena para dos",
+            "coste de la receta",
+            "Plate and Price"
+          ]
+        },
+        "hashtags": {
+          "en": [
+            "#Udon",
+            "#Teriyaki",
+            "#DinnerForTwo",
+            "#RecipeCost"
+          ],
+          "es": [
+            "#Udon",
+            "#Teriyaki",
+            "#CenaParaDos",
+            "#CosteReceta"
+          ]
+        }
+      }
     },
     "video": {
       "layout": "blurpad",

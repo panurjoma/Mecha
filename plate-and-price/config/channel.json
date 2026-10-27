@@ -17,14 +17,14 @@
       "total": "Total",
       "serves": "serves {n}",
       "per": "per serving",
-      "note": "Estimated supermarket prices",
+      "note": "Estimated prices, for the amount used",
       "cta": "Follow for the next dinner"
     },
     "es": {
       "total": "Total",
       "serves": "para {n}",
       "per": "por ración",
-      "note": "Precios estimados de supermercado",
+      "note": "Precios estimados, por la cantidad usada",
       "cta": "Sigue para la próxima cena"
     }
   },

@@ -1,0 +1,68 @@
+{
+  "short_only_metadata": true,
+  "all_python_ast": true,
+  "seven_agent_tomls": true,
+  "duration": 40.3,
+  "caption_readability": {
+    "en": {
+      "cues": 16,
+      "maximum_nonspace_chars_per_second": 14.0,
+      "max_lines": 2
+    },
+    "es": {
+      "cues": 16,
+      "maximum_nonspace_chars_per_second": 12.67,
+      "max_lines": 2
+    }
+  },
+  "picture_key_excludes_text_but_tracks_cuts": true,
+  "unchanged_pipeline_all_layers_cached": true,
+  "editorial_note_does_not_reencode_rough": true,
+  "unchanged_es_pipeline_all_layers_cached": true,
+  "media": {
+    "final/short_en.mp4": {
+      "decode": "pass",
+      "size": "1080x1920",
+      "fps": 30,
+      "audio": {
+        "lufs": "-15.4",
+        "lra": "2.6",
+        "tp": "-2.1",
+        "mean": "-17.7"
+      }
+    },
+    "final/short_es.mp4": {
+      "decode": "pass",
+      "size": "1080x1920",
+      "fps": 30,
+      "audio": {
+        "lufs": "-15.4",
+        "lra": "2.6",
+        "tp": "-2.1",
+        "mean": "-17.7"
+      }
+    },
+    "email/short_en_review.mp4": {
+      "decode": "pass",
+      "size": "1080x1920",
+      "fps": 30,
+      "audio": {
+        "lufs": "-15.4",
+        "lra": "2.6",
+        "tp": "-1.2",
+        "mean": "-17.8"
+      }
+    },
+    "email/short_es_review.mp4": {
+      "decode": "pass",
+      "size": "1080x1920",
+      "fps": 30,
+      "audio": {
+        "lufs": "-15.4",
+        "lra": "2.6",
+        "tp": "-1.2",
+        "mean": "-17.8"
+      }
+    }
+  }
+}

@@ -8,6 +8,7 @@ come from which recording, the hook window). The four reviewer agents (.claude/a
 It also writes sources_sheet_N.jpg (4 frames of every recording, numbered by file) the first time, so a reviewer can name a replacement shot.
 """
 import argparse
+import json
 import re
 import subprocess
 
@@ -80,8 +81,9 @@ def extra_facts(vdir, meta, f_, a, ff, src, out, cues):
             L.append(f"  - {n} chars in {e - s:.1f} s = {n / max(e - s, 0.1):.0f} chars/s: {t.replace(chr(10), ' ')}")
     else:
         L.append("- No voice-over in this format: the music carries the sound; the original kitchen sound is removed.")
-    song = meta["audio"].get("song") or {}
-    L.append(f"- Music: {song.get('title', 'none')} starts at {meta['audio'].get('start', 0)} s, fade-out {meta['audio'].get('fade_out')} s.")
+    audio = {**meta["audio"], **f_.get("audio", {})}
+    song = audio.get("song") or {}
+    L.append(f"- Music: {song.get('title', 'none')} starts at {audio.get('start', 0)} s, fade-out {audio.get('fade_out')} s.")
 
     pj = vdir / "price.json"
     L += ["", "## Recipe and price (estimate, no receipts)"]
@@ -160,6 +162,8 @@ def main():
              f"- Captions: {len(cues)}, reading speed {sum(speeds) / len(speeds):.0f} characters/s on average (comfortable is under about 17).",
              f"- Mean loudness {mean.group(1) if mean else '?'} dB (music and voice).",
              f"- Audio: {meta['audio'].get('song', {}).get('title', 'none')} (licensed: {meta['audio'].get('song', {}).get('licensed')}).", "",
+             f"- Caption style: {json.dumps(f_['caption_style'], ensure_ascii=False)}.",
+             f"- Dedicated rough/clean path: {not meta.get('raw') or bool(f_.get('clean_first'))}; format clean settings: {json.dumps(f_.get('clean', {}))}.",
              "## Timeline (clip, source file, what it shows)"]
     t = 0.0
     if not f_["hook_dur"]:
@@ -167,7 +171,7 @@ def main():
         t = f_["cover_dur"]
     for i, s in enumerate(segs):
         tag = "HOOK (moving shot before the cover) " if i == 0 and f_["hook_dur"] else ""
-        lines.append(f"- {t:.1f} s {tag}{s.get('src', '')} from {s['src_start']} s for {s['dur']} s: {s.get('note', '')}")
+        lines.append(f"- {t:.1f} s {tag}{s.get('src', meta.get('raw', ''))} from {s['src_start']} s for {s['dur']} s: {s.get('note', '')}")
         t += s["dur"]
         if i == 0 and f_["hook_dur"]:
             lines.append(f"- {t:.1f} s cover card (AI image, title, price per serving, {f_['cover_dur']} s)")
