@@ -49,6 +49,10 @@ at the end. The footage is filmed by the channel owner; only the cover image is 
 18. **Work in stages, doing the least needed at each one.** A product goes through these stages in order, each one a cached
     layer, and a stage is only started when the owner has seen the previous one:
     1. **Select**: pick the moments from the recordings (several files are normal; `segments[].src`, `src_start`, `dur`).
+       Do the timing analysis here: a slow moment (chopping an onion or garlic, waiting, stirring) is sped up with
+       `segments[].speed` (1.5 to 2 is natural; `dur` stays the seconds on screen, the clip is read for `dur * speed`
+       source seconds) so it takes fewer seconds and the dinner feels quick. Never speed up a moment that carries a
+       key action (the pour, the plate) or whose sound or detail matters; the critics may add or remove speed-ups.
        Short: about 3 s per moment, about 35 s in total with the cover and end card. Video: about 6 s per moment, about 90 s.
     2. **Cut and join** (`cut_rough.py`): put the moments together in filming order (file name and modified time agree)
        with the clips' own sound. Nothing else yet: no cover, captions, music or cleaning.
@@ -61,7 +65,7 @@ at the end. The footage is filmed by the channel owner; only the cover image is 
        the first video: items in English and Spanish, price, servings) using average Spanish supermarket prices, labelled as
        an estimate. It feeds the price end card (`make_endcard.py`) and the video description's price list.
     6. **Critics** (seven agents, three rounds, directive 19), then the final file and YouTube text.
-    The short repeats as little as possible (one idea per moment, short captions, no voice). The video may add secondary
+    The short repeats as little as possible (one idea per moment, short captions, and a calm voice-over that reads them, directive 26). The video may add secondary
     details (extra moments, a fuller explanation, voice-over). Never redo an earlier stage to change a later one.
 
 19. **Seven critics, three rounds.** Before a short or video is final, seven reviewer agents judge it from different
@@ -116,7 +120,7 @@ at the end. The footage is filmed by the channel owner; only the cover image is 
     seven were consulted, their fixes decided, and the changed layers rebuilt. `run_pipeline.py` reminds you of this at the end.
     Language split: agents whose judgment depends on the language (sociologist, marketing, recipe-price, discoverability, and
     audio-voice when there is a voice-over) review English and Spanish separately; engagement, craft and audio-voice on a
-    music-only short review the shared cut once (`language:` in each agent file, table in `review/README.md`).
+    short without a voice-over review the shared cut once (`language:` in each agent file, table in `review/README.md`).
 
 25. **Captions must be easy to read.** Burned-in captions are large, warm yellow (`color` FFE27A) with a dark outline, and on the
     video a soft dark box behind the text. Defaults: short size 92, outline 7, in the top third (align 8, margin_v 250, clear of
@@ -127,14 +131,21 @@ at the end. The footage is filmed by the channel owner; only the cover image is 
     bottom 20 %, avoid relying on colour alone for meaning, check long lines and accented characters (Ñ, é) after every caption
     change by looking at rendered English and Spanish frames, and have every critic round check caption colour, size, contrast and placement.
 
+26. **Both products carry the voice.** The short and the video both have the calm male voice-over (`voice: true` in both
+    formats), made from the captions, so the viewer can listen and read at the same time instead of only reading. Each short
+    moment is long enough for its spoken line (about 1.7 s for two words, 2.2 s for a short sentence), lines are short, the
+    voice is never sped up (`tempo_max` 1.0 in the short), and the song sits lower under it (`volume_with_voice`). The voice
+    layer trims the silence edge-tts adds to each line before measuring it, and warns when a line is longer than its window.
+    Spanish and English are reviewed separately for both products because the voice differs by language.
+
 ## Two products from the same inputs
 | | Short (`short_<lang>.mp4`) | Video (`video_<lang>.mp4`) |
 |---|---|---|
 | Where | YouTube Shorts | YouTube channel |
 | Size | 1080x1920, vertical, about 41 s | 1920x1080, horizontal, about 81 s |
-| Sound | the song | calm voice-over made from the captions, song lowered under it |
+| Sound | calm voice-over made from the captions, song lowered under it | calm voice-over made from the captions, song lowered under it |
 | Captions | burned in (short phrases, top of frame) | burned in (full sentences, bottom of frame) |
-| Cover | 2 s, AI image 9:16 | 3 s, AI image 16:9 (also the thumbnail) |
+| Cover | 1.5 s, AI image 9:16 | 3 s, AI image 16:9 (also the thumbnail) |
 | Command | `run_pipeline.py <id> --format short --lang en` | `run_pipeline.py <id> --format video --lang en` |
 | n8n | `n8n/plate-and-price-short.workflow.json` | `n8n/plate-and-price-video.workflow.json` |
 

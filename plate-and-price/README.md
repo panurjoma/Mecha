@@ -2,7 +2,7 @@
 
 YouTube channel about easy dinners with a taste of different cuisines and the real price of each plate. The footage is
 filmed by the channel owner. This folder turns one raw recording plus a few text files into two products and emails
-them for approval: a **short** (vertical, captions + music) and a **video** (horizontal, calm voice-over made from the
+them for approval: a **short** (vertical, captions + calm voice-over + music) and a **video** (horizontal, calm voice-over made from the
 captions + captions + music). Project rules are in `CLAUDE.md`.
 
 Codex reads `AGENTS.md` and uses the seven roles in `.codex/agents/`; see [review/codex.md](review/codex.md).

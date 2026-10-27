@@ -29,7 +29,7 @@ Each agent has levers, the places where its opinion lands. Every fix it proposes
 | Lever | What it changes | Agents that use it |
 |---|---|---|
 | `[captions]` | caption text and timing, the voice script (`segments[].caption`, `cover_caption`, `end_caption`) | all seven agents |
-| `[shots]` | which clips, order, length, the hook, the ending (`segments`) | sociologist, engagement, marketing, craft, recipe-price |
+| `[shots]` | which clips, order, length, speed (`segments[].speed`: speed up a slow moment such as chopping), the hook, the ending (`segments`) | sociologist, engagement, marketing, craft, recipe-price |
 | `[picture]` | clean-up, grade, framing, layout (`clean`, per-clip `layout`, `cx`) | craft |
 | `[audio]` | music choice and level, voice pacing, loudness (`audio`, voice settings) | audio-voice, engagement, craft |
 | `[text]` | description, tags, chapters, thumbnail; the title only with the owner's approval | discoverability, sociologist, marketing, recipe-price |
@@ -55,7 +55,7 @@ cut once. The setting is `language:` in each agent file.
 | marketing-strategist | separate | promise, tagline, cover and end-card wording per language |
 | recipe-price-checker | separate | ingredient names, units, price format (4,85 EUR) per language |
 | discoverability-strategist | separate | title, description, tags, search terms per language |
-| audio-voice-reviewer | separate-if-voice | the voice-over speed and script differ by language; a short with music only is the same in both |
+| audio-voice-reviewer | separate-if-voice | the voice-over speed and script differ by language; a short without a voice-over is the same in both (since directive 26 shorts have a voice, so they are reviewed per language) |
 | engagement-analyst | shared | hook, pacing, retention are the same cut in both languages |
 | video-craft-editor | shared | continuity, perspective, picture quality are the same picture |
 

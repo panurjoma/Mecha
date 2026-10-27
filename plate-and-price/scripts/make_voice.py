@@ -48,6 +48,11 @@ def build_voice(out, ffmpeg, cues, cfg, tempo_max, total):
         files = asyncio.run(synth(cues, cfg["voice"], cfg["rate"], tmp))
         cmd, chains = [ffmpeg, "-hide_banner", "-y"], []
         for i, ((start, end, text), f) in enumerate(zip(cues, files)):
+            trimmed = f.with_suffix(".wav")  # the service pads each line with silence: cut it so the length is the speech itself
+            trim = "silenceremove=start_periods=1:start_threshold=-45dB:start_silence=0.05"
+            subprocess.run([ffmpeg, "-hide_banner", "-loglevel", "error", "-y", "-i", str(f), "-af", f"{trim},areverse,{trim},areverse",
+                            str(trimmed)], check=True)
+            f = trimmed
             natural = duration(ffmpeg, f)
             window = end - start
             tempo = min(max(natural / window, 1.0), tempo_max)

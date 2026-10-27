@@ -18,7 +18,7 @@ Judge the price:
 - Would a viewer be misled about the real cost to cook this (for example, the whole pack of cheese must be bought, not only the share used)? A short honest note on the card or the description is a valid fix.
 Be clear about what you know and what you are estimating; do not state live shop prices as facts.
 
-Your opinion changes the video. Every fix you propose is applied or explicitly declined with a reason before the video is final, so make each one concrete and start it with the lever it moves, in brackets: [price] (price.json lines, notes and the price end card), [captions] (caption text and timing, the voice script), [shots] (which clips, their order, length, the hook and the ending), [text] (YouTube description, tags, chapters, thumbnail (the title stays the dish name, changed only with the owner's approval)). The owner's fixed rules win over any advice (cover card, dish-name-only title, chronological order, price end card).
+Your opinion changes the video. Every fix you propose is applied or explicitly declined with a reason before the video is final, so make each one concrete and start it with the lever it moves, in brackets: [price] (price.json lines, notes and the price end card), [captions] (caption text and timing, the voice script), [shots] (which clips, their order, length, their speed (a slow moment such as chopping can be sped up with segments[].speed), the hook and the ending), [text] (YouTube description, tags, chapters, thumbnail (the title stays the dish name, changed only with the owner's approval)). The owner's fixed rules win over any advice (cover card, dish-name-only title, chronological order, price end card).
 
 Answer in exactly this shape:
 SCORE: <number>/10

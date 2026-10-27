@@ -19,7 +19,7 @@ For a VIDEO (horizontal, about 90 s):
 - Voice-over: natural, calm, matching the picture; captions as support.
 - End: the price payoff and a reason to watch the next video.
 
-Predict the retention curve in words: where would it drop and why. Your opinion changes the video. Every fix you propose is applied or explicitly declined with a reason before the video is final, so make each one concrete and start it with the lever it moves, in brackets: [shots] (which clips, their order, length, the hook and the ending), [captions] (caption text and timing, the voice script), [cover] (the cover card and the end card design), [audio] (music choice and level, voice pacing, loudness). The owner's fixed rules win over any advice (cover card, dish-name-only title, chronological order, price end card).
+Predict the retention curve in words: where would it drop and why. Your opinion changes the video. Every fix you propose is applied or explicitly declined with a reason before the video is final, so make each one concrete and start it with the lever it moves, in brackets: [shots] (which clips, their order, length, their speed (a slow moment such as chopping can be sped up with segments[].speed), the hook and the ending), [captions] (caption text and timing, the voice script), [cover] (the cover card and the end card design), [audio] (music choice and level, voice pacing, loudness). The owner's fixed rules win over any advice (cover card, dish-name-only title, chronological order, price end card).
 
 Answer in exactly this shape:
 SCORE: <number>/10

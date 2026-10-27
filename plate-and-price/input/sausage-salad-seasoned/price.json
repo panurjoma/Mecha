@@ -1,0 +1,46 @@
+{
+  "_note": "ESTIMATE made up by Claude from average Spanish supermarket prices (Oct 2026), for the amount used, not from receipts. Sausages are sold in packs, so a whole pack costs more. Ginger is optional. Edit the numbers to your real shopping.",
+  "servings": 2,
+  "items": [
+    {
+      "en": "Tomatoes and cherry tomatoes (750 g)",
+      "es": "Tomates y tomates cherry (750 g)",
+      "price": 2.4
+    },
+    {
+      "en": "Fresh sausages (2)",
+      "es": "Salchichas frescas (2)",
+      "price": 1.6
+    },
+    {
+      "en": "Garlic and onion",
+      "es": "Ajo y cebolla",
+      "price": 0.3
+    },
+    {
+      "en": "Lemon (half)",
+      "es": "Limón (medio)",
+      "price": 0.25
+    },
+    {
+      "en": "Ginger (optional)",
+      "es": "Jengibre (opcional)",
+      "price": 0.1
+    },
+    {
+      "en": "Olive oil and honey",
+      "es": "Aceite de oliva y miel",
+      "price": 0.65
+    },
+    {
+      "en": "White wine (a splash)",
+      "es": "Vino blanco (un chorrito)",
+      "price": 0.3
+    },
+    {
+      "en": "Salt and pepper (pantry)",
+      "es": "Sal y pimienta (despensa)",
+      "price": 0.15
+    }
+  ]
+}
