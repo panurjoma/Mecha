@@ -165,6 +165,23 @@ at the end. The footage is filmed by the channel owner; only the cover image is 
     inside the picture); in the short, a blurred copy behind a wide shot (`blurpad`) is the only allowed background and it is never
     empty. Check the rendered frames of every cropped moment for gaps, stretching or softness before the product is final.
 
+30. **AI upscaling of the footage (optional layer).** A format with `"ai_upscale": {"model": 0}` in `video.json` (for example
+    `short_ia`, the "short with AI", output `short_ia_<lang>.mp4`) has its footage upscaled frame by frame by Real-ESRGAN
+    (`realesrgan-ncnn-py`, local GPU, no LLM and no cloud) inside `cut_rough.py`, after the crop and before the clean stage: the
+    cropped native pixels are doubled by the network and resized to the output size, so the vertical slice of a 1080p recording
+    is sharper than with the plain resize. Model 0 is `realesr-animevideov3-x2` (fast, made for video; about 0.5 s per frame on the
+    RTX 3060 Laptop); other ids are in the package. It is a cached layer (`rough_<format>.mp4`) rebuilt only when the clips, the
+    crops or the AI settings change. Run with `uv run --python 3.11 --with realesrgan-ncnn-py ...`. Blurpad moments are not
+    upscaled. The plain `short` stays as it is; `short_ia` is a separate product with its own cover, captions, voice and final.
+
+31. **Play with the camera, plan every moment.** The recordings are wide and long, and each moment of a short is edited on purpose
+    with all the tools: `cx`/`cy` (which part of the frame, not always the centre, directive 27), `crop` (zoom in, directive 29),
+    `"layout": "blurpad"` (zoom out: the whole wide shot over a blurred copy, for action that spans the frame such as a pour from
+    the pan to the plate, draining, or a finished-plate reveal), `speed` above 1 (speed up what drags, directive 18) and below 1
+    (slow motion for a pour or a sizzle; the 120 fps recordings allow down to 0.25, with `"shutter": 1`), the length of each moment, and the
+    order. The short has no length limit (directive 28), so every key step gets a moment. Before writing the segments, look at the
+    frames of each recording and write down where the action is.
+
 ## Two products from the same inputs
 | | Short (`short_<lang>.mp4`) | Video (`video_<lang>.mp4`) |
 |---|---|---|
@@ -173,7 +190,7 @@ at the end. The footage is filmed by the channel owner; only the cover image is 
 | Sound | calm voice-over made from the captions, song lowered under it | calm voice-over made from the captions, song lowered under it |
 | Captions | burned in (short phrases, top of frame) | burned in (full sentences, bottom of frame) |
 | Cover | 1.5 s, AI image 9:16 | 3 s, AI image 16:9 (also the thumbnail) |
-| Command | `run_pipeline.py <id> --format short --lang en` | `run_pipeline.py <id> --format video --lang en` |
+| Command | `run_pipeline.py <id> --format short --lang en` (`--format short_ia` for the AI-upscaled short, directive 30) | `run_pipeline.py <id> --format video --lang en` |
 | n8n | `n8n/plate-and-price-short.workflow.json` | `n8n/plate-and-price-video.workflow.json` |
 
 All settings (segments, durations, caption files, styles) are in `input/<id>/video.json` under `formats`.

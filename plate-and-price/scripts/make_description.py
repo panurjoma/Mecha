@@ -1,6 +1,6 @@
 """Write the YouTube title, description and tags for one product (short or video).
 
-usage: python make_description.py <video-id> --format short|video --lang en [--llm]
+usage: python make_description.py <video-id> --format short|short_ia|video --lang en [--llm]
 Output: <OUTPUT_DIR>/<id>/final/description_<format>_<lang>.md with TITLE, DESCRIPTION and TAGS sections (paste them into
 YouTube Studio) and a NOTES section for the owner (not for YouTube). English by default.
 
@@ -71,7 +71,7 @@ def build(video_id, kind, lang, use_llm=False):
     if use_llm:
         hook = polish_hook(hook, lang)
 
-    if kind == "short":
+    if kind.startswith("short"):
         yt_title = t["short_title"].format(title=title, per=money(per, lang))
         body = [hook, "", t["short_price"].format(n=n, total=money(total, lang), per=money(per, lang)), "",
                 d["closing"][lang], "", " ".join(d["hashtags"][lang] + ["#Shorts"])]
@@ -114,7 +114,7 @@ def build(video_id, kind, lang, use_llm=False):
 if __name__ == "__main__":
     ap = argparse.ArgumentParser()
     ap.add_argument("video_id")
-    ap.add_argument("--format", default="video", choices=["short", "video"])
+    ap.add_argument("--format", default="video", choices=["short", "short_ia", "video"])
     ap.add_argument("--lang", default="en")
     ap.add_argument("--llm", action="store_true")
     a = ap.parse_args()

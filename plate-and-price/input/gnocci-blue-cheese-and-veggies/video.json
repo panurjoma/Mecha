@@ -497,6 +497,275 @@
         "en": "Total €9.70, €4.85 a serving. Follow for more.",
         "es": "Total 9,70 euros, 4,85 la ración. Sigue."
       }
+    },
+    "short_ia": {
+      "layout": "fill",
+      "voice": true,
+      "zoom_amount": 0.12,
+      "output": {
+        "width": 1080,
+        "height": 1920,
+        "fps": 30,
+        "crf": 18,
+        "review_bitrate": "2800k"
+      },
+      "cover_dur": 1.5,
+      "endcard_dur": 4,
+      "segments": [
+        {
+          "src": "GH011592.MP4",
+          "src_start": 4.5,
+          "dur": 2.0,
+          "cx": 0.45,
+          "hook": true,
+          "shutter": 1,
+          "note": "hook: glossy pan of finished gnocchi (sharp, no frame blending)",
+          "caption": {
+            "en": "Dinner for two",
+            "es": "Cena para dos"
+          }
+        },
+        {
+          "src": "GH011565.MP4",
+          "src_start": 26,
+          "dur": 2.4,
+          "cx": 0.5,
+          "note": "chopping the leek (sped up)",
+          "caption": {
+            "en": "Chop the leek",
+            "es": "Corta el puerro"
+          },
+          "speed": 1.5
+        },
+        {
+          "src": "GH011567.MP4",
+          "src_start": 3,
+          "dur": 2.2,
+          "cx": 0.5,
+          "note": "slicing the onion (sped up)",
+          "caption": {
+            "en": "And the onion",
+            "es": "Y la cebolla"
+          },
+          "speed": 1.5
+        },
+        {
+          "src": "GH011568.MP4",
+          "src_start": 0.4,
+          "dur": 2.2,
+          "cx": 0.43,
+          "note": "green pepper into the pan",
+          "caption": {
+            "en": "Green pepper in the pan",
+            "es": "El pimiento a la sartén"
+          }
+        },
+        {
+          "src": "GH011569.MP4",
+          "src_start": 1,
+          "dur": 2.2,
+          "cx": 0.43,
+          "note": "onion into the pan with the pepper",
+          "caption": {
+            "en": "Add the onion",
+            "es": "Suma la cebolla"
+          }
+        },
+        {
+          "src": "GH011573.MP4",
+          "src_start": 10,
+          "dur": 2.4,
+          "cx": 0.28,
+          "note": "leek, pepper and onion cooked soft (sped up)",
+          "caption": {
+            "en": "Cook until soft",
+            "es": "Hasta que esté tierno"
+          },
+          "speed": 1.5
+        },
+        {
+          "src": "GH011577.MP4",
+          "src_start": 4,
+          "dur": 2.2,
+          "cx": 0.5,
+          "note": "the soft veg tipped onto a plate",
+          "caption": {
+            "en": "Set the veg aside",
+            "es": "Reserva la verdura"
+          }
+        },
+        {
+          "src": "GH011578.MP4",
+          "src_start": 4,
+          "dur": 2.4,
+          "cx": 0.38,
+          "note": "cream swirling in the pan",
+          "caption": {
+            "en": "Pour in the cream",
+            "es": "Echa la nata"
+          }
+        },
+        {
+          "src": "GH011580.MP4",
+          "src_start": 0.5,
+          "dur": 2.4,
+          "cx": 0.5,
+          "note": "blue cheese chunks melting in the sauce",
+          "caption": {
+            "en": "Melt the blue cheese",
+            "es": "Derrite el queso azul"
+          }
+        },
+        {
+          "src": "GH011581.MP4",
+          "src_start": 0.5,
+          "dur": 2.4,
+          "cx": 0.35,
+          "note": "gnocchi into boiling water",
+          "caption": {
+            "en": "Boil the gnocchi",
+            "es": "Hierve los ñoquis"
+          }
+        },
+        {
+          "src": "GH011583.MP4",
+          "src_start": 4,
+          "dur": 2.2,
+          "cx": 0.6,
+          "note": "seasoning the sauce with pepper",
+          "caption": {
+            "en": "Season with pepper",
+            "es": "Sazona con pimienta"
+          }
+        },
+        {
+          "src": "GH011584.MP4",
+          "src_start": 0.2,
+          "dur": 2.2,
+          "cx": 0.55,
+          "note": "the sauce stirred smooth (sped up)",
+          "caption": {
+            "en": "Stir the sauce",
+            "es": "Remueve la salsa"
+          },
+          "speed": 1.3
+        },
+        {
+          "src": "GH011585.MP4",
+          "src_start": 4,
+          "dur": 2.2,
+          "cx": 0.43,
+          "note": "the soft veg back into the sauce",
+          "caption": {
+            "en": "Veg back in",
+            "es": "Vuelve a echar la verdura"
+          }
+        },
+        {
+          "src": "GH011589.MP4",
+          "src_start": 0.8,
+          "dur": 2.2,
+          "cx": 0.43,
+          "note": "cherry tomatoes slide into the sauce",
+          "caption": {
+            "en": "Cherry tomatoes",
+            "es": "Los tomates cherry"
+          }
+        },
+        {
+          "src": "GH011587.MP4",
+          "src_start": 3,
+          "dur": 2.4,
+          "cx": 0.5,
+          "note": "draining the gnocchi: wide, zoomed out",
+          "caption": {
+            "en": "Drain the gnocchi",
+            "es": "Escurre los ñoquis"
+          },
+          "layout": "blurpad"
+        },
+        {
+          "src": "GH011591.MP4",
+          "src_start": 0.5,
+          "dur": 2.4,
+          "cx": 0.38,
+          "note": "gnocchi into the sauce",
+          "caption": {
+            "en": "Gnocchi into the sauce",
+            "es": "Los ñoquis a la salsa"
+          }
+        },
+        {
+          "src": "GH011592.MP4",
+          "src_start": 3,
+          "dur": 2.2,
+          "cx": 0.5,
+          "note": "glossy pan stirred",
+          "caption": {
+            "en": "Mix it all",
+            "es": "Mezcla bien"
+          }
+        },
+        {
+          "src": "GH011593.MP4",
+          "src_start": 27,
+          "dur": 2.6,
+          "cx": 0.5,
+          "note": "pan and plate: wide, zoomed out",
+          "caption": {
+            "en": "Plate it up",
+            "es": "Sírvelo en el plato"
+          },
+          "layout": "blurpad"
+        },
+        {
+          "src": "GH011594.MP4",
+          "src_start": 5.4,
+          "dur": 2.2,
+          "cx": 0.43,
+          "note": "Gruyere over the plate",
+          "caption": {
+            "en": "Gruyère on top",
+            "es": "Gruyère por encima"
+          }
+        },
+        {
+          "src": "GH011594.MP4",
+          "src_start": 11,
+          "dur": 2.6,
+          "cx": 0.57,
+          "note": "the finished plate, tighter and steady",
+          "caption": {
+            "en": "Dinner is ready",
+            "es": "Y a cenar"
+          },
+          "cy": 0.5,
+          "crop": 1.15
+        }
+      ],
+      "shutter": 3,
+      "captions": {
+        "en": "captions_short_ia_en.srt",
+        "es": "captions_short_ia_es.srt"
+      },
+      "caption_style": {
+        "font": "Arial",
+        "size": 92,
+        "align": 8,
+        "margin_v": 250,
+        "outline": 7,
+        "bold": true,
+        "color": "FFE27A"
+      },
+      "tempo_max": 1.0,
+      "ai_upscale": {
+        "model": 0,
+        "note": "realesr-animevideov3-x2 through realesrgan-ncnn-py (local GPU, no LLM)"
+      },
+      "end_caption": {
+        "en": "Under ten euros for two.",
+        "es": "Menos de diez euros para dos."
+      }
     }
   },
   "clean": {

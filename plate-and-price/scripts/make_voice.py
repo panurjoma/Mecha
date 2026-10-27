@@ -70,7 +70,7 @@ def build_voice(out, ffmpeg, cues, cfg, tempo_max, total):
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("video_id")
-    ap.add_argument("--format", default="video", choices=["short", "video"])
+    ap.add_argument("--format", default="video", choices=["short", "short_ia", "video"])
     ap.add_argument("--lang", default="en")
     ap.add_argument("--force", action="store_true")
     a = ap.parse_args()

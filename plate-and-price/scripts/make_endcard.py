@@ -1,6 +1,6 @@
 """Draw the price end card for one product from input/<id>/price.json.
 
-usage: python make_endcard.py <video-id> --format short|video --lang en
+usage: python make_endcard.py <video-id> --format short|short_ia|video --lang en
 short = 1080x1920 portrait, video = 1920x1080 landscape (sizes come from video.json).
 Output: input/<id>/endcard_<format>_<lang>.png. A hand-made input/<id>/endcard_<format>.png wins in edit_short.py.
 """
@@ -138,7 +138,7 @@ def draw(video_id, kind, lang):
 if __name__ == "__main__":
     ap = argparse.ArgumentParser()
     ap.add_argument("video_id")
-    ap.add_argument("--format", default="short", choices=["short", "video"])
+    ap.add_argument("--format", default="short", choices=["short", "short_ia", "video"])
     ap.add_argument("--lang", default="en")
     a = ap.parse_args()
     draw(a.video_id, a.format, a.lang)

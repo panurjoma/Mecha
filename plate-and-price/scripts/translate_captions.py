@@ -1,6 +1,6 @@
 """Translate captions_en.srt into another language with an LLM, keeping the timings.
 
-usage: python translate_captions.py <video-id> --format short|video --to es [--provider anthropic|openai]
+usage: python translate_captions.py <video-id> --format short|short_ia|video --to es [--provider anthropic|openai]
 Translates formats.<format>.captions.en into captions.<lang> (file name from video.json), keeping timings.
 Existing files are kept unless --force.
 """
@@ -16,7 +16,7 @@ LANGS = {"es": "Spanish (Spain)", "fr": "French", "de": "German", "it": "Italian
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("video_id")
-    ap.add_argument("--format", default="short", choices=["short", "video"])
+    ap.add_argument("--format", default="short", choices=["short", "short_ia", "video"])
     ap.add_argument("--to", required=True)
     ap.add_argument("--provider")
     ap.add_argument("--force", action="store_true")

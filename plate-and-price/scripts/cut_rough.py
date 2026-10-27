@@ -1,6 +1,6 @@
 """Stage 1-2: pick the moments and join them in order into a rough cut (no cover, captions, music or cleaning yet).
 
-usage: python cut_rough.py <video-id> --format short|video [--force]
+usage: python cut_rough.py <video-id> --format short|short_ia|video [--force]
 Reads input/<id>/video.json formats.<format>.segments: each is {src, src_start, dur[, cx]} where src is a recording in
 input/<id>/ (default: meta["raw"]), layout ("fill" or "blurpad" for this clip only: blurpad keeps the whole width of a
 wide clip over a blurred copy, for example a final wide shot in a vertical short), cx (0..1, default 0.5) says where to crop sideways when a wide clip goes into a
@@ -11,7 +11,8 @@ choose which part of it is kept (0 = left/top edge, 1 = right/bottom edge). The 
 crop below 1 is refused and cx/cy are kept inside 0..1. Use it in the short and in the horizontal video to leave
 out something that should not be seen (a name, clutter, a person, the edge of the counter) or to tighten a shot. The whole
 camera frame does not have to appear.
-"speed" (default 1; 2 plays the moment twice as fast): a slow moment such as chopping an onion or garlic can be sped up so it takes
+"speed" (default 1; 2 plays the moment twice as fast, 0.5 is slow motion: the 120 fps recordings allow smooth slow motion down to
+0.25, use "shutter": 1 for it): a slow moment such as chopping an onion or garlic can be sped up so it takes
 fewer seconds on screen. "dur" is always the length on screen; the clip is read for dur * speed source seconds. Decide it at the
 selection stage, and the critics may ask for it ([shots] lever).
 "shutter" (default 1; a segment may set its own, for a fast move that must stay sharp) blends that many source frames into each output frame, like a slower shutter: the sparkle of
@@ -26,7 +27,7 @@ import subprocess
 import tempfile
 from pathlib import Path
 
-from common import OUTPUT_DIR, find_ffmpeg, fmt, load_json, run, video_dir
+from common import OUTPUT_DIR, find_ffmpeg, fmt, load_json, probe_size, run, video_dir
 from layers import build_cached, code, digest, picture_segments, quick
 
 CUT = ["-c:v", "libx264", "-preset", "fast", "-crf", "16", "-pix_fmt", "yuv420p", "-c:a", "aac", "-b:a", "192k"]
@@ -60,8 +61,8 @@ def build_rough(tmp, ffmpeg, vdir, raw, f_):
                   f"crop={W}:{H}:x='(iw-{W})*{cx}':y='(ih-{H})*{cy}',setsar=1,format=yuv420p[v{i}]")
         d = s["dur"]
         tempo = ""
-        if speed != 1:  # atempo takes 0.5-2 per step: chain steps for bigger changes
-            r, steps = speed, []
+        if speed != 1:  # atempo takes 0.5-2 per step: chain steps for bigger changes (slow motion below 0.5 keeps 0.5 for the sound)
+            r, steps = max(speed, 0.5), []
             while r > 2.0:
                 steps.append("atempo=2.0")
                 r /= 2.0
@@ -78,10 +79,80 @@ def build_rough(tmp, ffmpeg, vdir, raw, f_):
                    "-movflags", "+faststart", str(tmp)], cwd=d)
 
 
+def crop_box(src_w, src_h, W, H, zoom, cx, cy):
+    """The part of a source frame that fills a W x H output at this zoom, as even (w, h, x, y) in source pixels."""
+    ch = int(round(src_h / zoom / 2)) * 2
+    cw = int(round(ch * W / H / 2)) * 2
+    cw, ch = min(cw, src_w), min(ch, src_h)
+    return cw, ch, int(round((src_w - cw) * cx)), int(round((src_h - ch) * cy))
+
+
+def build_segment_ai(out, ffmpeg, vdir, raw, f_, s, i, ai):
+    """One segment, upscaled frame by frame with Real-ESRGAN (realesrgan-ncnn-py, local GPU, no cloud): ffmpeg reads the cropped
+    native-resolution pixels, the network doubles them, they are resized to the output size and encoded. Video only."""
+    from PIL import Image
+    from realesrgan_ncnn_py import Realesrgan
+    W, H, fps = f_["w"], f_["h"], f_["fps"]
+    src = vdir / s.get("src", raw)
+    sw, sh = probe_size(src)
+    speed = float(s.get("speed", 1))
+    n_blend = s.get("shutter", f_.get("shutter", 1))
+    blend = f"tmix=frames={n_blend}:weights='{' '.join(['1'] * n_blend)}'," if n_blend > 1 else ""
+    fast = f"setpts=PTS/{speed}," if speed != 1 else ""
+    cx, cy = min(max(float(s.get("cx", 0.5)), 0.0), 1.0), min(max(float(s.get("cy", 0.5)), 0.0), 1.0)
+    zoom = float(s.get("crop", 1))
+    if zoom < 1:
+        raise SystemExit(f"segment {i + 1}: crop {zoom} is below 1; use blurpad layout to show a wider picture instead")
+    cw, ch, x, y = crop_box(sw, sh, W, H, zoom, cx, cy)
+    n_frames = int(round(s["dur"] * fps))
+    reader = subprocess.Popen([ffmpeg, "-hide_banner", "-loglevel", "error", "-ss", str(s["src_start"]), "-t", f"{s['dur'] * speed:.3f}",
+                               "-i", str(src), "-vf", f"{blend}{fast}fps={fps},crop={cw}:{ch}:{x}:{y}", "-frames:v", str(n_frames),
+                               "-f", "rawvideo", "-pix_fmt", "rgb24", "pipe:1"], stdout=subprocess.PIPE)
+    writer = subprocess.Popen([ffmpeg, "-hide_banner", "-loglevel", "error", "-y", "-f", "rawvideo", "-pix_fmt", "rgb24", "-s", f"{W}x{H}",
+                               "-r", str(fps), "-i", "pipe:0", "-c:v", "libx264", "-preset", "fast", "-crf", "16", "-pix_fmt", "yuv420p",
+                               "-r", str(fps), str(out)], stdin=subprocess.PIPE)
+    net = Realesrgan(gpuid=0, model=ai.get("model", 0))
+    size, done = cw * ch * 3, 0
+    while True:
+        buf = reader.stdout.read(size)
+        if len(buf) < size:
+            break
+        up = net.process_pil(Image.frombytes("RGB", (cw, ch), buf)).resize((W, H), Image.LANCZOS)
+        writer.stdin.write(up.tobytes())
+        done += 1
+    writer.stdin.close()
+    reader.stdout.close()
+    reader.wait()
+    writer.wait()
+    if done == 0:
+        raise SystemExit(f"segment {i + 1}: no frames were read from {src.name} at {s['src_start']} s")
+    print(f"  upscaled segment {i + 1}: {done} frames ({cw}x{ch} -> {W}x{H})", flush=True)
+
+
+def build_rough_ai(tmp, ffmpeg, vdir, raw, f_):
+    """Rough cut with AI-upscaled footage: segments are made one by one (blurpad ones with the normal filter graph), joined with
+    the concat demuxer, and a silent audio track is added (the sound of the clips is not used in the final)."""
+    ai = f_["ai_upscale"]
+    with tempfile.TemporaryDirectory() as d:
+        parts = []
+        for i, s in enumerate(f_["segments"]):
+            part = Path(d) / f"seg{i:03d}.mp4"
+            if s.get("layout", f_["layout"]) == "blurpad":
+                build_rough(part, ffmpeg, vdir, raw, {**f_, "segments": [s]})
+            else:
+                build_segment_ai(part, ffmpeg, vdir, raw, f_, s, i, ai)
+            parts.append(part)
+        (Path(d) / "list.txt").write_text("".join(f"file '{p.name}'\n" for p in parts), encoding="utf-8")
+        total = sum(s["dur"] for s in f_["segments"])
+        run([ffmpeg, "-hide_banner", "-y", "-f", "concat", "-safe", "0", "-i", "list.txt", "-f", "lavfi", "-t", f"{total:.3f}",
+             "-i", "anullsrc=r=48000:cl=stereo", "-map", "0:v", "-map", "1:a", "-c:v", "copy", "-c:a", "aac", "-b:a", "128k",
+             "-shortest", "-movflags", "+faststart", str(tmp)], cwd=d)
+
+
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("video_id")
-    ap.add_argument("--format", default="short", choices=["short", "video"])
+    ap.add_argument("--format", default="short", choices=["short", "short_ia", "video"])
     ap.add_argument("--force", action="store_true")
     a = ap.parse_args()
     vdir = video_dir(a.video_id)
@@ -98,8 +169,10 @@ def main():
             raise SystemExit(f"{n}: {s['src_start']} + {used:g} s runs past the end of the clip ({length[n]:.1f} s)")
     out_dir = OUTPUT_DIR / a.video_id
     layer = out_dir / "layers" / f"rough_{a.format}.mp4"
-    key = digest("rough", code(build_rough), [quick(vdir / s) for s in srcs], picture_segments(f_["segments"]), f_.get("shutter", 1), f_["layout"], f_["w"], f_["h"], f_["fps"], raw)
-    build_cached(layer, key, lambda t: build_rough(t, ffmpeg, vdir, raw, f_), f"rough cut {a.format}", a.force)
+    ai = f_.get("ai_upscale")
+    key = digest("rough", code(build_rough), code(build_rough_ai) + code(build_segment_ai) if ai else "", ai or "", [quick(vdir / s) for s in srcs], picture_segments(f_["segments"]), f_.get("shutter", 1), f_["layout"], f_["w"], f_["h"], f_["fps"], raw)
+    build = build_rough_ai if ai else build_rough
+    build_cached(layer, key, lambda t: build(t, ffmpeg, vdir, raw, f_), f"rough cut {a.format}" + (" (AI upscaled)" if ai else ""), a.force)
     final = out_dir / f"rough_{a.format}.mp4"
     shutil.copyfile(layer, final)
     footage = sum(s["dur"] for s in f_["segments"])

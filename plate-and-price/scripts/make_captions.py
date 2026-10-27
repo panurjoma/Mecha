@@ -1,6 +1,6 @@
 """Write the caption files from the clip list, so captions always follow the cuts.
 
-usage: python make_captions.py <video-id> --format short|video --lang en
+usage: python make_captions.py <video-id> --format short|short_ia|video --lang en
 Each segment in video.json formats.<format>.segments may carry "caption": {"en": "...", "es": "..."}. This script puts each
 caption on its clip and writes the .srt named in formats.<format>.captions.<lang>. When you add, remove, reorder or retime
 a clip, run it again (run_pipeline.py does it for you) and every caption moves with its clip.
@@ -63,7 +63,7 @@ def build_cues(f_, lang, voice=False):
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("video_id")
-    ap.add_argument("--format", default="short", choices=["short", "video"])
+    ap.add_argument("--format", default="short", choices=["short", "short_ia", "video"])
     ap.add_argument("--lang", default="en")
     a = ap.parse_args()
     vdir = video_dir(a.video_id)

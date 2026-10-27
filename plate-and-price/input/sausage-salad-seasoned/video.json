@@ -566,6 +566,328 @@
         "en": "About five euros for two. Under three a serving.",
         "es": "Unos cinco euros para dos, menos de tres por ración."
       }
+    },
+    "short_ia": {
+      "layout": "fill",
+      "voice": true,
+      "zoom_amount": 0.12,
+      "output": {
+        "width": 1080,
+        "height": 1920,
+        "fps": 30,
+        "crf": 18,
+        "review_bitrate": "2800k"
+      },
+      "cover_dur": 1.5,
+      "endcard_dur": 4,
+      "segments": [
+        {
+          "src": "GH011617.MP4",
+          "src_start": 42.3,
+          "dur": 2.0,
+          "cx": 0.4,
+          "hook": true,
+          "shutter": 1,
+          "note": "hook: golden pan juices pouring over the plate",
+          "caption": {
+            "en": "Dinner for two",
+            "es": "Cena para dos"
+          }
+        },
+        {
+          "src": "GH011599.MP4",
+          "src_start": 11.5,
+          "dur": 2.0,
+          "cx": 0.4,
+          "note": "washing the tomatoes",
+          "caption": {
+            "en": "Wash the tomatoes",
+            "es": "Lava los tomates"
+          }
+        },
+        {
+          "src": "GH011600.MP4",
+          "src_start": 6,
+          "dur": 2.2,
+          "cx": 0.45,
+          "note": "slicing a tomato thin (sped up)",
+          "caption": {
+            "en": "Slice them thin",
+            "es": "En rodajas finas"
+          },
+          "speed": 1.5
+        },
+        {
+          "src": "GH011600.MP4",
+          "src_start": 53,
+          "dur": 2.2,
+          "cx": 0.5,
+          "note": "halving the cherry tomatoes (sped up)",
+          "caption": {
+            "en": "Halve the cherries",
+            "es": "Los cherry, por la mitad"
+          },
+          "speed": 1.3
+        },
+        {
+          "src": "GH011601.MP4",
+          "src_start": 4,
+          "dur": 1.8,
+          "cx": 0.4,
+          "note": "chopping garlic (sped up)",
+          "caption": {
+            "en": "Chop the garlic",
+            "es": "Pica el ajo"
+          },
+          "speed": 2.0
+        },
+        {
+          "src": "GH011601.MP4",
+          "src_start": 59,
+          "dur": 1.8,
+          "cx": 0.45,
+          "note": "chopping onion (sped up)",
+          "caption": {
+            "en": "And the onion",
+            "es": "Y la cebolla"
+          },
+          "speed": 2.0
+        },
+        {
+          "src": "GH011602.MP4",
+          "src_start": 10.5,
+          "dur": 2.2,
+          "cx": 0.5,
+          "note": "ginger held in the fingers, tighter",
+          "caption": {
+            "en": "Ginger, optional",
+            "es": "Jengibre, opcional"
+          },
+          "cy": 0.55,
+          "crop": 1.25
+        },
+        {
+          "src": "GH011603.MP4",
+          "src_start": 34.5,
+          "dur": 2.0,
+          "cx": 0.7,
+          "note": "olive oil into the mortar (bottle on the right)",
+          "caption": {
+            "en": "Olive oil",
+            "es": "Aceite de oliva"
+          }
+        },
+        {
+          "src": "GH011603.MP4",
+          "src_start": 56,
+          "dur": 2.0,
+          "cx": 0.4,
+          "note": "lemon squeezed over the mortar",
+          "caption": {
+            "en": "Lemon juice",
+            "es": "Zumo de limón"
+          }
+        },
+        {
+          "src": "GH011603.MP4",
+          "src_start": 63.8,
+          "dur": 2.0,
+          "cx": 0.6,
+          "note": "honey bottle over the mortar",
+          "caption": {
+            "en": "A little honey",
+            "es": "Un poco de miel"
+          }
+        },
+        {
+          "src": "GH011604.MP4",
+          "src_start": 3.5,
+          "dur": 2.0,
+          "cx": 0.65,
+          "note": "coarse salt (sped up)",
+          "caption": {
+            "en": "Coarse salt",
+            "es": "Sal gorda"
+          },
+          "speed": 1.3
+        },
+        {
+          "src": "GH011606.MP4",
+          "src_start": 20.5,
+          "dur": 2.0,
+          "cx": 0.5,
+          "note": "pepper from the clay cup (sped up)",
+          "caption": {
+            "en": "And black pepper",
+            "es": "Y pimienta negra"
+          },
+          "speed": 1.3
+        },
+        {
+          "src": "GH011607.MP4",
+          "src_start": 5.6,
+          "dur": 2.2,
+          "cx": 0.55,
+          "note": "pestle working the dressing (sped up)",
+          "caption": {
+            "en": "Mash it well",
+            "es": "Machaca y mezcla"
+          },
+          "speed": 1.4
+        },
+        {
+          "src": "GH011608.MP4",
+          "src_start": 12,
+          "dur": 2.2,
+          "cx": 0.45,
+          "note": "tomato slices laid on the plate (sped up)",
+          "caption": {
+            "en": "Lay the tomatoes",
+            "es": "Coloca los tomates"
+          },
+          "speed": 1.5
+        },
+        {
+          "src": "GH011608.MP4",
+          "src_start": 98.8,
+          "dur": 2.2,
+          "cx": 0.55,
+          "note": "spoon of dressing over the tomatoes",
+          "caption": {
+            "en": "Spoon the dressing",
+            "es": "Reparte el aliño"
+          }
+        },
+        {
+          "src": "GH011609.MP4",
+          "src_start": 10.5,
+          "dur": 2.2,
+          "cx": 0.5,
+          "note": "peeling the skin off the sausage (sped up)",
+          "caption": {
+            "en": "Peel the sausage",
+            "es": "Quita la piel"
+          },
+          "speed": 1.4
+        },
+        {
+          "src": "GH011611.MP4",
+          "src_start": 5,
+          "dur": 2.0,
+          "cx": 0.35,
+          "note": "chopping the sausage (sped up)",
+          "caption": {
+            "en": "Chop the sausage",
+            "es": "Trocea la salchicha"
+          },
+          "speed": 1.7
+        },
+        {
+          "src": "GH011613.MP4",
+          "src_start": 5.0,
+          "dur": 2.4,
+          "cx": 0.5,
+          "note": "oil and a spoon of the dressing into the pan",
+          "caption": {
+            "en": "Oil and dressing",
+            "es": "Aceite y aliño"
+          }
+        },
+        {
+          "src": "GH011615.MP4",
+          "src_start": 0.5,
+          "dur": 2.0,
+          "cx": 0.4,
+          "note": "browned sausage pieces in the pan",
+          "caption": {
+            "en": "Brown it",
+            "es": "Dórala bien"
+          }
+        },
+        {
+          "src": "GH011615.MP4",
+          "src_start": 4.3,
+          "dur": 2.0,
+          "cx": 0.55,
+          "note": "white wine into the sausage pan",
+          "caption": {
+            "en": "A splash of white wine",
+            "es": "Un toque de vino"
+          }
+        },
+        {
+          "src": "GH011616.MP4",
+          "src_start": 3.0,
+          "dur": 2.2,
+          "cx": 0.45,
+          "note": "the wine bubbling and reducing (sped up)",
+          "caption": {
+            "en": "Let it reduce",
+            "es": "Deja que reduzca"
+          },
+          "speed": 1.3
+        },
+        {
+          "src": "GH011617.MP4",
+          "src_start": 11,
+          "dur": 2.4,
+          "cx": 0.5,
+          "note": "tongs carry the sausage from the pan to the plate: wide, zoomed out (sped up)",
+          "caption": {
+            "en": "Sausage on the tomatoes",
+            "es": "La salchicha sobre los tomates"
+          },
+          "layout": "blurpad",
+          "speed": 1.3
+        },
+        {
+          "src": "GH011617.MP4",
+          "src_start": 43,
+          "dur": 2.2,
+          "cx": 0.35,
+          "note": "pouring the pan juices over the plate",
+          "caption": {
+            "en": "Pour the juices",
+            "es": "Echa el jugo encima"
+          }
+        },
+        {
+          "src": "GH011617.MP4",
+          "src_start": 49.5,
+          "dur": 2.6,
+          "cx": 0.5,
+          "note": "the whole finished plate, zoomed out and steady",
+          "caption": {
+            "en": "And enjoy",
+            "es": "Y a comer"
+          },
+          "layout": "blurpad"
+        }
+      ],
+      "shutter": 3,
+      "captions": {
+        "en": "captions_short_ia_en.srt",
+        "es": "captions_short_ia_es.srt"
+      },
+      "caption_style": {
+        "font": "Arial",
+        "size": 92,
+        "align": 8,
+        "margin_v": 250,
+        "outline": 7,
+        "bold": true,
+        "color": "FFE27A",
+        "box": true
+      },
+      "tempo_max": 1.0,
+      "end_caption": {
+        "en": "About five euros for two.",
+        "es": "Unos cinco euros para dos."
+      },
+      "ai_upscale": {
+        "model": 0,
+        "note": "realesr-animevideov3-x2 through realesrgan-ncnn-py (local GPU, no LLM)"
+      }
     }
   },
   "clean": {

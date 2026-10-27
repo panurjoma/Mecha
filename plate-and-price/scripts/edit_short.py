@@ -1,6 +1,6 @@
 """Build one product (short or video) from separate layers, rebuilding only the layers whose inputs changed.
 
-usage: python edit_short.py <video-id> --format short|video --lang en [--force captions,mix]
+usage: python edit_short.py <video-id> --format short|short_ia|video --lang en [--force captions,mix]
 
 Layers (files in <OUTPUT_DIR>/<id>/layers/, each with a .key fingerprint; see layers.py):
   footage_<format>.mp4            the zoomed clips only (slow to build, language independent)
@@ -158,7 +158,7 @@ def pick(vdir, stem, kind, lang):
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("video_id")
-    ap.add_argument("--format", default="short", choices=["short", "video"])
+    ap.add_argument("--format", default="short", choices=["short", "short_ia", "video"])
     ap.add_argument("--lang", default="en")
     ap.add_argument("--force", default="", help="comma list of layers to rebuild: footage,stills,captions,music,mix,final,review,all")
     a = ap.parse_args()

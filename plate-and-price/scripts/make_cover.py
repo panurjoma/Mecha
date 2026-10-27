@@ -1,6 +1,6 @@
 """Cover card for one product: an AI-generated image of the dish plus the channel branding.
 
-usage: python make_cover.py <video-id> --format short|video --lang en
+usage: python make_cover.py <video-id> --format short|short_ia|video --lang en
 Background: the AI image named in video.json cover.ai ("9x16" for the short, "16x9" for the video). If that file is
 missing, run make_cover_ai.py first; as a last resort a frame of the real footage is used (a warning is printed).
 Overlay: channel pill, recipe title, price per serving. Output: input/<id>/cover_<format>_<lang>.png.
@@ -137,7 +137,7 @@ def make(video_id, kind, lang):
 if __name__ == "__main__":
     ap = argparse.ArgumentParser()
     ap.add_argument("video_id")
-    ap.add_argument("--format", default="short", choices=["short", "video"])
+    ap.add_argument("--format", default="short", choices=["short", "short_ia", "video"])
     ap.add_argument("--lang", default="en")
     a = ap.parse_args()
     make(a.video_id, a.format, a.lang)

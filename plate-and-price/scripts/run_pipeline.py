@@ -1,6 +1,6 @@
 """One command for the whole pipeline (this is what n8n calls).
 
-usage: python run_pipeline.py <video-id> --format short|video --lang en
+usage: python run_pipeline.py <video-id> --format short|short_ia|video --lang en
   short: captions + music, 1080x1920 for YouTube Shorts.
   video: captions + voice-over + music, 1920x1080 for the YouTube channel.
 Every video layer is cached (see layers.py): only the layers whose inputs changed are rebuilt; --force rebuilds chosen ones.
@@ -25,7 +25,7 @@ def step(*args, check=True):
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("video_id")
-    ap.add_argument("--format", default="short", choices=["short", "video"])
+    ap.add_argument("--format", default="short", choices=["short", "short_ia", "video"])
     ap.add_argument("--lang", default="en")
     ap.add_argument("--force", default="", help="layers to rebuild even if unchanged: footage,stills,captions,voice,music,mix,final,review,all")
     a = ap.parse_args()

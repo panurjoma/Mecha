@@ -1,6 +1,6 @@
 """Stage 3: studio-style clean-up of a rough cut (glare, noise, white balance, colour, a touch of sharpness).
 
-usage: python clean_footage.py <video-id> --format short|video [--force]
+usage: python clean_footage.py <video-id> --format short|short_ia|video [--force]
 Reads <OUTPUT_DIR>/<id>/layers/rough_<format>.mp4 and writes layers/clean_<format>.mp4 (also copied to
 <OUTPUT_DIR>/<id>/clean_<format>.mp4), keeping the clips' sound. Settings: video.json "clean" (all optional):
   denoise   [luma_spatial, chroma_spatial, luma_temporal, chroma_temporal] for hqdn3d (default 3,2,6,6)
@@ -45,7 +45,7 @@ def build_clean(tmp, ffmpeg, rough, c, crf):
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("video_id")
-    ap.add_argument("--format", default="short", choices=["short", "video"])
+    ap.add_argument("--format", default="short", choices=["short", "short_ia", "video"])
     ap.add_argument("--force", action="store_true")
     a = ap.parse_args()
     meta = load_json(video_dir(a.video_id) / "video.json")

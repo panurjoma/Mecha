@@ -1,7 +1,7 @@
 """Build the evidence a reviewer needs to judge a finished short or video, without watching it: a numbered contact sheet,
 the caption timeline and measured pacing numbers.
 
-usage: python review_pack.py <video-id> --format short|video --lang en
+usage: python review_pack.py <video-id> --format short|short_ia|video --lang en
 Output (in <OUTPUT_DIR>/<id>/review/): <format>_<lang>_sheet_N.jpg (one frame per second, time-stamped), and
 <format>_<lang>_facts.md (length, number of cuts and average shot length, caption reading speed, loudness, which clips
 come from which recording, the hook window). The four reviewer agents (.claude/agents/*.md) read these files.
@@ -102,7 +102,7 @@ def extra_facts(vdir, meta, f_, a, ff, src, out, cues):
         L += ["```", desc.read_text(encoding="utf-8").strip(), "```"]
     else:
         L.append("- No description file yet: run make_description.py.")
-    thumb = vdir / f"thumbnail_{a.lang}.png" if a.format == "video" else vdir / f"cover_short_{a.lang}.png"
+    thumb = vdir / f"thumbnail_{a.lang}.png" if a.format == "video" else vdir / f"cover_{a.format}_{a.lang}.png"
     if thumb.exists():
         import shutil
         shutil.copyfile(thumb, out / f"{a.format}_{a.lang}_thumbnail.png")
@@ -113,7 +113,7 @@ def extra_facts(vdir, meta, f_, a, ff, src, out, cues):
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("video_id")
-    ap.add_argument("--format", default="short", choices=["short", "video"])
+    ap.add_argument("--format", default="short", choices=["short", "short_ia", "video"])
     ap.add_argument("--lang", default="en")
     a = ap.parse_args()
     vdir = video_dir(a.video_id)

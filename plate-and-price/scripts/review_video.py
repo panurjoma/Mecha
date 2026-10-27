@@ -1,6 +1,6 @@
 """Run the four reviewer agents (.claude/agents/*.md) on a finished short or video through an LLM, for use in n8n.
 
-usage: python review_video.py <video-id> --format short|video --lang en
+usage: python review_video.py <video-id> --format short|short_ia|video --lang en
 Needs ANTHROPIC_API_KEY or OPENAI_API_KEY in .env. Runs review_pack.py first, then sends each role's instructions with the
 facts file and the contact sheets (images only with Claude) and writes <OUTPUT_DIR>/<id>/review/<format>_<lang>_review.md.
 Language: agents marked `language: separate` are run for each language (en, es), `shared` ones once on the first language,
@@ -30,7 +30,7 @@ def langs_for(mode, has_voice, langs):
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("video_id")
-    ap.add_argument("--format", default="short", choices=["short", "video"])
+    ap.add_argument("--format", default="short", choices=["short", "short_ia", "video"])
     ap.add_argument("--lang", default="en")
     a = ap.parse_args()
     try:
