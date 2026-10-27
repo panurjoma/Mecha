@@ -13,7 +13,7 @@ import json
 import subprocess
 import sys
 
-from common import OUTPUT_DIR, ROOT, fmt, load_json, video_dir
+from common import OUTPUT_DIR, ROOT, final_dir, fmt, load_json, video_dir
 
 HERE = ROOT / "scripts"
 
@@ -53,8 +53,14 @@ def main():
     from make_description import build  # after the render so a description problem never loses the video
     desc_file, yt_title, yt_body = build(a.video_id, kind, a.lang)
     out = OUTPUT_DIR / a.video_id
-    print(json.dumps({"video_id": a.video_id, "format": kind, "lang": a.lang, "master": str(out / f"{kind}_{a.lang}.mp4"),
-                      "review": str(out / f"{kind}_{a.lang}_review.mp4"), "title": meta["title"][a.lang],
+    fin = final_dir(a.video_id)
+    if kind == "video":  # the thumbnail belongs with the final video
+        import shutil
+        thumb = vdir / f"thumbnail_{a.lang}.png"
+        if thumb.exists():
+            shutil.copyfile(thumb, fin / f"thumbnail_{a.lang}.png")
+    print(json.dumps({"video_id": a.video_id, "format": kind, "lang": a.lang, "master": str(fin / f"{kind}_{a.lang}.mp4"),
+                      "review": str(out / "email" / f"{kind}_{a.lang}_review.mp4"), "title": meta["title"][a.lang],
                       "youtube_title": yt_title, "description_file": str(desc_file), "description": yt_body}))
 
 

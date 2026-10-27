@@ -13,7 +13,7 @@ import subprocess
 
 from PIL import Image, ImageDraw
 
-from common import OUTPUT_DIR, find_ffmpeg, fmt, load_json, parse_srt, video_dir
+from common import OUTPUT_DIR, final_dir, find_ffmpeg, fmt, load_json, parse_srt, video_dir
 
 
 def run_text(cmd):
@@ -95,7 +95,7 @@ def extra_facts(vdir, meta, f_, a, ff, src, out, cues):
         L += ["", "### recipe.md", rm.read_text(encoding="utf-8").strip()]
 
     L += ["", "## Discoverability (what YouTube will show)"]
-    desc = OUTPUT_DIR / a.video_id / f"description_{a.format}_{a.lang}.md"
+    desc = final_dir(a.video_id) / f"description_{a.format}_{a.lang}.md"
     if desc.exists():
         L += ["```", desc.read_text(encoding="utf-8").strip(), "```"]
     else:
@@ -118,7 +118,7 @@ def main():
     meta = load_json(vdir / "video.json")
     f_ = fmt(meta, a.format)
     ff = find_ffmpeg()
-    src = OUTPUT_DIR / a.video_id / f"{a.format}_{a.lang}.mp4"
+    src = final_dir(a.video_id) / f"{a.format}_{a.lang}.mp4"
     out = OUTPUT_DIR / a.video_id / "review"
     out.mkdir(exist_ok=True)
     source_sheets(vdir, out, ff)

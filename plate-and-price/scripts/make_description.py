@@ -1,7 +1,7 @@
 """Write the YouTube title, description and tags for one product (short or video).
 
 usage: python make_description.py <video-id> --format short|video --lang en [--llm]
-Output: <OUTPUT_DIR>/<id>/description_<format>_<lang>.md with TITLE, DESCRIPTION and TAGS sections (paste them into
+Output: <OUTPUT_DIR>/<id>/final/description_<format>_<lang>.md with TITLE, DESCRIPTION and TAGS sections (paste them into
 YouTube Studio) and a NOTES section for the owner (not for YouTube). English by default.
 
 The text comes from templates plus the hook, closing line, keywords and hashtags in video.json "description", the price
@@ -12,7 +12,7 @@ each chapter is at least 10 s, as YouTube requires). Tone: close and natural, li
 import argparse
 import json
 
-from common import OUTPUT_DIR, fmt, load_json, load_env, video_dir
+from common import OUTPUT_DIR, final_dir, fmt, load_json, load_env, video_dir
 
 T = {
     "en": {
@@ -99,7 +99,7 @@ def build(video_id, kind, lang, use_llm=False):
                      "block the video. It is not credited in the description; replace it with royalty-free music first.")
     text = "\n".join([f"TITLE\n{yt_title}", "", "DESCRIPTION", *body, "", "TAGS", ", ".join(d["keywords"][lang]), "",
                       "NOTES (not for YouTube)", *[f"- {x}" for x in notes]]) + "\n"
-    out = OUTPUT_DIR / video_id / f"description_{kind}_{lang}.md"
+    out = final_dir(video_id) / f"description_{kind}_{lang}.md"
     out.parent.mkdir(parents=True, exist_ok=True)
     out.write_text(text, encoding="utf-8")
     return out, yt_title, "\n".join(body)

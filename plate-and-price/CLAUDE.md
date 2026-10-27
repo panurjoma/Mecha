@@ -96,6 +96,13 @@ at the end. The footage is filmed by the channel owner; only the cover image is 
     `.env` and never printed, and the image is a cached layer with a `.key` that is not regenerated when the prompt and
     settings are the same.
 
+23. **The final folder.** Each recipe's approved shorts and videos live in `<output>/<id>/final/`: `short_<lang>.mp4`,
+    `video_<lang>.mp4`, their `description_<format>_<lang>.md` and the `thumbnail_<lang>.png`. Only finished versions go
+    there. When a version is improved, the same files are updated in place: the build moves the old file (and its fingerprint)
+    out of `final/` into `<output>/<id>/archive/` with a time stamp, then puts the new one in `final/`, so `final/` always holds
+    exactly the current version of each product. The small email copies go to `<output>/<id>/email/`, the intermediate layers
+    stay in `layers/`, and the critics' evidence in `review/`. Never leave work-in-progress or duplicate versions in `final/`.
+
 ## Two products from the same inputs
 | | Short (`short_<lang>.mp4`) | Video (`video_<lang>.mp4`) |
 |---|---|---|

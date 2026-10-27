@@ -26,6 +26,28 @@ load_env()
 OUTPUT_DIR = Path(os.environ.get("PLATE_OUTPUT_DIR") or ROOT / "output")
 
 
+def final_dir(video_id):
+    """<OUTPUT_DIR>/<id>/final: the approved short and video files, descriptions and thumbnails of a recipe (directive 23)."""
+    return OUTPUT_DIR / video_id / "final"
+
+
+def archive_old(path):
+    """Move a final file (and its .key sidecar) out of final/ into ../archive/ with a time stamp before it is replaced."""
+    import time
+    path = Path(path)
+    if not path.exists():
+        return None
+    arch = path.parent.parent / "archive"
+    arch.mkdir(parents=True, exist_ok=True)
+    stamp = time.strftime("%Y%m%d-%H%M%S", time.localtime(path.stat().st_mtime))
+    dest = arch / f"{path.stem}_{stamp}{path.suffix}"
+    path.replace(dest)
+    side = Path(str(path) + ".key")
+    if side.exists():
+        side.replace(Path(str(dest) + ".key"))
+    return dest
+
+
 def find_ffmpeg():
     """FFMPEG env var, then PATH, then the imageio-ffmpeg wheel (uv run --with imageio-ffmpeg)."""
     if os.environ.get("FFMPEG"):

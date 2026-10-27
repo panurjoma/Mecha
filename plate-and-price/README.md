@@ -12,8 +12,8 @@ captions + captions + music). Project rules are in `CLAUDE.md`.
 | Banner | `brand/banner.png` (2560x1440, content inside the centre safe area) |
 | Video watermark (Customization > Branding) | `brand/watermark.png` (512x512, white on transparent) |
 | Channel name, description, keywords | `brand/channel_description.md` (English and Spanish) |
-| First short | `<output>/<recipe>/short_en.mp4` |
-| First video | `<output>/<recipe>/video_en.mp4` plus thumbnail `input/<recipe>/thumbnail_en.png` |
+| First short | `<output>/<recipe>/final/short_en.mp4` |
+| First video | `<output>/<recipe>/final/video_en.mp4` plus `final/thumbnail_en.png` |
 
 `<output>` is the rendered-videos folder: `plate-and-price/output/` next to this clone. Check the captions and the
 estimated prices in the review videos before uploading. The song in the first recording is commercial (see below).
@@ -36,7 +36,7 @@ cd scripts
 uv run --with pillow --with imageio-ffmpeg --with edge-tts python run_pipeline.py <recipe-name> --format short --lang en
 uv run --with pillow --with imageio-ffmpeg --with edge-tts python run_pipeline.py <recipe-name> --format video --lang en
 ```
-Output (in `PLATE_OUTPUT_DIR`, see `.env.example`): `<format>_<lang>.mp4` and a smaller `_review.mp4` for email.
+Output (in `PLATE_OUTPUT_DIR`, see `.env.example`): `<recipe>/final/<format>_<lang>.mp4` (with the description and thumbnail), and a smaller `<recipe>/email/<format>_<lang>_review.mp4` for email.
 The video takes several minutes to render (1080p, slow preset). For a new language, run
 `python translate_captions.py <recipe-name> --format video --to es` (needs an LLM key in `.env`), then run with `--lang es`.
 
@@ -74,6 +74,16 @@ whose Creative Commons licence allows commercial use and editing (settings in `c
 Needs a free `JAMENDO_CLIENT_ID` in `.env` (devportal.jamendo.com). Use `--list` to see candidates first, `--mood` and
 `--start` to steer it. Tracks already used for other recipes are avoided (`music/catalog.json`). Read Jamendo's API
 terms for your use; the picker's licence filter is a safeguard, not legal advice. Changing the track only rebuilds music, mix and final.
+
+## The final folder (output)
+```
+<output>/<recipe>/final/    the approved shorts and videos, descriptions, thumbnails (always the current version)
+<output>/<recipe>/archive/  older finals, moved here with a time stamp when a version is replaced
+<output>/<recipe>/email/    small review copies for the email step
+<output>/<recipe>/layers/   intermediate layers (cache);  <recipe>/review/  the critics' evidence
+```
+Improving a version updates `final/` in place: run the pipeline again and the old file moves to `archive/` before the new one is
+written. Nothing else is kept in `final/` (directive 23).
 
 ## Layers: change one thing without redoing the rest
 Videos are built as layers, each a file in `<output>/<recipe>/layers/` with a `.key` fingerprint of its inputs.

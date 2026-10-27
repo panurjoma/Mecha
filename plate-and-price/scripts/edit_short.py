@@ -8,7 +8,9 @@ Layers (files in <OUTPUT_DIR>/<id>/layers/, each with a .key fingerprint; see la
   captioned_<format>_<lang>.mp4   cover + footage + end card with the captions burned in (picture only, no sound)
   music_<format>.wav              the song, cut to length
   mix_<format>_<lang>.wav         music (+ voice-over for the video), faded out
-Final files: <OUTPUT_DIR>/<id>/<format>_<lang>.mp4 (picture copied, audio encoded) and <format>_<lang>_review.mp4.
+Final files: <OUTPUT_DIR>/<id>/final/<format>_<lang>.mp4 (picture copied, audio encoded). When a rebuild replaces a file in
+final/, the old one is first moved to <OUTPUT_DIR>/<id>/archive/ with a time stamp (directive 23). The small email copy
+<format>_<lang>_review.mp4 goes to <OUTPUT_DIR>/<id>/email/.
 
 What rebuilds when you change something:
   captions file or caption style -> captioned, final   (and the voice, because the voice reads the captions)
@@ -23,8 +25,8 @@ import argparse
 import tempfile
 from pathlib import Path
 
-from common import OUTPUT_DIR, find_ffmpeg, fmt, load_json, parse_srt, probe_size, run, video_dir
-from layers import build_cached, code, digest, sig
+from common import OUTPUT_DIR, archive_old, final_dir, find_ffmpeg, fmt, load_json, parse_srt, probe_size, run, video_dir
+from layers import build_cached, code, digest, key_of, sig
 
 LOUD = "loudnorm=I=-15:TP=-1.5:LRA=11"  # streaming-level loudness (the music alone was about -24 dB, too quiet for a phone)
 CLIP = ["-c:v", "libx264", "-preset", "fast", "-crf", "14", "-pix_fmt", "yuv420p", "-an"]  # near-lossless intermediates
@@ -209,11 +211,15 @@ def main():
                          lambda t: build_mix(t, ffmpeg, L / f"music_{kind}.wav", voice, au, total),
                          f"mix {kind} {lang}" + (f" (voice: {voice.name})" if voice else " (music only)"), "mix" in force)
     # 4. final files
-    final = out_dir / f"{kind}_{lang}.mp4"
-    k_final = build_cached(final, digest("final", code(build_final), k_cap, k_mix),
+    final = final_dir(a.video_id) / f"{kind}_{lang}.mp4"
+    final.parent.mkdir(parents=True, exist_ok=True)
+    key_final = digest("final", code(build_final), k_cap, k_mix)
+    if final.exists() and (key_of(final) != key_final or "final" in force):
+        print("archived the previous final:", archive_old(final).name)  # the old version leaves final/ before the new one goes in
+    k_final = build_cached(final, key_final,
                            lambda t: build_final(t, ffmpeg, L / f"captioned_{kind}_{lang}.mp4", L / f"mix_{kind}_{lang}.wav"),
                            f"final {final.name}", "final" in force)
-    review = out_dir / f"{kind}_{lang}_review.mp4"
+    review = out_dir / "email" / f"{kind}_{lang}_review.mp4"
     build_cached(review, digest("review", code(build_review), k_final, o["review_bitrate"]),
                  lambda t: build_review(t, ffmpeg, final, o), f"review {review.name}", "review" in force)
     print(f"master={final}\nreview={review} ({review.stat().st_size / 1e6:.1f} MB, {total:.1f} s)")
