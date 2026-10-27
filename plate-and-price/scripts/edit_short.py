@@ -57,7 +57,7 @@ def write_ass(path, cues, w, h, st):
         f"{st.get('margin_l', 60)},{st.get('margin_r', 60)},{st['margin_v']},1\n\n"
         "[Events]\nFormat: Layer,Start,End,Style,Name,MarginL,MarginR,MarginV,Effect,Text\n"
     )
-    lines = [f"Dialogue: 0,{ass_time(a)},{ass_time(b)},Cap,,0,0,0,,{{\\fad(120,120)}}{t.replace(chr(10), chr(92) + 'N')}"
+    lines = [f"Dialogue: 0,{ass_time(a)},{ass_time(b)},Cap,,0,0,0,,{{\\fad(120,0)}}{t.replace(chr(10), chr(92) + 'N')}"
              for a, b, t in cues]
     Path(path).write_text(head + "\n".join(lines) + "\n", encoding="utf-8")
 

@@ -126,6 +126,8 @@ def draw(video_id, kind, lang):
         d.text((cx, 640), money(per, cur), font=font(190), fill="white", anchor="mm")
         d.text((cx, 770), lab["per"], font=font(56), fill=c["cream"], anchor="mm")
         d.text((cx, 850), lab["serves"].format(n=price["servings"]), font=font(40), fill=c["cream"], anchor="mm")
+        if lab.get("cta"):
+            d.text((cx, 940), lab["cta"], font=font(44), fill="white", anchor="mm")
 
     out = vdir / f"endcard_{kind}_{lang}.png"
     img.save(out)

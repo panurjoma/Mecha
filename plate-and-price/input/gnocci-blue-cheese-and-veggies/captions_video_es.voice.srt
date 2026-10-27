@@ -16,7 +16,7 @@ El pimiento a la sartén.
 
 5
 00:00:14,800 --> 00:00:17,000
-Añade la cebolla.
+Suma la cebolla.
 
 6
 00:00:17,800 --> 00:00:21,000
@@ -24,7 +24,7 @@ Cocina despacio hasta que esté tierno.
 
 7
 00:00:21,800 --> 00:00:24,500
-Resérvalo en un plato.
+Reserva la verdura en un plato.
 
 8
 00:00:25,300 --> 00:00:29,500
@@ -45,41 +45,41 @@ Mientras, hierve los
 Sazona con un poco de pimienta.
 
 12
-00:00:43,800 --> 00:00:46,500
-Remueve hasta que esté suave.
+00:00:43,800 --> 00:00:47,000
+Remueve hasta que la salsa esté suave.
 
 13
-00:00:47,300 --> 00:00:50,500
+00:00:47,800 --> 00:00:51,000
 Vuelve a echar la verdura a la salsa.
 
 14
-00:00:51,300 --> 00:00:54,500
+00:00:51,800 --> 00:00:55,000
 Echa los tomates cherry a la salsa.
 
 15
-00:00:55,300 --> 00:00:58,000
+00:00:55,800 --> 00:00:58,500
 Escurre los ñoquis.
 
 16
-00:00:58,800 --> 00:01:03,000
+00:00:59,300 --> 00:01:03,500
 Añade los ñoquis a la salsa y mézclalo todo.
 
 17
-00:01:03,800 --> 00:01:06,500
+00:01:04,300 --> 00:01:07,000
 Remueve bien la salsa.
 
 18
-00:01:07,300 --> 00:01:11,500
+00:01:07,800 --> 00:01:12,000
 Sirve el plato bien caliente.
 
 19
-00:01:12,300 --> 00:01:14,500
+00:01:12,800 --> 00:01:15,000
 Termina con Gruyère.
 
 20
-00:01:15,300 --> 00:01:17,500
+00:01:15,800 --> 00:01:18,000
 Y listo, a comer.
 
 21
-00:01:18,500 --> 00:01:25,500
+00:01:19,000 --> 00:01:26,000
 Total 9,70 euros, 4,85 la ración. Sigue.

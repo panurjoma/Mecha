@@ -22,7 +22,7 @@ T = {
         "total": "Total {total} for {n}, which is {per} a serving.",
         "chapters": "Chapters",
         "music": "Music: {song} by {artist} ({license})",
-        "short_price": "The whole dinner for {n} costs about {total}, so {per} a serving.",
+        "short_price": "The whole dinner for {n} costs about {total}, so {per} a serving (estimated prices, for the amount used).",
     },
     "es": {
         "short_title": "{title} #Shorts",
@@ -31,7 +31,7 @@ T = {
         "total": "Total {total} para {n}, es decir {per} por ración.",
         "chapters": "Capítulos",
         "music": "Música: {song} de {artist} ({license})",
-        "short_price": "La cena entera para {n} cuesta unos {total}, o sea {per} por ración.",
+        "short_price": "La cena entera para {n} cuesta unos {total}, o sea {per} por ración (precios estimados, por la cantidad usada).",
     },
 }
 

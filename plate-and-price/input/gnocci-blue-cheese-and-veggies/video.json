@@ -282,7 +282,7 @@
           "note": "onion into the pan with the pepper",
           "caption": {
             "en": "Now the onion joins it.",
-            "es": "Añade la cebolla."
+            "es": "Suma la cebolla."
           }
         },
         {
@@ -304,7 +304,7 @@
           "note": "the soft veg tipped onto a plate",
           "caption": {
             "en": "Set it aside on a plate.",
-            "es": "Resérvalo en un plato."
+            "es": "Reserva la verdura en un plato."
           }
         },
         {
@@ -353,13 +353,13 @@
         },
         {
           "src": "GH011584.MP4",
-          "src_start": 0.5,
-          "dur": 3.5,
+          "src_start": 0.2,
+          "dur": 4,
           "cx": 0.5,
           "note": "the sauce stirred smooth",
           "caption": {
             "en": "Stir until the sauce is smooth.",
-            "es": "Remueve hasta que esté suave."
+            "es": "Remueve hasta que la salsa esté suave."
           }
         },
         {
@@ -550,7 +550,8 @@
         "recipe cost",
         "budget dinner",
         "easy pasta",
-        "gnocchi with leek"
+        "gnocchi with leek",
+        "vegetarian pasta"
       ],
       "es": [
         "cena fácil",
@@ -563,7 +564,9 @@
         "precio de la receta",
         "cena barata",
         "cena económica",
-        "receta fácil"
+        "receta fácil",
+        "noquis al queso azul",
+        "cena sin carne"
       ]
     },
     "hashtags": {
