@@ -18,7 +18,7 @@ Seven agents in `../.claude/agents/` (model `claude-opus-5-5`) judge a finished 
 | `discoverability-strategist` | title, description, tags, chapters, thumbnail, search intent (EN and ES) | description file, thumbnail |
 
 They read the files from `scripts/review_pack.py` and each answers with `SCORE: x/10`, problems, a hook suggestion and
-numbered fixes. Process: three rounds per product. After each round the producer applies the fixes that make sense,
+numbered fixes. Process: two rounds per product (the owner reduced it from three). After each round the producer applies the fixes that make sense,
 rebuilds only the layers that change (directive 17), regenerates the pack and asks again. Scores and what changed are
 recorded in `history/<recipe>.md`. The agents never change files themselves. Compliance and licensing is not a critic.
 In Claude Code they run as parallel agents; for n8n `scripts/review_video.py` runs them through an LLM key.

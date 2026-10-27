@@ -5,7 +5,7 @@ Serves 2. Written from the footage and the cook's own Spanish narration (transcr
 ## Ingredients
 - Large tomatoes and cherry tomatoes
 - Fresh pork sausages, white wine
-- Dressing: garlic, onion, ginger (optional, not required), olive oil, lemon juice, honey, coarse salt, black pepper, oregano
+- Dressing: garlic, onion, ginger (optional, not required), olive oil, lemon juice, honey, coarse salt, black pepper
 
 ## Steps as shown
 1. Wash the tomatoes, slice the large ones thin and halve the cherry tomatoes; set aside.

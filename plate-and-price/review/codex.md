@@ -20,7 +20,7 @@ Codex custom-agent format follows the [official subagent documentation](https://
 
 Ask Codex, for example:
 
-> Review only `udon-teriyaki-secreto-iberico-gambones`, format `short`, in English and Spanish. Use all seven Codex reviewers for three rounds. Give every reviewer the current review-pack paths, recipe/format/language, and round. Apply or decline every fix with a reason, rebuild only changed cached layers, regenerate the pack, and review the new evidence. Preserve the dish-name titles and the long video. Do not send email or publish.
+> Review only `udon-teriyaki-secreto-iberico-gambones`, format `short`, in English and Spanish. Use all seven Codex reviewers for two rounds. Give every reviewer the current review-pack paths, recipe/format/language, and round. Apply or decline every fix with a reason, rebuild only changed cached layers, regenerate the pack, and review the new evidence. Preserve the dish-name titles and the long video. Do not send email or publish.
 
 From this directory, prepare evidence for each requested language using the existing tools:
 

@@ -132,8 +132,10 @@ def build_music(tmp, ffmpeg, src, au, total):
 def build_mix(tmp, ffmpeg, music, voice, au, total):
     fade = f"afade=t=out:st={total - au['fade_out']}:d={au['fade_out']}"
     if voice:
-        graph = (f"[0:a]volume={au['volume_with_voice']}[m];[1:a]volume=1.4[vo];"
-                 f"[m][vo]amix=inputs=2:duration=first:normalize=0,{LOUD},{fade}[a]")
+        # ducking: the song plays about 2.5x louder in the gaps, the hook and the cover, and drops to volume_with_voice under speech
+        graph = (f"[0:a]volume={au['volume_with_voice'] * 2.5:.3f}[m];[1:a]volume=1.4,asplit=2[vo][sc];"
+                 f"[m][sc]sidechaincompress=threshold=0.05:ratio=2.5:attack=40:release=800[md];"
+                 f"[md][vo]amix=inputs=2:duration=first:normalize=0,{LOUD},{fade}[a]")
         run([ffmpeg, "-hide_banner", "-y", "-i", str(music), "-i", str(voice), "-filter_complex", graph, "-map", "[a]", str(tmp)])
     else:
         run([ffmpeg, "-hide_banner", "-y", "-i", str(music), "-af", f"volume={au['volume']},{LOUD},{fade}", str(tmp)])
