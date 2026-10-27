@@ -53,7 +53,7 @@ at the end. The footage is filmed by the channel owner; only the cover image is 
        `segments[].speed` (1.5 to 2 is natural; `dur` stays the seconds on screen, the clip is read for `dur * speed`
        source seconds) so it takes fewer seconds and the dinner feels quick. Never speed up a moment that carries a
        key action (the pour, the plate) or whose sound or detail matters; the critics may add or remove speed-ups.
-       Short: about 3 s per moment, about 35 s in total with the cover and end card. Video: about 6 s per moment, about 90 s.
+       Short: about 2-3 s per moment; its length has no fixed limit (directive 28). Video: about 6 s per moment, about 90 s.
     2. **Cut and join** (`cut_rough.py`): put the moments together in filming order (file name and modified time agree)
        with the clips' own sound. Nothing else yet: no cover, captions, music or cleaning.
     3. **Clean** (`clean_footage.py`, settings in `video.json` "clean"): only after the order and length are agreed. Sparkle from
@@ -146,11 +146,17 @@ at the end. The footage is filmed by the channel owner; only the cover image is 
     Check this at the selection stage and in every critic round (the `[picture]` lever covers `cx` and `layout`); a change only
     rebuilds the footage layer and what depends on it. The horizontal video shows the whole width and is not affected.
 
+28. **No length limit for the short.** A short is as long as it takes to show every important step of the recipe clearly; it may
+    pass a minute. The old 35-40 s target is gone. What limits the length is clarity, not a clock: every key step (each
+    ingredient or action the dish depends on) must be visible and understandable, and every moment must earn its seconds, so slow
+    moments are sped up (`segments[].speed`, directive 18) or trimmed rather than dropping a key step. Voice lines keep their windows
+    (directive 26). The critics must not mark a short down for being long, only for steps that are unclear, missing or dragging.
+
 ## Two products from the same inputs
 | | Short (`short_<lang>.mp4`) | Video (`video_<lang>.mp4`) |
 |---|---|---|
 | Where | YouTube Shorts | YouTube channel |
-| Size | 1080x1920, vertical, about 41 s | 1920x1080, horizontal, about 81 s |
+| Size | 1080x1920, vertical, as long as the recipe needs (30 s to over a minute) | 1920x1080, horizontal, about 80-90 s |
 | Sound | calm voice-over made from the captions, song lowered under it | calm voice-over made from the captions, song lowered under it |
 | Captions | burned in (short phrases, top of frame) | burned in (full sentences, bottom of frame) |
 | Cover | 1.5 s, AI image 9:16 | 3 s, AI image 16:9 (also the thumbnail) |

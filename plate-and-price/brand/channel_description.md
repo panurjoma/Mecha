@@ -4,7 +4,7 @@
 **Tagline:** Easy dinners. Real prices. / Cenas fáciles. Precios reales.
 
 ## Short description (YouTube "About", English)
-Easy dinners with a taste of different cuisines, in under a minute. Every recipe ends with the real cost of the plate,
+Easy dinners with a taste of different cuisines, in clear, easy steps. Every recipe ends with the real cost of the plate,
 so you know what dinner costs before you cook it. New short every week.
 
 ## Short description (Spanish)
