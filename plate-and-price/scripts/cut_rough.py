@@ -6,6 +6,10 @@ input/<id>/ (default: meta["raw"]), layout ("fill" or "blurpad" for this clip on
 wide clip over a blurred copy, for example a final wide shot in a vertical short), cx (0..1, default 0.5) says where to crop sideways when a wide clip goes into a
 vertical short. Segments are joined in the order listed, which is the order they were filmed (file name = recording
 order). The clip's own sound is kept, with a very short fade at each join so nothing clicks.
+"crop" (default 1), "cx" and "cy" (0..1, default 0.5): crop is a zoom factor, 1.25 keeps the central 80 % of the picture, and cx/cy
+choose which part of it is kept (0 = left/top edge, 1 = right/bottom edge). Use it in the short and in the horizontal video to leave
+out something that should not be seen (a name, clutter, a person, the edge of the counter) or to tighten a shot. The whole
+camera frame does not have to appear.
 "speed" (default 1; 2 plays the moment twice as fast): a slow moment such as chopping an onion or garlic can be sped up so it takes
 fewer seconds on screen. "dur" is always the length on screen; the clip is read for dur * speed source seconds. Decide it at the
 selection stage, and the critics may ask for it ([shots] lever).
@@ -47,9 +51,10 @@ def build_rough(tmp, ffmpeg, vdir, raw, f_):
                   f"boxblur=30:5[bb{i}];[f{i}]scale={W}:{H}:force_original_aspect_ratio=decrease[ff{i}];"
                   f"[bb{i}][ff{i}]overlay=(W-w)/2:(H-h)/2,setsar=1,format=yuv420p[v{i}]")
         else:  # fill: scale up to cover the frame, crop sideways around cx
-            cx = s.get("cx", 0.5)
-            vf = (f"[{i}:v]{blend}{fast}fps={fps},scale={W}:{H}:force_original_aspect_ratio=increase:flags=lanczos,"
-                  f"crop={W}:{H}:x='(iw-{W})*{cx}':y='(ih-{H})/2',setsar=1,format=yuv420p[v{i}]")
+            cx, cy = s.get("cx", 0.5), s.get("cy", 0.5)
+            zoom = float(s.get("crop", 1))  # >1 keeps only the part of the picture at (cx, cy): 1.25 keeps 80 % of the frame
+            vf = (f"[{i}:v]{blend}{fast}fps={fps},scale=ceil({W}*{zoom}/2)*2:ceil({H}*{zoom}/2)*2:force_original_aspect_ratio=increase:flags=lanczos,"
+                  f"crop={W}:{H}:x='(iw-{W})*{cx}':y='(ih-{H})*{cy}',setsar=1,format=yuv420p[v{i}]")
         d = s["dur"]
         tempo = ""
         if speed != 1:  # atempo takes 0.5-2 per step: chain steps for bigger changes

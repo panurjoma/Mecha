@@ -152,6 +152,15 @@ at the end. The footage is filmed by the channel owner; only the cover image is 
     moments are sped up (`segments[].speed`, directive 18) or trimmed rather than dropping a key step. Voice lines keep their windows
     (directive 26). The critics must not mark a short down for being long, only for steps that are unclear, missing or dragging.
 
+29. **Crop anything that should not be seen, in both formats.** The whole camera frame does not have to appear. In the horizontal
+    video too, a moment can be cropped and tightened so that something unwanted stays out (a name, clutter, a person, a messy
+    corner, the edge of the counter, an ingredient that does not belong in this recipe): `segments[].crop` is a zoom factor (1 = whole
+    frame, 1.25 = the central 80 %, 1.5 = the central two thirds) and `cx`/`cy` (0 to 1, default 0.5) say which part of the picture
+    is kept (0 = left/top edge, 1 = right/bottom edge); the short uses `cx` the same way (directive 27). Decide it at the selection
+    stage and in every critic round (`[picture]` lever). Keep the crop modest (about 1.5 at most on 1080p footage, to stay sharp),
+    and prefer a different moment over a heavy crop if the unwanted thing cannot be cropped out. A crop only rebuilds the footage
+    layer and what depends on it. `"layout": "blurpad"` ignores `crop`.
+
 ## Two products from the same inputs
 | | Short (`short_<lang>.mp4`) | Video (`video_<lang>.mp4`) |
 |---|---|---|
