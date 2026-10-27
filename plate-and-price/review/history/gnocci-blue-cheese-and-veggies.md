@@ -1,4 +1,4 @@
-# Review history: video-2 (Gnocchi al Blue Cheese and Veggies)
+# Review history: gnocci-blue-cheese-and-veggies (Gnocchi al Blue Cheese and Veggies)
 
 Scores out of 10 from the four reviewer agents (AI reviewers working from contact sheets and facts, not real viewers).
 
