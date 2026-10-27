@@ -3,15 +3,28 @@
 usage: python review_video.py <video-id> --format short|video --lang en
 Needs ANTHROPIC_API_KEY or OPENAI_API_KEY in .env. Runs review_pack.py first, then sends each role's instructions with the
 facts file and the contact sheets (images only with Claude) and writes <OUTPUT_DIR>/<id>/review/<format>_<lang>_review.md.
-Without a key it says so and exits without a review. In Claude Code the same roles can be run as parallel agents instead.
+Language: agents marked `language: separate` are run for each language (en, es), `shared` ones once on the first language,
+`separate-if-voice` ones per language only when the product has a voice-over (see .claude/agents). Without a key it says so and exits without a review. In Claude Code the same roles can be run as parallel agents instead.
 """
 import argparse
+import re
 import subprocess
 import sys
 from pathlib import Path
 
 from common import OUTPUT_DIR, ROOT
 from llm_client import complete, pick_provider
+
+
+def language_mode(agent_text):
+    """The agent's `language:` setting from its frontmatter: separate, shared or separate-if-voice."""
+    m = re.search(r"^language:\s*(\S+)", agent_text.split("---")[1], re.M)
+    return m.group(1) if m else "separate"
+
+
+def langs_for(mode, has_voice, langs):
+    """Languages an agent must be run for: all of them if its judgment depends on language, else only the first."""
+    return langs if mode == "separate" or (mode == "separate-if-voice" and has_voice) else langs[:1]
 
 
 def main():

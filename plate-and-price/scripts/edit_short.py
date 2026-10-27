@@ -28,7 +28,7 @@ from pathlib import Path
 from common import OUTPUT_DIR, archive_old, final_dir, find_ffmpeg, fmt, load_json, parse_srt, probe_size, run, video_dir
 from layers import build_cached, code, digest, key_of, sig
 
-LOUD = "loudnorm=I=-15:TP=-1.5:LRA=11"  # streaming-level loudness (the music alone was about -24 dB, too quiet for a phone)
+LOUD = "loudnorm=I=-15:TP=-2.5:LRA=11"  # streaming-level loudness (the music alone was about -24 dB, too quiet for a phone)
 CLIP = ["-c:v", "libx264", "-preset", "fast", "-crf", "14", "-pix_fmt", "yuv420p", "-an"]  # near-lossless intermediates
 
 

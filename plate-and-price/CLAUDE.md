@@ -114,6 +114,9 @@ at the end. The footage is filmed by the channel owner; only the cover image is 
     applied or declined with a reason in `review/history/<id>.md` (a decision log per agent). Conflicts are settled in this order:
     the owner's fixed rules, then the fix several agents agree on, then the most serious problem. No product is final until all
     seven were consulted, their fixes decided, and the changed layers rebuilt. `run_pipeline.py` reminds you of this at the end.
+    Language split: agents whose judgment depends on the language (sociologist, marketing, recipe-price, discoverability, and
+    audio-voice when there is a voice-over) review English and Spanish separately; engagement, craft and audio-voice on a
+    music-only short review the shared cut once (`language:` in each agent file, table in `review/README.md`).
 
 ## Two products from the same inputs
 | | Short (`short_<lang>.mp4`) | Video (`video_<lang>.mp4`) |

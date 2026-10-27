@@ -39,3 +39,20 @@ owner's fixed rules first, then the fix several agents agree on, then the most s
 |---|---|---|---|---|
 | 1 | engagement-analyst | [shots] cut the second onion shot | applied | segments, short |
 | 1 | marketing-strategist | [cover] remove the cover card | declined | owner rule |
+
+## Which agents review each language
+Only agents whose judgment changes with the language are run for English and Spanish separately; the others review the shared
+cut once. The setting is `language:` in each agent file.
+
+| Agent | `language:` | Why |
+|---|---|---|
+| audience-sociologist | separate | tone, naturalness and cultural fit of captions, cover and end card |
+| marketing-strategist | separate | promise, tagline, cover and end-card wording per language |
+| recipe-price-checker | separate | ingredient names, units, price format (4,85 EUR) per language |
+| discoverability-strategist | separate | title, description, tags, search terms per language |
+| audio-voice-reviewer | separate-if-voice | the voice-over speed and script differ by language; a short with music only is the same in both |
+| engagement-analyst | shared | hook, pacing, retention are the same cut in both languages |
+| video-craft-editor | shared | continuity, perspective, picture quality are the same picture |
+
+A shared agent's score applies to both languages of the product. So per product there are 4 language-specific agents (plus
+the audio-voice agent when there is a voice) with two scores each, and 2 or 3 agents with one score.

@@ -18,7 +18,7 @@ T = {
     "en": {
         "short_title": "{title} #Shorts",
         "video_title": "{title}",
-        "costs": "What it costs (estimated supermarket prices)",
+        "costs": "What it costs (estimated supermarket prices, for the amount used; whole packs cost more)",
         "total": "Total {total} for {n}, which is {per} a serving.",
         "chapters": "Chapters",
         "music": "Music: {song} by {artist} ({license})",
@@ -27,7 +27,7 @@ T = {
     "es": {
         "short_title": "{title} #Shorts",
         "video_title": "{title}",
-        "costs": "Lo que cuesta (precios estimados de supermercado)",
+        "costs": "Lo que cuesta (precios estimados de supermercado, por la cantidad usada; los envases enteros cuestan más)",
         "total": "Total {total} para {n}, es decir {per} por ración.",
         "chapters": "Capítulos",
         "music": "Música: {song} de {artist} ({license})",

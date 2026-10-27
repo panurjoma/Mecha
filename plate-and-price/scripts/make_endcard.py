@@ -11,11 +11,17 @@ from PIL import Image, ImageDraw, ImageFont
 from common import ROOT, find_font, fmt, load_json, video_dir
 
 
+LANG = "en"
+
+
 def money(v, cur):
-    return f"{cur}{v:.2f}"
+    """English: symbol first (EUR 1.90 as the symbol then the number); Spanish: 1,90 then the symbol."""
+    return f"{cur}{v:.2f}" if LANG == "en" else f"{v:.2f}".replace(".", ",") + f" {cur}"
 
 
 def draw(video_id, kind, lang):
+    global LANG
+    LANG = lang
     chan = load_json(ROOT / "config" / "channel.json")
     vdir = video_dir(video_id)
     meta = load_json(vdir / "video.json")

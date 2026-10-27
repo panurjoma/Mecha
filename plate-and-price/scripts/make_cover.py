@@ -86,7 +86,7 @@ def make(video_id, kind, lang):
     if H >= W:  # 9:16 short cover
         im = background(vdir, meta, "9x16", W, H).convert("RGBA")
         shade = Image.new("RGBA", (W, H), dark + (0,))
-        shade.putalpha(vgradient((W, H), 120, 200))
+        shade.putalpha(vgradient((W, H), 80, 150))
         im = Image.alpha_composite(im, shade)
         d = ImageDraw.Draw(im)
         pill_w = 520
@@ -99,7 +99,7 @@ def make(video_id, kind, lang):
             y += 128
         cx, cy, r = W / 2, 1650, 165
         d.ellipse([cx - r, cy - r, cx + r, cy + r], fill=c["tomato"], outline=c["cream"], width=8)
-        d.text((cx, cy - 22), f"{chan['currency']}{per:.2f}", font=font(100), fill="white", anchor="mm")
+        d.text((cx, cy - 22), (f"{chan['currency']}{per:.2f}" if lang == "en" else f"{per:.2f}".replace(".", ",") + f" {chan['currency']}"), font=font(100), fill="white", anchor="mm")
         d.text((cx, cy + 66), per_label, font=font(36), fill=c["cream"], anchor="mm")
     else:  # 16:9 video cover and thumbnail
         im = background(vdir, meta, "16x9", W, H).convert("RGBA")
@@ -119,7 +119,7 @@ def make(video_id, kind, lang):
             y += round(size * 1.2)
         top = H - 90 - 190  # price badge sits at a fixed place at the bottom, whatever the title length
         d.rounded_rectangle([90, top, 90 + 560, top + 190], radius=40, fill=c["tomato"])
-        d.text((90 + 280, top + 72), f"{chan['currency']}{per:.2f}", font=font(100), fill="white", anchor="mm")
+        d.text((90 + 280, top + 72), (f"{chan['currency']}{per:.2f}" if lang == "en" else f"{per:.2f}".replace(".", ",") + f" {chan['currency']}"), font=font(100), fill="white", anchor="mm")
         d.text((90 + 280, top + 152), per_label, font=font(40), fill=c["cream"], anchor="mm")
 
     out = vdir / f"cover_{kind}_{lang}.png"
