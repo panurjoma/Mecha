@@ -21,3 +21,4 @@ music/*.mp3
 *.mp3
 *.wav
 *.WAV
+kitchen/renders/sweep/

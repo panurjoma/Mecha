@@ -20,7 +20,7 @@ Codex custom-agent format follows the [official subagent documentation](https://
 
 Ask Codex, for example:
 
-> Review only `udon-teriyaki-secreto-iberico-gambones`, format `short`, in English and Spanish. Use all seven Codex reviewers for two rounds. Give every reviewer the current review-pack paths, recipe/format/language, and round. Apply or decline every fix with a reason, rebuild only changed cached layers, regenerate the pack, and review the new evidence. Preserve the dish-name titles and the long video. Do not send email or publish.
+> Review only `udon-teriyaki-secreto-iberico-gambones`, format `short`, in English and Spanish. Run the pre-production check first (video-craft-editor, engagement-analyst, recipe-price-checker, marketing-strategist) on the plan, then the post-production check (audio-voice-reviewer, discoverability-strategist, audience-sociologist) on the render. Give every reviewer the recipe/format/language, the checkpoint and the evidence paths. Apply or decline every fix with a reason in one pass and rebuild only changed cached layers; after the post-production check fix only blocking problems and do not start another round. Preserve the dish-name titles and the long video. Do not send email or publish.
 
 From this directory, prepare evidence for each requested language using the existing tools:
 
@@ -29,8 +29,8 @@ uv run --with pillow --with imageio-ffmpeg --with edge-tts python scripts/review
 uv run --with pillow --with imageio-ffmpeg --with edge-tts python scripts/review_pack.py udon-teriyaki-secreto-iberico-gambones --format short --lang es
 ```
 
-The pack reads the existing render under `PLATE_OUTPUT_DIR/<recipe>/final/`; it does not build a missing video. Verify that the facts, contact sheets, thumbnail and measured audio correspond to the current render before sending them to reviewers. Include source sheets or a source contact sheet when shot choices need review. Record evidence paths and limitations with each round in `review/history/<recipe>.md`.
+The pack reads the existing render under `PLATE_OUTPUT_DIR/<recipe>/final/`; it does not build a missing video. Verify that the facts, contact sheets, thumbnail and measured audio correspond to the current render before sending them to reviewers. Include source sheets or a source contact sheet when shot choices need review. Record evidence paths and limitations with each check in `review/history/<recipe>.md`.
 
-After each round, the producer reconciles fixes using the owner's rules first, agreement across reviewers second, then severity. Edit the appropriate input or renderer, rebuild affected layers with `scripts/run_pipeline.py <recipe> --format short --lang <language>`, and regenerate evidence. Keep all numbered fixes in the decision log, including declined or deferred items and the reason. Consult all seven roles again on the rebuilt result; do not manufacture higher scores.
+After each check, the producer reconciles fixes using the owner's rules first, agreement across reviewers second, then severity. Edit the appropriate input or renderer and rebuild affected layers with `scripts/run_pipeline.py <recipe> --format short --lang <language>`. Keep all numbered fixes in the decision log, including declined or deferred items and the reason. There is no second review round; do not manufacture higher scores.
 
 This session-based review does not need an LLM API key. The existing `scripts/review_video.py` is a separate optional API-backed n8n path; creating these custom agents does not change that script's provider or automatically invoke it. Follow the project's credit checks before any paid API use. No review command here sends email or publishes the result.

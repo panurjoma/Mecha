@@ -64,22 +64,21 @@ at the end. The footage is filmed by the channel owner; only the cover image is 
     5. **Bill and price estimate**, last: list the ingredients seen in the footage in `input/<id>/price.json` (same format as
        the first video: items in English and Spanish, price, servings) using average Spanish supermarket prices, labelled as
        an estimate. It feeds the price end card (`make_endcard.py`) and the video description's price list.
-    6. **Critics** (seven agents, two rounds, directive 19), then the final file and YouTube text.
+    6. **Critics**, one check before production and one after (directive 19), then the final file and YouTube text.
     The short repeats as little as possible (one idea per moment, short captions, and a calm voice-over that reads them, directive 26). The video may add secondary
     details (extra moments, a fuller explanation, voice-over). Never redo an earlier stage to change a later one.
 
-19. **Seven critics, two rounds.** Before a short or video is final, seven reviewer agents judge it from different
-    perspectives (`.claude/agents/`, all set to Claude Opus 5.5): `audience-sociologist` (who watches, trust, social
-    meaning, accessibility), `engagement-analyst` (hook, retention, pacing, loop), `marketing-strategist` (promise, brand,
-    price moment, calls to action), `video-craft-editor` (recipe continuity, perspective, hero shots, picture craft),
-    `audio-voice-reviewer` (measured loudness, voice-over pacing and naturalness, music balance), `recipe-price-checker`
-    (steps, claims and the Spanish price estimate) and `discoverability-strategist` (title, description, tags, thumbnail,
-    search habits). They read the evidence made by `scripts/review_pack.py` (contact sheets, caption timeline, facts, measured
-    audio, price table, YouTube text, thumbnail, sheets of every recording) and each answers with `SCORE: x/10`, problems,
-    a hook suggestion and numbered fixes. Run two rounds per product (short and video; the owner reduced it from three): apply the fixes that make sense,
-    rebuild, review again, and keep the scores in `review/history/<id>.md`. The owner can allow a product to grow when the
-    critics ask for it. In n8n `scripts/review_video.py` runs the same agents through an LLM key. Compliance and licensing
-    is deliberately not a critic; the owner decides about music rights.
+19. **Seven critics, two checks.** The seven reviewer agents (`.claude/agents/`, all set to Claude Opus 5.5) judge each product
+    once, at one of two checkpoints, instead of repeated rounds:
+    - **Pre-production check**, on the plan before anything is rendered (the `segments`, captions and cover text in `video.json`,
+      `price.json`, `recipe.md` and the source-clip sheets): `video-craft-editor` (moments, crops, continuity), `engagement-analyst` (hook, order, pace), `recipe-price-checker` (steps, claims, prices) and `marketing-strategist` (promise, cover, price moment).
+    - **Post-production check**, on the finished render (the pack from `scripts/review_pack.py`: contact sheets, caption timeline,
+      measured audio, YouTube text, thumbnail): `audio-voice-reviewer` (loudness, voice, music), `discoverability-strategist` (title, description, tags, thumbnail) and `audience-sociologist` (who watches, trust, caption legibility, accessibility).
+    Each answers with `SCORE: x/10`, problems, a hook suggestion and numbered fixes. The producer applies or declines every fix with a
+    reason in `review/history/<id>.md`, in a single pass. After the post-production check only blocking problems are fixed (a factual
+    error, unreadable captions, bad audio, a broken cut) and only the layers that change are rebuilt; there is no second review round
+    and no chasing of scores. The owner can ask for an extra pass. In n8n `scripts/review_video.py` runs the same agents through an
+    LLM key. Compliance and licensing is deliberately not a critic; the owner decides about music rights.
 20. **Every shot that goes into an official short or video is cleaned first.** Glare, small flickering highlights,
     blown whites, colour cast and noise are removed by the clean stage (`scripts/clean_footage.py`) for every shot, including a
     shot added later and the hook. `run_pipeline.py` always runs `cut_rough.py` then `clean_footage.py` before it builds
@@ -107,14 +106,14 @@ at the end. The footage is filmed by the channel owner; only the cover image is 
     exactly the current version of each product. The small email copies go to `<output>/<id>/email/`, the intermediate layers
     stay in `layers/`, and the critics' evidence in `review/`. Never leave work-in-progress or duplicate versions in `final/`.
 
-24. **Every critic shapes the final video.** All seven agents (directive 19) give an opinion every time a short or video is
-    generated, and none is skipped. Each opinion has a place where it changes the result: `audience-sociologist` and
+24. **Every critic shapes the final video.** Each of the seven agents (directive 19) gives its opinion once per product, at its
+    checkpoint, and none is skipped. Each opinion has a place where it changes the result: `audience-sociologist` and
     `engagement-analyst` change captions, shot selection and order, the hook and the cover length; `marketing-strategist` changes
     the cover, captions, price moment and calls to action; `video-craft-editor` changes shots, picture clean-up and framing;
     `audio-voice-reviewer` changes music level, loudness and the voice script; `recipe-price-checker` changes the steps in the
     captions and the prices (`price.json`); `discoverability-strategist` changes the description, tags, chapters, thumbnail and
     the keywords in the captions (the title stays the dish name and changes only with the owner's approval). Every fix is tagged
-    with its lever (`[captions]`, `[shots]`, `[picture]`, `[audio]`, `[text]`, `[price]`, `[cover]`) and, after each round, is either
+    with its lever (`[captions]`, `[shots]`, `[picture]`, `[audio]`, `[text]`, `[price]`, `[cover]`) and, at its checkpoint, is either
     applied or declined with a reason in `review/history/<id>.md` (a decision log per agent). Conflicts are settled in this order:
     the owner's fixed rules, then the fix several agents agree on, then the most serious problem. No product is final until all
     seven were consulted, their fixes decided, and the changed layers rebuilt. `run_pipeline.py` reminds you of this at the end.
@@ -129,7 +128,7 @@ at the end. The footage is filmed by the channel owner; only the cover image is 
     Keep lines short (two lines at most, about 22 characters per line on the short) and off the key action. Change the style
     only when the critics ask for a legibility improvement; only the captioned layer and the final file rebuild. Keep all text above the
     bottom 20 %, avoid relying on colour alone for meaning, check long lines and accented characters (Ñ, é) after every caption
-    change by looking at rendered English and Spanish frames, and have every critic round check caption colour, size, contrast and placement.
+    change by looking at rendered English and Spanish frames, and have each critic check caption colour, size, contrast and placement.
 
 26. **Both products carry the voice.** The short and the video both have the calm male voice-over (`voice: true` in both
     formats), made from the captions, so the viewer can listen and read at the same time instead of only reading. Each short
@@ -143,7 +142,7 @@ at the end. The footage is filmed by the channel owner; only the cover image is 
     that slice per moment, and it must be chosen on purpose, not left at 0.5: look at where the action is (the knife, the pan, the
     plate, the hands) and shift the crop left or right to keep it, and any key detail such as a bottle or an ingredient, inside the
     frame. A moment whose action is wider than the slice may use `"layout": "blurpad"` (whole width over a blurred copy).
-    Check this at the selection stage and in every critic round (the `[picture]` lever covers `cx` and `layout`); a change only
+    Check this at the selection stage and in each critic check (the `[picture]` lever covers `cx` and `layout`); a change only
     rebuilds the footage layer and what depends on it. The horizontal video shows the whole width and is not affected.
 
 28. **No length limit for the short.** A short is as long as it takes to show every important step of the recipe clearly; it may
@@ -157,7 +156,7 @@ at the end. The footage is filmed by the channel owner; only the cover image is 
     corner, the edge of the counter, an ingredient that does not belong in this recipe): `segments[].crop` is a zoom factor (1 = whole
     frame, 1.25 = the central 80 %, 1.5 = the central two thirds) and `cx`/`cy` (0 to 1, default 0.5) say which part of the picture
     is kept (0 = left/top edge, 1 = right/bottom edge); the short uses `cx` the same way (directive 27). Decide it at the selection
-    stage and in every critic round (`[picture]` lever). Keep the crop modest (about 1.5 at most on 1080p footage, to stay sharp),
+    stage and in each critic check (`[picture]` lever). Keep the crop modest (about 1.5 at most on 1080p footage, to stay sharp),
     and prefer a different moment over a heavy crop if the unwanted thing cannot be cropped out. A crop only rebuilds the footage
     layer and what depends on it. `"layout": "blurpad"` ignores `crop`.
     Whatever the crop, the format stays the same (1080x1920 short, 1920x1080 video) and the picture fills the whole frame in both

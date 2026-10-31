@@ -65,7 +65,7 @@ Agents in `.claude/agents/`: `audience-sociologist`, `engagement-analyst`, `mark
 facts with measured audio, the price table and recipe notes, the YouTube text and thumbnail, sheets of every recording). Run
 `make_description.py` first so the discoverability reviewer has the text. In Claude Code run one agent each in parallel;
 `python review_video.py <id> --format short` does the same through Claude or OpenAI (needs a key in `.env`, otherwise skipped;
-it uses each agent's `model:` line). Three rounds per product; scores and fixes go in `review/history/<id>.md`.
+it uses each agent's `model:` line). Two checks per product (pre- and post-production, each agent once); scores and fixes go in `review/history/<id>.md`.
 
 Every critic changes something (directive 24): captions and the voice script, shot selection, picture clean-up, audio, price
 lines, description and tags, the covers. Fixes carry a lever tag and are applied or declined with a reason in the decision log
