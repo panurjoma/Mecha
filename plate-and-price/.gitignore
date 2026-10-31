@@ -23,3 +23,7 @@ music/*.mp3
 *.WAV
 kitchen/renders/sweep/
 *.blend1
+
+# model weights (downloaded by ultralytics / ProPainter; kept in plate-and-price/_tools/models)
+*.pt
+*.pth

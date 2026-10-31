@@ -31,7 +31,9 @@ import imageio_ffmpeg
 import numpy as np
 
 FF = imageio_ffmpeg.get_ffmpeg_exe()
-PROPAINTER = Path(os.environ.get("PROPAINTER_DIR", Path(__file__).resolve().parents[3] / "_tools" / "ProPainter"))
+TOOLS = Path(__file__).resolve().parents[3] / "_tools"
+PROPAINTER = Path(os.environ.get("PROPAINTER_DIR", TOOLS / "ProPainter"))
+SAM2_MODEL = os.environ.get("SAM2_MODEL", str(TOOLS / "models" / "sam2.1_t.pt"))  # weights stay out of git
 
 
 def read_slice(a, frames_dir):
@@ -66,7 +68,7 @@ def object_masks(frames, a, tmp):
         if not (0 <= px < pw and 0 <= py < ph):
             print(f"  click ({nx:.2f},{ny:.2f}) is outside the crop: skipped", flush=True)
             continue
-        pred = SAM2VideoPredictor(overrides=dict(conf=0.25, task="segment", mode="predict", imgsz=1024, model="sam2.1_t.pt",
+        pred = SAM2VideoPredictor(overrides=dict(conf=0.25, task="segment", mode="predict", imgsz=1024, model=SAM2_MODEL,
                                                  save=False, verbose=False))
         for i, r in enumerate(pred(source=str(proxy), points=[px, py], labels=[1], stream=True)):
             if i < len(frames) and r.masks is not None:
