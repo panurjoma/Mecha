@@ -22,3 +22,4 @@ music/*.mp3
 *.wav
 *.WAV
 kitchen/renders/sweep/
+*.blend1
