@@ -199,6 +199,17 @@ at the end. The footage is filmed by the channel owner; only the cover image is 
     The channel voice for all of them is `brand/voice.md`; keep it up to date. The discoverability critic also runs the "query test": write
     the three searches the video should win and check the title and the first two description lines contain those words.
 
+33. **Clean the real kitchen, do not replace it (inpainting).** The picture stays the owner's own footage. Things that add nothing
+    (receipts, banana, jars, gloves, a pepper mill that wanders into the frame) are first kept out with the crop (`cx`, `crop`,
+    directives 27 and 29), which in a vertical short already hides most of them, and only what is still inside the visible slice is
+    removed with `segments[].inpaint` (`{"points": [[x, y], ...]}`, one click per object as a fraction of the source frame at the first
+    frame of the moment). `scripts/inpaint_segment.py` tracks each object with SAM2 and fills a small window around it with ProPainter,
+    pasting the filled pixels back through a feathered mask, all local on the GPU; the environment (PyTorch, ultralytics, ProPainter) lives
+    in `plate-and-price/_tools` outside git. It is part of the cached rough-cut layer (`cut_rough.py`), costs a few minutes per moment, and
+    objects at the edge of the picture fill with a soft blur, so prefer a different crop to a big removal. The Blender kitchen in `kitchen/`
+    is kept as a reusable background asset but is not used for these videos. The voice script and captions come from the owner's own words:
+    `scripts/transcribe.py` transcribes every recording locally with Whisper into `input/<id>/transcript.json`.
+
 ## Two products from the same inputs
 | | Short (`short_<lang>.mp4`) | Video (`video_<lang>.mp4`) |
 |---|---|---|

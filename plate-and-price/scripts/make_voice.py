@@ -64,7 +64,7 @@ def build_voice(out, ffmpeg, cues, cfg, tempo_max, total):
         chains.append("".join(f"[a{i}]" for i in range(len(files))) + f"amix=inputs={len(files)}:normalize=0,apad,atrim=0:{total}[out]")
         graph = Path(tmp) / "g.txt"
         graph.write_text(";\n".join(chains), encoding="utf-8")
-        run(cmd + ["-filter_complex_script", str(graph), "-map", "[out]", "-ar", "44100", str(out)])
+        run(cmd + ["-/filter_complex", str(graph), "-map", "[out]", "-ar", "44100", str(out)])
 
 
 def main():
