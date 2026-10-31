@@ -4,7 +4,7 @@ Inspected 2026-10-27. Paths below are relative to `plate-and-price/` inside the 
 
 ## Repository scope
 
-The Git root `_repo/` contains the broader Mecha planning documents (`README.md`, `docs/`, `CONTRIBUTING.md`, `assets/`). Those describe the planned physics/engineering product and future architecture. They are not an executable food-video pipeline. The implemented food workflow is the nested `plate-and-price/` project, with its own `README.md`, `CLAUDE.md`, scripts, recipe inputs, brand assets, configuration and n8n workflows. Its content defaults to English, with separate Spanish outputs.
+The Git root `_repo/` now contains only the Plate & Price project: the nested `plate-and-price/` folder holds its `README.md`, `CLAUDE.md`, scripts, recipe inputs, brand assets, configuration and n8n workflows. Its content defaults to English, with separate Spanish outputs.
 
 `scripts/common.py` anchors `ROOT` to this nested project, reads its `.env` without replacing existing process variables, and resolves `PLATE_OUTPUT_DIR`. The inspected rendered assets live outside Git at:
 
