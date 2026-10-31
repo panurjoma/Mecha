@@ -9,11 +9,11 @@
     "source": "music.mp3",
     "start": 0,
     "volume": 1.0,
-    "volume_with_voice": 0.15,
+    "volume_with_voice": 0.05,
     "fade_out": 2.0,
     "song": {
-      "title": "synthetic ambient pad (placeholder made with ffmpeg)",
-      "artist": "none",
+      "title": "reggaeton_30s_instrumental (owner's reference track, looped with crossfades)",
+      "artist": "unknown",
       "licensed": false
     }
   },
