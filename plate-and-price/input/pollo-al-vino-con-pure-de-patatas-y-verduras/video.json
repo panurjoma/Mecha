@@ -1,439 +1,439 @@
 {
-  "id": "pollo-al-vino-con-pure-de-patatas-y-verduras",
-  "title": {
-    "en": "Wine Chicken with Mashed Potatoes and Vegetables",
-    "es": "Pollo al vino con puré de patatas y verduras"
-  },
-  "recordings": "GoPro POV clips GH011620..GH011653, 1080p 120 fps, kept in filming order; the owner's voice is transcribed in transcript.json",
-  "audio": {
-    "source": "music.mp3",
-    "start": 0,
-    "volume": 1.0,
-    "volume_with_voice": 0.05,
-    "fade_out": 2.0,
-    "song": {
-      "title": "reggaeton_30s_instrumental (owner's reference track, looped with crossfades)",
-      "artist": "unknown",
-      "licensed": false
-    }
-  },
-  "clean": {
-    "warmth": 5800,
-    "cast": [
-      0.07,
-      0.11,
-      0.05
-    ],
-    "shadows": 0.05,
-    "highlights": 0.95,
-    "saturation": 1.05
-  },
-  "cover": {
-    "ai": {
-      "9x16": "cover_ai_9x16.png",
-      "16x9": "cover_ai_16x9.png"
-    }
-  },
-  "voice": {
-    "en": {
-      "engine": "edge-tts",
-      "voice": "en-US-BrianMultilingualNeural",
-      "rate": "-4%"
-    },
-    "es": {
-      "engine": "edge-tts",
-      "voice": "es-ES-AlvaroNeural",
-      "rate": "-4%"
-    }
-  },
-  "formats": {
-    "short": {
-      "layout": "fill",
-      "voice": true,
-      "zoom_amount": 0.12,
-      "output": {
-        "width": 1080,
-        "height": 1920,
-        "fps": 30,
-        "crf": 18,
-        "review_bitrate": "2800k"
-      },
-      "cover_dur": 1.5,
-      "endcard_dur": 5,
-      "shutter": 3,
-      "captions": {
-        "en": "captions_short_en.srt",
-        "es": "captions_short_es.srt"
-      },
-      "caption_style": {
-        "font": "Arial",
-        "size": 92,
-        "align": 8,
-        "margin_v": 250,
-        "outline": 7,
-        "bold": true,
-        "color": "FFE27A",
-        "box": true
-      },
-      "tempo_max": 1.0,
-      "end_caption": {
-        "en": "About three euros a serving.",
-        "es": "Unos tres euros por ración."
-      },
-      "segments": [
-        {
-          "src": "GH011651.MP4",
-          "src_start": 14,
-          "dur": 3,
-          "cx": 0.6,
-          "caption": {
-            "en": "Wine chicken with mashed potatoes",
-            "es": "Pollo al vino con puré de patatas"
-          },
-          "hook": true,
-          "shutter": 1,
-          "inpaint": {
-            "points": [
-              [
-                0.56,
-                0.15
-              ],
-              [
-                0.54,
-                0.28
-              ]
-            ]
-          },
-          "note": "hook: cheese over the finished plate; pepper mill and tin removed"
-        },
-        {
-          "src": "GH011621.MP4",
-          "src_start": 0,
-          "dur": 5,
-          "cx": 0.55,
-          "caption": {
-            "en": "Potatoes, mushrooms, leek and chicken",
-            "es": "Patatas, champiñones, puerro y pollo"
-          },
-          "speed": 1.7,
-          "note": "the ingredients"
-        },
-        {
-          "src": "GH011623.MP4",
-          "src_start": 2,
-          "dur": 4,
-          "cx": 0.55,
-          "caption": {
-            "en": "A kilo of potatoes into boiling water",
-            "es": "Un kilo de patatas al agua hirviendo"
-          },
-          "speed": 2
-        },
-        {
-          "src": "GH011624.MP4",
-          "src_start": 0,
-          "dur": 5,
-          "cx": 0.45,
-          "caption": {
-            "en": "Mushrooms in half-centimetre strips",
-            "es": "Champiñones en tiras de medio centímetro"
-          },
-          "speed": 2.5,
-          "note": "chopping, sped up"
-        },
-        {
-          "src": "GH011625.MP4",
-          "src_start": 9,
-          "dur": 5,
-          "cx": 0.45,
-          "caption": {
-            "en": "Only the white part of the leek",
-            "es": "Del puerro, solo la parte blanca"
-          },
-          "speed": 3.5,
-          "note": "chopping, sped up"
-        },
-        {
-          "src": "GH011626.MP4",
-          "src_start": 1,
-          "dur": 5,
-          "cx": 0.5,
-          "caption": {
-            "en": "Onion in thin half-moons",
-            "es": "Cebolla en media luna fina"
-          },
-          "speed": 4,
-          "note": "chopping, sped up"
-        },
-        {
-          "src": "GH011628.MP4",
-          "src_start": 0.5,
-          "dur": 3.5,
-          "cx": 0.55,
-          "caption": {
-            "en": "Oil and medium heat",
-            "es": "Aceite y fuego medio"
-          },
-          "speed": 2
-        },
-        {
-          "src": "GH011629.MP4",
-          "src_start": 0,
-          "dur": 5.5,
-          "cx": 0.5,
-          "caption": {
-            "en": "Onion first",
-            "es": "Primero la cebolla"
-          },
-          "speed": 1.5
-        },
-        {
-          "src": "GH011630.MP4",
-          "src_start": 0,
-          "dur": 3.5,
-          "cx": 0.4,
-          "caption": {
-            "en": "Two minutes later, the mushrooms",
-            "es": "A los dos minutos, los champiñones"
-          },
-          "speed": 2
-        },
-        {
-          "src": "GH011631.MP4",
-          "src_start": 0,
-          "dur": 4.5,
-          "cx": 0.45,
-          "caption": {
-            "en": "A little butter",
-            "es": "Un poco de mantequilla"
-          },
-          "speed": 3,
-          "note": "sped up"
-        },
-        {
-          "src": "GH011631.MP4",
-          "src_start": 37,
-          "dur": 3.5,
-          "cx": 0.4,
-          "caption": {
-            "en": "And the leek",
-            "es": "Y el puerro"
-          },
-          "speed": 2
-        },
-        {
-          "src": "GH011632.MP4",
-          "src_start": 6,
-          "dur": 5.5,
-          "cx": 0.45,
-          "caption": {
-            "en": "Chicken thighs in pieces",
-            "es": "Muslos de pollo en trozos"
-          },
-          "speed": 6,
-          "note": "cutting, sped up"
-        },
-        {
-          "src": "GH011632.MP4",
-          "src_start": 74,
-          "dur": 5,
-          "cx": 0.5,
-          "caption": {
-            "en": "Salt and pepper",
-            "es": "Sal y pimienta"
-          },
-          "speed": 5,
-          "note": "sped up"
-        },
-        {
-          "src": "GH011635.MP4",
-          "src_start": 0,
-          "dur": 6.5,
-          "cx": 0.45,
-          "caption": {
-            "en": "Sear the meat well on every side",
-            "es": "Marca bien la carne por todos los lados"
-          },
-          "speed": 8,
-          "note": "sped up"
-        },
-        {
-          "src": "GH011636.MP4",
-          "src_start": 0,
-          "dur": 6,
-          "cx": 0.58,
-          "caption": {
-            "en": "A splash of white wine",
-            "es": "Un toque de vino blanco"
-          },
-          "speed": 2.5
-        },
-        {
-          "src": "GH011638.MP4",
-          "src_start": 0,
-          "dur": 5.5,
-          "cx": 0.5,
-          "caption": {
-            "en": "Let it reduce, set the meat aside",
-            "es": "Que reduzca y aparta la carne"
-          },
-          "speed": 3
-        },
-        {
-          "src": "GH011641.MP4",
-          "src_start": 5,
-          "dur": 5,
-          "cx": 0.35,
-          "caption": {
-            "en": "Trick: flatten the potato and the skin slides off",
-            "es": "Truco: aplasta la patata y la piel sale sola"
-          },
-          "speed": 3
-        },
-        {
-          "src": "GH011642.MP4",
-          "src_start": 6,
-          "dur": 5,
-          "cx": 0.4,
-          "caption": {
-            "en": "Mash them with a fork",
-            "es": "Machácalas con un tenedor"
-          },
-          "speed": 4,
-          "note": "sped up"
-        },
-        {
-          "src": "GH011645.MP4",
-          "src_start": 0,
-          "dur": 5.5,
-          "cx": 0.5,
-          "caption": {
-            "en": "Butter and mashed potato",
-            "es": "Mantequilla y patata machacada"
-          },
-          "speed": 3
-        },
-        {
-          "src": "GH011646.MP4",
-          "src_start": 10,
-          "dur": 5.5,
-          "cx": 0.65,
-          "caption": {
-            "en": "200 ml of whole milk",
-            "es": "200 ml de leche entera"
-          },
-          "speed": 3
-        },
-        {
-          "src": "GH011648.MP4",
-          "src_start": 0,
-          "dur": 6.5,
-          "cx": 0.4,
-          "caption": {
-            "en": "Fold in the vegetables: the key step",
-            "es": "Integra las verduras: el paso clave"
-          },
-          "speed": 4
-        },
-        {
-          "src": "GH011650.MP4",
-          "src_start": 0,
-          "dur": 5,
-          "cx": 0.5,
-          "caption": {
-            "en": "Taste, then adjust salt and pepper",
-            "es": "Prueba y corrige de sal y pimienta"
-          },
-          "speed": 3
-        },
-        {
-          "src": "GH011651.MP4",
-          "src_start": 0,
-          "dur": 5,
-          "cx": 0.6,
-          "caption": {
-            "en": "Cheese on top and to the table",
-            "es": "Queso por encima y a la mesa"
-          },
-          "speed": 3,
-          "inpaint": {
-            "points": [
-              [
-                0.41,
-                0.12
-              ],
-              [
-                0.51,
-                0.11
-              ],
-              [
-                0.43,
-                0.23
-              ],
-              [
-                0.64,
-                0.08
-              ]
-            ]
-          },
-          "note": "plating; pepper mill, shaker, tin and utensil holder removed"
-        },
-        {
-          "src": "GH011653.MP4",
-          "src_start": 1,
-          "dur": 5,
-          "cx": 0.45,
-          "caption": {
-            "en": "Mashed potatoes with vegetables and wine chicken",
-            "es": "Puré de patatas con verduras y pollo al vino"
-          },
-          "note": "the finished plate"
-        }
-      ]
-    }
-  },
-  "description": {
-    "hook": {
-      "en": "Easy dinner, real price: juicy chicken thighs seared and finished with white wine, over a silky mashed potato with onion, leek and mushrooms, topped with Gruyère. Four servings at about {per} each.",
-      "es": "Cena fácil, precio real: muslos de pollo jugosos marcados y terminados con vino blanco, sobre un puré de patatas sedoso con cebolla, puerro y champiñones, y gruyère por encima. Cuatro raciones a unos {per} cada una."
-    },
-    "closing": {
-      "en": "Tell me in the comments what you would cook next, and what you want to see the price of.",
-      "es": "Cuéntame en los comentarios qué cocinarías después y de qué plato quieres ver el precio."
-    },
-    "keywords": {
-      "en": [
-        "easy dinner",
-        "wine chicken",
-        "chicken thighs recipe",
-        "mashed potatoes",
-        "chicken with mashed potato",
-        "dinner for four",
-        "easy recipe"
-      ],
-      "es": [
-        "cena fácil",
-        "pollo al vino",
-        "muslos de pollo",
-        "puré de patatas",
-        "receta fácil",
-        "cena para cuatro",
-        "receta saludable"
-      ]
-    },
-    "hashtags": {
-      "en": [
-        "#WineChicken",
-        "#MashedPotatoes",
-        "#EasyDinner",
-        "#RealPrices"
-      ],
-      "es": [
-        "#PolloAlVino",
-        "#PuréDePatatas",
-        "#CenaFácil",
-        "#PreciosReales"
-      ]
-    }
-  }
+    "id":  "pollo-al-vino-con-pure-de-patatas-y-verduras",
+    "title":  {
+                  "en":  "Wine Chicken with Mashed Potatoes and Vegetables",
+                  "es":  "Pollo al vino con puré de patatas y verduras"
+              },
+    "recordings":  "GoPro POV clips GH011620..GH011653, 1080p 120 fps, kept in filming order; the owner\u0027s voice is transcribed in transcript.json",
+    "audio":  {
+                  "source":  "music.mp3",
+                  "start":  0,
+                  "volume":  1.0,
+                  "volume_with_voice":  0.035,
+                  "fade_out":  2.0,
+                  "song":  {
+                               "title":  "reggaeton_30s_instrumental (owner\u0027s reference track, rearranged in sections with filters, crossfaded)",
+                               "artist":  "unknown",
+                               "licensed":  false
+                           }
+              },
+    "clean":  {
+                  "warmth":  5800,
+                  "cast":  [
+                               0.07,
+                               0.11,
+                               0.05
+                           ],
+                  "shadows":  0.05,
+                  "highlights":  0.95,
+                  "saturation":  1.05
+              },
+    "cover":  {
+                  "ai":  {
+                             "9x16":  "cover_ai_9x16.png",
+                             "16x9":  "cover_ai_16x9.png"
+                         }
+              },
+    "voice":  {
+                  "en":  {
+                             "engine":  "edge-tts",
+                             "voice":  "en-US-BrianMultilingualNeural",
+                             "rate":  "-4%"
+                         },
+                  "es":  {
+                             "engine":  "edge-tts",
+                             "voice":  "es-ES-AlvaroNeural",
+                             "rate":  "-4%"
+                         }
+              },
+    "formats":  {
+                    "short":  {
+                                  "layout":  "fill",
+                                  "voice":  true,
+                                  "zoom_amount":  0.12,
+                                  "output":  {
+                                                 "width":  1080,
+                                                 "height":  1920,
+                                                 "fps":  30,
+                                                 "crf":  18,
+                                                 "review_bitrate":  "2800k"
+                                             },
+                                  "cover_dur":  1.5,
+                                  "endcard_dur":  5,
+                                  "shutter":  3,
+                                  "captions":  {
+                                                   "en":  "captions_short_en.srt",
+                                                   "es":  "captions_short_es.srt"
+                                               },
+                                  "caption_style":  {
+                                                        "font":  "Arial",
+                                                        "size":  92,
+                                                        "align":  8,
+                                                        "margin_v":  250,
+                                                        "outline":  7,
+                                                        "bold":  true,
+                                                        "color":  "FFE27A",
+                                                        "box":  true
+                                                    },
+                                  "tempo_max":  1.0,
+                                  "end_caption":  {
+                                                      "en":  "About three euros a serving.",
+                                                      "es":  "Unos tres euros por ración."
+                                                  },
+                                  "segments":  [
+                                                   {
+                                                       "src":  "GH011651.MP4",
+                                                       "src_start":  14,
+                                                       "dur":  3,
+                                                       "cx":  0.6,
+                                                       "caption":  {
+                                                                       "en":  "Wine chicken with mashed potatoes",
+                                                                       "es":  "Pollo al vino con puré de patatas"
+                                                                   },
+                                                       "hook":  true,
+                                                       "shutter":  1,
+                                                       "inpaint":  {
+                                                                       "points":  [
+                                                                                      [
+                                                                                          0.56,
+                                                                                          0.15
+                                                                                      ],
+                                                                                      [
+                                                                                          0.54,
+                                                                                          0.28
+                                                                                      ]
+                                                                                  ]
+                                                                   },
+                                                       "note":  "hook: cheese over the finished plate; pepper mill and tin removed"
+                                                   },
+                                                   {
+                                                       "src":  "GH011621.MP4",
+                                                       "src_start":  0,
+                                                       "dur":  7,
+                                                       "cx":  0.55,
+                                                       "caption":  {
+                                                                       "en":  "Potatoes, mushrooms, leek and chicken",
+                                                                       "es":  "Patatas, champiñones, puerro y pollo"
+                                                                   },
+                                                       "speed":  1.2,
+                                                       "note":  "the ingredients"
+                                                   },
+                                                   {
+                                                       "src":  "GH011623.MP4",
+                                                       "src_start":  2,
+                                                       "dur":  6.5,
+                                                       "cx":  0.55,
+                                                       "caption":  {
+                                                                       "en":  "A kilo of potatoes into boiling water",
+                                                                       "es":  "Un kilo de patatas al agua, tapadas: unos 50 min"
+                                                                   },
+                                                       "speed":  1.2
+                                                   },
+                                                   {
+                                                       "src":  "GH011624.MP4",
+                                                       "src_start":  0,
+                                                       "dur":  8,
+                                                       "cx":  0.45,
+                                                       "caption":  {
+                                                                       "en":  "Mushrooms in half-centimetre strips",
+                                                                       "es":  "Champiñones en tiras de medio centímetro"
+                                                                   },
+                                                       "speed":  1.6,
+                                                       "note":  "chopping, sped up"
+                                                   },
+                                                   {
+                                                       "src":  "GH011625.MP4",
+                                                       "src_start":  9,
+                                                       "dur":  8,
+                                                       "cx":  0.45,
+                                                       "caption":  {
+                                                                       "en":  "Only the white part of the leek",
+                                                                       "es":  "Del puerro, solo la parte blanca"
+                                                                   },
+                                                       "speed":  2.2,
+                                                       "note":  "chopping, sped up"
+                                                   },
+                                                   {
+                                                       "src":  "GH011626.MP4",
+                                                       "src_start":  1,
+                                                       "dur":  7.5,
+                                                       "cx":  0.5,
+                                                       "caption":  {
+                                                                       "en":  "Onion in thin half-moons",
+                                                                       "es":  "Cebolla en media luna fina"
+                                                                   },
+                                                       "speed":  2.6,
+                                                       "note":  "chopping, sped up"
+                                                   },
+                                                   {
+                                                       "src":  "GH011628.MP4",
+                                                       "src_start":  0.5,
+                                                       "dur":  6,
+                                                       "cx":  0.55,
+                                                       "caption":  {
+                                                                       "en":  "Oil and medium heat",
+                                                                       "es":  "Aceite y fuego medio, un 5 de 10"
+                                                                   },
+                                                       "speed":  1.2
+                                                   },
+                                                   {
+                                                       "src":  "GH011629.MP4",
+                                                       "src_start":  0,
+                                                       "dur":  7,
+                                                       "cx":  0.5,
+                                                       "caption":  {
+                                                                       "en":  "Onion first",
+                                                                       "es":  "Primero la cebolla, unos 2 minutos"
+                                                                   },
+                                                       "speed":  1.2
+                                                   },
+                                                   {
+                                                       "src":  "GH011630.MP4",
+                                                       "src_start":  0,
+                                                       "dur":  6,
+                                                       "cx":  0.4,
+                                                       "caption":  {
+                                                                       "en":  "Two minutes later, the mushrooms",
+                                                                       "es":  "Champiñones: otros 2 minutos"
+                                                                   },
+                                                       "speed":  1.2
+                                                   },
+                                                   {
+                                                       "src":  "GH011631.MP4",
+                                                       "src_start":  0,
+                                                       "dur":  7,
+                                                       "cx":  0.45,
+                                                       "caption":  {
+                                                                       "en":  "A little butter",
+                                                                       "es":  "Un poco de mantequilla"
+                                                                   },
+                                                       "speed":  2,
+                                                       "note":  "sped up"
+                                                   },
+                                                   {
+                                                       "src":  "GH011631.MP4",
+                                                       "src_start":  37,
+                                                       "dur":  6,
+                                                       "cx":  0.4,
+                                                       "caption":  {
+                                                                       "en":  "And the leek",
+                                                                       "es":  "Y el puerro, 4 o 5 minutos"
+                                                                   },
+                                                       "speed":  1.2
+                                                   },
+                                                   {
+                                                       "src":  "GH011632.MP4",
+                                                       "src_start":  6,
+                                                       "dur":  8,
+                                                       "cx":  0.45,
+                                                       "caption":  {
+                                                                       "en":  "Chicken thighs in pieces",
+                                                                       "es":  "Muslos de pollo en trozos"
+                                                                   },
+                                                       "speed":  4,
+                                                       "note":  "cutting, sped up"
+                                                   },
+                                                   {
+                                                       "src":  "GH011632.MP4",
+                                                       "src_start":  74,
+                                                       "dur":  8,
+                                                       "cx":  0.5,
+                                                       "caption":  {
+                                                                       "en":  "Salt and pepper",
+                                                                       "es":  "Sal y pimienta"
+                                                                   },
+                                                       "speed":  3.2,
+                                                       "note":  "sped up"
+                                                   },
+                                                   {
+                                                       "src":  "GH011635.MP4",
+                                                       "src_start":  0,
+                                                       "dur":  10,
+                                                       "cx":  0.45,
+                                                       "caption":  {
+                                                                       "en":  "Sear the meat well on every side",
+                                                                       "es":  "Fuego alto, unos 5 minutos por todos los lados"
+                                                                   },
+                                                       "speed":  5.2,
+                                                       "note":  "sped up"
+                                                   },
+                                                   {
+                                                       "src":  "GH011636.MP4",
+                                                       "src_start":  0,
+                                                       "dur":  9.5,
+                                                       "cx":  0.58,
+                                                       "caption":  {
+                                                                       "en":  "A splash of white wine",
+                                                                       "es":  "Un toque de vino blanco"
+                                                                   },
+                                                       "speed":  1.6
+                                                   },
+                                                   {
+                                                       "src":  "GH011638.MP4",
+                                                       "src_start":  0,
+                                                       "dur":  8,
+                                                       "cx":  0.5,
+                                                       "caption":  {
+                                                                       "en":  "Let it reduce, set the meat aside",
+                                                                       "es":  "Reduce 4 o 5 minutos y aparta la carne"
+                                                                   },
+                                                       "speed":  2
+                                                   },
+                                                   {
+                                                       "src":  "GH011641.MP4",
+                                                       "src_start":  5,
+                                                       "dur":  7.5,
+                                                       "cx":  0.35,
+                                                       "caption":  {
+                                                                       "en":  "Trick: flatten the potato and the skin slides off",
+                                                                       "es":  "Truco: aplasta la patata y la piel sale sola"
+                                                                   },
+                                                       "speed":  2
+                                                   },
+                                                   {
+                                                       "src":  "GH011642.MP4",
+                                                       "src_start":  6,
+                                                       "dur":  7.5,
+                                                       "cx":  0.4,
+                                                       "caption":  {
+                                                                       "en":  "Mash them with a fork",
+                                                                       "es":  "Machácalas con un tenedor"
+                                                                   },
+                                                       "speed":  2.6,
+                                                       "note":  "sped up"
+                                                   },
+                                                   {
+                                                       "src":  "GH011645.MP4",
+                                                       "src_start":  0,
+                                                       "dur":  8,
+                                                       "cx":  0.5,
+                                                       "caption":  {
+                                                                       "en":  "Butter and mashed potato",
+                                                                       "es":  "Mantequilla y patata machacada"
+                                                                   },
+                                                       "speed":  2
+                                                   },
+                                                   {
+                                                       "src":  "GH011646.MP4",
+                                                       "src_start":  10,
+                                                       "dur":  8,
+                                                       "cx":  0.65,
+                                                       "caption":  {
+                                                                       "en":  "200 ml of whole milk",
+                                                                       "es":  "200 ml de leche y fuego medio"
+                                                                   },
+                                                       "speed":  2
+                                                   },
+                                                   {
+                                                       "src":  "GH011648.MP4",
+                                                       "src_start":  0,
+                                                       "dur":  10,
+                                                       "cx":  0.4,
+                                                       "caption":  {
+                                                                       "en":  "Fold in the vegetables: the key step",
+                                                                       "es":  "Verduras al puré, unos 10 minutos a fuego medio"
+                                                                   },
+                                                       "speed":  2.6
+                                                   },
+                                                   {
+                                                       "src":  "GH011650.MP4",
+                                                       "src_start":  0,
+                                                       "dur":  7.5,
+                                                       "cx":  0.5,
+                                                       "caption":  {
+                                                                       "en":  "Taste, then adjust salt and pepper",
+                                                                       "es":  "Prueba y corrige de sal y pimienta"
+                                                                   },
+                                                       "speed":  2
+                                                   },
+                                                   {
+                                                       "src":  "GH011651.MP4",
+                                                       "src_start":  0,
+                                                       "dur":  7.5,
+                                                       "cx":  0.6,
+                                                       "caption":  {
+                                                                       "en":  "Cheese on top and to the table",
+                                                                       "es":  "Queso por encima y a la mesa"
+                                                                   },
+                                                       "speed":  2,
+                                                       "inpaint":  {
+                                                                       "points":  [
+                                                                                      [
+                                                                                          0.41,
+                                                                                          0.12
+                                                                                      ],
+                                                                                      [
+                                                                                          0.51,
+                                                                                          0.11
+                                                                                      ],
+                                                                                      [
+                                                                                          0.43,
+                                                                                          0.23
+                                                                                      ],
+                                                                                      [
+                                                                                          0.64,
+                                                                                          0.08
+                                                                                      ]
+                                                                                  ]
+                                                                   },
+                                                       "note":  "plating; pepper mill, shaker, tin and utensil holder removed"
+                                                   },
+                                                   {
+                                                       "src":  "GH011653.MP4",
+                                                       "src_start":  1,
+                                                       "dur":  5,
+                                                       "cx":  0.45,
+                                                       "caption":  {
+                                                                       "en":  "Mashed potatoes with vegetables and wine chicken",
+                                                                       "es":  "Puré de patatas con verduras y pollo al vino"
+                                                                   },
+                                                       "note":  "the finished plate"
+                                                   }
+                                               ]
+                              }
+                },
+    "description":  {
+                        "hook":  {
+                                     "en":  "Easy dinner, real price: juicy chicken thighs seared and finished with white wine, over a silky mashed potato with onion, leek and mushrooms, topped with Gruyère. Four servings at about {per} each.",
+                                     "es":  "Cena fácil, precio real: muslos de pollo jugosos marcados y terminados con vino blanco, sobre un puré de patatas sedoso con cebolla, puerro y champiñones, y gruyère por encima. Cuatro raciones a unos {per} cada una."
+                                 },
+                        "closing":  {
+                                        "en":  "Tell me in the comments what you would cook next, and what you want to see the price of.",
+                                        "es":  "Cuéntame en los comentarios qué cocinarías después y de qué plato quieres ver el precio."
+                                    },
+                        "keywords":  {
+                                         "en":  [
+                                                    "easy dinner",
+                                                    "wine chicken",
+                                                    "chicken thighs recipe",
+                                                    "mashed potatoes",
+                                                    "chicken with mashed potato",
+                                                    "dinner for four",
+                                                    "easy recipe"
+                                                ],
+                                         "es":  [
+                                                    "cena fácil",
+                                                    "pollo al vino",
+                                                    "muslos de pollo",
+                                                    "puré de patatas",
+                                                    "receta fácil",
+                                                    "cena para cuatro",
+                                                    "receta saludable"
+                                                ]
+                                     },
+                        "hashtags":  {
+                                         "en":  [
+                                                    "#WineChicken",
+                                                    "#MashedPotatoes",
+                                                    "#EasyDinner",
+                                                    "#RealPrices"
+                                                ],
+                                         "es":  [
+                                                    "#PolloAlVino",
+                                                    "#PuréDePatatas",
+                                                    "#CenaFácil",
+                                                    "#PreciosReales"
+                                                ]
+                                     }
+                    }
 }
