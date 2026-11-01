@@ -98,7 +98,7 @@ def build_footage(tmp, ffmpeg, raw, f_, enh, rw, rh):
     chains.append("".join(f"[{l}]" for l in labels) + f"concat=n={len(labels)}:v=1:a=0[vout]")
     with tempfile.TemporaryDirectory() as d:
         (Path(d) / "graph.txt").write_text(";\n".join(chains), encoding="utf-8")
-        run(cmd + ["-filter_complex_script", "graph.txt", "-map", "[vout]", *CLIP, "-r", str(fps), str(tmp)], cwd=d)
+        run(cmd + ["-/filter_complex", "graph.txt", "-map", "[vout]", *CLIP, "-r", str(fps), str(tmp)], cwd=d)
 
 
 def build_still(tmp, ffmpeg, img, dur, W, H, fps, zoom_to, fade_in=True):
@@ -120,7 +120,7 @@ def build_captioned(tmp, ffmpeg, cover, footage, endcard, cues, f_):
             graph = "[0:v][1:v][2:v]concat=n=3:v=1:a=0[vc];[vc]subtitles=captions.ass[vout]"
         (Path(d) / "graph.txt").write_text(graph, encoding="utf-8")
         run([ffmpeg, "-hide_banner", "-y", "-i", str(cover), "-i", str(footage), "-i", str(endcard),
-             "-filter_complex_script", "graph.txt", "-map", "[vout]", "-c:v", "libx264", "-preset", "medium",
+             "-/filter_complex", "graph.txt", "-map", "[vout]", "-c:v", "libx264", "-preset", "medium",
              "-crf", str(f_["output"]["crf"]), "-pix_fmt", "yuv420p", "-an", "-r", str(f_["fps"]), str(tmp)], cwd=d)
 
 

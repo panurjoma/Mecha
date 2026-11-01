@@ -17,10 +17,16 @@ fewer seconds on screen. "dur" is always the length on screen; the clip is read 
 selection stage, and the critics may ask for it ([shots] lever).
 "shutter" (default 1; a segment may set its own, for a fast move that must stay sharp) blends that many source frames into each output frame, like a slower shutter: the sparkle of
 small bright reflections that appears when a 120 fps recording is simply thinned to 30 fps goes away.
+"inpaint" ({"points": [[x, y], ...]}, optional "dilate"): remove objects that should not be seen and fill the background in. Each point is one
+click on an unwanted object in source-frame fractions (0..1) at the first frame of the moment; SAM2 follows it while the camera moves
+and ProPainter fills a small window around it (scripts/inpaint_segment.py, local GPU, needs the _tools environment). Prefer a
+different cx or crop first (directives 27 and 29): inpainting is for what is still inside the visible slice. The sound of the clip is not
+used for such a format, like the AI-upscaled one.
 Output layer: <OUTPUT_DIR>/<id>/layers/rough_<format>.mp4 (also copied to <OUTPUT_DIR>/<id>/rough_<format>.mp4).
 It is cached: only a change to the segments, the layout or the recordings rebuilds it.
 """
 import argparse
+import json
 import os
 import re
 import shutil
@@ -30,7 +36,7 @@ import tempfile
 from pathlib import Path
 
 from common import OUTPUT_DIR, find_ffmpeg, fmt, load_json, probe_size, run, video_dir
-from layers import build_cached, code, digest, picture_segments, quick
+from layers import build_cached, code, digest, picture_segments, quick, sig
 
 CUT = ["-c:v", "libx264", "-preset", "fast", "-crf", "16", "-pix_fmt", "yuv420p", "-c:a", "aac", "-b:a", "192k"]
 
@@ -77,7 +83,7 @@ def build_rough(tmp, ffmpeg, vdir, raw, f_):
     chains.append("".join(f"[v{i}][a{i}]" for i in range(n)) + f"concat=n={n}:v=1:a=1[vout][aout]")
     with tempfile.TemporaryDirectory() as d:
         (Path(d) / "graph.txt").write_text(";\n".join(chains), encoding="utf-8")
-        run(cmd + ["-filter_complex_script", "graph.txt", "-map", "[vout]", "-map", "[aout]", *CUT, "-r", str(fps),
+        run(cmd + ["-/filter_complex", "graph.txt", "-map", "[vout]", "-map", "[aout]", *CUT, "-r", str(fps),
                    "-movflags", "+faststart", str(tmp)], cwd=d)
 
 
@@ -131,18 +137,49 @@ def build_segment_ai(out, ffmpeg, vdir, raw, f_, s, i, ai):
     print(f"  upscaled segment {i + 1}: {done} frames ({cw}x{ch} -> {W}x{H})", flush=True)
 
 
+def inpaint_python():
+    """Python of the inpainting environment (PyTorch + SAM2 + ProPainter), outside git: plate-and-price/_tools/venv."""
+    default = Path(__file__).resolve().parents[3] / "_tools" / "venv" / "Scripts" / "python.exe"
+    return os.environ.get("INPAINT_PYTHON", str(default))
+
+
+def build_segment_inpaint(out, vdir, raw, f_, s, i):
+    """One segment with unwanted objects removed: only the part of the picture that the format shows is processed."""
+    W, H, fps = f_["w"], f_["h"], f_["fps"]
+    src = vdir / s.get("src", raw)
+    sw, sh = probe_size(src)
+    cx, cy = min(max(float(s.get("cx", 0.5)), 0.0), 1.0), min(max(float(s.get("cy", 0.5)), 0.0), 1.0)
+    zoom = float(s.get("crop", 1))
+    if zoom < 1:
+        raise SystemExit(f"segment {i + 1}: crop {zoom} is below 1; use blurpad layout to show a wider picture instead")
+    cw, ch, x, y = crop_box(sw, sh, W, H, zoom, cx, cy)
+    spec = s["inpaint"]
+    cmd = [inpaint_python(), str(Path(__file__).with_name("inpaint_segment.py")), "--src", str(src), "--start", str(s["src_start"]),
+           "--dur", str(s["dur"]), "--speed", str(s.get("speed", 1)), "--fps", str(fps), "--shutter", str(s.get("shutter", f_.get("shutter", 1))),
+           "--crop", str(cw), str(ch), str(x), str(y), "--src-size", str(sw), str(sh), "--size", str(W), str(H),
+           "--points", json.dumps(spec["points"]), "--out", str(out)]
+    if "dilate" in spec:
+        cmd += ["--dilate", str(spec["dilate"])]
+    subprocess.run(cmd, check=True)
+    print(f"  inpainted segment {i + 1}: {len(spec['points'])} object(s)", flush=True)
+
+
 def build_rough_ai(tmp, ffmpeg, vdir, raw, f_):
-    """Rough cut with AI-upscaled footage: segments are made one by one (blurpad ones with the normal filter graph), joined with
+    """Rough cut built segment by segment (AI-upscaled and/or inpainted footage): segments are made one by one (blurpad ones with the normal filter graph), joined with
     the concat demuxer, and a silent audio track is added (the sound of the clips is not used in the final)."""
-    ai = f_["ai_upscale"]
+    ai = f_.get("ai_upscale")
     with tempfile.TemporaryDirectory() as d:
         parts = []
         for i, s in enumerate(f_["segments"]):
             part = Path(d) / f"seg{i:03d}.mp4"
             if s.get("layout", f_["layout"]) == "blurpad":
                 build_rough(part, ffmpeg, vdir, raw, {**f_, "segments": [s]})
-            else:
+            elif "inpaint" in s:
+                build_segment_inpaint(part, vdir, raw, f_, s, i)
+            elif ai:
                 build_segment_ai(part, ffmpeg, vdir, raw, f_, s, i, ai)
+            else:
+                build_rough(part, ffmpeg, vdir, raw, {**f_, "segments": [s]})
             parts.append(part)
         (Path(d) / "list.txt").write_text("".join(f"file '{p.name}'\n" for p in parts), encoding="utf-8")
         total = sum(s["dur"] for s in f_["segments"])
@@ -172,9 +209,12 @@ def main():
     out_dir = OUTPUT_DIR / a.video_id
     layer = out_dir / "layers" / f"rough_{a.format}.mp4"
     ai = f_.get("ai_upscale")
-    key = digest("rough", code(build_rough), code(build_rough_ai) + code(build_segment_ai) if ai else "", ai or "", [quick(vdir / s) for s in srcs], picture_segments(f_["segments"]), f_.get("shutter", 1), f_["layout"], f_["w"], f_["h"], f_["fps"], raw)
-    build = build_rough_ai if ai else build_rough
-    build_cached(layer, key, lambda t: build(t, ffmpeg, vdir, raw, f_), f"rough cut {a.format}" + (" (AI upscaled)" if ai else ""), a.force)
+    inpaint = any("inpaint" in s for s in f_["segments"])
+    mixed = bool(ai) or inpaint  # built segment by segment, the clips' own sound is not used
+    ipk = (code(build_segment_inpaint), sig(Path(__file__).with_name("inpaint_segment.py"))) if inpaint else ""
+    key = digest("rough", code(build_rough), code(build_rough_ai) + code(build_segment_ai) if mixed else "", ai or "", ipk, [quick(vdir / s) for s in srcs], picture_segments(f_["segments"]), f_.get("shutter", 1), f_["layout"], f_["w"], f_["h"], f_["fps"], raw)
+    build = build_rough_ai if mixed else build_rough
+    build_cached(layer, key, lambda t: build(t, ffmpeg, vdir, raw, f_), f"rough cut {a.format}" + (" (AI upscaled)" if ai else "") + (" (objects removed)" if inpaint else ""), a.force)
     final = out_dir / f"rough_{a.format}.mp4"
     shutil.copyfile(layer, final)
     footage = sum(s["dur"] for s in f_["segments"])

@@ -1,0 +1,46 @@
+{
+  "_note": "ESTIMATE made up by Claude from average Spanish supermarket prices (Oct 2026), not from receipts. Edit the numbers to your real shopping. Salt, pepper, oil and the splash of wine are counted as a small allowance.",
+  "servings": 4,
+  "items": [
+    {
+      "en": "Potatoes (1 kg)",
+      "es": "Patatas (1 kg)",
+      "price": 1.8
+    },
+    {
+      "en": "Chicken thighs (about 800 g)",
+      "es": "Muslos de pollo (unos 800 g)",
+      "price": 4.2
+    },
+    {
+      "en": "Mushrooms (250 g)",
+      "es": "Champiñones (250 g)",
+      "price": 1.6
+    },
+    {
+      "en": "Leek and onion",
+      "es": "Puerro y cebolla",
+      "price": 1.1
+    },
+    {
+      "en": "Butter (about 80 g)",
+      "es": "Mantequilla (unos 80 g)",
+      "price": 0.9
+    },
+    {
+      "en": "Whole milk (200 ml)",
+      "es": "Leche entera (200 ml)",
+      "price": 0.25
+    },
+    {
+      "en": "Gruyère, grated (50 g)",
+      "es": "Gruyère rallado (50 g)",
+      "price": 1.3
+    },
+    {
+      "en": "White wine, olive oil, salt and pepper",
+      "es": "Vino blanco, aceite, sal y pimienta",
+      "price": 1.1
+    }
+  ]
+}
